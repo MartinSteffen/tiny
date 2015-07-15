@@ -4,9 +4,11 @@
 // how they did it.
 
 
-// The first statement here must be the declaration of the package.
+// The first statement here must be the declaration of the package.  We
+// cannot name it package "main", because then it needs a function main, it
+// seems.
 
-package ast
+package ast 
 
 // import ("fmt")
 
@@ -118,3 +120,4 @@ func (*NUMBER) factorNode() {}
 
 
 
+func main () {}
