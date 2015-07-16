@@ -72,8 +72,25 @@ func  Print_Stmt (s Stmt) {  // *Stmt won't work, the * must be at the construct
 	 }
  }
 
-func Print_Expr (e Expr) {}
+func Print_Expr (e Expr) {
+	switch expr := e.(type) {
+	case *SIMPLEEXPR:
+		Print_SimpleExpr(expr.S)
+	case *COMPAREEXPR:
+		Print_SimpleExpr(expr.SE1)		
+		Print_Compare_Op(expr.CO)
+		Print_SimpleExpr(expr.SE2)				
+	}
+}
 
+func Print_SimpleExpr(s SimpleExpr) {
+}
+
+func Print_Compare_Op(o Compare_Op) {
+}
+
+
+	
 
 
 

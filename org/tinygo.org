@@ -153,6 +153,11 @@
 
 **** TODO if yes, would it help: can one make use of it? <2015-07-16 Thu 10:38>
 
+**** DONE add Print_Expr <2015-07-16 Thu 13:25>
+     CLOSED: [2015-07-16 Thu 13:34]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-16 Thu 13:34]
+     :END:
 **** DONE can one make the functions mutually recursive <2015-07-16 Thu 12:01>
      CLOSED: [2015-07-16 Thu 12:31]
      :LOGBOOK:
