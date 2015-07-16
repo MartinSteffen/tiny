@@ -153,7 +153,12 @@
 
 **** TODO if yes, would it help: can one make use of it? <2015-07-16 Thu 10:38>
 
-**** TODO can one make the functions mutually recursive <2015-07-16 Thu 12:01>
+**** DONE can one make the functions mutually recursive <2015-07-16 Thu 12:01>
+     CLOSED: [2015-07-16 Thu 12:31]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-16 Thu 12:31]
+     :END:
+     yes, that seems allowed
 
 **** TODO activate some client code <2015-07-16 Thu 12:03>
 **** FIXED interface receiver:  why is it not possbible to do func (Stmt) print_stmt () {..} <2015-07-16 Thu 11:25>?
@@ -453,6 +458,9 @@ ast. That should very much determine the tree, because it's a tree.
     
     all stuff added
 
+
+*** TODO make a sample program <2015-07-16 Thu 12:25>
+*** TODO re-add the slices again and iterate over them <2015-07-16 Thu 12:21>
 *** DONE export the print statements <2015-07-16 Thu 12:17>
     CLOSED: [2015-07-16 Thu 12:18]
     :LOGBOOK:

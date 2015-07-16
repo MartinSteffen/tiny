@@ -28,14 +28,24 @@ func main () {
 // The problem is: Stmt is an interface, and that's not allowed as receiver
 // for a method. Thefore, one cannod hand a statement over to that function
 // and then make a big case distinction.  What does work instead is a
-// function:
+// function. 
 
+
+func Print_Program (p Program) {
+	fmt.Println("Program( ");
+	Print_Stmt (p)            // no constructor here Program  = Stmt (currently)
+	fmt.Println(" )");
+}
 
 func  Print_Stmt (s Stmt) {  // *Stmt won't work, the * must be at the constructors
  	 switch sw := s.(type) {
 	 case *IF:
+		 fmt.Println("IF" )
 		 Print_Expr(sw.E)
-		 fmt.Println(sw)
+		 fmt.Println(" THEN " )
+		 Print_Stmt(sw.SL1)
+		 fmt.Println(" ELSE  " )
+		 Print_Stmt(sw.SL2)		 
 	 default:  	 fmt.Println("stmt")
 	 }
  }
