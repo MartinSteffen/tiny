@@ -424,9 +424,47 @@ ast. That should very much determine the tree, because it's a tree.
     itself. One question is why that is necessary at all. Because we have
     those external methods. Those seem to allow to do what a visitor can do
     (don't know about extensibility). Therefore: just implement one simple
-    one
+    one.
 
-******* TODO compare that to the Walk-visotor in Go <2015-07-16 Thu 10:02>
+    It seems to not be  immediately possible.    If I do that, it gives
+
+
+      ./somename.go:28: cannot define new methods on non-local type ast.FACTOR
+
+
+
+
+*** DONE non local methods: is that possible  <2015-07-16 Thu 10:16>
+    CLOSED: [2015-07-16 Thu 10:31]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-16 Thu 10:31]
+    :END:
+
+
+     https://groups.google.com/forum/#!topic/golang-nuts/717yRSWjq5U
+
+    ``The base type must not be a pointer or interface type and must be
+     declared in the same package as the method.''
+
+     Seems like not possible.
+
+
+     In some discussion there is some mention of ``embedding''
+
+
+
+    type MyExtension struct {
+        otherPackage.Type
+    }  
+
+
+    func (me *MyExtension) NewMethod() { ... }
+
+
+
+
+*** TODO external type methods: would embedding as described be a viable solution <2015-07-16 Thu 10:31>
+*** TODO external type methods: compare that to the Walk-visotor in Go <2015-07-16 Thu 10:02>
 
 *** DONE make a more complex client in somename <2015-07-16 Thu 09:14>
     CLOSED: [2015-07-16 Thu 09:54]

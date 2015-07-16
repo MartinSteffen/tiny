@@ -20,8 +20,20 @@ func main () {
 	f :=    &ast.SIMPLEEXPR{&ast.TERM{&ast.FACTOR{&ast.NUMBER{1}}}}
 	fmt.Println(f)
 	
+	
 }
 
+
+
+// The following is not possible. One cannot define new methods on
+// non-local type ast.FACTOR:
+
+// func ( *ast.FACTOR ) print_factor () {}
+
+
+
+// the following is intended to make a ``visitor''. It seems that the
+// ``external methods'' of go should be able to do that.
 
 
 // func main () {
