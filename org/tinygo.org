@@ -153,8 +153,29 @@
 
 **** TODO if yes, would it help: can one make use of it? <2015-07-16 Thu 10:38>
 
-**** BUG interface receiver:  why is it not possbible to do func (Stmt) print_stmt () {..} <2015-07-16 Thu 11:25>?
-     
+**** FIXED interface receiver:  why is it not possbible to do func (Stmt) print_stmt () {..} <2015-07-16 Thu 11:25>?
+     CLOSED: [2015-07-16 Thu 11:51]
+     :LOGBOOK:
+     - CLOSING NOTE [2015-07-16 Thu 11:51] \\
+       methods don't work (the receiver cannot be abstract) but function work
+     :END:
+     Well, I fuess we need an argument. But that's not the only error
+
+    Stmt: it must not be a pointer or interface type and it must be
+    declared in the same package as the method. 
+
+    so, interfaces =abstract 
+
+***** DONE can one make a function instead of a method? <2015-07-16 Thu 11:42>
+      CLOSED: [2015-07-16 Thu 11:51]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-16 Thu 11:51]
+      :END:
+      Ok, at least one can pass that as argument
+**** TODO how did the "go" implementation walker implementation work? <2015-07-16 Thu 11:33>
+      This one did not have problems.
+
+
 *** TODO how does the walk-thing go <2015-07-14 Tue 07:57>
 
     That's a kind of visitor. It imports the ast 
