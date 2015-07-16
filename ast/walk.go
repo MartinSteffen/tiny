@@ -31,6 +31,10 @@ func main () {
 // function. 
 
 
+func Print_Symbol(s Symbol) {fmt.Println(s)}
+
+func Print_Ident(i Ident) {fmt.Println(i)}  // unclear why I can't use Print_Symbol
+
 func Print_Program (p Program) {
 	fmt.Println("Program( ");
 	Print_Stmt (p)            // no constructor here Program  = Stmt (currently)
@@ -45,7 +49,11 @@ func  Print_Stmt (s Stmt) {  // *Stmt won't work, the * must be at the construct
 		 fmt.Println(" THEN " )
 		 Print_Stmt(sw.SL1)
 		 fmt.Println(" ELSE  " )
-		 Print_Stmt(sw.SL2)		 
+		 Print_Stmt(sw.SL2)
+	 case *READ:
+		 fmt.Println("READ" )
+		 Print_Ident(sw.I)
+		 fmt.Println(" " )		 
 	 default:  	 fmt.Println("stmt")
 	 }
  }
