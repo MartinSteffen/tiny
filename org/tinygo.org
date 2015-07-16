@@ -153,6 +153,9 @@
 
 **** TODO if yes, would it help: can one make use of it? <2015-07-16 Thu 10:38>
 
+
+**** TODO add print_Number <2015-07-16 Thu 14:15>
+**** TODO add Print_Factor <2015-07-16 Thu 14:12>
 **** DONE add Print_Term <2015-07-16 Thu 14:00>
      CLOSED: [2015-07-16 Thu 14:09]
      :LOGBOOK:

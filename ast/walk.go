@@ -103,7 +103,7 @@ func Print_Compare_Op(o Compare_Op) {
 		fmt.Println("<")
 		
 	case *EQ:
-		fmt.Println("=");
+		fmt.Println("=")
 	}
 	
 }
@@ -122,8 +122,19 @@ func Print_Add_Op (op Add_Op) {
 }
 
 func Print_Factor(f Factor) {
+	switch fc := f.(type) {
+	case *ID:
+		Print_Ident(fc.I)
+	case *EXPR:
+		Print_Expr(fc.E)
+	case *NUMBER:
+		Print_Number(fc.N)
+	}
 }
 
+
+func Print_Number (n Number) {
+}
 
 
 
