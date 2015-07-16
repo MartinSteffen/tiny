@@ -134,6 +134,7 @@ func Print_Factor(f Factor) {
 
 
 func Print_Number (n Number) {
+	fmt.Println(n)
 }
 
 
