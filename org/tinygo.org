@@ -153,6 +153,9 @@
 
 **** TODO if yes, would it help: can one make use of it? <2015-07-16 Thu 10:38>
 
+**** TODO can one make the functions mutually recursive <2015-07-16 Thu 12:01>
+
+**** TODO activate some client code <2015-07-16 Thu 12:03>
 **** FIXED interface receiver:  why is it not possbible to do func (Stmt) print_stmt () {..} <2015-07-16 Thu 11:25>?
      CLOSED: [2015-07-16 Thu 11:51]
      :LOGBOOK:
@@ -422,8 +425,13 @@ ast. That should very much determine the tree, because it's a tree.
 
 
 *** Structure and meta things
-**** TODO "test" package: how to make that a client to ast? <2015-07-16 Thu 08:01>
+**** DONE "test" package: how to make that a client to ast? <2015-07-16 Thu 08:01>
+     CLOSED: [2015-07-16 Thu 12:04]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-16 Thu 12:04]
+     :END:
 
+     That's done now, in test/somename.go
 ** Yacc
 
  https://github.com/golang-samples/yacc/tree/master/simple
@@ -445,6 +453,11 @@ ast. That should very much determine the tree, because it's a tree.
     
     all stuff added
 
+*** DONE export the print statements <2015-07-16 Thu 12:17>
+    CLOSED: [2015-07-16 Thu 12:18]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-16 Thu 12:18]
+    :END:
 *** TODO make a ``visitor'' <2015-07-16 Thu 09:54>
 
     There seem to be a kind of visitor pattern in the go-implementation
@@ -489,6 +502,8 @@ ast. That should very much determine the tree, because it's a tree.
 
 
 
+    Functions are easier
+*** TODO can one make a visitor function across package boundaries <2015-07-16 Thu 12:05>
 
 *** TODO external type methods: would embedding as described be a viable solution <2015-07-16 Thu 10:31>
 *** TODO external type methods: compare that to the Walk-visotor in Go <2015-07-16 Thu 10:02>

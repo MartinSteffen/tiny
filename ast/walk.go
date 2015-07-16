@@ -31,12 +31,17 @@ func main () {
 // function:
 
 
- // func  print_stmt (s *Stmt) {
- // 	 switch sw := s.(type)
- // 	 case *
- // default:  	 fmt.Println("stmt")
+func  Print_Stmt (s Stmt) {  // *Stmt won't work, the * must be at the constructors
+ 	 switch sw := s.(type) {
+	 case *IF:
+		 Print_Expr(sw.E)
+		 fmt.Println(sw)
+	 default:  	 fmt.Println("stmt")
+	 }
+ }
 
- // }
+func Print_Expr (e Expr) {}
+
 
 
 
