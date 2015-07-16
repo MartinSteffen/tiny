@@ -17,9 +17,11 @@ import ("fmt"
 // just to see that it compiles
 
 func main () {
-	f :=    &ast.SIMPLEEXPR{&ast.TERM{&ast.FACTOR{&ast.NUMBER{1}}}}
-	ast.Print_Stmt (nil)    // note: it's the package ast, not the file walk
-	fmt.Println(f)
+	e :=    &ast.SIMPLEEXPR{&ast.TERM{&ast.FACTOR{&ast.NUMBER{1}}}}
+	s :=    &ast.ASSIGN{"x",e}
+	ast.Print_Expr(e)
+	ast.Print_Stmt(s)
+	fmt.Println(";")
 	
 	
 }

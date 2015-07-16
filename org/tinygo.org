@@ -170,7 +170,11 @@
      - State "DONE"       from "TODO"       [2015-07-16 Thu 14:09]
      :END:
 
-**** TODO add print_add_ok <2015-07-16 Thu 14:00>
+**** DONE add print_add_op <2015-07-16 Thu 14:00>
+     CLOSED: [2015-07-16 Thu 14:32]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-16 Thu 14:32]
+     :END:
 **** DONE add Print_SimpleExpr <2015-07-16 Thu 13:36>
      CLOSED: [2015-07-16 Thu 14:00]
      :LOGBOOK:
@@ -204,6 +208,10 @@
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-07-16 Thu 13:34]
      :END:
+**** TODO make more careful name conventions <2015-07-16 Thu 14:28>
+**** TODO grouping: can one group the marker methods inside the ()? <2015-07-16 Thu 14:30>
+     of course it may not be worth it.
+**** TODO Stmt etc.: use slices <2015-07-16 Thu 14:28>
 **** DONE can one make the functions mutually recursive <2015-07-16 Thu 12:01>
      CLOSED: [2015-07-16 Thu 12:31]
      :LOGBOOK:
@@ -211,7 +219,11 @@
      :END:
      yes, that seems allowed
 
-**** TODO activate some client code <2015-07-16 Thu 12:03>
+**** DONE activate some client code <2015-07-16 Thu 12:03>
+     CLOSED: [2015-07-16 Thu 14:17]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-16 Thu 14:17]
+     :END:
 **** FIXED interface receiver:  why is it not possbible to do func (Stmt) print_stmt () {..} <2015-07-16 Thu 11:25>?
      CLOSED: [2015-07-16 Thu 11:51]
      :LOGBOOK:
@@ -244,7 +256,9 @@
     visitor. That's the ``functional'' argument.
 
 
-*** TODO make a running program making use of a <2015-07-14 Tue 12:16>
+*** TODO can I make use of that function in the test thing? <2015-07-16 Thu 14:35>
+*** TODO make the print-out at least a bit readable <2015-07-16 Thu 14:34>
+*** TODO make a running program making use of a program <2015-07-14 Tue 12:16>
 **** DONE in the parser: how are the nodes created <2015-07-14 Tue 11:38>
      CLOSED: [2015-07-15 Wed 08:04]
      :LOGBOOK:

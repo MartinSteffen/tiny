@@ -33,7 +33,7 @@ func main () {
 
 func Print_Symbol(s Symbol) {fmt.Println(s)}
 
-func Print_Ident(i Ident) {fmt.Println(i)}  // unclear why I can't use Print_Symbol
+func Print_Ident(i Ident) {fmt.Print(i)}  // unclear why I can't use Print_Symbol
 
 func Print_Program (p Program) {
 	fmt.Println("Program( ");
@@ -65,7 +65,7 @@ func  Print_Stmt (s Stmt) {  // *Stmt won't work, the * must be at the construct
 		 fmt.Println(" " )
 	 case *ASSIGN:
 		 Print_Ident(sw.I)
-		 fmt.Println(" := " )		 				 
+		 fmt.Print(" := " )		 				 
 		 Print_Expr(sw.E)
 		 fmt.Println(" " )		 				 
 	 default:  	 fmt.Println("stmt")
