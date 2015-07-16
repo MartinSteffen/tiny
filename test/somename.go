@@ -8,7 +8,7 @@ package main
 
 
 import ("fmt"
-	"ast")
+	"github.com/MartinSteffen/tiny/ast")
 
 
 

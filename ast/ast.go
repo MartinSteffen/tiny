@@ -9,9 +9,9 @@
 // seems. If it contains a main and is called package main, then it's
 // installed under bin
 
-package main
+package ast
 
-import ("fmt")
+//import ("fmt")
 
 // In the ML code, I use information about the position. That's still more
 // or less dummy information. I leave it out here. An elegant solution here
@@ -108,7 +108,7 @@ type Factor interface {
 type (
 	ID   struct {i ident}
 	EXPR struct {e Expr}
-	NUMBER struct {n number}
+	NUMBER struct {n int}
 )
 
 func (*ID)   factorNode() {}

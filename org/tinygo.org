@@ -38,7 +38,32 @@
 
    but those give the above errors 
 
-**** TODO install ast.go <2015-07-16 Thu 08:24>
+
+   => It seems to related to the fact that some of the stuff is not
+
+      exported
+
+     After changing the type from number to int (which is the same but definitely
+     global, I get the error
+
+      ./somename.go:16: implicit assignment of unexported field 'n' in ast.NUMBER literal
+
+      That means (I assume) that somehow NUMBER (or more probably it's fields)
+      are not known outside
+
+
+**** TODO how does one export stuff (types, and fields of constructors)  <2015-07-16 Thu 08:40>
+**** TODO make it number instead of int again and export <2015-07-16 Thu 08:40>
+
+
+**** DONE install ast.go <2015-07-16 Thu 08:24>
+     CLOSED: [2015-07-16 Thu 08:38]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-16 Thu 08:38]
+     :END:
+     
+     That might be the source of the problems now: the somename may not find
+     it because the error is in ast.go, not in somename.go?
 
 *** BUG make somename.go compile: arguments for constructors  <2015-07-16 Thu 08:21>
     
