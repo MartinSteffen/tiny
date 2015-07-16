@@ -6,11 +6,12 @@
 
 // The first statement here must be the declaration of the package.  We
 // cannot name it package "main", because then it needs a function main, it
-// seems.
+// seems. If it contains a main and is called package main, then it's
+// installed under bin
 
-package ast 
+package main
 
-// import ("fmt")
+import ("fmt")
 
 // In the ML code, I use information about the position. That's still more
 // or less dummy information. I leave it out here. An elegant solution here
@@ -118,6 +119,10 @@ func (*NUMBER) factorNode() {}
 
 
 
+func main () {
+	f :=    &NUMBER{1}
+	fmt.Println(f)
+	
+}
 
 
-func main () {}
