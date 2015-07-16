@@ -54,6 +54,10 @@ func  Print_Stmt (s Stmt) {  // *Stmt won't work, the * must be at the construct
 		 fmt.Println("READ" )
 		 Print_Ident(sw.I)
 		 fmt.Println(" " )		 
+	 case *WRITE:
+		 fmt.Println("WRITE" )
+		 Print_Expr(sw.E)
+		 fmt.Println(" " )		 
 	 default:  	 fmt.Println("stmt")
 	 }
  }
