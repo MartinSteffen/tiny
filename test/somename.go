@@ -14,42 +14,18 @@ import ("fmt"
 
 
 
-// just to see that it compiles
 
 func main () {
-	e :=    &ast.SIMPLEEXPR{&ast.TERM{&ast.FACTOR{&ast.NUMBER{1}}}}
-	s :=    &ast.ASSIGN{"x",e}
-	ast.Print_Expr(e)
-	ast.Print_Stmt(s)
+	e1 :=    &ast.SIMPLEEXPR{&ast.TERM{&ast.FACTOR{&ast.NUMBER{1}}}}
+	s1 :=    &ast.ASSIGN{"x",e1}
+	ast.Print_Expr(e1)
+	ast.Print_Stmt(s1)
 	fmt.Println(";")
 	
 	
 }
 
 
-
-// The following is not possible. One cannot define new methods on
-// non-local type ast.FACTOR:
-
-// func ( *ast.FACTOR ) print_factor () {}
-
-
-
-// the following is intended to make a ``visitor''. It seems that the
-// ``external methods'' of go should be able to do that.
-
-
-// func main () {
-// 	e :=    &Ident{}  // possible, but not nice
-// 	e =     &Ident{"a"}        // possible
-// 	e1 :=     &Ident{Name:"a"}   // also possible
-// 	s1 :=     &SkipStmt{}
-// 	s2 :=     &IfStmt{COND:e1,IF:s1,ELSE:s1}   // also possible
-// 	fmt.Println(e)
-// 	fmt.Println(e1)
-// 	fmt.Println(s1)
-// 	fmt.Println(s2)
-//	}
 
 
 
