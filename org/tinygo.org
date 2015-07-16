@@ -153,9 +153,25 @@
 
 **** TODO if yes, would it help: can one make use of it? <2015-07-16 Thu 10:38>
 
-**** TODO add Print_SimpleExpr <2015-07-16 Thu 13:36>
+**** DONE add Print_Term <2015-07-16 Thu 14:00>
+     CLOSED: [2015-07-16 Thu 14:09]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-16 Thu 14:09]
+     :END:
 
-**** BUG 		Print_Term(se.T)  // error <2015-07-16 Thu 13:54>
+**** TODO add print_add_ok <2015-07-16 Thu 14:00>
+**** DONE add Print_SimpleExpr <2015-07-16 Thu 13:36>
+     CLOSED: [2015-07-16 Thu 14:00]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-16 Thu 14:00]
+     :END:
+
+**** FIXED Print_Term(se.T)  // error <2015-07-16 Thu 13:54>
+     CLOSED: [2015-07-16 Thu 13:58]
+     :LOGBOOK:
+     - CLOSING NOTE [2015-07-16 Thu 13:58] \\
+       ok, TERM instead of Term
+     :END:
 
      Inside Print_SimpleExpr: bug
 

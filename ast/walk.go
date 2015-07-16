@@ -111,10 +111,17 @@ func Print_Compare_Op(o Compare_Op) {
 
 
 func Print_Term (t Term) {
+	switch te := t.(type) {
+	case *FACTOR:
+		Print_Factor(te.F)
+	}
 }
 
 
 func Print_Add_Op (op Add_Op) {
+}
+
+func Print_Factor(f Factor) {
 }
 
 
@@ -124,6 +131,6 @@ func Print_Add_Op (op Add_Op) {
 // types defined in a different file. Across packages that does not work.
 
 
-func ( *FACTOR ) print_factor () {fmt.Println("factor")}
+// func ( *FACTOR ) print_factor () {fmt.Println("factor")}
 
 
