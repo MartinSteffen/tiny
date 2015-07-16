@@ -19,7 +19,8 @@ package ast
 
 type symbol string      // might be replaced by something more efficient
 type ident symbol
-type number int
+type Number int         // only capitalized names are exported. If internal
+                        // one cannot construct asts outside.
 
 
 
@@ -108,7 +109,7 @@ type Factor interface {
 type (
 	ID   struct {i ident}
 	EXPR struct {e Expr}
-	NUMBER struct {n int}
+	NUMBER struct {N Number}
 )
 
 func (*ID)   factorNode() {}

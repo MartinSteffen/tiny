@@ -23,7 +23,12 @@
 
 
 
-*** BUG why does the import in somename.org not work <2015-07-16 Thu 08:05>
+*** FIXED why does the import in somename.org not work <2015-07-16 Thu 08:05>
+    CLOSED: [2015-07-16 Thu 08:50]
+    :LOGBOOK:
+    - CLOSING NOTE [2015-07-16 Thu 08:50] \\
+      some names were not exported
+    :END:
     It's really weird. This one works
 
     import ("fmt"
@@ -52,8 +57,20 @@
       are not known outside
 
 
-**** TODO how does one export stuff (types, and fields of constructors)  <2015-07-16 Thu 08:40>
-**** TODO make it number instead of int again and export <2015-07-16 Thu 08:40>
+**** DONE how does one export stuff (types, and fields of constructors)  <2015-07-16 Thu 08:40>
+     CLOSED: [2015-07-16 Thu 08:50]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-16 Thu 08:50]
+     :END:
+
+     It's done via capitalization. I changed the type and the constructor, then it works
+**** DONE make it number instead of int again and export <2015-07-16 Thu 08:40>
+     CLOSED: [2015-07-16 Thu 08:50]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-16 Thu 08:50]
+     :END:
+     -> Make it to "Number".
+     -> make the field capitalized as wellx
 
 
 **** DONE install ast.go <2015-07-16 Thu 08:24>
@@ -65,7 +82,13 @@
      That might be the source of the problems now: the somename may not find
      it because the error is in ast.go, not in somename.go?
 
-*** BUG make somename.go compile: arguments for constructors  <2015-07-16 Thu 08:21>
+*** FIXED make somename.go compile: arguments for constructors  <2015-07-16 Thu 08:21>
+    CLOSED: [2015-07-16 Thu 09:00]
+    :LOGBOOK:
+    - CLOSING NOTE [2015-07-16 Thu 09:00] \\
+      the ast was not exported properly (and perhaps the package name of ast was
+      unfitting and ast not installed.
+    :END:
     
     It's weird, seems there is some inconsistencies. If I program in
     ast/ast.go , (which I currently call package go), then I can do
@@ -92,6 +115,7 @@
 
 
 
+   
 
 *** TODO add to the org-path <2015-07-16 Thu 07:55>
 *** DONE make it to a worspace/package or whatever <2015-07-15 Wed 13:32>
