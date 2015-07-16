@@ -62,7 +62,12 @@ func  Print_Stmt (s Stmt) {  // *Stmt won't work, the * must be at the construct
 		 fmt.Println("REPEAT" )
 		 Print_Stmt(sw.SL)
 		 Print_Expr(sw.C)
-		 fmt.Println(" " )		 		 
+		 fmt.Println(" " )
+	 case *ASSIGN:
+		 Print_Ident(sw.I)
+		 fmt.Println(" := " )		 				 
+		 Print_Expr(sw.E)
+		 fmt.Println(" " )		 				 
 	 default:  	 fmt.Println("stmt")
 	 }
  }
