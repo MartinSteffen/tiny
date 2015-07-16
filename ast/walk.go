@@ -18,4 +18,6 @@ func main () {
 }
 
 
+func ( *FACTOR ) print_factor () {}
+
 
