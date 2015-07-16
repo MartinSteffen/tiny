@@ -401,6 +401,13 @@ ast. That should very much determine the tree, because it's a tree.
 
 ** Abysnt
 
+*** FIXED somename.go does not compile now <2015-07-16 Thu 09:42>
+    CLOSED: [2015-07-16 Thu 09:44]
+    :LOGBOOK:
+    - CLOSING NOTE [2015-07-16 Thu 09:44] \\
+      SimpleExpr interface had a typo
+    :END:
+    The problemis SimpleExpr: the ``marker method'' has a typo
 *** DONE finish the scheme uniformely <2015-07-16 Thu 09:14>
     CLOSED: [2015-07-16 Thu 09:27]
     :LOGBOOK:

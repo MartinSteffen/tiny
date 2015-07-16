@@ -1,4 +1,4 @@
-// one can compile this file, despite the fact that the name of the file,
+// One can compile this file, despite the fact that the name of the file,
 // the name of the directory and the name of the package are all different.
 // One can do it with go build somename.go (also install and run), but one
 // cannot do it just with go install (without saying what).  There, the
@@ -14,8 +14,10 @@ import ("fmt"
 
 
 
+// just to see that it compiles
+
 func main () {
-	f :=    &ast.NUMBER{1}
+	f :=    &ast.SIMPLEEXPR{&ast.TERM{&ast.FACTOR{&ast.NUMBER{1}}}}
 	fmt.Println(f)
 	
 }

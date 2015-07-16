@@ -101,7 +101,7 @@ func (*COMPAREEXPR) expr_Node() {}
 //-----------------------------------------------------------------
 
 type SimpleExpr interface {
-	simpleexpr_None ()
+	simpleexpr_Node ()
 }
 
 type (
