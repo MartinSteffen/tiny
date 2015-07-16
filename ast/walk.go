@@ -84,7 +84,18 @@ func Print_Expr (e Expr) {
 }
 
 func Print_SimpleExpr(s SimpleExpr) {
+	switch  se := s.(type) {
+	case *TERM:
+		Print_Term(se.T)  // error
+	case *ADDEXPR:
+		Print_Add_Op(se.O)
+		Print_SimpleExpr(se.SE)
+		Print_Term(se.T)  // error
+	}
+	
 }
+
+
 
 func Print_Compare_Op(o Compare_Op) {
 	switch o.(type) {
@@ -98,7 +109,14 @@ func Print_Compare_Op(o Compare_Op) {
 }
 
 
-	
+
+func Print_Term (t Term) {
+}
+
+
+func Print_Add_Op (op Add_Op) {
+}
+
 
 
 

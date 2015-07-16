@@ -104,7 +104,7 @@ type SimpleExpr interface {
 
 type (
 	TERM struct {T Term}
-	ADDEXPR struct {O Add_Op ; SE SimpleExpr; T TERM }
+	ADDEXPR struct {O Add_Op ; SE SimpleExpr; T Term }
 )
 
 func (*TERM) simpleexpr_Node() {}
@@ -112,18 +112,18 @@ func (*ADDEXPR) simpleexpr_Node() {}
 //-----------------------------------------------------------------
 
 type Term interface {
-	termNode()
+	term_Node ()
 }
 
 type (
 	FACTOR struct {F Factor}
 )
 
-func (*FACTOR)   termNode() {}
+func (*FACTOR)   term_Node() {}
 //-----------------------------------------------------------------
 
 type Factor interface {
-	factorNode () 
+	factor_Node () 
 }
 
 type (
@@ -132,9 +132,9 @@ type (
 	NUMBER struct {N Number}
 )
 
-func (*ID)   factorNode() {}
-func (*EXPR) factorNode() {}
-func (*NUMBER) factorNode() {}
+func (*ID)   factor_Node() {}
+func (*EXPR) factor_Node() {}
+func (*NUMBER) factor_Node() {}
 //------------------------------------------------------------
 
 
