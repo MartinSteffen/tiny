@@ -81,7 +81,6 @@ func (*ASSIGN) stmt_Node() {}
 
 //--------------------------------------------------------
 
-
 type Expr interface {
 	expr_Node ()
 }
@@ -99,7 +98,6 @@ func (*SIMPLEEXPR) expr_Node() {}
 func (*COMPAREEXPR) expr_Node() {}
 
 //-----------------------------------------------------------------
-
 type SimpleExpr interface {
 	simpleexpr_Node ()
 }
@@ -109,10 +107,8 @@ type (
 	ADDEXPR struct {O Add_Op ; SE SimpleExpr; T TERM }
 )
 
-
 func (*TERM) simpleexpr_Node() {}
 func (*ADDEXPR) simpleexpr_Node() {}
-
 //-----------------------------------------------------------------
 
 type Term interface {
@@ -124,8 +120,8 @@ type (
 )
 
 func (*FACTOR)   termNode() {}
-
 //-----------------------------------------------------------------
+
 type Factor interface {
 	factorNode () 
 }
@@ -139,7 +135,6 @@ type (
 func (*ID)   factorNode() {}
 func (*EXPR) factorNode() {}
 func (*NUMBER) factorNode() {}
-
 //------------------------------------------------------------
 
 

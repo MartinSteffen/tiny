@@ -7,7 +7,7 @@ import ("fmt") // can't hurt
 
 
 // Unlike in the package "test" which is in a different directory, here we
-// can leave out to import "ast" (obvourly) and also we don't need to write
+// can leave out to import "ast" (obviously) and also we don't need to write
 // ast.SIMPLEEXPR. etc
 
 func main () {
@@ -17,7 +17,13 @@ func main () {
 	
 }
 
+// It seems that inside the same package, one can ``attach'' methods to
+// types defined in a different file. Across packages that does not work.
 
-func ( *FACTOR ) print_factor () {}
+//func (Stmt) print_stmt () {
+//	fmt.Println("stmt")
+//}
+
+func ( *FACTOR ) print_factor () {fmt.Println("factor")}
 
 

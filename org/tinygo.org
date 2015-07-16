@@ -151,7 +151,10 @@
 
 *** TODO can one access the stuff inside the package ast itself? <2015-07-16 Thu 10:38>
 
-**** TODO if yes, would it help <2015-07-16 Thu 10:38>
+**** TODO if yes, would it help: can one make use of it? <2015-07-16 Thu 10:38>
+
+**** BUG interface receiver:  why is it not possbible to do func (Stmt) print_stmt () {..} <2015-07-16 Thu 11:25>?
+     
 *** TODO how does the walk-thing go <2015-07-14 Tue 07:57>
 
     That's a kind of visitor. It imports the ast 
