@@ -15,13 +15,15 @@ package ast
 
 // In the ML code, I use information about the position. That's still more
 // or less dummy information. I leave it out here. An elegant solution here
-// would be to ``embed'' it. It should be relatively easy.
+// would be to ``embed'' it via a top-level interace. That should be
+// relatively easy.
 
 
 // The following types need to be capitalized as they are needed
-// externally. Non-capitalized type declarations are ``private''
+// externally. Non-capitalized type declarations are ``private''. The same
+// holds for fields.
 
-type Symbol string      // might be replaced by something more efficient
+type Symbol string      // might be replaced by something more efficient.
 type Ident Symbol
 type Number int         
                         
@@ -56,6 +58,7 @@ type Program  []  Stmt   // this is a slice type
 
 
 type Stmt interface {
+	stmt_Node ()
 }
 
 type (
@@ -69,7 +72,19 @@ type (
 	ASSIGN struct {I Ident; E Expr}
 )
 
-type Expr interface {}
+
+func (*IF) stmt_Node() {}
+func (*READ) stmt_Node() {}
+func (*WRITE) stmt_Node() {}
+func (*REPEAT) stmt_Node() {}
+func (*ASSIGN) stmt_Node() {}
+
+//--------------------------------------------------------
+
+
+type Expr interface {
+	expr_Node ()
+}
 
 type (
 	SIMPLEEXPR   struct {S SimpleExpr}
@@ -80,21 +95,29 @@ type (
 	}
 )
 
+func (*SIMPLEEXPR) expr_Node() {}
+func (*COMPAREEXPR) expr_Node() {}
+
 //-----------------------------------------------------------------
 
-type SimpleExpr interface {}
+type SimpleExpr interface {
+	simpleexpr_None ()
+}
 
 type (
 	TERM struct {T Term}
 	ADDEXPR struct {O Add_Op ; SE SimpleExpr; T TERM }
 )
 
+
+func (*TERM) simpleexpr_Node() {}
+func (*ADDEXPR) simpleexpr_Node() {}
+
 //-----------------------------------------------------------------
 
 type Term interface {
 	termNode()
 }
-
 
 type (
 	FACTOR struct {F Factor}

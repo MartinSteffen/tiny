@@ -399,8 +399,17 @@ ast. That should very much determine the tree, because it's a tree.
 
  https://github.com/golang-samples/yacc/tree/master/simple
 
-** Absint
+** Abysnt
 
+*** DONE finish the scheme uniformely <2015-07-16 Thu 09:14>
+    CLOSED: [2015-07-16 Thu 09:27]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-16 Thu 09:27]
+    :END:
+    
+    all stuff added
+
+*** TODO make a more complex client in somename <2015-07-16 Thu 09:14>
 *** TODO what constructs do normal people use for syntax trees <2015-07-13 Mon 12:02>
 **** TODO which does go itself use <2015-07-13 Mon 12:02>
 **** DONE can one check out the whole thing <2015-07-13 Mon 12:03>
