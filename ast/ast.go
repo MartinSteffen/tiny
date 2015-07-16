@@ -119,10 +119,12 @@ func (*NUMBER) factorNode() {}
 
 
 
-func main () {
-	f :=    &NUMBER{1}
-	fmt.Println(f)
-	
-}
+//func main () {
+//	f :=    &NUMBER{1}
+//	fmt.Println(f)
+//	
+//}
+
+
 
 

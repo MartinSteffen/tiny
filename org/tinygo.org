@@ -9,11 +9,66 @@
   https://github.com/cznic/golex
 
   
-** Misc
+** Misc (later more structure)
 
 
 
 
+*** TODO can one open a package <2015-07-16 Thu 08:11>
+
+    This one is not nice
+
+	f :=    &ast.NUMBER{1}
+
+
+
+
+*** BUG why does the import in somename.org not work <2015-07-16 Thu 08:05>
+    It's really weird. This one works
+
+    import ("fmt"
+	"ast")
+
+
+   I would have thought it's
+
+    import ("fmt"
+	"github.com/MartinSteffen/tiny/ast")
+
+
+   but those give the above errors 
+
+**** TODO install ast.go <2015-07-16 Thu 08:24>
+
+*** BUG make somename.go compile: arguments for constructors  <2015-07-16 Thu 08:21>
+    
+    It's weird, seems there is some inconsistencies. If I program in
+    ast/ast.go , (which I currently call package go), then I can do
+
+   func main () {
+  	f :=    &NUMBER{1}
+	fmt.Println(f)
+	
+   }
+   
+   inside the file ast.go. If I do that in the other package test/somename.go
+   writing 
+
+   func main () {
+  	f :=    &ast.NUMBER{1}
+ 	fmt.Println(f)
+	
+   }
+
+   then the compiler complains that he cannot figure out the arg.
+
+   Perhaps that's because the package name etc are not yet fully clarified
+   and it does not find the "ast"
+
+
+
+
+*** TODO add to the org-path <2015-07-16 Thu 07:55>
 *** DONE make it to a worspace/package or whatever <2015-07-15 Wed 13:32>
     CLOSED: [2015-07-16 Thu 07:50]
     :LOGBOOK:
@@ -268,6 +323,15 @@ ast. That should very much determine the tree, because it's a tree.
      :END:
      Nope, seems like not
 
+
+     Many of them are also in the go-org, but while working here, 
+     I add them here
+
+
+
+*** Structure and meta things
+**** TODO "test" package: how to make that a client to ast? <2015-07-16 Thu 08:01>
+
 ** Yacc
 
  https://github.com/golang-samples/yacc/tree/master/simple
@@ -288,3 +352,4 @@ ast. That should very much determine the tree, because it's a tree.
     ~/Collectionofreposes/GITHGEXTERNALS/
  
     See also now the remarks here. Also the attempts in
+

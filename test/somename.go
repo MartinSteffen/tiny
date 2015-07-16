@@ -6,22 +6,31 @@
 
 package main
 
-import ("github.com/MartinSteffen/tiny/ast")
+
+import ("fmt"
+	"ast")
 
 
 
 func main () {
-	e :=    &Ident{}  // possible, but not nice
-	e =     &Ident{"a"}        // possible
-	e1 :=     &Ident{Name:"a"}   // also possible
-	s1 :=     &SkipStmt{}
-	s2 :=     &IfStmt{COND:e1,IF:s1,ELSE:s1}   // also possible
-	fmt.Println(e)
-	fmt.Println(e1)
-	fmt.Println(s1)
-	fmt.Println(s2)
+	f :=    &ast.NUMBER{1}
+	fmt.Println(f)
 	
 }
+
+
+
+// func main () {
+// 	e :=    &Ident{}  // possible, but not nice
+// 	e =     &Ident{"a"}        // possible
+// 	e1 :=     &Ident{Name:"a"}   // also possible
+// 	s1 :=     &SkipStmt{}
+// 	s2 :=     &IfStmt{COND:e1,IF:s1,ELSE:s1}   // also possible
+// 	fmt.Println(e)
+// 	fmt.Println(e1)
+// 	fmt.Println(s1)
+// 	fmt.Println(s2)
+//	}
 
 
 
