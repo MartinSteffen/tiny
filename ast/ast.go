@@ -52,7 +52,7 @@ func (*PLUS) add_opNode() {}
 func (*MINUS) add_opNode() {}
 
 
-type Program    Stmt   // this is a slice type
+type Program    [] Stmt   // this is a slice type.
 
 //--------------------------------------------------------
 
@@ -63,12 +63,12 @@ type Stmt interface {
 
 type (
 	IF struct {E Expr
-		SL1  Stmt  // slice
-		SL2  Stmt  // slice
+		SL1  [] Stmt  // slice
+		SL2  [] Stmt  // slice
 	}
 	READ struct {I Ident}
 	WRITE struct {E Expr}
-	REPEAT struct {SL Stmt; C Expr}  // slice
+	REPEAT struct {SL [] Stmt; C Expr}  // slice
 	ASSIGN struct {I Ident; E Expr}
 )
 

@@ -6,6 +6,8 @@
 // if one compiles this file with go build, it gives the file ./text (not
 // somename)
 
+
+
 package main
 
 
