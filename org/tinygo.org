@@ -1,0 +1,290 @@
+
+* Go
+
+  http://noypi-linux.blogspot.no/2014/07/golang-parser-generator-ebnfyacclex.html
+
+  https://github.com/blynn/nex
+
+
+  https://github.com/cznic/golex
+
+  
+** Misc
+
+
+
+
+*** DONE make it to a worspace/package or whatever <2015-07-15 Wed 13:32>
+    CLOSED: [2015-07-16 Thu 07:50]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-16 Thu 07:50]
+    :END:
+
+    See https://golang.org/doc/code.html
+
+    it needs a workspace.
+
+    But the workspace is just ~/go and the point where GOROOT shows
+
+    
+
+
+*** TODO how does the walk-thing go <2015-07-14 Tue 07:57>
+
+    That's a kind of visitor. It imports the ast 
+
+    It does not seem to do much, it just walks through it. As expected it's
+    a recursive function. It takes two argument, the second one is the
+    visitor. That's the ``functional'' argument.
+
+
+*** TODO make a running program making use of a <2015-07-14 Tue 12:16>
+**** DONE in the parser: how are the nodes created <2015-07-14 Tue 11:38>
+     CLOSED: [2015-07-15 Wed 08:04]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-15 Wed 08:04]
+     :END:
+***** DONE look at standard cases <2015-07-14 Tue 11:51>
+      CLOSED: [2015-07-14 Tue 12:16]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-14 Tue 12:16]
+      :END:
+
+      Here seems one:
+-------------------------------------------------------------------------
+	case token.SEMICOLON:
+  		s = &ast.EmptyStmt{Semicolon: p.pos}
+-------------------------------------------------------------------------
+    ast is unclear where defined. It's a package, maybe that's what's ment-
+
+    EmptyStmt in the package is 
+
+	EmptyStmt struct {
+		Semicolon token.Pos // position of preceding ";"
+	}
+
+	So, that's then the syntax to create a node, here 
+
+
+
+***** DONE what does the make function do in go? <2015-07-14 Tue 11:39>
+      CLOSED: [2015-07-15 Wed 08:04]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-15 Wed 08:04]
+      :END:
+      it's similar to new:  works for type slice, map, or chan (only). 
+      It not needed here
+***** CANCELLED new: can one have arguments <2015-07-14 Tue 11:45>
+      CLOSED: [2015-07-15 Wed 08:04]
+      :LOGBOOK:
+      - CLOSING NOTE [2015-07-15 Wed 08:04]
+      :END:
+***** DONE why does new not have a sep. category in the ast <2015-07-14 Tue 11:46>
+      CLOSED: [2015-07-14 Tue 11:47]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-14 Tue 11:47]
+      :END:
+      it's a built-in function, probably that's the reason
+***** DORMANT if new is built in, how is it implemented <2015-07-14 Tue 11:47>
+      CLOSED: [2015-07-15 Wed 08:04]
+      :LOGBOOK:
+      - CLOSING NOTE [2015-07-15 Wed 08:04]
+      :END:
+**** DONE is the ``inductive structure'' of the AST flat or not? <2015-07-14 Tue 08:51>
+     CLOSED: [2015-07-15 Wed 08:05]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-15 Wed 08:05]
+     :END:
+     For the switch-construct it is. It needs not be, though
+**** DONE what's the node.(type) there? <2015-07-14 Tue 08:08>
+     CLOSED: [2015-07-14 Tue 08:35]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-14 Tue 08:35]
+     :END:
+     node: Node. The node is the top-``ìnterface''
+
+     In the ast.go, there are a few comments like
+
+	Type   Expr      // asserted type; nil means type switch X.(type)
+   so probably that is a general go language thing.
+
+
+   Anyway, it's a special form (or variant) of a type assertion. It's a
+   type switch. It's indeed used om a big switch-case.
+
+**** DONE how does the case switch in walk.go works <2015-07-14 Tue 08:35>
+     CLOSED: [2015-07-14 Tue 11:35]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-14 Tue 11:35]
+     :END:
+     
+     It uses a type switch switch n := node.(type). That gives various
+     cases. It seems that the case-switch structure is flat , despite the
+     fact that there are substructures of Node.
+
+***** DONE flat case switch in walk.go ? <2015-07-14 Tue 09:37>
+      CLOSED: [2015-07-14 Tue 11:35]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-14 Tue 11:35]
+      :END:
+
+      Is it true that the case switch is flat? -> yes
+
+**** DONE what's the ``type'' of n in switch n := node.(type)? <2015-07-14 Tue 08:37>
+     CLOSED: [2015-07-14 Tue 09:32]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-14 Tue 09:32]
+     :END:
+     It seems that this is _not_ fixed. It seems that n is just the node
+     which is represented by n. That can be seen in walk.go by looking at
+     the different cases in the case switch. Depending on the case, one
+     makes use of things like n.Doc or n.Low. For instance, in case n is of
+     type *Field (i.e., a reference to a Field): the type Field is a
+     struct, i.e., a struct type (or record type).  Now, fields are structs
+     which have a ``field'' like Doc. In a functional language, it's like
+
+     Field of CommentGroup *  Ident *  Expr * BasicLit * CommentGoup (1)
+
+    If of course not a tuple but a record, but ok.
+
+     That one is a Node. Let's ignore the sub-structures, because they
+     don't play a role, probably in the switching. Anyhow: the particular
+     node constructed via Field has 5 args, as given above in (1). In ms, they would be matched like
+
+     match n with
+       Field(c1,i,e.b.c2) -> 
+
+    which means the names are given locally. In the kind of programming here it's with 
+    selectors like
+
+      n.Doc 
+
+
+      depending on the type switch case, different selectors apply of course.
+    
+
+     
+
+
+**** TODO  what's struct ( interfaces ) <2015-07-15 Wed 08:14>
+     It's in the ast of go. We shoold also look at the book and the spec
+**** TODO AST: Fields why are some of the things as pointers and some not <2015-07-14 Tue 08:58>
+**** DONE Constructors: it seems that in AST, they ``mimic'' those: how to set them <2015-07-14 Tue 09:16>
+     CLOSED: [2015-07-15 Wed 08:06]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-15 Wed 08:06]
+     :END:
+     
+     One may see that for instance for Field: it's a struct type, and has a
+     number of fields. That seems to me like describing the result of
+     applying a constructor. The question then is how to do that?
+
+     I guess, one may simply write some functions, or better methods.
+
+     I'd actually expect that a parser should have some such
+     functions/methods, one should check there ->
+     
+     yes.
+
+     It seems like CONSTRUCTOR { file : value}
+***** DONE check the parser for constructors (or ast) <2015-07-14 Tue 09:21>
+      CLOSED: [2015-07-15 Wed 08:06]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-15 Wed 08:06]
+      :END:
+*** TODO look at how the parser works <2015-07-14 Tue 07:55>
+*** TODO look at the example_test.go program <2015-07-14 Tue 07:52>
+*** TODO constructors / inductive definition in go <2015-07-14 Tue 07:26>
+*** DONE how can one implement the AST? <2015-07-12 Sun 18:22>
+    CLOSED: [2015-07-14 Tue 07:18]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-14 Tue 07:18]
+    :END:
+    I check via the go ast 
+*** DONE what's golex go lex, why don't I have it <2015-07-12 Sun 13:59>
+    CLOSED: [2015-07-12 Sun 14:23]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-12 Sun 14:23]
+    :END:
+
+    they have go tool yacc, but no lex, but there it is.
+
+    "https://github.com/cznic/golex"
+
+    go get lex did it! 
+
+** Go language questions
+
+   See also the go.org file
+
+*** TODO how is the AST of go designed <2015-07-13 Mon 13:05>
+    
+    Probably they use structural subtyping. There are 4 important
+    interfaces. Probably one can illustrate it as follows:
+
+    
+                   Node
+                /   |    \
+	    Exp    Stmt  Decl
+
+ 
+The language is probably readable at
+
+   https://golang.org/ref/spec     
+
+
+For instance for the statements
+
+Statement =
+	Declaration | LabeledStmt | SimpleStmt |
+	GoStmt | ReturnStmt | BreakStmt | ContinueStmt | GotoStmt |
+	FallthroughStmt | Block | IfStmt | SwitchStmt | SelectStmt | ForStmt |
+	DeferStmt .
+
+SimpleStmt = EmptyStmt | ExpressionStmt | SendStmt | IncDecStmt | Assignment | ShortVarDecl .
+
+
+That does not 100% correspond to what one sees in the implementation. I
+would rather like to come up with a scheme, which is more or less schematic
+_AND_ corresponds 100% to the grammar. We should have a look at 2 things,
+the grammar _and_ the ML ast. I guess the better starting point is the
+ast. That should very much determine the tree, because it's a tree.
+
+
+
+
+**** TODO why do they even distinguish 
+
+**** TODO analyze the statements  <2015-07-13 Mon 13:55>
+
+**** TODO where do I get the productions for Go from <2015-07-13 Mon 13:55>
+
+**** TODO what's a production name? <2015-07-13 Mon 13:55>
+
+**** DONE do go implement itself with yacc? <2015-07-13 Mon 13:56>
+     CLOSED: [2015-07-13 Mon 14:05]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-13 Mon 14:05]
+     :END:
+     Nope, seems like not
+
+** Yacc
+
+ https://github.com/golang-samples/yacc/tree/master/simple
+
+** Absint
+
+*** TODO what constructs do normal people use for syntax trees <2015-07-13 Mon 12:02>
+**** TODO which does go itself use <2015-07-13 Mon 12:02>
+**** DONE can one check out the whole thing <2015-07-13 Mon 12:03>
+     CLOSED: [2015-07-13 Mon 12:16]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-13 Mon 12:16]
+     :END:
+
+     ok, it goes with Mercury:
+             hg clone https://code.google.com/p/go/
+
+    ~/Collectionofreposes/GITHGEXTERNALS/
+ 
+    See also now the remarks here. Also the attempts in
