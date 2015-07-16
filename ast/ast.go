@@ -17,13 +17,14 @@ package ast
 // or less dummy information. I leave it out here. An elegant solution here
 // would be to ``embed'' it. It should be relatively easy.
 
-type symbol string      // might be replaced by something more efficient
-type ident symbol
-type Number int         // only capitalized names are exported. If internal
-                        // one cannot construct asts outside.
 
+// The following types need to be capitalized as they are needed
+// externally. Non-capitalized type declarations are ``private''
 
-
+type Symbol string      // might be replaced by something more efficient
+type Ident Symbol
+type Number int         
+                        
 //--------------------------------------------------------
 type Compare_Op interface {    // abstract
 	compare_opNode ()
@@ -58,24 +59,24 @@ type Stmt interface {
 }
 
 type (
-	IF struct {e Expr
-		sl1 [] Stmt
-		sl2 [] Stmt
+	IF struct {E Expr
+		SL1 [] Stmt
+		SL2 [] Stmt
 	}
-	READ struct {i ident}
-	WRITE struct {e Expr}
-	REPEAT struct {sl [] Stmt; c Expr}
-	ASSIGN struct {i ident; e Expr}
+	READ struct {I Ident}
+	WRITE struct {E Expr}
+	REPEAT struct {SL [] Stmt; C Expr}
+	ASSIGN struct {I Ident; E Expr}
 )
 
 type Expr interface {}
 
 type (
-	SIMPLEEXPR   struct { s SimpleExpr}
+	SIMPLEEXPR   struct {S SimpleExpr}
 	COMPAREEXPR  struct {
-		co Compare_Op
-		se1 SimpleExpr
-		se2 SimpleExpr
+		CO Compare_Op
+		SE1 SimpleExpr
+		SE2 SimpleExpr
 	}
 )
 
@@ -84,8 +85,8 @@ type (
 type SimpleExpr interface {}
 
 type (
-	TERM struct {t Term}
-	ADDEXPR struct {o Add_Op ; se SimpleExpr; t TERM }
+	TERM struct {T Term}
+	ADDEXPR struct {O Add_Op ; SE SimpleExpr; T TERM }
 )
 
 //-----------------------------------------------------------------
@@ -96,7 +97,7 @@ type Term interface {
 
 
 type (
-	FACTOR struct {f Factor}
+	FACTOR struct {F Factor}
 )
 
 func (*FACTOR)   termNode() {}
@@ -107,24 +108,19 @@ type Factor interface {
 }
 
 type (
-	ID   struct {i ident}
-	EXPR struct {e Expr}
+	ID   struct {I Ident}
+	EXPR struct {E Expr}
 	NUMBER struct {N Number}
 )
 
 func (*ID)   factorNode() {}
 func (*EXPR) factorNode() {}
 func (*NUMBER) factorNode() {}
+
 //------------------------------------------------------------
 
 
 
-
-//func main () {
-//	f :=    &NUMBER{1}
-//	fmt.Println(f)
-//	
-//}
 
 
 

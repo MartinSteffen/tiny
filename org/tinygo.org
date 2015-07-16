@@ -21,7 +21,16 @@
 	f :=    &ast.NUMBER{1}
 
 
+	But it seems that it's not forseen
 
+
+
+
+*** DONE capitalize the rest in ast <2015-07-16 Thu 09:03>
+    CLOSED: [2015-07-16 Thu 09:09]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-16 Thu 09:09]
+    :END:
 
 *** FIXED why does the import in somename.org not work <2015-07-16 Thu 08:05>
     CLOSED: [2015-07-16 Thu 08:50]
@@ -117,7 +126,12 @@
 
    
 
-*** TODO add to the org-path <2015-07-16 Thu 07:55>
+*** DONE add to the org-path <2015-07-16 Thu 07:55>
+    CLOSED: [2015-07-16 Thu 09:10]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-16 Thu 09:10]
+    :END:
+    ok
 *** DONE make it to a worspace/package or whatever <2015-07-15 Wed 13:32>
     CLOSED: [2015-07-16 Thu 07:50]
     :LOGBOOK:
