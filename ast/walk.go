@@ -57,7 +57,12 @@ func  Print_Stmt (s Stmt) {  // *Stmt won't work, the * must be at the construct
 	 case *WRITE:
 		 fmt.Println("WRITE" )
 		 Print_Expr(sw.E)
-		 fmt.Println(" " )		 
+		 fmt.Println(" " )
+	 case *REPEAT:
+		 fmt.Println("REPEAT" )
+		 Print_Stmt(sw.SL)
+		 Print_Expr(sw.C)
+		 fmt.Println(" " )		 		 
 	 default:  	 fmt.Println("stmt")
 	 }
  }
