@@ -153,6 +153,13 @@
 
 **** TODO if yes, would it help: can one make use of it? <2015-07-16 Thu 10:38>
 
+**** TODO add Print_SimpleExpr <2015-07-16 Thu 13:36>
+
+**** DONE add Print_Compare_Op <2015-07-16 Thu 13:36>
+     CLOSED: [2015-07-16 Thu 13:39]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-16 Thu 13:39]
+     :END:
 **** DONE add Print_Expr <2015-07-16 Thu 13:25>
      CLOSED: [2015-07-16 Thu 13:34]
      :LOGBOOK:

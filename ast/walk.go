@@ -87,6 +87,14 @@ func Print_SimpleExpr(s SimpleExpr) {
 }
 
 func Print_Compare_Op(o Compare_Op) {
+	switch o.(type) {
+	case *LT:
+		fmt.Println("<")
+		
+	case *EQ:
+		fmt.Println("=");
+	}
+	
 }
 
 
