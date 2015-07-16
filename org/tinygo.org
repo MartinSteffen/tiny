@@ -14,6 +14,8 @@
 
 
 
+*** TODO make a better README.md <2015-07-16 Thu 09:54> 
+     see http://stackoverflow.com/questions/8655937/github-readme-and-readme-md
 *** TODO can one open a package <2015-07-16 Thu 08:11>
 
     This one is not nice
@@ -416,7 +418,21 @@ ast. That should very much determine the tree, because it's a tree.
     
     all stuff added
 
-*** TODO make a more complex client in somename <2015-07-16 Thu 09:14>
+*** TODO make a ``visitor'' <2015-07-16 Thu 09:54>
+
+    There seem to be a kind of visitor pattern in the go-implementation
+    itself. One question is why that is necessary at all. Because we have
+    those external methods. Those seem to allow to do what a visitor can do
+    (don't know about extensibility). Therefore: just implement one simple
+    one
+
+******* TODO compare that to the Walk-visotor in Go <2015-07-16 Thu 10:02>
+
+*** DONE make a more complex client in somename <2015-07-16 Thu 09:14>
+    CLOSED: [2015-07-16 Thu 09:54]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-16 Thu 09:54]
+    :END:
 *** TODO what constructs do normal people use for syntax trees <2015-07-13 Mon 12:02>
 **** TODO which does go itself use <2015-07-13 Mon 12:02>
 **** DONE can one check out the whole thing <2015-07-13 Mon 12:03>
