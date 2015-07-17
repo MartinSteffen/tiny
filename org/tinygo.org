@@ -294,7 +294,7 @@
      :END:
      Yes, the have
 
-#+being_example
+#+begin_example
 func idents(f *ast.File) <-chan *ast.Ident {
 	v := make(visitor)
 	go func() {
