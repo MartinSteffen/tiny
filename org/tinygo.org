@@ -318,10 +318,12 @@ func Walk(v Visitor, node Node) {
 #+end_example
 
 
-
+See also the ``client'' code.
 
 
 #+begin_example
+
+type visitor chan *ast.Ident
 
 func idents(f *ast.File) <-chan *ast.Ident {
 	v := make(visitor)
