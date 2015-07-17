@@ -180,11 +180,19 @@ overloading, one might have gotten away with just calling both just ~visit~.
 
 Now, as mentioned, with duck typing (and the ~CarPart~-interface given as
 is) car parts are /defined/ as those elements which accept a car-part
-visitor!  That would some stucts, namely cars
+visitor!  That would some stucts, namely cars, engines, and wheels
 #+begin_example
-type Car struct {
-    parts []CarPart
+
+ 
+type Wheel struct {
+    Name string
 }
+ 
+func (this *Wheel) Accept(visitor CarPartVisitor) {
+    visitor.visitWheel(this)
+}
+
+//----------------------------------
 
 type Engine struct {}
  
@@ -192,6 +200,7 @@ func (this *Engine) Accept(visitor CarPartVisitor) {
     visitor.visitEngine(this)
 }
  
+//----------------------------------
 type Car struct {
     parts []CarPart
 }
