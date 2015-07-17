@@ -38,4 +38,9 @@ type Visitor_Stmt interface {
 
 
 func Walk_Stmt (v Visitor_Stmt, s Stmt) {
+	// we check for non-nil-ness of the visitor (not the statement). If
+	// the statement is nil, probably not good either. 
+	if v =v.Visit(s); v == nil {
+		return
+	}
 }
