@@ -337,15 +337,18 @@ defined data structure, here the ast.
 
 #+begin_example
 
-type Visitor_interface {
-
-	Accept (stmt Stmt) (w Visitor)   // also called Visit 
+type Visitor interface {
+	Visit (stmt Node) (w Visitor)   
 }
      
 #+end_example
 
-     It's taken from walk.go.  What's strange he is also how it is later
-     used, namely in the following form (at the beginning of the Walk, function): 
+The Node is the catch-all type for all nodes of the ast (i.e., it is
+embedded into all the more concrete nodes.
+
+
+ What's strange he is also how it is later used, namely in the following
+form (at the beginning of the Walk, function):
 
 
 #+begin_example
