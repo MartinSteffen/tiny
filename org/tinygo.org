@@ -235,10 +235,14 @@ inside (i.e., at the start) of the body of that method. That would be done
 /switching/ on the different options (with the help of the special form of
 /type assertions/, like ~y := cp.(type)~). In a way it would be a
 ``hidden'' way of achieving the same --dispatch on the type argument-- as
-with method overloading (which we don't have in go).
+with method overloading (which we don't have in go). 
 
 
-**** TODO Why is there no visit-function for cars? <2015-07-17 Fri 19:57>
+**** TODO Why is there no ~visit~-function for cars? <2015-07-17 Fri 19:57>
+
+As explained, there are three concrete car parts, but car part visitor has
+only 2 two methods, i.e., it can only react to two of them (engines and
+wheels, but not cars).
 
 
 
