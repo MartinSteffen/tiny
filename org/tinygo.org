@@ -320,12 +320,14 @@ func Walk(v Visitor, node Node) {
 
 See also the ``client'' code. There are two things to do: define the
 visitor, and then using it, by passing it to the Walk function. In order to
-be a visitor, 
+be a visitor, it must satisfy the Visitor interface. The only thing
+required there is to implement the accept method. So it's the combination
+of both the data type plus the Visit-method that makes it to a visitor.
 
 
 #+begin_example
 
-type visitor chan *ast.Ident
+type visitor chan *ast.Ident   
 
 func (v visitor) Visit(n ast.Node) (w ast.Visitor) {
 	if ident, ok := n.(*ast.Ident); ok {
@@ -337,6 +339,11 @@ func (v visitor) Visit(n ast.Node) (w ast.Visitor) {
 
 #+end_example
 
+
+Note that the visitor is not even a struct, it's a channel (but I don't
+know what all is allowed. But indeed, it's some reference type that
+supports the Visit function. Also the receiver type, the argument type and
+the return type are as requested by the Visitor interface.
 
 
 #+begin_example
