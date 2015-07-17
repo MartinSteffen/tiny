@@ -233,7 +233,10 @@ be possible two, using only one single ~visit~-function, with then the
 types. If doing so, the ``dispatch'' to the different cases needs to by one
 inside (i.e., at the start) of the body of that method. That would be done
 /switching/ on the different options (with the help of the special form of
-/type assertions/, like ~y := cp.(type)~)
+/type assertions/, like ~y := cp.(type)~). In a way it would be a
+``hidden'' way of achieving the same --dispatch on the type argument-- as
+with method overloading (which we don't have in go).
+
 
 **** TODO Why is there no visit-function for cars? <2015-07-17 Fri 19:57>
 
