@@ -135,8 +135,9 @@ func idents(f *ast.File) <-chan *ast.Ident {
 
 The following is an analysis of the code found at
 https://gist.github.com/f0624e7760aacdc96b42.git. The structure is a bit
-different, in particular the data structure being visited (see the CarPart
-below) supports an accept function (which is ``standard'').
+different, in particular the data structure being visited (see for instance
+the interface =CarPart= below) supports an accept-function (which is
+``standard'').
 
 Let's start with the visitor interface.
 
@@ -159,15 +160,18 @@ that the =CarPartVisitor= interface requires /two/ visit-functions.  The
 intention is (indicated also by its name) that the =CarPartVisitor= is
 intended to visit car parts. However, car parts is only an interface, as
 well, i.e., it's abstract (see the next code snippet). Therefore, what is
-/concretely/ to be visited are instances of the ``/sub-classes/'' of
+/concretely/ to be visited are instances of the ``sub-classes'' of
 =CarPart=. Of course, there's no subclassing here. What matters is elements
-that match the =CarPart= interface:
+that match the =CarPart= ~CarPart~ interface:
 
 #+begin_example
 type CarPart interface {   
     Accept(CarPartVisitor) 
 }
 #+end_example
+So, that is the classic visitor structure: The data structure supports an
+accept function which takes the visitor as argument, and in term the
+visitor has a visit-function, which takes 
 
 
 *** DONE port it to ssh: change the url? <2015-07-17 Fri 08:47>
