@@ -287,6 +287,8 @@
 **** TODO add a visitor for staments <2015-07-17 Fri 09:59>
      What is uncear is how to escape to the other clauses. We have to see about that
 
+**** TODO do they have an example of a concrete visitor <2015-07-17 Fri 10:18>
+     Seems like in printer/printer_test.go there is one 
 **** TODO make already now a client code <2015-07-17 Fri 10:00>
      for early testing.
 

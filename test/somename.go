@@ -15,6 +15,9 @@ import ("fmt"
 	"github.com/MartinSteffen/tiny/ast")
 
 
+// If we want to make use if the visitor, which is basically a higher-order
+// function, we need to implement the visitor interface.
+
 
 
 func main () {
@@ -26,6 +29,8 @@ func main () {
 	
 	
 }
+
+
 
 
 
