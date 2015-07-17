@@ -275,6 +275,22 @@
      The visitor of go is flat.  My recursive function was not. So, I would
      like a similar design here.
 
+     In my file, there's a function there Print_<nonterminal> for all of
+     those. Probably, there'd b a visitor for all of those =>
+     
+     Let's make a visitor for all Print_X.
+
+     That would probably mean whe need a visitor interface for all the
+     phrases.
+
+
+**** TODO a
+
+**** TODO what would be the functional equivalent to a visitor, implement one <2015-07-17 Fri 09:42>     
+
+
+
+
      
 **** TODO how does the walk-thing go <2015-07-14 Tue 07:57>
 
