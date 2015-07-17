@@ -183,6 +183,7 @@ is) car parts are /defined/ as those elements which accept a car-part
 visitor!  That would some stucts, namely cars, engines, and wheels
 #+begin_example
 
+//------------------------- car part: wheel ---------
  
 type Wheel struct {
     Name string
@@ -192,7 +193,7 @@ func (this *Wheel) Accept(visitor CarPartVisitor) {
     visitor.visitWheel(this)
 }
 
-//----------------------------------
+//------------------------- car part: engine ---------
 
 type Engine struct {}
  
@@ -200,7 +201,7 @@ func (this *Engine) Accept(visitor CarPartVisitor) {
     visitor.visitEngine(this)
 }
  
-//----------------------------------
+//------------------------- car part: car ---------
 type Car struct {
     parts []CarPart
 }
@@ -224,9 +225,14 @@ func (this *Car) Accept(visitor CarPartVisitor) {
  
 #+end_example
 
+A side remark on the design: as mentioned above, the ~CarPartVisitor~
+support visit functions for two concrete car parts, namely wheels and
+engines, and they are called differently. I think a different design would
+be possible two, using only one single ~visit~-function
 
-#+begin_example
-#+end_example
+**** TODO Why is there no visit-function for cars? <2015-07-17 Fri 19:57>
+
+
 
 
 *** DONE port it to ssh: change the url? <2015-07-17 Fri 08:47>
