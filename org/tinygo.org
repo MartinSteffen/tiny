@@ -137,7 +137,10 @@ The following is an analysis of the code found at
 https://gist.github.com/f0624e7760aacdc96b42.git. The structure is a bit
 different, in particular the data structure being visited (see for instance
 the interface ~CarPart~ below) supports an accept-function (which is
-``standard'').
+``standard''). One distiguishes best between the code for the data
+structures (including the infrastructure to support ``visitors'') and the
+client code, that makes use of the stuff, i.e., that provides a /concrete/
+data structure, a /concrete/ visitor (and let it run).
 
 **** Data structures
 
