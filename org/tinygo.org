@@ -146,8 +146,6 @@ data structure, a /concrete/ visitor (and let it run).
 
 Let's start with the visitor interface.
 
-
-
 #+begin_example
 type CarPartVisitor interface {
     visitWheel(wheel *Wheel)
@@ -241,6 +239,8 @@ the same --dispatch on the type argument-- as with method overloading
 ~visit~-method.
 
 **** Client code
+
+So far everything was abstact, we have some infrastructure to run a ``fold''
 
 
 #+begin_example
