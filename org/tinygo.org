@@ -139,6 +139,8 @@ different, in particular the data structure being visited (see for instance
 the interface ~CarPart~ below) supports an accept-function (which is
 ``standard'').
 
+**** Data structures
+
 Let's start with the visitor interface.
 
 
@@ -234,6 +236,8 @@ inside (i.e., at the start) of the body of that method. That would be done
 the same --dispatch on the type argument-- as with method overloading
 (which we don't have in go) except that we'd actually had only one
 ~visit~-method.
+
+**** Client code
 
 
 #+begin_example
