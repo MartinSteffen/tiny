@@ -289,7 +289,18 @@
      
      Why I need is an visitor, that's done with make(visitor)
 
+
+
+***** TODO Analyze the Visitor_Stmt <2015-07-17 Fri 13:16>
+
+#+begin_example
+
+type Visitor_Stmt interface {
+
+	Accept (stmt Stmt) (w Visitor_Stmt)   // also called Visit 
+}
      
+#+end_example
 
 **** TODO check some other visitor examples <2015-07-17 Fri 12:22>
 
@@ -303,9 +314,11 @@
      CarPart is abstact, so there are no instances thereof.
 
 
+
+
 ***** TODO which are implementations (``substypes'') of CarPart <2015-07-17 Fri 12:53>
 
-      We have nominal subtyping 
+      We have nominal subtyping, so we need one with Accept
 
 
 

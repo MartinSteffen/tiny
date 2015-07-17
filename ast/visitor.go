@@ -34,15 +34,18 @@ import ("fmt")
 
 
 type Visitor_Stmt interface {
-	Visit (stmt Stmt) (w Visitor_Stmt)
+	Accept (stmt Stmt) (w Visitor_Stmt)   // also called Visit (1)
 }
 
+//  Here it has two ``arguments''. In other situations only the second
+//  argument (the visitor) occurs. What is strange is: why are below the
+//  arguments seemingly ``reversed''. In 
 
 
 func Walk_Stmt (v Visitor_Stmt, s Stmt) {
 	// we check for non-nil-ness of the visitor (not the statement). If
 	// the statement is nil, probably not good either. 
-	if v =v.Visit(s); v == nil {
+	if v =v.Accept(s); v == nil {
 		return
 	}
 	 	 switch s.(type) {
