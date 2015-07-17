@@ -158,7 +158,8 @@ number of differences, though. The first one is more superficial, namely
 that the CarPartVisitor interface required two visit-functions. But that's
 not central. But it should be noted, that the visitor, despite its name, is
 not supposed to directly visit elements of the type CarPart, at least not
-*directly*.
+_directly_. Let's first identify the car-parts. Being an inteface, there
+are no ``direct'' instances of CarPart.
 
 There are two differences 
 
