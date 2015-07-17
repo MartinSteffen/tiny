@@ -302,6 +302,42 @@ type Visitor_Stmt interface {
      
 #+end_example
 
+     It's taken from walk.go.  What's strange he is also how it is later
+     used, namely in the following form (at the beginning of the Walk, function): 
+
+
+#+begin_example
+
+func Walk(v Visitor, node Node) {
+	if v = v.Visit(node); v == nil {
+		return
+	}
+
+        ...
+
+#+end_example
+
+
+
+
+
+#+begin_example
+
+func idents(f *ast.File) <-chan *ast.Ident {
+	v := make(visitor)
+	go func() {
+		ast.Walk(v, f)    
+		close(v)
+	}()
+	return v
+}
+
+#+end_example     
+
+
+
+
+
 **** TODO check some other visitor examples <2015-07-17 Fri 12:22>
 
 
