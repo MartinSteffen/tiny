@@ -30,10 +30,7 @@
 
     git remote set-url origin git@github.com:USERNAME/OTHERREPOSITORY.git
 
-
-
-git remote set-url origin https://github.com/USERNAME/OTHERREPOSITORY.git
-
+    Take care: there's a ":"
 
 
 
