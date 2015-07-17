@@ -17,5 +17,6 @@ type Visitor interface {
 
 // The main function in that file is "Walk", which is the visitor
 // functionality. The visitor is invoked on a node of type "Node" which is
-// the catch-all interface for all nodes in the ast there.
+// the catch-all interface for all nodes in the ast there. Inside the
+// visitor, there's a flat switch over all 
 

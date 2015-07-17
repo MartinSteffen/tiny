@@ -14,6 +14,8 @@
 
 
 
+
+
 *** DONE add a Node to the ast.go <2015-07-17 Fri 09:12>
     CLOSED: [2015-07-17 Fri 09:18]
     :LOGBOOK:
@@ -267,7 +269,14 @@
       This one did not have problems.
 
 
-*** TODO how does the walk-thing go <2015-07-14 Tue 07:57>
+*** TODO make a visitor <2015-07-17 Fri 09:32>
+**** TODO can one make a less flat visitor <2015-07-17 Fri 09:33>
+
+     The visitor of go is flat.  My recursive function was not. So, I would
+     like a similar design here.
+
+     
+**** TODO how does the walk-thing go <2015-07-14 Tue 07:57>
 
     That's a kind of visitor. It imports the ast 
 
