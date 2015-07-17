@@ -287,6 +287,24 @@
 **** TODO add a visitor for staments <2015-07-17 Fri 09:59>
      What is uncear is how to escape to the other clauses. We have to see about that
 
+**** DONE is there also a _use_ of the concrete visitor <2015-07-17 Fri 10:36>
+     CLOSED: [2015-07-17 Fri 10:39]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-17 Fri 10:39]
+     :END:
+     Yes, the have
+
+#+being_example
+func idents(f *ast.File) <-chan *ast.Ident {
+	v := make(visitor)
+	go func() {
+		ast.Walk(v, f)
+		close(v)
+	}()
+	return v
+#+end_example
+
+
 **** DONE do they have an example of a concrete visitor <2015-07-17 Fri 10:18>
      CLOSED: [2015-07-17 Fri 10:22]
      :LOGBOOK:
