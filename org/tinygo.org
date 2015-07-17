@@ -344,7 +344,7 @@ type Visitor interface {
 #+end_example
 
 The Node is the catch-all type for all nodes of the ast (i.e., it is
-embedded into all the more concrete nodes.
+embedded into all the more concrete nodes).
 
 
  What's strange he is also how it is later used, namely in the following
