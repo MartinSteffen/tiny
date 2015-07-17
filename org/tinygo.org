@@ -14,6 +14,18 @@
 
 
 
+*** DONE add a Node to the ast.go <2015-07-17 Fri 09:12>
+    CLOSED: [2015-07-17 Fri 09:18]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-17 Fri 09:18]
+    :END:
+*** DONE visitor: where does the Node come from <2015-07-17 Fri 09:09>
+    CLOSED: [2015-07-17 Fri 09:12]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-17 Fri 09:12]
+    :END:
+    It's at least not in the same file, probably it's package wide
+    so it's in ast.go
 *** DONE make a better README.md <2015-07-16 Thu 09:54>
     CLOSED: [2015-07-17 Fri 08:24]
     :LOGBOOK:

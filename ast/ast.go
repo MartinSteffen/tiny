@@ -19,8 +19,24 @@ package ast
 // relatively easy.
 
 
+
+// The following node is currently added to make the vistitor compile. That
+// ast in the go compiler has a "Node" interface as well (with positioning
+// info) which is embedded in the rest of the structures.
+
+
+type Node interface {
+}
+
+
+
 // The following types need to be capitalized as they are needed
 // externally. Non-capitalized type declarations are ``private''. The same
+
+
+
+
+
 // holds for fields.
 
 type Symbol string      // might be replaced by something more efficient.
