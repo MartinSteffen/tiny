@@ -159,23 +159,14 @@ that the =CarPartVisitor= interface requires /two/ visit-functions.  The
 intention is (indicated also by its name) that the =CarPartVisitor= is
 intended to visit car parts. However, car parts is only an interface, as
 well, i.e., it's abstract (see the next code snippet). Therefore, what is
-/concretely/ to be visited are instances of the /``sub-classes''/ of
-=CarPart=. Of course 
-
-not central. But it should be noted, that the visitor, despite its name, is
-not supposed to directly visit elements of the type CarPart, at least not
-/directly/. Let's first identify the car-parts. Being an inteface, there
-are no ``direct'' instances of =CarPart=.
-
-There are two differences 
-
+/concretely/ to be visited are instances of the ``/sub-classes/'' of
+=CarPart=. Of course, there's no subclassing here. What matters is elements
+that match the =CarPart= interface:
 
 #+begin_example
- 
-type CarPart interface {   // CarPart not= CarPartVisitor
+type CarPart interface {   
     Accept(CarPartVisitor) 
 }
-
 #+end_example
 
 
