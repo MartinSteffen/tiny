@@ -172,7 +172,11 @@ type CarPart interface {
 So, that is the classic visitor structure: The data structure supports an
 accept function which takes the visitor as argument, and in term the
 visitor has a visit-function, which takes data-structures as argument,
-i.e., here ~CarPart~s.
+i.e., here ~CarPart~'s. Being abstract, the visit-function is /split/ into
+two cases, handling concrete car parts. Perhaps that is a (small) price to
+pay for the absence of /method overloading/ that we one has to choose two
+differnent names for the two visit-functions. With this kind of
+overloading, one might have gotten away with just calling both just ~visit~.
 
 
 *** DONE port it to ssh: change the url? <2015-07-17 Fri 08:47>
