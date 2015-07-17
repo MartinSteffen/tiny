@@ -284,9 +284,19 @@
      phrases.
 
 
-**** TODO a
+**** TODO add a visitor for staments <2015-07-17 Fri 09:59>
+     What is uncear is how to escape to the other clauses. We have to see about that
 
-**** TODO what would be the functional equivalent to a visitor, implement one <2015-07-17 Fri 09:42>     
+**** TODO make already now a client code <2015-07-17 Fri 10:00>
+     for early testing.
+
+**** DONE what would be the functional equivalent to a visitor, implement one <2015-07-17 Fri 09:42>
+     CLOSED: [2015-07-17 Fri 09:59]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-17 Fri 09:59]
+     :END:
+
+     move to the other repos
 
 
 

@@ -5,9 +5,6 @@ package ast
 
 // The first thing to have is the interface. This is modelled after the one
 // from the go language. 
-type Visitor interface {
-	Visit (node Node) (w Visitor)
-}
 
 
 // Next they had 3 functions (not methods) which they called "helper
@@ -25,5 +22,20 @@ type Visitor interface {
 // implementation, the way it's done is flat. This is specified via the
 // Visitor interface, which requires the Visit-function. In a way, it's not
 // so clear if it's a function or method, because the Visit is used in the
-// code in the form v.Visit(n), where n is a node.
+// code in the form v.Visit(n), where n is a node.  One problem we will get
+// is the non-flat structure. Below, there's the visitor, which visits a
+// statement. That's fine as it is, but we also want to visit other
+// stuff. Perhaps we need to introduce super-interfaces or stuff.
 
+
+
+
+
+type Visitor_Stmt interface {
+	Visit (stmt Stmt) (w Visitor_Stmt)
+}
+
+
+
+func Walk_Stmt (v Visitor_Stmt, s Stmt) {
+}
