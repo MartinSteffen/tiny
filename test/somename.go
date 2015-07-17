@@ -20,6 +20,18 @@ import ("fmt"
 
 
 
+
+type visitor int // orginally chan *ast.Ident
+
+
+// The following actually defines the function being iterated, I assume.
+
+
+func (v visitor) Visit(n ast.Stmt) (w ast.Visitor_Stmt) {
+	return v
+}
+
+
 func main () {
 	e1 :=    &ast.SIMPLEEXPR{&ast.TERM{&ast.FACTOR{&ast.NUMBER{1}}}}
 	s1 :=    &ast.ASSIGN{"x",e1}
