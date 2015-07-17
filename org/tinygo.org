@@ -272,6 +272,28 @@
 *** TODO analyze the other visitor <2015-07-17 Fri 15:07>
 
 
+The following seems a bit different. It also has a ``visit'' function and
+an ``accept'' function.
+
+#+begin_example
+
+type CarPartVisitor interface {
+    visitWheel(wheel *Wheel)
+    visitEngine(engine *Engine)
+}
+
+
+#+end_example
+
+
+#+begin_example
+ 
+type CarPart interface {
+    Accept(CarPartVisitor) 
+}
+
+#+end_example
+
  
 *** TODO make a visitor <2015-07-17 Fri 09:32>
 **** TODO can one make a less flat visitor <2015-07-17 Fri 09:33>
