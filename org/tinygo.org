@@ -155,11 +155,15 @@ type CarPartVisitor interface {
 
 The correspondent type in the ast is the ``Visitor'' interface. There are a
 number of differences, though. The first one is more superficial, namely
-that the CarPartVisitor interface required two visit-functions. But that's
+that the CarPartVisitor interface required two visit-functions.  The
+intention is (indicated also by its name) that the CarPartVisitor is
+intended to visit car parts. However, car parts is only an interface, as
+well, i.e., it's abstract (see the next code snippet). Therefore,
+
 not central. But it should be noted, that the visitor, despite its name, is
 not supposed to directly visit elements of the type CarPart, at least not
-_directly_. Let's first identify the car-parts. Being an inteface, there
-are no ``direct'' instances of CarPart.
+/directly/. Let's first identify the car-parts. Being an inteface, there
+are no ``direct'' instances of =CarPart=.
 
 There are two differences 
 
