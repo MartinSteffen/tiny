@@ -14,6 +14,7 @@
 
 
 
+
 *** DONE port it to ssh: change the url? <2015-07-17 Fri 08:47>
     CLOSED: [2015-07-17 Fri 08:50]
     :LOGBOOK:
@@ -34,6 +35,20 @@
 
 
 
+
+
+*** DONE add a Node to the ast.go <2015-07-17 Fri 09:12>
+    CLOSED: [2015-07-17 Fri 09:18]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-17 Fri 09:18]
+    :END:
+*** DONE visitor: where does the Node come from <2015-07-17 Fri 09:09>
+    CLOSED: [2015-07-17 Fri 09:12]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-17 Fri 09:12]
+    :END:
+    It's at least not in the same file, probably it's package wide
+    so it's in ast.go
 *** DONE make a better README.md <2015-07-16 Thu 09:54>
     CLOSED: [2015-07-17 Fri 08:24]
     :LOGBOOK:
@@ -275,7 +290,284 @@
       This one did not have problems.
 
 
-*** TODO how does the walk-thing go <2015-07-14 Tue 07:57>
+*** TODO analyze the other visitor <2015-07-17 Fri 15:07>
+
+
+The following seems a bit different. It also has a ``visit'' function and
+an ``accept'' function. It seems that one difference is: perhaps the
+ast-visitor was special isofar there was ``direct'' recursion.  But maybe
+not. Anyhow
+
+#+begin_example
+ 
+type CarPart interface {   // CarPart not= CarPartVisitor
+    Accept(CarPartVisitor) 
+}
+
+#+end_example
+
+ 
+
+
+#+begin_example
+
+type CarPartVisitor interface {
+    visitWheel(wheel *Wheel)
+    visitEngine(engine *Engine)
+}
+
+
+#+end_example
+
+
+*** TODO make a visitor <2015-07-17 Fri 09:32>
+**** TODO can one make a less flat visitor <2015-07-17 Fri 09:33>
+
+     The visitor of go is flat.  My recursive function was not. So, I would
+     like a similar design here.
+
+     In my file, there's a function there Print_<nonterminal> for all of
+     those. Probably, there'd b a visitor for all of those =>
+     
+     Let's make a visitor for all Print_X.
+
+     That would probably mean whe need a visitor interface for all the
+     phrases.
+
+
+**** TODO add a visitor for staments <2015-07-17 Fri 09:59>
+
+
+     What is uncear is how to escape to the other clauses. We have to see about that
+     
+     Why I need is an visitor, that's done with make(visitor)
+
+
+
+**** TODO Analyze the Visitor in the go compiler <2015-07-17 Fri 13:16>
+
+The visitor is contained in the ast-package (in the ast-directory). The
+code is mainly defined in walk.go.  But it's used in a different
+package. It's not clear if that is officially a visitor. One ingredient
+seems missing at least if one compares it to the visitor pattern as known,
+namely there is no accept method: typically, the data structure being
+visited has such a method, but the ast here does not. It could however be
+that one may use the word ``visitor'' more loosely, as any form of
+higher-order function that allows to iterate here through an inductively
+defined data structure, here the ast.
+
+#+begin_example
+
+type Visitor interface {
+	Visit (stmt Node) (w Visitor)   
+}
+     
+#+end_example
+
+The Node is the catch-all type for all nodes of the ast (i.e., it is
+embedded into all the more concrete nodes).
+
+
+ What's strange he is also how it is later used, namely in the following
+form (at the beginning of the Walk, function):
+
+
+#+begin_example
+
+func Walk(v Visitor, node Node) {
+	if v = v.Visit(node); v == nil {
+		return
+	}
+
+        ...
+
+#+end_example
+
+
+See also the ``client'' code. There are two things to do: define the
+visitor, and then using it, by passing it to the Walk function. In order to
+be a visitor, it must satisfy the Visitor interface. The only thing
+required there is to implement the accept method (here Visit). So it's the
+combination of both the data type plus the Visit-method that makes it to a
+visitor.
+
+
+#+begin_example
+
+type visitor chan *ast.Ident   
+
+func (v visitor) Visit(n ast.Node) (w ast.Visitor) {
+	if ident, ok := n.(*ast.Ident); ok {  // ``special assignment'' for type assertion, ok is a boolean
+		v <- ident  // send to channel v
+	}
+	return v
+}
+
+
+#+end_example
+
+
+Note that the visitor is not even a struct, it's a channel (but I don't
+know what all is allowed). But indeed, it's some reference type that
+supports the Visit function. Also the receiver type, the argument type and
+the return type are as requested by the Visitor interface. This
+``function'' (represented by the visitor-references is of type
+
+  Visitor .-> Node -> Visitor
+
+
+The syntax of the if-statement is not too transparent. the "<-" syntax can
+mean send or receive. But since on the left hand side there's a channel,
+it's send.  Now, ast.Ident is just one kind of node, and n.(*ast.Ident) is
+a type assertion. However, it's a ``special'' one because it's used in a
+special kind of assignment. In this case, not panic occurs.
+
+
+#+begin_example
+
+func idents(f *ast.File) <-chan *ast.Ident {
+	v := make(visitor)   // due to the above method, this results in a Visitor
+	go func() {
+		ast.Walk(v, f)    
+		close(v)
+	}()
+	return v
+}
+
+#+end_example     
+
+
+- First the interface: The "interface { ... }" is an interface type, the
+  whole thing is a type declaration.  Inside the braces it the method
+  specification. [It's a bit unclear why we can leave out ";" but ok]. The
+  next one is the method name Accept, and  the signature    
+
+                (stmt Stmt) (w Visitor)  
+
+  https://golang.org/ref/spec#Signature
+
+  This one is more stricky. The signature is of one of two forms:
+  Parameters or Parameters Results. The signatures are described in
+  connection with function types (there are examples). Even if not really
+  explaned, the Visitor is the return type.
+  
+
+  
+
+
+
+
+
+**** DONE why is an ``instance'' of visitor a Visitor <2015-07-17 Fri 14:10>
+     CLOSED: [2015-07-17 Fri 14:20]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-17 Fri 14:20]
+     :END:
+     the ast.Walk function requests 2 args (it's a function not a method)
+
+     The first argument is of type Visitor (not visitor), but we hand over
+     an element of type visitor.
+
+     Well, it ``glues'' a visitor function to it
+
+
+
+
+
+
+**** TODO check some other visitor examples <2015-07-17 Fri 12:22>
+
+
+     https://gist.github.com/francoishill/f0624e7760aacdc96b42
+
+     They use more standard "terminology", what's called "Visit" here is
+     called "Accept" there. It's not really an inductive structure, but
+     ok. They don't deal with channels.
+
+     CarPart is abstact, so there are no instances thereof.
+
+
+
+
+***** TODO which are implementations (``substypes'') of CarPart <2015-07-17 Fri 12:53>
+
+      We have nominal subtyping, so we need one with Accept
+
+
+
+     
+
+     carpart = 
+     
+
+**** TODO are the visitors the (only) way that the go books speak about higher-order programming? <2015-07-17 Fri 12:23>
+
+
+**** TODO what does make <2015-07-17 Fri 11:41>
+     one cannot do make (int) for instance 
+     
+     for slices, maps, channels
+
+    Unlike new, make's return type is the same as the type of its argument, 
+
+    But if make can be done for those things only, the question is what 
+    is the function-visitor? I don't think it's a slice. In the example it's
+
+
+**** DONE what's the type ov visitor? <2015-07-17 Fri 11:48>
+     CLOSED: [2015-07-17 Fri 11:49]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-17 Fri 11:49]
+     :END:
+     
+
+    ok, it's a channel
+
+      type visitor chan *ast.Ident
+
+      
+    
+    
+**** DONE is there also a _use_ of the concrete visitor <2015-07-17 Fri 10:36>
+     CLOSED: [2015-07-17 Fri 10:39]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-17 Fri 10:39]
+     :END:
+     Yes, the have
+
+#+begin_example
+func idents(f *ast.File) <-chan *ast.Ident {
+	v := make(visitor)
+	go func() {
+		ast.Walk(v, f)
+		close(v)
+	}()
+	return v
+#+end_example
+
+
+**** DONE do they have an example of a concrete visitor <2015-07-17 Fri 10:18>
+     CLOSED: [2015-07-17 Fri 10:22]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-17 Fri 10:22]
+     :END:
+     Seems like in printer/printer_test.go there is one 
+**** TODO make already now a client code <2015-07-17 Fri 10:00>
+     for early testing.
+
+**** DONE what would be the functional equivalent to a visitor, implement one <2015-07-17 Fri 09:42>
+     CLOSED: [2015-07-17 Fri 09:59]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-17 Fri 09:59]
+     :END:
+
+     move to the other repos
+
+
+
+
+     
+**** TODO how does the walk-thing go <2015-07-14 Tue 07:57>
 
    See 
 
