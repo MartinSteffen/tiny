@@ -257,6 +257,11 @@
 
 *** TODO how does the walk-thing go <2015-07-14 Tue 07:57>
 
+   See 
+
+    ~/Collectionofreposes/GITHGEXTERNALS/go/src/go/ast/
+
+
     That's a kind of visitor. It imports the ast 
 
     It does not seem to do much, it just walks through it. As expected it's
