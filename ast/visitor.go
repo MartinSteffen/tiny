@@ -35,12 +35,17 @@ import ("fmt")
 
 type Visitor_Stmt interface {
 	Accept (stmt Stmt) (w Visitor_Stmt)   // also called Visit (1)
+//	Accept (Stmt) (Visitor_Stmt)   
 }
 
-//  Here it has two ``arguments''. In other situations only the second
-//  argument (the visitor) occurs. What is strange is: why are below the
-//  arguments seemingly ``reversed''. In 
-
+// The Accept is a method, resp.\ the above is an interface type which
+// declares in particular the type for the Accept-methods. The part after
+// "Accept" is the signature of Accept, where stmt is the parameter, and
+// the (w Visitor_Stmt) is the return. Thus the signature is the functional
+// type Stmt -> Visitor_Stmt. Being a method, however, there is the first
+// implicit argument, as well, the receiver, so one might take as signature
+// Visitor_Stmt .-> Stmt -> Visitor_Stmt, where the first argument is
+// (necessarily?) passed with the dot notation as receiver.
 
 func Walk_Stmt (v Visitor_Stmt, s Stmt) {
 	// we check for non-nil-ness of the visitor (not the statement). If

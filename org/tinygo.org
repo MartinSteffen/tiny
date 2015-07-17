@@ -295,9 +295,9 @@
 
 #+begin_example
 
-type Visitor_Stmt interface {
+type Visitor_interface {
 
-	Accept (stmt Stmt) (w Visitor_Stmt)   // also called Visit 
+	Accept (stmt Stmt) (w Visitor)   // also called Visit 
 }
      
 #+end_example
@@ -335,6 +335,24 @@ func idents(f *ast.File) <-chan *ast.Ident {
 }
 
 #+end_example     
+
+
+- First the interface: The "interface { ... }" is an interface type, the
+  whole thing is a type declaration.  Inside the braces it the method
+  specification. [It's a bit unclear why we can leave out ";" but ok]. The
+  next one is the method name Accept, and  the signature    
+
+                (stmt Stmt) (w Visitor)  
+
+  https://golang.org/ref/spec#Signature
+
+  This one is more stricky. The signature is of one of two forms:
+  Parameters or Parameters Results. The signatures are described in
+  connection with function types (there are examples). Even if not really
+  explaned, the Visitor is the return type.
+  
+
+  
 
 
 

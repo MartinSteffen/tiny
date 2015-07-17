@@ -36,11 +36,13 @@ import ("fmt"
 // have dot
 
 
-type visitor chan *ast.Stmt
+type visitor chan *ast.Stmt  // it's not so clear of that's a confusing
+			     // name
 
 
 
 // The following actually defines the function being iterated, I assume.
+// Visit: visitor .-> Stmt -> Visitor_Stmt
 
 
 func (v visitor) Visit(n ast.Stmt) (w ast.Visitor_Stmt) {
