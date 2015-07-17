@@ -144,13 +144,10 @@ Let's start with the visitor interface.
 
 
 #+begin_example
-
 type CarPartVisitor interface {
     visitWheel(wheel *Wheel)
     visitEngine(engine *Engine)
 }
-
-
 #+end_example
 
 
@@ -233,10 +230,37 @@ be possible two, using only one single ~visit~-function, with then the
 types. If doing so, the ``dispatch'' to the different cases needs to by one
 inside (i.e., at the start) of the body of that method. That would be done
 /switching/ on the different options (with the help of the special form of
-/type assertions/, like ~y := cp.(type)~). In a way it would be a
-``hidden'' way of achieving the same --dispatch on the type argument-- as
-with method overloading (which we don't have in go). 
+/type assertions/, like ~y := cp.(type)~). It would be a way of achieving
+the same --dispatch on the type argument-- as with method overloading
+(which we don't have in go) except that we'd actually had only one
+~visit~-method.
 
+
+#+begin_example
+type GetMessageVisitor struct{
+    Messages []string
+}
+ 
+func (this *GetMessageVisitor) visitWheel(wheel *Wheel) {
+    this.Messages = append(this.Messages, fmt.Sprintf("Visiting the %v wheel\n", wheel.Name))
+}
+ 
+func (this *GetMessageVisitor) visitEngine(engine *Engine) {
+    this.Messages = append(this.Messages, fmt.Sprintf("Visiting engine\n"))
+}
+
+#+end_example
+
+
+#+begin_example
+func main() {
+    car := NewCar()
+    visitor := new(GetMessageVisitor)
+    car.Accept(visitor)
+    fmt.Println(visitor.Messages)
+}
+
+#+end_example
 
 **** TODO Why is there no ~visit~-function for cars? <2015-07-17 Fri 19:57>
 
