@@ -318,12 +318,28 @@ func Walk(v Visitor, node Node) {
 #+end_example
 
 
-See also the ``client'' code.
+See also the ``client'' code. There are two things to do: define the
+visitor, and then using it, by passing it to the Walk function. In order to
+be a visitor, 
 
 
 #+begin_example
 
 type visitor chan *ast.Ident
+
+func (v visitor) Visit(n ast.Node) (w ast.Visitor) {
+	if ident, ok := n.(*ast.Ident); ok {
+		v <- ident
+	}
+	return v
+}
+
+
+#+end_example
+
+
+
+#+begin_example
 
 func idents(f *ast.File) <-chan *ast.Ident {
 	v := make(visitor)
@@ -353,6 +369,23 @@ func idents(f *ast.File) <-chan *ast.Ident {
   
 
   
+
+
+
+
+
+**** DONE why is an ``instance'' of visitor a Visitor <2015-07-17 Fri 14:10>
+     CLOSED: [2015-07-17 Fri 14:20]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-17 Fri 14:20]
+     :END:
+     the ast.Walk function requests 2 args (it's a function not a method)
+
+     The first argument is of type Visitor (not visitor), but we hand over
+     an element of type visitor.
+
+     Well, it ``glues'' a visitor function to it
+
 
 
 
