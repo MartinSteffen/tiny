@@ -153,6 +153,15 @@ type CarPartVisitor interface {
 #+end_example
 
 
+The correspondent type in the ast is the ``Visitor'' interface. There are a
+number of differences, though. The first one is more superficial, namely
+that the CarPartVisitor interface required two visit-functions. But that's
+not central. But it should be noted, that the visitor, despite its name, is
+not supposed to directly visit elements of the type CarPart, at least not
+*directly*.
+
+There are two differences 
+
 
 #+begin_example
  
