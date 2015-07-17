@@ -19,9 +19,24 @@ import ("fmt"
 // function, we need to implement the visitor interface.
 
 
+//func idents(f *ast.File) <-chan *ast.Ident {
+//	v := make(visitor)
+//	go func() {
+//		ast.Walk(v, f)
+//		close(v)
+//	}()
+//	return v
 
 
-type visitor int // orginally chan *ast.Ident
+
+
+
+//type visitor int // orginally chan *ast.Ident In the example, the visitor
+// type is a channel (here a channel containing references to statements)
+
+
+type visitor chan *ast.Stmt
+
 
 
 // The following actually defines the function being iterated, I assume.
@@ -37,7 +52,9 @@ func main () {
 	s1 :=    &ast.ASSIGN{"x",e1}
 	ast.Print_Expr(e1)
 	ast.Print_Stmt(s1)
-	fmt.Println(";")
+	fmt.Println("---")
+	v:=make(visitor)
+
 	
 	
 }

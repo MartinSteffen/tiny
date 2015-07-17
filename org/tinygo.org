@@ -286,7 +286,34 @@
 
 **** TODO add a visitor for staments <2015-07-17 Fri 09:59>
      What is uncear is how to escape to the other clauses. We have to see about that
+     
+     Why I need is an visitor, that's done with make(visitor)
 
+     
+
+**** TODO what does make <2015-07-17 Fri 11:41>
+     one cannot do make (int) for instance 
+     
+     for slices, maps, channels
+
+    Unlike new, make's return type is the same as the type of its argument, 
+
+    But if make can be done for those things only, the question is what 
+    is the function-visitor? I don't think it's a slice. In the example it's
+
+
+**** DONE what's the type ov visitor? <2015-07-17 Fri 11:48>
+     CLOSED: [2015-07-17 Fri 11:49]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-17 Fri 11:49]
+     :END:
+     
+
+    ok, it's a channel
+
+      type visitor chan *ast.Ident
+    
+    
 **** DONE is there also a _use_ of the concrete visitor <2015-07-17 Fri 10:36>
      CLOSED: [2015-07-17 Fri 10:39]
      :LOGBOOK:
