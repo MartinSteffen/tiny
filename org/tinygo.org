@@ -14,6 +14,29 @@
 
 
 
+*** DONE port it to ssh: change the url? <2015-07-17 Fri 08:47>
+    CLOSED: [2015-07-17 Fri 08:50]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-17 Fri 08:50]
+    :END:
+
+
+    git remote -v 
+
+    Currently origin	https://github.com/MartinSteffen/tiny (fetch)
+              origin	https://github.com/MartinSteffen/tiny (push)
+
+
+
+    git remote set-url origin git@github.com:USERNAME/OTHERREPOSITORY.git
+
+
+
+git remote set-url origin https://github.com/USERNAME/OTHERREPOSITORY.git
+
+
+
+
 *** DONE make a better README.md <2015-07-16 Thu 09:54>
     CLOSED: [2015-07-17 Fri 08:24]
     :LOGBOOK:
