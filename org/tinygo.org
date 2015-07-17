@@ -178,6 +178,47 @@ pay for the absence of /method overloading/ that we one has to choose two
 differnent names for the two visit-functions. With this kind of
 overloading, one might have gotten away with just calling both just ~visit~.
 
+Now, as mentioned, with duck typing (and the ~CarPart~-interface given as
+is) car parts are /defined/ as those elements which accept a car-part
+visitor!  That would some stucts, namely cars
+#+begin_example
+type Car struct {
+    parts []CarPart
+}
+
+type Engine struct {}
+ 
+func (this *Engine) Accept(visitor CarPartVisitor) {
+    visitor.visitEngine(this)
+}
+ 
+type Car struct {
+    parts []CarPart
+}
+ 
+func NewCar() *Car {
+    this := new(Car)
+    this.parts = []CarPart{
+        &Wheel{"front left"},
+        &Wheel{"front right"},
+        &Wheel{"rear right"},
+        &Wheel{"rear left"},
+        &Engine{}}
+    return this
+}
+ 
+func (this *Car) Accept(visitor CarPartVisitor) {
+    for _, part := range this.parts {
+        part.Accept(visitor)
+    }
+}
+ 
+#+end_example
+
+
+#+begin_example
+#+end_example
+
 
 *** DONE port it to ssh: change the url? <2015-07-17 Fri 08:47>
     CLOSED: [2015-07-17 Fri 08:50]
