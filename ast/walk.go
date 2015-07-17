@@ -37,9 +37,13 @@ func Print_Ident(i Ident) {fmt.Print(i)}  // unclear why I can't use Print_Symbo
 
 func Print_Program (p Program) {
 	fmt.Println("Program( ");
-	Print_Stmt (p)            // no constructor here Program  = Stmt (currently)
+	Print_StmtList (p)
 	fmt.Println(" )");
 }
+
+
+func Print_StmtList (sl [] Stmt) {
+	for _,s := range sl {Print_Stmt (s) }}
 
 func  Print_Stmt (s Stmt) {  // *Stmt won't work, the * must be at the constructors
  	 switch sw := s.(type) {
@@ -47,9 +51,9 @@ func  Print_Stmt (s Stmt) {  // *Stmt won't work, the * must be at the construct
 		 fmt.Println("IF" )
 		 Print_Expr(sw.E)
 		 fmt.Println(" THEN " )
-		 Print_Stmt(sw.SL1)
+		 Print_StmtList (sw.SL1)
 		 fmt.Println(" ELSE  " )
-		 Print_Stmt(sw.SL2)
+		 Print_StmtList(sw.SL2)
 	 case *READ:
 		 fmt.Println("READ" )
 		 Print_Ident(sw.I)
@@ -60,7 +64,7 @@ func  Print_Stmt (s Stmt) {  // *Stmt won't work, the * must be at the construct
 		 fmt.Println(" " )
 	 case *REPEAT:
 		 fmt.Println("REPEAT" )
-		 Print_Stmt(sw.SL)
+		 Print_StmtList(sw.SL)
 		 Print_Expr(sw.C)
 		 fmt.Println(" " )
 	 case *ASSIGN:

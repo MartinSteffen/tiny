@@ -14,9 +14,17 @@
 
 
 
-*** TODO make a better README.md <2015-07-16 Thu 09:54> 
+*** DONE make a better README.md <2015-07-16 Thu 09:54>
+    CLOSED: [2015-07-17 Fri 08:24]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-17 Fri 08:24]
+    :END:
      see http://stackoverflow.com/questions/8655937/github-readme-and-readme-md
-*** TODO can one open a package <2015-07-16 Thu 08:11>
+*** DONE can one open a package <2015-07-16 Thu 08:11>
+    CLOSED: [2015-07-17 Fri 08:25]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-17 Fri 08:25]
+    :END:
 
     This one is not nice
 
@@ -256,7 +264,18 @@
     visitor. That's the ``functional'' argument.
 
 
-*** TODO can I make use of that function in the test thing? <2015-07-16 Thu 14:35>
+*** DONE How to make an iterator over slices <2015-07-17 Fri 07:57>
+    CLOSED: [2015-07-17 Fri 08:23]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-17 Fri 08:23]
+    :END:
+    See page 154: a read-only access: with range 
+
+*** DONE can I make use of that function in the test thing? <2015-07-16 Thu 14:35>
+    CLOSED: [2015-07-17 Fri 07:57]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-17 Fri 07:57]
+    :END:
 *** TODO make the print-out at least a bit readable <2015-07-16 Thu 14:34>
 *** TODO make a running program making use of a program <2015-07-14 Tue 12:16>
 **** DONE in the parser: how are the nodes created <2015-07-14 Tue 11:38>
@@ -525,7 +544,11 @@ ast. That should very much determine the tree, because it's a tree.
 
 
 *** TODO make a sample program <2015-07-16 Thu 12:25>
-*** TODO re-add the slices again and iterate over them <2015-07-16 Thu 12:21>
+*** DONE re-add the slices again and iterate over them <2015-07-16 Thu 12:21>
+    CLOSED: [2015-07-17 Fri 08:24]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-17 Fri 08:24]
+    :END:
 *** DONE export the print statements <2015-07-16 Thu 12:17>
     CLOSED: [2015-07-16 Thu 12:18]
     :LOGBOOK:
