@@ -273,7 +273,20 @@
 
 
 The following seems a bit different. It also has a ``visit'' function and
-an ``accept'' function.
+an ``accept'' function. It seems that one difference is: perhaps the
+ast-visitor was special isofar there was ``direct'' recursion.  But maybe
+not. Anyhow
+
+#+begin_example
+ 
+type CarPart interface {   // CarPart not= CarPartVisitor
+    Accept(CarPartVisitor) 
+}
+
+#+end_example
+
+ 
+
 
 #+begin_example
 
@@ -286,15 +299,6 @@ type CarPartVisitor interface {
 #+end_example
 
 
-#+begin_example
- 
-type CarPart interface {
-    Accept(CarPartVisitor) 
-}
-
-#+end_example
-
- 
 *** TODO make a visitor <2015-07-17 Fri 09:32>
 **** TODO can one make a less flat visitor <2015-07-17 Fri 09:33>
 
@@ -311,13 +315,25 @@ type CarPart interface {
 
 
 **** TODO add a visitor for staments <2015-07-17 Fri 09:59>
+
+
      What is uncear is how to escape to the other clauses. We have to see about that
      
      Why I need is an visitor, that's done with make(visitor)
 
 
 
-***** TODO Analyze the Visitor_Stmt <2015-07-17 Fri 13:16>
+**** TODO Analyze the Visitor in the go compiler <2015-07-17 Fri 13:16>
+
+The visitor is contained in the ast-package (in the ast-directory). The
+code is mainly defined in walk.go.  But it's used in a different
+package. It's not clear if that is officially a visitor. One ingredient
+seems missing at least if one compares it to the visitor pattern as known,
+namely there is no accept method: typically, the data structure being
+visited has such a method, but the ast here does not. It could however be
+that one may use the word ``visitor'' more loosely, as any form of
+higher-order function that allows to iterate here through an inductively
+defined data structure, here the ast.
 
 #+begin_example
 
