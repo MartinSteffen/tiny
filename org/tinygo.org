@@ -291,6 +291,32 @@
 
      
 
+**** TODO check some other visitor examples <2015-07-17 Fri 12:22>
+
+
+     https://gist.github.com/francoishill/f0624e7760aacdc96b42
+
+     They use more standard "terminology", what's called "Visit" here is
+     called "Accept" there. It's not really an inductive structure, but
+     ok. They don't deal with channels.
+
+     CarPart is abstact, so there are no instances thereof.
+
+
+***** TODO which are implementations (``substypes'') of CarPart <2015-07-17 Fri 12:53>
+
+      We have nominal subtyping 
+
+
+
+     
+
+     carpart = 
+     
+
+**** TODO are the visitors the (only) way that the go books speak about higher-order programming? <2015-07-17 Fri 12:23>
+
+
 **** TODO what does make <2015-07-17 Fri 11:41>
      one cannot do make (int) for instance 
      
@@ -312,6 +338,8 @@
     ok, it's a channel
 
       type visitor chan *ast.Ident
+
+      
     
     
 **** DONE is there also a _use_ of the concrete visitor <2015-07-17 Fri 10:36>

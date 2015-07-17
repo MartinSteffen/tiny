@@ -31,8 +31,9 @@ import ("fmt"
 
 
 
-//type visitor int // orginally chan *ast.Ident In the example, the visitor
-// type is a channel (here a channel containing references to statements)
+// Originally chan *ast.Ident In the example, the visitor type is a channel
+// (here a channel containing references to statements). Later below, we
+// have dot
 
 
 type visitor chan *ast.Stmt
@@ -54,6 +55,7 @@ func main () {
 	ast.Print_Stmt(s1)
 	fmt.Println("---")
 	v:=make(visitor)
+	ast.Walk_Stmt(v,f)
 
 	
 	
