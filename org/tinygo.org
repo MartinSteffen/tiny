@@ -228,7 +228,11 @@ func (this *Car) Accept(visitor CarPartVisitor) {
 A side remark on the design: as mentioned above, the ~CarPartVisitor~
 support visit functions for two concrete car parts, namely wheels and
 engines, and they are called differently. I think a different design would
-be possible two, using only one single ~visit~-function
+be possible two, using only one single ~visit~-function, with then the
+/abstract/ ~CarPart~ as type of the parameter, not the concrete struct
+types. If doing so, the ``dispatch'' to the different cases needs to by one
+inside (i.e., at the start) of the body of that method. That would be done
+/switching/ on 
 
 **** TODO Why is there no visit-function for cars? <2015-07-17 Fri 19:57>
 
