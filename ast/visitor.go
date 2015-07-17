@@ -2,6 +2,7 @@
 // one can have client code in a different package. 
 
 package ast
+import ("fmt")
 
 // The first thing to have is the interface. This is modelled after the one
 // from the go language. 
@@ -43,4 +44,13 @@ func Walk_Stmt (v Visitor_Stmt, s Stmt) {
 	if v =v.Visit(s); v == nil {
 		return
 	}
+	 	 switch s.(type) {
+		 case *IF:
+			 fmt.Println("S")
+		 case *READ:
+		 case *WRITE:
+		 case *REPEAT:
+		 case *ASSIGN:
+		 default:  	 
+	 }
 }
