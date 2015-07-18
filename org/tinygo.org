@@ -349,6 +349,14 @@ done here.
 
 
 
+*** TODO duck typing  ``marker'' functions: accept <2015-07-18 Sat 13:45>
+
+    Currently the subtyping is done by some marker functions. Now that
+    we have the accept functions: do the make the older name based markers
+    superfluous?
+
+    Currently we leave them in, we experiment with it later 
+*** TODO add the argument to the accept functions for statements <2015-07-18 Sat 14:13>
 *** DONE port it to ssh: change the url? <2015-07-17 Fri 08:47>
     CLOSED: [2015-07-17 Fri 08:50]
     :LOGBOOK:
@@ -641,7 +649,11 @@ done here.
 
       Ok, the latter one does not work, because it _needs to be done for
       the Stmt interface. It may be possible
-**** TODO can one make a less flat visitor <2015-07-17 Fri 09:33>
+**** DONE can one make a less flat visitor <2015-07-17 Fri 09:33>
+     CLOSED: [2015-07-18 Sat 14:14]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 14:14]
+     :END:
 
      The visitor of go is flat.  My recursive function was not. So, I would
      like a similar design here.
@@ -654,8 +666,13 @@ done here.
      That would probably mean whe need a visitor interface for all the
      phrases.
 
+     Yes, it seems easily possible
 
-**** TODO add a visitor for staments <2015-07-17 Fri 09:59>
+**** DONE add a visitor for staments <2015-07-17 Fri 09:59>
+     CLOSED: [2015-07-18 Sat 14:14]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 14:14]
+     :END:
 
 
      What is uncear is how to escape to the other clauses. We have to see about that
@@ -682,7 +699,11 @@ done here.
 
 
 
-**** TODO check some other visitor examples <2015-07-17 Fri 12:22>
+**** DONE check some other visitor examples <2015-07-17 Fri 12:22>
+     CLOSED: [2015-07-18 Sat 14:14]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 14:14]
+     :END:
 
 
      https://gist.github.com/francoishill/f0624e7760aacdc96b42
@@ -696,7 +717,11 @@ done here.
 
 
 
-***** TODO which are implementations (``substypes'') of CarPart <2015-07-17 Fri 12:53>
+***** DONE which are implementations (``substypes'') of CarPart <2015-07-17 Fri 12:53>
+      CLOSED: [2015-07-18 Sat 14:14]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-18 Sat 14:14]
+      :END:
 
       We have nominal subtyping, so we need one with Accept
 
@@ -710,7 +735,11 @@ done here.
 **** TODO are the visitors the (only) way that the go books speak about higher-order programming? <2015-07-17 Fri 12:23>
 
 
-**** TODO what does make <2015-07-17 Fri 11:41>
+**** DONE what does make <2015-07-17 Fri 11:41>
+     CLOSED: [2015-07-18 Sat 14:15]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 14:15]
+     :END:
      one cannot do make (int) for instance 
      
      for slices, maps, channels
@@ -719,6 +748,8 @@ done here.
 
     But if make can be done for those things only, the question is what 
     is the function-visitor? I don't think it's a slice. In the example it's
+    a channel. It's not necessary connected with the thing we are after.
+    IT's just one specific visitor
 
 
 **** DONE what's the type ov visitor? <2015-07-17 Fri 11:48>
@@ -759,7 +790,11 @@ func idents(f *ast.File) <-chan *ast.Ident {
      - State "DONE"       from "TODO"       [2015-07-17 Fri 10:22]
      :END:
      Seems like in printer/printer_test.go there is one 
-**** TODO make already now a client code <2015-07-17 Fri 10:00>
+**** DONE make already now a client code <2015-07-17 Fri 10:00>
+     CLOSED: [2015-07-18 Sat 14:15]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 14:15]
+     :END:
      for early testing.
 
 **** DONE what would be the functional equivalent to a visitor, implement one <2015-07-17 Fri 09:42>

@@ -75,13 +75,20 @@ type (
 // To achieve that IF etc are indeed concetizations of the Stmt
 // abstraction, we need to bind the methods, required by the interface, to
 // it. Currently that is stmt_Node (which may be removed after a while) and
-// the ~Accept~ function.
+// the Accept function.  
 
 func (*IF) stmt_Node() {}
 func (*READ) stmt_Node() {}
 func (*WRITE) stmt_Node() {}
 func (*REPEAT) stmt_Node() {}
 func (*ASSIGN) stmt_Node() {}
+
+//----------------------------------------------------
+func (*IF) Accept() {}
+func (*READ) Accept() {}
+func (*WRITE) Accept() {}
+func (*REPEAT) Accept() {}
+func (*ASSIGN) Accept() {}
 
 
 //--------------------------------------------------------
