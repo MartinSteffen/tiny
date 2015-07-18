@@ -144,7 +144,19 @@ data structure, a /concrete/ visitor (and let it run).
 
 **** Data structures
 
-Let's start with the visitor interface.
+Let's start with the data structure itself, the car parts: 
+
+#+begin_example
+type CarPart interface {   
+    Accept(CarPartVisitor) 
+}
+#+end_example
+
+
+The data structure is /abstract/, just an interface. Crucial is the
+presence of an accept-method, that accepts the corresponding visitor, with
+the following  interface ~CarPartVisitor~:
+
 
 #+begin_example
 type CarPartVisitor interface {
@@ -164,11 +176,7 @@ well, i.e., it's abstract (see the next code snippet). Therefore, what is
 ~CarPart~. Of course, there's no subclassing here. What matters is elements
 that match the ~CarPart~ interface:
 
-#+begin_example
-type CarPart interface {   
-    Accept(CarPartVisitor) 
-}
-#+end_example
+
 So, that is the classic visitor structure: The data structure supports an
 accept function which takes the visitor as argument, and in term the
 visitor has a visit-function, which takes data-structures as argument,
@@ -240,7 +248,7 @@ the same --dispatch on the type argument-- as with method overloading
 
 **** Client code
 
-So far everything was abstact, we have some infrastructure to run a ``fold''
+So far everything was abstact, we have some infrastructure to run a ``fold''. 
 
 
 #+begin_example
