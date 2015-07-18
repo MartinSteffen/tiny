@@ -255,7 +255,12 @@ the same --dispatch on the type argument-- as with method overloading
 Note finally: there are /three/ concrete types (i.e., record types) which
 are car parts (namely those which support the accept method), wheels,
 engines, but also cars themselves. However, the visitor ~CarPartVisitor~
-covers only the wheels and the engine.
+covers only the wheels and the engine. The reason is: one ~Car~ already has
+a kind of ``visitor'' functionality in the following sense: the car
+basically a ``list'' of car-parts (as a slice). For slices, there is
+already an official iteration pattern, the for-loop in connection with the
+range-construct. So, this part of the data structure is ``iterated over''
+not with the ``visit/accept'' pattern.
 
 **** Client code
 
@@ -358,6 +363,7 @@ wheels, but not cars).
 
 
 
+*** TODO just make a functional implementation, to make the types clearer <2015-07-18 Sat 09:02>
 *** DONE capitalize the rest in ast <2015-07-16 Thu 09:03>
     CLOSED: [2015-07-16 Thu 09:09]
     :LOGBOOK:
