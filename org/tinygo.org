@@ -299,15 +299,24 @@ func main() {
 
 #+end_example
 
-**** TODO Why is there no ~visit~-function for cars? <2015-07-17 Fri 19:57>
-     CLOSED: [2015-07-18 Sat 08:51]
+**** An equivalent functional data structure
+
+**** DONE Why is there no ~visit~-function for cars? <2015-07-17 Fri 19:57>
+     CLOSED: [2015-07-18 Sat 11:15]
      :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 11:15]
      - State "DONE"       from "TODO"       [2015-07-18 Sat 08:51]
      :END:
 
 As explained, there are three concrete car parts, but car part visitor has
 only 2 two methods, i.e., it can only react to two of them (engines and
-wheels, but not cars).
+wheels, but not cars). It's because the car (which is strangely also a car
+part), is nothing else than a ``list'' in the form of a slice. A visitor is
+supposed to iterate through that thing. But 1) a slice is not a car part
+insofar it does not support an ``accept'' method (but cars
+do). Furthermore, 2) there is an official way to iterate through a slice,
+that's the for-loop in connection with the range-construct. That's what's
+done here.
 
 
 
