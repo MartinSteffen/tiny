@@ -49,7 +49,7 @@ type Program    [] Stmt
 
 type Visitor interface {
 	visit_Stmt ()
-	visit_Expr ()
+	visit_Expr (e Expr)
 }
 
 type  Stmt_Visitor interface {
@@ -93,7 +93,7 @@ func (*ASSIGN) stmt_Node() {}
 
 func (this *IF) Accept(visitor Visitor) {
 	e:= this.E
-	visitor.visit_Expr(this)
+	visitor.visit_Expr (e)  // dispatch
 	fmt.Println(e)
 	return 
 }
