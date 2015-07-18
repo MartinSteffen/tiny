@@ -42,8 +42,11 @@ type Program    [] Stmt
 //--------------------------------------------------------
 
 
+
+type  Stmt_Visitor interface {}
 type Stmt interface {
 	stmt_Node ()
+	Accept (Stmt_Visitor)
 }
 
 type (
