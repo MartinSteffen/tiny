@@ -42,10 +42,20 @@ type Program    [] Stmt
 //--------------------------------------------------------
 
 
+// The visitor must implement an ``visit'' function for all
+// ``constructors''. In the file here I made the convention that
+// constructors are all-capitals. The corresponding visitors are called
+// visit_<CONSTRUCTOR>.
 
-type  Stmt_Visitor interface {}
+type  Stmt_Visitor interface {
+	visit_IF     (is *IF)
+	visit_READ   (rs *READ)
+	visit_REPEAT (rs *REPEAT)
+	visit_ASSIGN (ss *REPEAT)
+}
+
 type Stmt interface {
-	stmt_Node ()
+	stmt_Node ()             // it might be that this is no longer needed
 	Accept (Stmt_Visitor)
 }
 
@@ -61,6 +71,11 @@ type (
 
 )
 
+
+// To achieve that IF etc are indeed concetizations of the Stmt
+// abstraction, we need to bind the methods, required by the interface, to
+// it. Currently that is stmt_Node (which may be removed after a while) and
+// the ~Accept~ function.
 
 func (*IF) stmt_Node() {}
 func (*READ) stmt_Node() {}
