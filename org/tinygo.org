@@ -312,7 +312,20 @@ would allow that cars could contains cars as parts, which would add an
 element of recursive definition here. But that's not intended,
 pragmatically at least. So the only recursive part here, which is the
 slice, is not actually solved following the accept/visit-structure of the
-visitor pattern. Instead
+visitor pattern. Instead, the slice is iterated over using the for-loop in
+connection with the range-construct. Anyhow, the data type in a
+functional/inductive representation looks as follows, where I use list as
+replacement for the slice in go:
+
+#+begin_example
+   type carpart = 
+     | Engine of unit 
+     | Wheel of string
+
+
+   type car = carpart list  
+#+end_example
+
 
 **** DONE Why is there no ~visit~-function for cars? <2015-07-17 Fri 19:57>
      CLOSED: [2015-07-18 Sat 11:15]
