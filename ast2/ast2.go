@@ -55,6 +55,7 @@ type (
 	WRITE struct {E Expr}
 	REPEAT struct {SL [] Stmt; C Expr}  // slice
 	ASSIGN struct {I Ident; E Expr}
+
 )
 
 
@@ -63,6 +64,7 @@ func (*READ) stmt_Node() {}
 func (*WRITE) stmt_Node() {}
 func (*REPEAT) stmt_Node() {}
 func (*ASSIGN) stmt_Node() {}
+
 
 //--------------------------------------------------------
 

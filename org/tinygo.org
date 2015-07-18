@@ -633,7 +633,8 @@ done here.
     original ``package'' untouched. But at least the file. I am pretty sure
     that one cannot define it outside the package.
 
-    
+***** TODO try to add an Accept method to Stmt <2015-07-18 Sat 12:09>
+      To figure out if I can do it in the same package but different file.
 **** TODO can one make a less flat visitor <2015-07-17 Fri 09:33>
 
      The visitor of go is flat.  My recursive function was not. So, I would
