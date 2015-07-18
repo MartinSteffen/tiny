@@ -628,6 +628,12 @@ done here.
 
 *** TODO make a visitor <2015-07-17 Fri 09:32>
 *** TODO make a visit/accept visitor here <2015-07-18 Sat 11:41>
+**** TODO can one make the additional infra-structure in a sep. file <2015-07-18 Sat 12:01>
+     It still would not solve the problem, I assume, that one let the
+    original ``package'' untouched. But at least the file. I am pretty sure
+    that one cannot define it outside the package.
+
+    
 **** TODO can one make a less flat visitor <2015-07-17 Fri 09:33>
 
      The visitor of go is flat.  My recursive function was not. So, I would
