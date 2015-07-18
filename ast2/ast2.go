@@ -50,18 +50,14 @@ type Program     Stmt     // slice
 
 
 
-type  Stmt_Visitor interface {
-	visit_IF     (is *IF)
-	visit_READ   (rs *READ)
-	visit_REPEAT (rs *REPEAT)
-	visit_ASSIGN (ss *REPEAT)
-}
+
+
 
 type Stmt interface {
 	stmt_Node ()             // it might be that this is no longer needed
 	Accept (Stmt_Visitor)
 }
-
+// A couple of structs
 type (
 	IF struct {E Expr
 		SL1   Stmt  // slice
@@ -86,11 +82,9 @@ func (*WRITE) stmt_Node() {}
 func (*REPEAT) stmt_Node() {}
 func (*ASSIGN) stmt_Node() {}
 
-//----------------------------------------------------
-
 
 func (this *IF) Accept(visitor Stmt_Visitor) {
-	visitor.visit_IF (this)
+	visitor.visit_IF (this) 
 }
 
 
@@ -109,6 +103,15 @@ func (*WRITE) Accept() {}
 func (*REPEAT) Accept() {}
 func (*ASSIGN) Accept() {}
 
+
+//----------------------------------------------------
+
+type  Stmt_Visitor interface {
+	visit_IF     (is *IF) 
+	visit_READ   (rs *READ)
+	visit_REPEAT (rs *REPEAT)
+	visit_ASSIGN (ss *REPEAT)
+}
 
 //--------------------------------------------------------
 
@@ -173,14 +176,49 @@ func (*NUMBER) factor_Node() {}
 
 
 
-type GetMessageVisitor struct{
+type Visitor struct{
     Messages []string
 }
- 
-func (this *GetMessageVisitor) visit_IF(i *IF) {
-    this.Messages = append(this.Messages, 
-	    fmt.Sprintf("Visiting IF\n"))
+
+func (this *Visitor) visit_Expr (e Expr) {
+	switch e.(type) {
+	case *SIMPLEEXPR:
+		fmt.Println("")
+	}
+	
+	
+} 
+
+
+
+func (this *Visitor) visit_Stmt (s Stmt) {
+	switch x := s.(type){
+	case *IF:
+		fmt.Println("")
+		this.visit_Expr (x.E)
+		this.visit_Stmt (x.SL1)
+		this.visit_Stmt (x.SL2)
+	}
 }
+
+ 
+func (this *Visitor) visit_IF(i *IF) {
+	this.Messages = append(this.Messages,   // collect the stuff
+		fmt.Sprintf("Visiting IF\n"))
+	fmt.Println(i.E)
+ 	e  := i.E
+ 	s1 := i.SL1
+ 	s2 := i.SL2
+ 	this.visit_Expr (e)  // dispatch
+ 	this.visit_Stmt (s1)  // dispatch
+ 	this.visit_Stmt (s2)  // dispatch
+	
+}
+
+
+
+// That's a stupid mix of styles. 
+
 
 
 

@@ -637,6 +637,19 @@ done here.
 *** TODO external visitor via embedding or wrappers or something? <2015-07-18 Sat 12:21>
     is that possible? Currently I did not do that, just a more direct implementation
 
+*** TODO [#A]  add recursion <2015-07-18 Sat 17:41>
+
+    I think that's the piece which is missing.
+
+**** TODO where should it be added (see the go ast walker) <2015-07-18 Sat 17:46>
+
+     type Visitor interface {
+	Visit (stmt Node) (w Visitor)   
+}  
+
+   The visitor is the return. But there is no accept 
+***** TODO give back a tuple? is that ok? <2015-07-18 Sat 17:53>
+    
 *** TODO make a visitor <2015-07-17 Fri 09:32>
 *** TODO make a visit/accept visitor here <2015-07-18 Sat 11:41>
 **** TODO can one make the additional infra-structure in a sep. file <2015-07-18 Sat 12:01>
