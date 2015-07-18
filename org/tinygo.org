@@ -196,7 +196,7 @@ visitor!  That would some stucts, namely cars, engines, and wheels
 }
  
 func (this *Wheel) Accept(visitor CarPartVisitor) {
-    visitor.visitWheel(this)
+    visitor.visitWheel(this)   ``function application'' via call-back
 }
 
 //------------------------- car part: engine ---------
@@ -204,7 +204,7 @@ func (this *Wheel) Accept(visitor CarPartVisitor) {
 type Engine struct {}
  
 func (this *Engine) Accept(visitor CarPartVisitor) {
-    visitor.visitEngine(this)
+    visitor.visitEngine(this)   // ``function application'' via call-back
 }
  
 //------------------------- car part: car ---------
