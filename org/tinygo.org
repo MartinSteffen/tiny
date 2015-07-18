@@ -260,7 +260,10 @@ a kind of ``visitor'' functionality in the following sense: the car
 basically a ``list'' of car-parts (as a slice). For slices, there is
 already an official iteration pattern, the for-loop in connection with the
 range-construct. So, this part of the data structure is ``iterated over''
-not with the ``visit/accept'' pattern.
+not with the ``visit/accept'' pattern. Besides that: it is not really clean
+design that cars are also car part (no just because in ``real life'' it
+sounds strange). In an inductive definition or in a functional language,
+the type of cars would not be ``merged'' with that of its parts.
 
 **** Client code
 
