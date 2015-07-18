@@ -649,6 +649,38 @@ done here.
 
       Ok, the latter one does not work, because it _needs to be done for
       the Stmt interface. It may be possible
+****** DONE Add the correct type <2015-07-18 Sat 14:51>
+       CLOSED: [2015-07-18 Sat 14:54]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-07-18 Sat 14:54]
+       :END:
+****** TODO figure out the right type <2015-07-18 Sat 14:54>
+
+       we are given
+
+         stmt ::= IF exp ....
+
+       so IF must accept a Stmt_Visitor.
+       
+       This is what we have done anyway: the IF constuctor is a statement 
+       and therefore accepts a StmtVisitor. The problem starts with 
+       its first component, the expression. expressions are not of
+       type statement. Therefore they also don't support a visit_Exp.
+
+       note: of course: if the first component of the IF were a stmt
+       we could also not just do
+
+         visitor.visit_stmt(this)
+
+      we simply don't have those functions.
+
+      Probably, we need a generic visitor 
+
+****** TODO  Make a general visitor +  general dispatch <2015-07-18 Sat 15:28>      
+
+
+
+
 **** DONE can one make a less flat visitor <2015-07-17 Fri 09:33>
      CLOSED: [2015-07-18 Sat 14:14]
      :LOGBOOK:
@@ -809,6 +841,7 @@ func idents(f *ast.File) <-chan *ast.Ident {
 
 
      
+
 **** TODO how does the walk-thing go <2015-07-14 Tue 07:57>
 
    See 

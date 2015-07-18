@@ -1,7 +1,7 @@
 
 package ast2
 
-//import ("fmt")
+import ("fmt")
 
 type Node interface {
 
@@ -47,6 +47,11 @@ type Program    [] Stmt
 // constructors are all-capitals. The corresponding visitors are called
 // visit_<CONSTRUCTOR>.
 
+type Visitor interface {
+	visit_Stmt ()
+	visit_Expr ()
+}
+
 type  Stmt_Visitor interface {
 	visit_IF     (is *IF)
 	visit_READ   (rs *READ)
@@ -84,7 +89,14 @@ func (*REPEAT) stmt_Node() {}
 func (*ASSIGN) stmt_Node() {}
 
 //----------------------------------------------------
-func (*IF) Accept() {}
+
+
+func (this *IF) Accept(visitor Visitor) {
+	e:= this.E
+	visitor.visit_Expr(this)
+	fmt.Println(e)
+	return 
+}
 func (*READ) Accept() {}
 func (*WRITE) Accept() {}
 func (*REPEAT) Accept() {}
