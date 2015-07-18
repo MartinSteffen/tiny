@@ -166,16 +166,15 @@ type CarPartVisitor interface {
 #+end_example
 
 
-The correspondent type in the ast is the ~Visitor~ interface. There are a
-number of differences, though. The first one is more superficial, namely
-that the ~CarPartVisitor~ interface requires /two/ visit-functions.  The
-intention is (indicated also by its name) that the ~CarPartVisitor~ is
-intended to visit car parts. However, car parts is only an interface, as
-well, i.e., it's abstract (see the next code snippet). Therefore, what is
-/concretely/ to be visited are instances of the ``sub-classes'' of
-~CarPart~. Of course, there's no subclassing here. What matters is elements
-that match the ~CarPart~ interface:
-
+The correspondent type in the ast of before is the ~Visitor~
+interface. There are a number of differences, though. First, the
+~CarPartVisitor~ interface requires /two/ visit-functions.  The intention
+is (indicated also by its name) that the ~CarPartVisitor~ is used to
+``visit'' car parts. However, car parts is only an interface, as well,
+i.e., it's abstract. Therefore, what is /concretely/ to be visited are
+instances of the ``sub-classes'' of ~CarPart~. Of course, there's no
+subclassing here. What matters is elements that match the ~CarPart~
+interface:
 
 So, that is the classic visitor structure: The data structure supports an
 accept function which takes the visitor as argument, and in term the
@@ -189,11 +188,10 @@ overloading, one might have gotten away with just calling both just ~visit~.
 Now, as mentioned, with duck typing (and the ~CarPart~-interface given as
 is) car parts are /defined/ as those elements which accept a car-part
 visitor!  That would some stucts, namely cars, engines, and wheels
-#+begin_example
 
+#+begin_example
 //------------------------- car part: wheel ---------
- 
-type Wheel struct {
+ type Wheel struct {
     Name string
 }
  
@@ -233,6 +231,14 @@ func (this *Car) Accept(visitor CarPartVisitor) {
  
 #+end_example
 
+Note that, as requested by the car part interface, the car parts must
+support the ~Accept~ method. That means, the data structures themselves
+must be ``changed'' to support the visitor pattern. In go, the method can
+be externally ``attached'' to the data structure, but due to scope
+restriction, one cannot add those methods from outside a given package
+(maybe not even outside a file).
+
+
 A side remark on the design: as mentioned above, the ~CarPartVisitor~
 support visit functions for two concrete car parts, namely wheels and
 engines, and they are called differently. I think a different design would
@@ -246,9 +252,17 @@ the same --dispatch on the type argument-- as with method overloading
 (which we don't have in go) except that we'd actually had only one
 ~visit~-method.
 
+Note finally: there are /three/ concrete types (i.e., record types) which
+are car parts (namely those which support the accept method), wheels,
+engines, but also cars themselves. However, the visitor ~CarPartVisitor~
+covers only the wheels and the engine.
+
 **** Client code
 
-So far everything was abstact, we have some infrastructure to run a ``fold''. 
+So far everything was abstact, we have some infrastructure to run a
+``fold''.  So we need to declare / define a concrete struct implementing
+the visitor (the struct is declared, but the methods, attached to it, are
+defined).
 
 
 #+begin_example
@@ -278,11 +292,14 @@ func main() {
 #+end_example
 
 **** TODO Why is there no ~visit~-function for cars? <2015-07-17 Fri 19:57>
+     CLOSED: [2015-07-18 Sat 08:51]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 08:51]
+     :END:
 
 As explained, there are three concrete car parts, but car part visitor has
 only 2 two methods, i.e., it can only react to two of them (engines and
 wheels, but not cars).
-
 
 
 
