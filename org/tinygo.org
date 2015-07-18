@@ -301,11 +301,23 @@ func main() {
 
 **** An equivalent functional data structure
 
+The above structure is rather clumsy when compared to functional
+representation with higher-order functions and pattern matching. The
+example is also slightly too simple. The visitors are used in particular
+also to iterate through a /recursive/ or /inductively given/ data
+structures. The parts of a car here are not recursive. The only recursive
+part is the fact that cars have a field implemented as slice (of car
+parts). In connection with that: the fact that cars are also car parts
+would allow that cars could contains cars as parts, which would add an
+element of recursive definition here. But that's not intended,
+pragmatically at least. So the only recursive part here, which is the
+slice, is not actually solved following the accept/visit-structure of the
+visitor pattern. Instead
+
 **** DONE Why is there no ~visit~-function for cars? <2015-07-17 Fri 19:57>
      CLOSED: [2015-07-18 Sat 11:15]
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-07-18 Sat 11:15]
-     - State "DONE"       from "TODO"       [2015-07-18 Sat 08:51]
      :END:
 
 As explained, there are three concrete car parts, but car part visitor has
