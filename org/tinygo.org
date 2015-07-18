@@ -689,7 +689,14 @@ func (s *Expr) visit_Expr () {}
 
 
 ****** TODO why not manke Visitor a super-interface? <2015-07-18 Sat 16:10>
-       I guess that might work
+       I guess that might work, the question is, does it fit with duck typing
+
+       The problem also is: everything works fine with concrete stuff
+       gluing stuff to
+
+       IF / WhEN so visit_IF is ok, but not visit_Expr because Expr is not a struct. 
+       We cannot glue anything to Exp.
+
 ****** TODO  Make a general visitor +  general dispatch <2015-07-18 Sat 15:28>      
 
 

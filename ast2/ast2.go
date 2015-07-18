@@ -47,17 +47,6 @@ type Program     Stmt     // slice
 // constructors are all-capitals. The corresponding visitors are called
 // visit_<CONSTRUCTOR>.
 
-type Visitor interface {     // new attempt
-	visit_Stmt (s Stmt)  // just a dispatch
-	visit_Expr (e Expr)  // just a dispatch
-}
-
-
-type visitor struct {
-}
-
-func (s visitor) visit_Stmt () {}
-func (s visitor) visit_Expr () {}
 
 
 
@@ -100,16 +89,21 @@ func (*ASSIGN) stmt_Node() {}
 //----------------------------------------------------
 
 
-func (this *IF) Accept(visitor Visitor) {
-	e  := this.E
-	s1 := this.SL1
-	s2 := this.SL2
-	visitor.visit_Expr (e)  // dispatch
-	visitor.visit_Stmt (s1)  // dispatch
-	visitor.visit_Stmt (s2)  // dispatch
-	fmt.Println(e)
-	return 
+func (this *IF) Accept(visitor Stmt_Visitor) {
+	visitor.visit_IF (this)
 }
+
+
+//func (this *IF) Accept(visitor Stmt_Visitor) {
+// 	e  := this.E
+// 	s1 := this.SL1
+// 	s2 := this.SL2
+// 	visitor.visit_Expr (e)  // dispatch
+// 	visitor.visit_Stmt (s1)  // dispatch
+// 	visitor.visit_Stmt (s2)  // dispatch
+// 	fmt.Println(e)
+// 	return 
+// }
 func (*READ) Accept() {}
 func (*WRITE) Accept() {}
 func (*REPEAT) Accept() {}
@@ -174,7 +168,19 @@ func (*EXPR) factor_Node() {}
 func (*NUMBER) factor_Node() {}
 //------------------------------------------------------------
 
+///////////////////////////////////////////////////////////////
+// Client code ///
 
+
+
+type GetMessageVisitor struct{
+    Messages []string
+}
+ 
+func (this *GetMessageVisitor) visit_IF(i *IF) {
+    this.Messages = append(this.Messages, 
+	    fmt.Sprintf("Visiting IF\n"))
+}
 
 
 
