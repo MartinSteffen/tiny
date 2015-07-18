@@ -676,6 +676,20 @@ done here.
 
       Probably, we need a generic visitor 
 
+
+
+That does not work
+type Visitor interface {     // new attempt
+	visit_Stmt (s Stmt)  // just a dispatch
+	visit_Expr (e Expr)  // just a dispatch
+}
+
+func (s *Stmt) visit_Stmt () {}
+func (s *Expr) visit_Expr () {}
+
+
+****** TODO why not manke Visitor a super-interface? <2015-07-18 Sat 16:10>
+       I guess that might work
 ****** TODO  Make a general visitor +  general dispatch <2015-07-18 Sat 15:28>      
 
 

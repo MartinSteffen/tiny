@@ -47,10 +47,19 @@ type Program     Stmt     // slice
 // constructors are all-capitals. The corresponding visitors are called
 // visit_<CONSTRUCTOR>.
 
-type Visitor interface {
-	visit_Stmt ()
-	visit_Expr (e Expr)
+type Visitor interface {     // new attempt
+	visit_Stmt (s Stmt)  // just a dispatch
+	visit_Expr (e Expr)  // just a dispatch
 }
+
+
+type visitor struct {
+}
+
+func (s visitor) visit_Stmt () {}
+func (s visitor) visit_Expr () {}
+
+
 
 type  Stmt_Visitor interface {
 	visit_IF     (is *IF)
@@ -92,8 +101,12 @@ func (*ASSIGN) stmt_Node() {}
 
 
 func (this *IF) Accept(visitor Visitor) {
-	e:= this.E
+	e  := this.E
+	s1 := this.SL1
+	s2 := this.SL2
 	visitor.visit_Expr (e)  // dispatch
+	visitor.visit_Stmt (s1)  // dispatch
+	visitor.visit_Stmt (s2)  // dispatch
 	fmt.Println(e)
 	return 
 }
