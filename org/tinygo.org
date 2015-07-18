@@ -326,6 +326,10 @@ replacement for the slice in go:
    type car = carpart list  
 #+end_example
 
+Unlike the representation in the go code, ~car~ here is not at the same
+time a ~carpart~. If one wanted a 100% correspondence, one had to make the
+two type definition mutually recursive, but it is clearly not what the
+example is intended to model.
 
 **** DONE Why is there no ~visit~-function for cars? <2015-07-17 Fri 19:57>
      CLOSED: [2015-07-18 Sat 11:15]
@@ -623,6 +627,7 @@ done here.
 
 
 *** TODO make a visitor <2015-07-17 Fri 09:32>
+*** TODO make a visit/accept visitor here <2015-07-18 Sat 11:41>
 **** TODO can one make a less flat visitor <2015-07-17 Fri 09:33>
 
      The visitor of go is flat.  My recursive function was not. So, I would

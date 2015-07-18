@@ -1,55 +1,22 @@
-// The abstract syntax is on the one hand inspired by the ML version, but
-// also of course the C version, where the C version is rather
-// unstructured. The final source of inspiration is the go-ast, to learn
-// how they did it.
 
-
-// The first statement here must be the declaration of the package.  We
-// cannot name it package "main", because then it needs a function main, it
-// seems. If it contains a main and is called package main, then it's
-// installed under bin
-
-package ast
+package ast2
 
 //import ("fmt")
-
-// In the ML code, I use information about the position. That's still more
-// or less dummy information. I leave it out here. An elegant solution here
-// would be to ``embed'' it via a top-level interace. That should be
-// relatively easy.
-
-
-
-// The following node is currently added to make the visitor compile. That
-// ast in the go compiler has a "Node" interface as well (with positioning
-// info) which is embedded in the rest of the structures.
-
 
 type Node interface {
 
 }
 
 
-
-
-// The following types need to be capitalized as they are needed
-// externally. Non-capitalized type declarations are ``private''. The same
-
-
-
-
-
-// holds for fields.
-
-type Symbol string      // might be replaced by something more efficient.
+type Symbol string      
 type Ident Symbol
 type Number int         
                         
 //--------------------------------------------------------
-type Compare_Op interface {    // abstract
+type Compare_Op interface { 
 	compare_opNode ()
 }
-type (                         // that's just grouping
+type (                      
 	LT struct {}
 	EQ struct {}
 )
@@ -70,7 +37,7 @@ func (*PLUS) add_opNode() {}
 func (*MINUS) add_opNode() {}
 
 
-type Program    [] Stmt   // this is a slice type.
+type Program    [] Stmt   
 
 //--------------------------------------------------------
 
