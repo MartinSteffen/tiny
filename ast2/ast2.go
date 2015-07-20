@@ -217,7 +217,12 @@ func (this *Visitor) visit_IF(i *IF) {
 
 
 
-// That's a stupid mix of styles. 
+// That's a stupid mix of styles.  The IF visitor is concrete, the
+// Stmt-visitor is abstract. Also: there is no separation between client
+// code, and the traversal. That should be the core of the design. The user
+// has to provide the core functionality, and the visitor infrastructure
+// applies it. A flat implementation can be achieved, I assume, but we
+// intend to 
 
 
 
