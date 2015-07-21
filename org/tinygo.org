@@ -13,14 +13,23 @@
 
 
 
+*** DONE move the stuff to a more official directory <2015-07-21 Tue 15:56>
+    CLOSED: [2015-07-21 Tue 16:00]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-21 Tue 16:00]
+    :END:
 
-
+    ok, to ~/go/src/github.com/golang/go
 *** TODO Analyze the visitor in the go compiler <2015-07-17 Fri 13:16>
 
-The visitor is contained in the ast-package (in the ast-directory). The
+The visitor is contained in the ast-package (in the [[~/go/src/github.com/golang/go/src/go/ast][ast-directory]]). The
 code is mainly defined in walk.go.  But it's used in a different
-package. It's not clear if that is officially a visitor. One ingredient
-seems missing, at least if one compares it to the visitor pattern as known,
+package. The code does not qualify as a ``classic visitor''. As far as I
+know, the one from the literature (for languages like Java or C++) involves
+that the data structure being visited supports a special method (typically
+called ~accept~) in which the visitor ``function'' is handed over. In that
+sense it's not clear if that is officially a visitor. One ingredient seems
+missing, at least if one compares it to the visitor pattern as known,
 namely there is no accept method: typically, the data structure being
 visited has such a method, but the ast here does not. It could however be
 that one may use the word ``visitor'' more loosely, as any form of
@@ -357,6 +366,9 @@ done here.
 
     Currently we leave them in, we experiment with it later 
 *** TODO add the argument to the accept functions for statements <2015-07-18 Sat 14:13>
+
+*** TODO  perhaps install gocc <2015-04-18 Sat 06:38>
+
 *** DONE port it to ssh: change the url? <2015-07-17 Fri 08:47>
     CLOSED: [2015-07-17 Fri 08:50]
     :LOGBOOK:
@@ -412,6 +424,12 @@ done here.
 
 
 
+*** DONE where is the ast in ml <2015-07-20 Mon 14:27>
+    CLOSED: [2015-07-20 Mon 14:29]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-20 Mon 14:29]
+    :END:
+    It's in ~/ocaml/go <2015-07-20 Mon 14:29>
 *** TODO just make a functional implementation, to make the types clearer <2015-07-18 Sat 09:02>
 *** DONE capitalize the rest in ast <2015-07-16 Thu 09:03>
     CLOSED: [2015-07-16 Thu 09:09]
