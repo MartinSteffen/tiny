@@ -40,29 +40,31 @@ between various ``non-terminals'' (in particular 3 different kind of nodes,
 namely expressions, statements, and declarations). Despite that, the
 /constructors/ themselves are ultimately used (i.e., visited) in a rather
 unstructured or flat manner. Anyhow, the node (or their specializations) do
-not support a  ~Accept~ method which would hand over a visitor. 
+not support a  ~Accept~ method which would hand over a visitor.  
+
+Now to the /visitor/ interface. As usual, it's ``abstract'' i.e., an
+interface (alternatively perhaps in Java etc, an abstract class). Now, the
+method ~Visit~ below gives back a visitor.  That is different from the
+situation with the ``pizzas'' etc. There, the visitor would give back an
+~Object~ (which is there /not/ meant to represent visitors).
 
 
 
 #+begin_example
-
 type Visitor interface {
-	Visit (stmt Node) (w Visitor)   
+	Visit (stmt Node) (w Visitor)     // Visitor .-> Node -> Visitor
 }
-     
 #+end_example
 
 The Node is the catch-all type for all nodes of the ast (i.e., it is
-embedded into all the more concrete nodes). A difference to the visitor
-discussed next is that 
+embedded into all the more concrete nodes). 
 
 
  What's strange he is also how it is later used, namely in the following
-form (at the beginning of the Walk, function):
+form (at the beginning of the ~Walk~-function):
 
 
 #+begin_example
-
 func Walk(v Visitor, node Node) {
 	if v = v.Visit(node); v == nil {
 		return
@@ -72,10 +74,15 @@ func Walk(v Visitor, node Node) {
 
 #+end_example
 
+Now, we should be careful with the terminology. The ~v~ is the visitor, but
+~Walk~ is also something like the visiting function. Note also that the
+~Walk~ function takes 2 arguments, the visitor and the tree it is to walk
+down.
+
 
 See also the ``client'' code. There are two things to do: define the
 visitor, and then using it, by passing it to the Walk function. In order to
-be a visitor, it must satisfy the Visitor interface. The only thing
+be a visitor, it must satisfy the ~Visitor~ interface. The only thing
 required there is to implement the accept method (here Visit). So it's the
 combination of both the data type plus the Visit-method that makes it to a
 visitor.
@@ -366,6 +373,44 @@ done here.
 
 
 
+*** TODO Check the Pizza visitors <2015-07-21 Tue 16:23>
+
+    
+    One of the most extended code examples (perhaps the final design) can
+    be found under there [[~/Collectionofreposes/SOFTTECH/trunk/lehre/javakurs/uebungen/code/uebung5/ausdruecke5][under ``softtech'']] (and other directories
+    there). Also there, the data structures(like expressions) support a
+    method ~accept~. It seems that concrete vistitors return objects of
+    type ~Object~ (more concretely the functions which are here called
+    ``visit'' functions), and als the ~accept~-method.  Sometimes some
+    casts are necessary therefore. It is, however not giving back a
+    visitor.
+
+    
+
+*** DONE in the ``Pizza-visitor'': (ExpressionVisitor): return type <2015-07-21 Tue 16:49>
+    CLOSED: [2015-07-21 Tue 17:03]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-21 Tue 17:03]
+    :END:
+    In that visitor, the functions forConst, forOder, forUnd return Objects
+    Will that actually be a visitor again, or something else. 
+    
+    Perhaps it can be seend in Eval_d wich is a concrete visitor for expressions.
+    
+    Therefore it must have 3 functions. What he returns in the forOrder case is
+    
+    That is not not yet the real thing, there is SetEval_V extends Eval_D
+    or Int_Eval and BoolEval_V. Those then finally give back the real
+    result. All of them a special cases of the evaluation visitor. The
+    reason why it gives back objects here is because it gives back
+    different values in different situations., namely a set, a boolean or
+    an it depending on how the stuff is interpreted. So that has to do with
+    the lack of universal polymorphism (at that time).  Anyway, what is
+    /not/ given back is a visitor, that's clear.
+    
+*** TODO expression visitor: forUnd why do they have 2 arguments? <2015-07-21 Tue 16:50>
+    Perhaps, it's a better design.  
+
 *** TODO duck typing  ``marker'' functions: accept <2015-07-18 Sat 13:45>
 
     Currently the subtyping is done by some marker functions. Now that
@@ -428,6 +473,7 @@ done here.
 
 
 	But it seems that it's not forseen
+
 
 
 
@@ -663,7 +709,7 @@ done here.
 *** TODO external visitor via embedding or wrappers or something? <2015-07-18 Sat 12:21>
     is that possible? Currently I did not do that, just a more direct implementation
 
-*** TODO [#A]  add recursion <2015-07-18 Sat 17:41>
+*** TODO   add recursion <2015-07-18 Sat 17:41>
 
     I think that's the piece which is missing.
 
