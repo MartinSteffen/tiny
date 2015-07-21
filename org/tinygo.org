@@ -28,13 +28,21 @@ package. The code does not qualify as a ``classic visitor''. As far as I
 know, the one from the literature (for languages like Java or C++) involves
 that the data structure being visited supports a special method (typically
 called ~accept~) in which the visitor ``function'' is handed over. In that
-sense it's not clear if that is officially a visitor. One ingredient seems
-missing, at least if one compares it to the visitor pattern as known,
-namely there is no accept method: typically, the data structure being
-visited has such a method, but the ast here does not. It could however be
+sense it's not clear if that is officially a visitor. It could however be
 that one may use the word ``visitor'' more loosely, as any form of
 higher-order function that allows to iterate here through an inductively
-defined data structure, here the ast, any form of ``fold'' function.
+defined data structure, here the ast, any form of ``fold'' function. We
+should therefore look if that's an archtitecture which is supported here.
+
+The data structure being visited is ``the [[~/go/src/github.com/golang/go/src/go/ast/ast.go][ast]]''. The structure is kind of
+complex, it also has a form of ``inductive definition'' distinguishing
+between various ``non-terminals'' (in particular 3 different kind of nodes,
+namely expressions, statements, and declarations). Despite that, the
+/constructors/ themselves are ultimately used (i.e., visited) in a rather
+unstructured or flat manner. Anyhow, the node (or their specializations) do
+not support a  ~Accept~ method which would hand over a visitor. 
+
+
 
 #+begin_example
 
