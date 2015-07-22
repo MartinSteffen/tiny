@@ -1,7 +1,7 @@
 
 
 // This one is the second attempt
-package ast2
+package absynt
 
 import ("fmt")
 

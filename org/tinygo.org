@@ -1253,10 +1253,11 @@ ast. That should very much determine the tree, because it's a tree.
 
 **** TODO make a walk-style visitor for the tiny-ast <2015-07-22 Wed 11:32>
 
-     That's done in the package [[~/go/src/github.com/MartinSteffen/tiny/ast2][ast2.]] It is modelled similar than the one
-     for [[~/go/src/github.com/golang/go/src/go/ast][go itself]], especially the file [[~/go/src/github.com/golang/go/src/go/ast/walk.go][walk.go]].  It's not modelled after
-     the visit-accept pattern (I might try that later again, but it was
-     very confusing).
+     That's done in the package [[~/go/src/github.com/MartinSteffen/tiny/absynt][absynt]]. I had been called ast2 before, but
+     perhaps that's a unallowed package name. It is modelled similar than
+     the one for [[~/go/src/github.com/golang/go/src/go/ast][go itself]], especially the file [[~/go/src/github.com/golang/go/src/go/ast/walk.go][walk.go]].  It's not modelled
+     after the visit-accept pattern (I might try that later again, but it
+     was very confusing).
 
 ***** TODO 
 
