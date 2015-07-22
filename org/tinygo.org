@@ -126,17 +126,18 @@ The syntax of the if-statement is not too transparent. the ~<-~ syntax can
 mean send or receive. But since on the left-hand side there's a channel,
 it's /sending/.  Now, ~ast.Ident~ is just one kind of node, and
 ~n.(*ast.Ident)~ is a type assertion. However, it's a ``special'' one
-because it's used in a special kind of assignment. In this case, not panic
+because it's used in a special kind of assignment. In this case, no panic
 occurs.
 
 
 #+begin_example
 
 func idents(f *ast.File) <-chan *ast.Ident {
-	v := make(visitor)   // due to the above method, this results in a Visitor
+	v := make(visitor)     // due to the above method, this results in a Visitor
+                               // initial value of the ``fold''.
 	go func() {
-		ast.Walk(v, f)    
-		close(v)
+		ast.Walk(v, f) // start the visit   
+		close(v)       // close the channel
 	}()
 	return v
 }
@@ -146,6 +147,11 @@ It seems that this basically is the /only/ use of the visitor and the walk
 function /at all/. The rest of the file (and also elsewhere) does not make
 use of it. What is also interesting is the asynchronous nature of the
 visitor.
+
+**** ``Functional view''
+
+
+**** Misc
 
 
 - First the interface: The "interface { ... }" is an interface type, the
