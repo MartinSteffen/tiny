@@ -151,6 +151,28 @@ visitor.
 **** ``Functional view''
 
 
+
+The ~Walk~ function corresponds to a ``fold'' function, except that it is
+imperative. In this case, because it uses a channel. The channel can at
+least conceptually seen as ``list''. Let's assume that. The fold-function
+would be for instance of the type ~(string list -> node -> string list) ->
+string list -> node tree -> sting list~.  The list of strings corresponds
+to the channel here as far as the type is concerned. On the
+go-implementation, the are a few differences. Some, probably, could also be
+adapted if one wanted a moe functional way of representing the program, or
+a closer parallel. One is that the ``initial value'' is not handed over a
+argument. In the functional analogue, the initial value would be the empty
+list. Here, the channel is ``initialized'' to be empty, as well.  Another
+thing which is different: here, we distinguish between the tree and its
+nodes. In the go-implementation, the nodes and the tree are basically the
+same. The concrete ~Visit~-function here is a /concrete/ function being
+used in the iteration, which would be of time ~string list -> node ->
+string list~. In the go implementation, also the analogue to the string
+list, i.e., the ``channel'' is handed over as first argument, however, as
+``receiver'' of a the ~Visit~-method
+ 
+
+
 **** Misc
 
 
