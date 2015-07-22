@@ -10,9 +10,12 @@ package absynt  // ast2 might not work
 // functions.
 
 type Visitor interface {
+	Visit(p Program) (w Visitor)
 }
 
 func Walk (v Visitor, p Program) {
+
+
 }
 
 
