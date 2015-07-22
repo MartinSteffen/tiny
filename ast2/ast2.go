@@ -1,4 +1,6 @@
 
+
+// This one is the second attempt
 package ast2
 
 import ("fmt")
@@ -49,13 +51,8 @@ type Program     Stmt     // slice
 
 
 
-
-
-
-
 type Stmt interface {
 	stmt_Node ()             // it might be that this is no longer needed
-	Accept (Stmt_Visitor)
 }
 // A couple of structs
 type (
@@ -71,10 +68,6 @@ type (
 )
 
 
-// To achieve that IF etc are indeed concetizations of the Stmt
-// abstraction, we need to bind the methods, required by the interface, to
-// it. Currently that is stmt_Node (which may be removed after a while) and
-// the Accept function.  
 
 func (*IF) stmt_Node() {}
 func (*READ) stmt_Node() {}
@@ -83,25 +76,7 @@ func (*REPEAT) stmt_Node() {}
 func (*ASSIGN) stmt_Node() {}
 
 
-func (this *IF) Accept(visitor Stmt_Visitor) {
-	visitor.visit_IF (this) 
-}
 
-
-//func (this *IF) Accept(visitor Stmt_Visitor) {
-// 	e  := this.E
-// 	s1 := this.SL1
-// 	s2 := this.SL2
-// 	visitor.visit_Expr (e)  // dispatch
-// 	visitor.visit_Stmt (s1)  // dispatch
-// 	visitor.visit_Stmt (s2)  // dispatch
-// 	fmt.Println(e)
-// 	return 
-// }
-func (*READ) Accept() {}
-func (*WRITE) Accept() {}
-func (*REPEAT) Accept() {}
-func (*ASSIGN) Accept() {}
 
 
 //----------------------------------------------------

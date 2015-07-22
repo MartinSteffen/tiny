@@ -169,7 +169,19 @@ same. The concrete ~Visit~-function here is a /concrete/ function being
 used in the iteration, which would be of time ~string list -> node ->
 string list~. In the go implementation, also the analogue to the string
 list, i.e., the ``channel'' is handed over as first argument, however, as
-``receiver'' of a the ~Visit~-method
+``receiver'' of a the ~Visit~-method. Note also: while the ``second''
+argument is a node, which represents the tree here, the node argument is
+used in its role as the current node constructor, only, not as the whole
+tree. at last as the reaction of is concerned.  Finally, the implementation
+is kind of functional, in that the channel (which is the concrete visitor)
+is returned from the ~Visit~ function.
+
+All in all, the implementation resembles very closely how one functionally
+would implement higher-order function doing something on the nodes of a
+tree.
+
+
+
  
 
 
@@ -1239,7 +1251,17 @@ ast. That should very much determine the tree, because it's a tree.
 
 
 
-**** TODO why do they even distinguish 
+**** TODO make a walk-style visitor for the tiny-ast <2015-07-22 Wed 11:32>
+
+     That's done in the package [[~/go/src/github.com/MartinSteffen/tiny/ast2][ast2.]] It is modelled similar than the one
+     for [[~/go/src/github.com/golang/go/src/go/ast][go itself]], especially the file [[~/go/src/github.com/golang/go/src/go/ast/walk.go][walk.go]].  It's not modelled after
+     the visit-accept pattern (I might try that later again, but it was
+     very confusing).
+
+***** TODO 
+
+
+***** TODO how can one make it less flat <2015-07-22 Wed 11:33>
 
 **** TODO analyze the statements  <2015-07-13 Mon 13:55>
 
