@@ -15,10 +15,12 @@ type Visitor interface {
 
 
 type StmtVisitor interface {
+	// dummy 
 	
 }
 
 type ExprVisitor interface {
+	// dummy
 	
 }
 // Note: the Walk-function is _not_ supposed to adhere to the Visitor
@@ -55,5 +57,17 @@ func WalkStmt (sv StmtVisitor, s Stmt) {
 
 
 func WalkExpr (sv ExprVisitor, e Expr) {
+	switch e.(type) { // type assertion
+	case *SIMPLEEXPR:
+	case *COMPAREEXPR:
+	}
 }
+
+
+//	SIMPLEEXPR   struct {S SimpleExpr}
+//	COMPAREEXPR  struct {
+//		CO Compare_Op
+//		SE1 SimpleExpr
+//		SE2 SimpleExpr
+//	}
 
