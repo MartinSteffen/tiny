@@ -57,8 +57,9 @@ func WalkStmt (sv StmtVisitor, s Stmt) {
 
 
 func WalkExpr (sv ExprVisitor, e Expr) {
-	switch e.(type) { // type assertion
+	switch te := e.(type) { // type assertion
 	case *SIMPLEEXPR:
+		WalkSimpleExpr(sv,te.SIMPLEEXPR)
 	case *COMPAREEXPR:
 	}
 }
