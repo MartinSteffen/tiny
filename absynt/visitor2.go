@@ -1,6 +1,44 @@
 
 package absynt
 
+
+type visitor chan int 
+
+
+// ----------------------------------
+// the following is taken from the go testprinter etc.
+// We take it as first inspiration
+// 
+//
+// type visitor chan *ast.Ident
+
+// func (v visitor) Visit(n ast.Node) (w ast.Visitor) {
+// 	if ident, ok := n.(*ast.Ident); ok {
+// 		v <- ident
+// 	}
+// 	return v
+// }
+
+// // idents is an iterator that returns all idents in f via the result channel.
+// func idents(f *ast.File) <-chan *ast.Ident {
+// 	v := make(visitor)
+// 	go func() {
+// 		ast.Walk(v, f)
+// 		close(v)
+// 	}()
+// 	return v
+// }
+
+// // identCount returns the number of identifiers found in f.
+// func identCount(f *ast.File) int {
+// 	n := 0
+// 	for range idents(f) {
+// 		n++
+// 	}
+// 	return n
+// }
+
+
 // import ("fmt")
 
 // This stuff here is old code, so it probably should be removed. I have

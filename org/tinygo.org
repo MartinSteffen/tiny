@@ -1259,6 +1259,16 @@ ast. That should very much determine the tree, because it's a tree.
      after the visit-accept pattern (I might try that later again, but it
      was very confusing).
 
+**** DONE make it compile <2015-07-23 Thu 11:27>
+     CLOSED: [2015-07-23 Thu 11:31]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-23 Thu 11:31]
+     :END:
+
+     Still a lot of dummy code.
+**** TODO make already a concrete client visitor <2015-07-23 Thu 11:02>
+     This way we can see better how it works. It should be modelled according to
+     
 **** TODO what's the type for the visitors <2015-07-23 Thu 09:01>
      It seems that for the various walk functions, we need various
      kind of visitors, how can we pass them, or do we need 
