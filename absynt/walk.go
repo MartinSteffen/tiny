@@ -17,6 +17,10 @@ type Visitor interface {
 type StmtVisitor interface {
 	
 }
+
+type ExprVisitor interface {
+	
+}
 // Note: the Walk-function is _not_ supposed to adhere to the Visitor
 // interface, therefore it does not return a Visitor, it's a
 // side-effect-only function. If one wanted a return type, one would have
@@ -32,6 +36,7 @@ func WalkStmt (sv StmtVisitor, s Stmt) {
 	// should be one at the call site. We leave it out for the moment.
 	switch ts := s.(type) { // type assertion
 	case *IF:
+		WalkExpr (sv, ts.E)
 		WalkStmt (sv, ts.SL1)
 		WalkStmt (sv, ts.SL2)
 	case *READ:
@@ -49,4 +54,6 @@ func WalkStmt (sv StmtVisitor, s Stmt) {
         // }
 
 
+func WalkExpr (sv ExprVisitor, e Expr) {
+}
 
