@@ -1258,10 +1258,13 @@ ast. That should very much determine the tree, because it's a tree.
      the one for [[~/go/src/github.com/golang/go/src/go/ast][go itself]], especially the file [[~/go/src/github.com/golang/go/src/go/ast/walk.go][walk.go]].  It's not modelled
      after the visit-accept pattern (I might try that later again, but it
      was very confusing).
+**** TODO What's actuallyt the type of the Walk-function <2015-07-22 Wed 15:42>
 
-***** TODO 
 
-
+     Ok, it's not a visitor, the return type is absent (like void), so
+     it's side-effect only.
+***** TODO make a visitor interface for Stmt <2015-07-22 Wed 15:45>
+***** TODO make a client visitor for Stmt <2015-07-22 Wed 15:45>
 ***** TODO how can one make it less flat <2015-07-22 Wed 11:33>
 
 **** TODO analyze the statements  <2015-07-13 Mon 13:55>

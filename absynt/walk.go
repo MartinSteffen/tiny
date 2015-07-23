@@ -10,12 +10,21 @@ package absynt  // ast2 might not work
 // functions.
 
 type Visitor interface {
-	Visit(p Program) (w Visitor)
+	Visit(Program) (Visitor)
 }
 
+
+type StmtVisitor interface {
+}
+// Note: the Walk-function is _not_ supposed to adhere to the Visitor
+// interface, therefore it does not return a Visitor, it's a
+// side-effect-only function. If one wanted a return type, one would have
+// to write for instance as func Walk (v int, p Program) (int) {....
+
 func Walk (v Visitor, p Program) {
+}
 
-
+func WalkStmt (sv StmtVisitor, s Stmt) {
 }
 
 
