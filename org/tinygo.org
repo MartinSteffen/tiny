@@ -1261,6 +1261,11 @@ ast. That should very much determine the tree, because it's a tree.
 **** TODO checking for nil <2015-07-23 Thu 08:41>
      the walk functions should be programmed defensively I assume.  In the
      go-src it's done, for the time being, I left it out from, postponed.
+**** DONE add the cases for Stmt, first empty  <2015-07-23 Thu 08:47>
+     CLOSED: [2015-07-23 Thu 08:50]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-23 Thu 08:50]
+     :END:
 
 
 **** TODO What's actuallyt the type of the Walk-function <2015-07-22 Wed 15:42>

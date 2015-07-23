@@ -31,8 +31,22 @@ func WalkStmt (sv StmtVisitor, s Stmt) {
 	// we might want to check of the visitor is empty.  or perhaps it
 	// should be one at the call site. We leave it out for the moment.
 	switch ts := s.(type) { // type assertion
-        }
+	case *IF:
+		WalkStmt (sv, ts.SL1)
+		WalkStmt (sv, ts.SL2)
+	case *READ:
+	case *WRITE:
+	case *REPEAT:
+	case *ASSIGN:
+	}
 }
+	// IF struct {E Expr
+	// READ struct {I Ident}
+	// WRITE struct {E Expr}
+	// REPEAT struct {SL Stmt; C Expr}  // slice
+	// ASSIGN struct {I Ident; E Expr}
+
+        // }
 
 
 
