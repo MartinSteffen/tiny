@@ -15,6 +15,7 @@ type Visitor interface {
 
 
 type StmtVisitor interface {
+	
 }
 // Note: the Walk-function is _not_ supposed to adhere to the Visitor
 // interface, therefore it does not return a Visitor, it's a
@@ -24,7 +25,11 @@ type StmtVisitor interface {
 func Walk (v Visitor, p Program) {
 }
 
+
+
 func WalkStmt (sv StmtVisitor, s Stmt) {
+	// we might want to check of the visitor is empty.  or perhaps it
+	// should be one at the call site. We leave it out for the moment.
 }
 
 

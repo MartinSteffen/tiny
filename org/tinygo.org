@@ -1258,6 +1258,11 @@ ast. That should very much determine the tree, because it's a tree.
      the one for [[~/go/src/github.com/golang/go/src/go/ast][go itself]], especially the file [[~/go/src/github.com/golang/go/src/go/ast/walk.go][walk.go]].  It's not modelled
      after the visit-accept pattern (I might try that later again, but it
      was very confusing).
+**** TODO checking for nil <2015-07-23 Thu 08:41>
+     the walk functions should be programmed defensively I assume.  In the
+     go-src it's done, for the time being, I left it out from, postponed.
+
+
 **** TODO What's actuallyt the type of the Walk-function <2015-07-22 Wed 15:42>
 
 
