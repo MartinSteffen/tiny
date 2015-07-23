@@ -30,6 +30,8 @@ func Walk (v Visitor, p Program) {
 func WalkStmt (sv StmtVisitor, s Stmt) {
 	// we might want to check of the visitor is empty.  or perhaps it
 	// should be one at the call site. We leave it out for the moment.
+	switch ts := s.(type) { // type assertion
+        }
 }
 
 
