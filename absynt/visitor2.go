@@ -2,7 +2,15 @@
 package absynt
 
 
+
+// Note that the visitor type is not the same of the same as Visitor.  It
+// will be ``turned'' into a ``Visitor'' only when attaching the
+// appropriate Visit-method to it.
+
+
 type visitor chan int 
+
+
 
 
 // ----------------------------------
