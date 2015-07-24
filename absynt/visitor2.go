@@ -21,7 +21,6 @@ type visitor chan int
 
 
  func (v visitor) Visit(n Program) (w Visitor) {
-	 v <- 1     // send an integer
 //	 w.Visit (n)  // what would that mean
 	 return 
  }
@@ -37,7 +36,8 @@ func (v visitor) VisitStmt(s Stmt) (w Visitor) {
 
 
 func (v visitor) VisitExpr(e Expr) (w Visitor) {
-	return v
+	v <- 1
+	return v     // why can I just write "return"
 }
 
 

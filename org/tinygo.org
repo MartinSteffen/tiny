@@ -501,6 +501,9 @@ done here.
 *** TODO what's the meaning of the return ``type'' (w Visitor) <2015-07-24 Fri 08:20>
     In the file visitor2.go: One can actually return w or ``call it'' but
     it's unclear what it   
+
+*** TODO related to that: why can one write just return? <2015-07-24 Fri 08:48>
+    In the visitors, both return v and return type check.
 *** DONE add a Node to the ast.go <2015-07-17 Fri 09:12>
     CLOSED: [2015-07-17 Fri 09:18]
     :LOGBOOK:
