@@ -41,22 +41,22 @@ func (v visitor) VisitExpr(e Expr) (w Visitor) {
 }
 
 //-----------------------------------------------------------------
-// Let's make a concrete Stmt.
+// 
 
-var f = &ID{I:"s"}
-var t = &FACTOR{f}
-var se = &TERM{t}
-var e = &SIMPLEEXPR{se}
-
-
-var sr = &READ{I:"x"}
-
-var sl1 = sr
-
-var sl2 = sl1
+var f = &ID{I:"s"}   // factor
+var t = &FACTOR{f}   // term
+var se = &TERM{t}    // simple expr
+var e = &SIMPLEEXPR{se}  // expr 
+var sr = &READ{I:"x"}    // read stmt
+var sl1 = sr             // stmt (list) 
+var sl2 = sl1            // stmt (list) 
+var s = &IF{e,sl1,sl2}   // stmt 
 
 
-var s = IF{e,sl1,sl2}
+
+// -----------------------------------------------------
+
+Walk (v, w)
 
 // ----------------------------------
 // the following is taken from the go testprinter etc.

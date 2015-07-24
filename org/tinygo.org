@@ -498,16 +498,32 @@ done here.
 
 
 
-*** TODO construct a concrete Stmt <2015-07-24 Fri 08:53>
+*** DONE construct a concrete Stmt <2015-07-24 Fri 08:53>
+    CLOSED: [2015-07-24 Fri 11:24]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-24 Fri 11:24]
+    :END:
 
-*** TODO construct a SimpleExpr <2015-07-24 Fri 10:52>
+*** DONE construct a SimpleExpr <2015-07-24 Fri 10:52>
+    CLOSED: [2015-07-24 Fri 11:24]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-24 Fri 11:24]
+    :END:
 
     For the grammar, a clear representation is   [[~/teaching/compilers/tiny/src/ocaml/absynt.ml][absynt.ml]]
 
-**** TODO construct a term <2015-07-24 Fri 10:59>
+**** DONE construct a term <2015-07-24 Fri 10:59>
+     CLOSED: [2015-07-24 Fri 11:23]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-24 Fri 11:23]
+     :END:
 
 
-**** BUG What's wrong with ID, and the factor <2015-07-24 Fri 11:06>
+**** FIXED What's wrong with ID, and the factor <2015-07-24 Fri 11:06>
+     CLOSED: [2015-07-24 Fri 11:20]
+     :LOGBOOK:
+     - CLOSING NOTE [2015-07-24 Fri 11:20]
+     :END:
 
      Everything was fine in the data structure itself. But for the construction:
 
@@ -1058,6 +1074,7 @@ func idents(f *ast.File) <-chan *ast.Ident {
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-07-17 Fri 07:57]
     :END:
+*** TODO make a main program in visitor2.go <2015-07-24 Fri 11:27>
 *** TODO make the print-out at least a bit readable <2015-07-16 Thu 14:34>
 *** TODO make a running program making use of a program <2015-07-14 Tue 12:16>
 **** DONE in the parser: how are the nodes created <2015-07-14 Tue 11:38>
