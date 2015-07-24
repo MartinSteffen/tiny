@@ -14,9 +14,15 @@ package absynt
 type visitor chan int 
 
 
+// What is unclear is the role of w: the w is not used (for me it could be
+// left out), but it's unclear anyhow: one could return w as well, or call
+// in the body something like w.Visit (n), but it's unclear what this is
+// supposed to mean.
+
  func (v visitor) Visit(n Program) (w Visitor) {
 	 v <- 1     // send an integer
- 	return v
+//	 w.Visit (n)  // ?
+	 return 
  }
 
 
