@@ -17,16 +17,26 @@ type visitor chan int
 // What is unclear is the role of w: the w is not used (for me it could be
 // left out), but it's unclear anyhow: one could return w as well, or call
 // in the body something like w.Visit (n), but it's unclear what this is
-// supposed to mean.
+// supposed to mean. 
+
 
  func (v visitor) Visit(n Program) (w Visitor) {
 	 v <- 1     // send an integer
-//	 w.Visit (n)  // ?
+//	 w.Visit (n)  // what would that mean
 	 return 
  }
 
 
+// Note, the visitor function here is _not_ supposed to do the interation,
+// that needs to be done by the walk function
+
+
 func (v visitor) VisitStmt(s Stmt) (w Visitor) {
+	return v
+}
+
+
+func (v visitor) VisitExpr(e Expr) (w Visitor) {
 	return v
 }
 
