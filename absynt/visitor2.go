@@ -15,9 +15,14 @@ type visitor chan int
 
 
  func (v visitor) Visit(n Program) (w Visitor) {
+	 v <- 1     // send an integer
  	return v
  }
 
+
+func (v visitor) VisitStmt(s Stmt) (w Visitor) {
+	return v
+}
 
 
 // ----------------------------------

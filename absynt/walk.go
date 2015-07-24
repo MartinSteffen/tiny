@@ -15,8 +15,7 @@ type Visitor interface {
 
 
 type StmtVisitor interface {
-	// dummy 
-	
+	Visit(Stmt) (StmtVisitor)
 }
 
 type ExprVisitor interface {
