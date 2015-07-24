@@ -124,14 +124,15 @@ type Factor interface {
 }
 
 type (
-	ID   struct {I Ident}
-	EXPR struct {E Expr}
+   	    ID struct {I Ident}
+	  EXPR struct {E Expr}
 	NUMBER struct {N Number}
 )
 
-func (*ID)   factor_Node() {}
-func (*EXPR) factor_Node() {}
-func (*NUMBER) factor_Node() {}
+func (*ID)   factor_Node() {return}
+func (*EXPR) factor_Node() {return }
+func (*NUMBER) factor_Node() {return }
+
 //------------------------------------------------------------
 
 

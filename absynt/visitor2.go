@@ -37,9 +37,26 @@ func (v visitor) VisitStmt(s Stmt) (w Visitor) {
 
 func (v visitor) VisitExpr(e Expr) (w Visitor) {
 	v <- 1
-	return v     // why can I just write "return"
+	return v     // why can I just write "return"?
 }
 
+//-----------------------------------------------------------------
+// Let's make a concrete Stmt.
+
+var f = &ID{I:"s"}
+var t = &FACTOR{f}
+var se = &TERM{t}
+var e = &SIMPLEEXPR{se}
+
+
+var sr = &READ{I:"x"}
+
+var sl1 = sr
+
+var sl2 = sl1
+
+
+var s = IF{e,sl1,sl2}
 
 // ----------------------------------
 // the following is taken from the go testprinter etc.
