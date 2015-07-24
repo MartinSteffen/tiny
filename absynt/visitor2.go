@@ -5,11 +5,18 @@ package absynt
 
 // Note that the visitor type is not the same of the same as Visitor.  It
 // will be ``turned'' into a ``Visitor'' only when attaching the
-// appropriate Visit-method to it.
+// appropriate Visit-method to it. The code is intended for some initial
+// tests only. Let's take as accumulate measure the sum of notes.  We just
+// also make it to a channel, but perhaps a better way would be to all sum
+// it up on the fly, not just send 1s over a channel. We try that later.
 
 
 type visitor chan int 
 
+
+ func (v visitor) Visit(n Program) (w Visitor) {
+ 	return v
+ }
 
 
 
@@ -18,8 +25,6 @@ type visitor chan int
 // We take it as first inspiration
 // 
 //
-// type visitor chan *ast.Ident
-
 // func (v visitor) Visit(n ast.Node) (w ast.Visitor) {
 // 	if ident, ok := n.(*ast.Ident); ok {
 // 		v <- ident
