@@ -11,7 +11,7 @@
 package main
 
 
-import (//"fmt"
+import ("fmt"
 	"github.com/MartinSteffen/tiny/absynt")
 
 
@@ -58,6 +58,7 @@ func main () {
 	var sl1 = sr             // stmt (list) 
 	var sl2 = sl1            // stmt (list) 
 	var s = &absynt.IF{e,sl1,sl2}   // stmt 
+	fmt.Println (s)
 
 }
 
