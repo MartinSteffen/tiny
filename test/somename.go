@@ -58,7 +58,8 @@ func main () {
 	var sl1 = sr             // stmt (list) 
 	var sl2 = sl1            // stmt (list) 
 	var s = &absynt.IF{e,sl1,sl2}   // stmt 
-	fmt.Println (s)
+	fmt.Println ()
+	v := make(absynt.visitor)
 
 }
 
