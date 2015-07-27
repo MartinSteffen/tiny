@@ -14,7 +14,11 @@
 
 
 *** TODO make a real call to walk <2015-07-27 Mon 11:44>
-**** TODO make a main function etc. <2015-07-27 Mon 11:44>
+**** DONE make a main function etc. <2015-07-27 Mon 11:44>
+     CLOSED: [2015-07-27 Mon 12:15]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-27 Mon 12:15]
+     :END:
      It seems that it needs to be in a separate directory. I cannot
      call it package main in the same directory, therefore I guess
      a new one is needed. So, perhaps it means, one cannot "test"
@@ -482,7 +486,12 @@ done here.
     Currently we leave them in, we experiment with it later 
 *** TODO add the argument to the accept functions for statements <2015-07-18 Sat 14:13>
 
-*** TODO  perhaps install gocc <2015-04-18 Sat 06:38>
+*** DORMANT perhaps install gocc <2015-04-18 Sat 06:38>
+    CLOSED: [2015-07-27 Mon 12:16]
+    :LOGBOOK:
+    - CLOSING NOTE [2015-07-27 Mon 12:16] \\
+      unklar
+    :END:
 
 *** DONE port it to ssh: change the url? <2015-07-17 Fri 08:47>
     CLOSED: [2015-07-17 Fri 08:50]
@@ -810,7 +819,7 @@ done here.
 *** TODO external visitor via embedding or wrappers or something? <2015-07-18 Sat 12:21>
     is that possible? Currently I did not do that, just a more direct implementation
 
-*** TODO   add recursion <2015-07-18 Sat 17:41>
+*** TODO add recursion <2015-07-18 Sat 17:41>
 
     I think that's the piece which is missing.
 
@@ -823,7 +832,11 @@ done here.
    The visitor is the return. But there is no accept 
 ***** TODO give back a tuple? is that ok? <2015-07-18 Sat 17:53>
     
-*** TODO make a visitor <2015-07-17 Fri 09:32>
+*** DONE make a visitor <2015-07-17 Fri 09:32>
+    CLOSED: [2015-07-27 Mon 12:17]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-27 Mon 12:17]
+    :END:
 *** TODO make a visit/accept visitor here <2015-07-18 Sat 11:41>
 **** TODO can one make the additional infra-structure in a sep. file <2015-07-18 Sat 12:01>
      It still would not solve the problem, I assume, that one let the
