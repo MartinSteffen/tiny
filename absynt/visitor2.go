@@ -1,5 +1,6 @@
 
-package absynt
+
+package main
 
 
 
@@ -56,7 +57,9 @@ var s = &IF{e,sl1,sl2}   // stmt
 
 // -----------------------------------------------------
 
-Walk (v, w)
+func main () {
+}
+//xWalk (v, w)
 
 // ----------------------------------
 // the following is taken from the go testprinter etc.
