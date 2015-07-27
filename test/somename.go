@@ -11,8 +11,8 @@
 package main
 
 
-//import ("fmt"
-//	"github.com/MartinSteffen/tiny/ast")
+import (//"fmt"
+	"github.com/MartinSteffen/tiny/absynt")
 
 
 // If we want to make use if the visitor, which is basically a higher-order
@@ -49,8 +49,20 @@ package main
 //	return v
 //}
 
-
 func main () {
+	f := &absynt.ID{I:"s"}
+	var t = &absynt.FACTOR{f}   // term
+	var se = &absynt.TERM{t}    // simple expr
+	var e = &absynt.SIMPLEEXPR{se}  // expr 
+	var sr = &absynt.READ{I:"x"}    // read stmt
+	var sl1 = sr             // stmt (list) 
+	var sl2 = sl1            // stmt (list) 
+	var s = &absynt.IF{e,sl1,sl2}   // stmt 
+
+}
+
+
+//func main () {
 //	e1 :=    &ast.SIMPLEEXPR{&ast.TERM{&ast.FACTOR{&ast.NUMBER{1}}}}
 //	s1 :=    &ast.ASSIGN{"x",e1}
 //	ast.Print_Expr(e1)
@@ -58,7 +70,7 @@ func main () {
 //	fmt.Println("---")
 //	v:=make(visitor)
 //	ast.Walk_Stmt(v,f)
-}
+//}
 
 
 
