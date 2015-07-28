@@ -13,7 +13,7 @@ Sub-directories
 
   - ./org      org-mode todo list and issues
   - ./ast      abstract syntax tree data structure + some simple walk through
-  - ./test
+  - ./test     to play around 
 
 
 

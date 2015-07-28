@@ -12,7 +12,7 @@ package main
 
 
 import ("fmt"
-	"github.com/MartinSteffen/tiny/ast")
+	"github.com/MartinSteffen/tiny/absynt")
 
 
 // If we want to make use if the visitor, which is basically a higher-order
@@ -36,7 +36,7 @@ import ("fmt"
 // have dot
 
 
-type visitor chan *ast.Stmt  // it's not so clear of that's a confusing
+//type visitor chan *ast.Stmt  // it's not so clear of that's a confusing
 			     // name
 
 
@@ -45,23 +45,34 @@ type visitor chan *ast.Stmt  // it's not so clear of that's a confusing
 // Visit: visitor .-> Stmt -> Visitor_Stmt
 
 
-func (v visitor) Visit(n ast.Stmt) (w ast.Visitor_Stmt) {
-	return v
-}
-
+//func (v visitor) Visit(n ast.Stmt) (w ast.Visitor_Stmt) {
+//	return v
+//}
 
 func main () {
-	e1 :=    &ast.SIMPLEEXPR{&ast.TERM{&ast.FACTOR{&ast.NUMBER{1}}}}
-	s1 :=    &ast.ASSIGN{"x",e1}
-	ast.Print_Expr(e1)
-	ast.Print_Stmt(s1)
-	fmt.Println("---")
-	v:=make(visitor)
-	ast.Walk_Stmt(v,f)
+	f := &absynt.ID{I:"s"}
+	var t = &absynt.FACTOR{f}   // term
+	var se = &absynt.TERM{t}    // simple expr
+	var e = &absynt.SIMPLEEXPR{se}  // expr 
+	var sr = &absynt.READ{I:"x"}    // read stmt
+	var sl1 = sr             // stmt (list) 
+	var sl2 = sl1            // stmt (list) 
+	var s = &absynt.IF{e,sl1,sl2}   // stmt 
+	fmt.Println ()
+	v := make(absynt.visitor)
 
-	
-	
 }
+
+
+//func main () {
+//	e1 :=    &ast.SIMPLEEXPR{&ast.TERM{&ast.FACTOR{&ast.NUMBER{1}}}}
+//	s1 :=    &ast.ASSIGN{"x",e1}
+//	ast.Print_Expr(e1)
+//	ast.Print_Stmt(s1)
+//	fmt.Println("---")
+//	v:=make(visitor)
+//	ast.Walk_Stmt(v,f)
+//}
 
 
 

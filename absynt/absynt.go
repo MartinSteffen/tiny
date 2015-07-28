@@ -1,55 +1,24 @@
-// The abstract syntax is on the one hand inspired by the ML version, but
-// also of course the C version, where the C version is rather
-// unstructured. The final source of inspiration is the go-ast, to learn
-// how they did it.
 
 
-// The first statement here must be the declaration of the package.  We
-// cannot name it package "main", because then it needs a function main, it
-// seems. If it contains a main and is called package main, then it's
-// installed under bin
-
-package ast
+// This one is the second attempt
+package absynt
 
 //import ("fmt")
-
-// In the ML code, I use information about the position. That's still more
-// or less dummy information. I leave it out here. An elegant solution here
-// would be to ``embed'' it via a top-level interace. That should be
-// relatively easy.
-
-
-
-// The following node is currently added to make the visitor compile. That
-// ast in the go compiler has a "Node" interface as well (with positioning
-// info) which is embedded in the rest of the structures.
-
 
 type Node interface {
 
 }
 
 
-
-
-// The following types need to be capitalized as they are needed
-// externally. Non-capitalized type declarations are ``private''. The same
-
-
-
-
-
-// holds for fields.
-
-type Symbol string      // might be replaced by something more efficient.
+type Symbol string      
 type Ident Symbol
 type Number int         
                         
 //--------------------------------------------------------
-type Compare_Op interface {    // abstract
+type Compare_Op interface { 
 	compare_opNode ()
 }
-type (                         // that's just grouping
+type (                      
 	LT struct {}
 	EQ struct {}
 )
@@ -70,25 +39,34 @@ func (*PLUS) add_opNode() {}
 func (*MINUS) add_opNode() {}
 
 
-type Program    [] Stmt   // this is a slice type.
+type Program     Stmt     // slice
 
 //--------------------------------------------------------
 
 
-type Stmt interface {
-	stmt_Node ()
-}
+// The visitor must implement an ``visit'' function for all
+// ``constructors''. In the file here I made the convention that
+// constructors are all-capitals. The corresponding visitors are called
+// visit_<CONSTRUCTOR>.
 
+
+
+type Stmt interface {
+	stmt_Node ()             // it might be that this is no longer needed
+}
+// A couple of structs
 type (
 	IF struct {E Expr
-		SL1  [] Stmt  // slice
-		SL2  [] Stmt  // slice
+		SL1   Stmt  // slice
+		SL2   Stmt  // slice
 	}
 	READ struct {I Ident}
 	WRITE struct {E Expr}
-	REPEAT struct {SL [] Stmt; C Expr}  // slice
+	REPEAT struct {SL Stmt; C Expr}  // slice
 	ASSIGN struct {I Ident; E Expr}
+
 )
+
 
 
 func (*IF) stmt_Node() {}
@@ -97,7 +75,8 @@ func (*WRITE) stmt_Node() {}
 func (*REPEAT) stmt_Node() {}
 func (*ASSIGN) stmt_Node() {}
 
-//--------------------------------------------------------
+
+
 
 type Expr interface {
 	expr_Node ()
@@ -145,16 +124,28 @@ type Factor interface {
 }
 
 type (
-	ID   struct {I Ident}
-	EXPR struct {E Expr}
+   	    ID struct {I Ident}
+	  EXPR struct {E Expr}
 	NUMBER struct {N Number}
 )
 
-func (*ID)   factor_Node() {}
-func (*EXPR) factor_Node() {}
-func (*NUMBER) factor_Node() {}
+func (*ID)   factor_Node() {return}
+func (*EXPR) factor_Node() {return }
+func (*NUMBER) factor_Node() {return }
+
 //------------------------------------------------------------
 
+
+
+
+
+
+// That's a stupid mix of styles.  The IF visitor is concrete, the
+// Stmt-visitor is abstract. Also: there is no separation between client
+// code, and the traversal. That should be the core of the design. The user
+// has to provide the core functionality, and the visitor infrastructure
+// applies it. A flat implementation can be achieved, I assume, but we
+// intend to 
 
 
 

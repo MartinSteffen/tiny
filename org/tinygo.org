@@ -13,7 +13,485 @@
 
 
 
+*** TODO make a real call to walk <2015-07-27 Mon 11:44>
+**** DONE make a main function etc. <2015-07-27 Mon 11:44>
+     CLOSED: [2015-07-27 Mon 12:15]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-27 Mon 12:15]
+     :END:
+     It seems that it needs to be in a separate directory. I cannot
+     call it package main in the same directory, therefore I guess
+     a new one is needed. So, perhaps it means, one cannot "test"
+     with a main functuon 
+     
+*** DONE move the stuff to a more official directory <2015-07-21 Tue 15:56>
+    CLOSED: [2015-07-21 Tue 16:00]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-21 Tue 16:00]
+    :END:
 
+    ok, to ~/go/src/github.com/golang/go
+*** TODO Analyze the visitor in the go compiler <2015-07-17 Fri 13:16>
+
+
+**** Visitor infrastructure.
+
+
+The visitor is contained in the ast-package (in the [[~/go/src/github.com/golang/go/src/go/ast][ast-directory]]). The
+code is mainly defined in walk.go.  But it's used in a different
+package. The code does not qualify as a ``classic visitor''. As far as I
+know, the one from the literature (for languages like Java or C++) involves
+that the data structure being visited supports a special method (typically
+called ~accept~) in which the visitor ``function'' is handed over. In that
+sense it's not clear if that is officially a visitor. It could however be
+that one may use the word ``visitor'' more loosely, as any form of
+higher-order function that allows to iterate here through an inductively
+defined data structure, here the ast, any form of ``fold'' function. We
+should therefore look if that's an archtitecture which is supported here.
+
+
+
+The data structure being visited is ``the [[~/go/src/github.com/golang/go/src/go/ast/ast.go][ast]]''. The structure is kind of
+complex, it also has a form of ``inductive definition'' distinguishing
+between various ``non-terminals'' (in particular 3 different kind of nodes,
+namely expressions, statements, and declarations). Despite that, the
+/constructors/ themselves are ultimately used (i.e., visited) in a rather
+unstructured or flat manner. Anyhow, the node (or their specializations) do
+not support a  ~Accept~ method which would hand over a visitor.  
+
+Now to the /visitor/ interface. As usual, it's ``abstract'' i.e., an
+interface (alternatively perhaps in Java etc, an abstract class). Now, the
+method ~Visit~ below gives back a visitor.  That is different from the
+situation with the ``pizzas'' etc. There, the visitor would give back an
+~Object~ (which is there /not/ meant to represent visitors).
+
+
+
+#+begin_example
+type Visitor interface {
+	Visit (stmt Node) (w Visitor)     // Visitor .-> Node -> Visitor
+}
+#+end_example
+
+The Node is the catch-all type for all nodes of the ast (i.e., it is
+embedded into all the more concrete nodes). 
+
+
+ What's strange he is also how it is later used, namely in the following
+form (at the beginning of the ~Walk~-function):
+
+
+#+begin_example
+func Walk(v Visitor, node Node) {
+	if v = v.Visit(node); v == nil {
+		return
+	}
+
+        ...
+
+#+end_example
+
+Now, we should be careful with the terminology. The ~v~ is the visitor, but
+~Walk~ is also something like the visiting function. Note also that the
+~Walk~ function takes 2 arguments, the visitor and the tree it is to walk
+down.
+
+
+**** Client code: printer-test 
+
+See also the ``client'' code. The following snippets are taken from
+[[~/go/src/github.com/golang/go/src/go/printer/printer_test.go][printer_test.go]] in the ~printer~ package. This one actually is the /only/
+use of the ~Walk~-function and the visitor I found there. There are two
+things to do: define the visitor, and then using it, by passing it to the
+Walk function. In order to be a visitor, it must satisfy the ~Visitor~
+interface. The only thing required there is to implement the ~Visit~-method
+(and there is, as said, no ~Accept~ method in the nodes of the ast). So
+it's the combination of both the data type (basically a channel) plus the
+visit-method that makes it to the visitor infrastructure.
+
+
+#+begin_example
+type visitor chan *ast.Ident   
+
+func (v visitor) Visit(n ast.Node) (w ast.Visitor) {
+	if ident, ok := n.(*ast.Ident); ok {  // ``special assignment'' for type assertion, ok is a boolean
+		v <- ident  // send to channel v
+	}
+	return v
+}
+#+end_example
+
+
+Note that the visitor argument ~v~ is not even a struct, it's a channel
+(but I don't know what all is allowed). But indeed, it's some reference
+type that supports the ~Visit~ function. Also the receiver type, the
+argument type and the return type are as requested by the Visitor
+interface. This ``function'' (represented by the visitor-references) is of
+type
+
+#+begin_quote
+  Visitor .-> Node -> Visitor
+#+end_quote
+
+The syntax of the if-statement is not too transparent. the ~<-~ syntax can
+mean send or receive. But since on the left-hand side there's a channel,
+it's /sending/.  Now, ~ast.Ident~ is just one kind of node, and
+~n.(*ast.Ident)~ is a type assertion. However, it's a ``special'' one
+because it's used in a special kind of assignment. In this case, no panic
+occurs.
+
+
+#+begin_example
+
+func idents(f *ast.File) <-chan *ast.Ident {
+	v := make(visitor)     // due to the above method, this results in a Visitor
+                               // initial value of the ``fold''.
+	go func() {
+		ast.Walk(v, f) // start the visit   
+		close(v)       // close the channel
+	}()
+	return v
+}
+
+#+end_example     
+It seems that this basically is the /only/ use of the visitor and the walk
+function /at all/. The rest of the file (and also elsewhere) does not make
+use of it. What is also interesting is the asynchronous nature of the
+visitor.
+
+**** ``Functional view''
+
+
+
+The ~Walk~ function corresponds to a ``fold'' function, except that it is
+imperative. In this case, because it uses a channel. The channel can at
+least conceptually seen as ``list''. Let's assume that. The fold-function
+would be for instance of the type ~(string list -> node -> string list) ->
+string list -> node tree -> sting list~.  The list of strings corresponds
+to the channel here as far as the type is concerned. On the
+go-implementation, the are a few differences. Some, probably, could also be
+adapted if one wanted a moe functional way of representing the program, or
+a closer parallel. One is that the ``initial value'' is not handed over a
+argument. In the functional analogue, the initial value would be the empty
+list. Here, the channel is ``initialized'' to be empty, as well.  Another
+thing which is different: here, we distinguish between the tree and its
+nodes. In the go-implementation, the nodes and the tree are basically the
+same. The concrete ~Visit~-function here is a /concrete/ function being
+used in the iteration, which would be of time ~string list -> node ->
+string list~. In the go implementation, also the analogue to the string
+list, i.e., the ``channel'' is handed over as first argument, however, as
+``receiver'' of a the ~Visit~-method. Note also: while the ``second''
+argument is a node, which represents the tree here, the node argument is
+used in its role as the current node constructor, only, not as the whole
+tree. at last as the reaction of is concerned.  Finally, the implementation
+is kind of functional, in that the channel (which is the concrete visitor)
+is returned from the ~Visit~ function.
+
+All in all, the implementation resembles very closely how one functionally
+would implement higher-order function doing something on the nodes of a
+tree.
+
+
+
+ 
+
+
+**** Misc
+
+
+- First the interface: The "interface { ... }" is an interface type, the
+  whole thing is a type declaration.  Inside the braces it the method
+  specification. [It's a bit unclear why we can leave out ";" but ok]. The
+  next one is the method name Accept, and  the signature    
+
+                (stmt Stmt) (w Visitor)  
+
+  https://golang.org/ref/spec#Signature
+
+  This one is more stricky. The signature is of one of two forms:
+  Parameters or Parameters Results. The signatures are described in
+  connection with function types (there are examples). Even if not really
+  explaned, the Visitor is the return type.
+  
+
+  
+
+
+
+
+
+
+*** TODO Analyze the ``Car'' visitor <2015-07-17 Fri 15:07>
+
+The following is an analysis of the code found at
+https://gist.github.com/f0624e7760aacdc96b42.git. The structure is a bit
+different, in particular the data structure being visited (see for instance
+the interface ~CarPart~ below) supports an accept-function (which is
+``standard''). One distiguishes best between the code for the data
+structures (including the infrastructure to support ``visitors'') and the
+client code, that makes use of the stuff, i.e., that provides a /concrete/
+data structure, a /concrete/ visitor (and let it run).
+
+**** Data structures
+
+Let's start with the data structure itself, the car parts: 
+
+#+begin_example
+type CarPart interface {   
+    Accept(CarPartVisitor) 
+}
+#+end_example
+
+
+The data structure is /abstract/, just an interface. Crucial is the
+presence of an accept-method, that accepts the corresponding visitor, with
+the following  interface ~CarPartVisitor~:
+
+
+#+begin_example
+type CarPartVisitor interface {
+    visitWheel(wheel *Wheel)
+    visitEngine(engine *Engine)
+}
+#+end_example
+
+
+The correspondent type in the ast of before is the ~Visitor~
+interface. There are a number of differences, though. First, the
+~CarPartVisitor~ interface requires /two/ visit-functions.  The intention
+is (indicated also by its name) that the ~CarPartVisitor~ is used to
+``visit'' car parts. However, car parts is only an interface, as well,
+i.e., it's abstract. Therefore, what is /concretely/ to be visited are
+instances of the ``sub-classes'' of ~CarPart~. Of course, there's no
+subclassing here. What matters is elements that match the ~CarPart~
+interface:
+
+So, that is the classic visitor structure: The data structure supports an
+accept function which takes the visitor as argument, and in term the
+visitor has a visit-function, which takes data-structures as argument,
+i.e., here ~CarPart~'s. Being abstract, the visit-function is /split/ into
+two cases, handling concrete car parts. Perhaps that is a (small) price to
+pay for the absence of /method overloading/ that we one has to choose two
+differnent names for the two visit-functions. With this kind of
+overloading, one might have gotten away with just calling both just ~visit~.
+
+Now, as mentioned, with duck typing (and the ~CarPart~-interface given as
+is) car parts are /defined/ as those elements which accept a car-part
+visitor!  That would some stucts, namely cars, engines, and wheels
+
+#+begin_example
+//------------------------- car part: wheel ---------
+ type Wheel struct {
+    Name string
+}
+ 
+func (this *Wheel) Accept(visitor CarPartVisitor) {
+    visitor.visitWheel(this)   ``function application'' via call-back
+}
+
+//------------------------- car part: engine ---------
+
+type Engine struct {}
+ 
+func (this *Engine) Accept(visitor CarPartVisitor) {
+    visitor.visitEngine(this)   // ``function application'' via call-back
+}
+ 
+//------------------------- car part: car ---------
+type Car struct {
+    parts []CarPart
+}
+ 
+func NewCar() *Car {
+    this := new(Car)
+    this.parts = []CarPart{
+        &Wheel{"front left"},
+        &Wheel{"front right"},
+        &Wheel{"rear right"},
+        &Wheel{"rear left"},
+        &Engine{}}
+    return this
+}
+ 
+func (this *Car) Accept(visitor CarPartVisitor) {
+    for _, part := range this.parts {
+        part.Accept(visitor)
+    }
+}
+ 
+#+end_example
+
+Note that, as requested by the car part interface, the car parts must
+support the ~Accept~ method. That means, the data structures themselves
+must be ``changed'' to support the visitor pattern. In go, the method can
+be externally ``attached'' to the data structure, but due to scope
+restriction, one cannot add those methods from outside a given package
+(maybe not even outside a file).
+
+
+A side remark on the design: as mentioned above, the ~CarPartVisitor~
+support visit functions for two concrete car parts, namely wheels and
+engines, and they are called differently. I think a different design would
+be possible two, using only one single ~visit~-function, with then the
+/abstract/ ~CarPart~ as type of the parameter, not the concrete struct
+types. If doing so, the ``dispatch'' to the different cases needs to by one
+inside (i.e., at the start) of the body of that method. That would be done
+/switching/ on the different options (with the help of the special form of
+/type assertions/, like ~y := cp.(type)~). It would be a way of achieving
+the same --dispatch on the type argument-- as with method overloading
+(which we don't have in go) except that we'd actually had only one
+~visit~-method.
+
+Note finally: there are /three/ concrete types (i.e., record types) which
+are car parts (namely those which support the accept method), wheels,
+engines, but also cars themselves. However, the visitor ~CarPartVisitor~
+covers only the wheels and the engine. The reason is: one ~Car~ already has
+a kind of ``visitor'' functionality in the following sense: the car
+basically a ``list'' of car-parts (as a slice). For slices, there is
+already an official iteration pattern, the for-loop in connection with the
+range-construct. So, this part of the data structure is ``iterated over''
+not with the ``visit/accept'' pattern. Besides that: it is not really clean
+design that cars are also car part (no just because in ``real life'' it
+sounds strange). In an inductive definition or in a functional language,
+the type of cars would not be ``merged'' with that of its parts.
+
+**** Client code
+
+So far everything was abstact, we have some infrastructure to run a
+``fold''.  So we need to declare / define a concrete struct implementing
+the visitor (the struct is declared, but the methods, attached to it, are
+defined).
+
+
+#+begin_example
+type GetMessageVisitor struct{
+    Messages []string
+}
+ 
+func (this *GetMessageVisitor) visitWheel(wheel *Wheel) {
+    this.Messages = append(this.Messages, fmt.Sprintf("Visiting the %v wheel\n", wheel.Name))
+}
+ 
+func (this *GetMessageVisitor) visitEngine(engine *Engine) {
+    this.Messages = append(this.Messages, fmt.Sprintf("Visiting engine\n"))
+}
+
+#+end_example
+
+
+#+begin_example
+func main() {
+    car := NewCar()
+    visitor := new(GetMessageVisitor)
+    car.Accept(visitor)
+    fmt.Println(visitor.Messages)
+}
+
+#+end_example
+
+**** An equivalent functional data structure
+
+The above structure is rather clumsy when compared to functional
+representation with higher-order functions and pattern matching. The
+example is also slightly too simple. The visitors are used in particular
+also to iterate through a /recursive/ or /inductively given/ data
+structures. The parts of a car here are not recursive. The only recursive
+part is the fact that cars have a field implemented as slice (of car
+parts). In connection with that: the fact that cars are also car parts
+would allow that cars could contains cars as parts, which would add an
+element of recursive definition here. But that's not intended,
+pragmatically at least. So the only recursive part here, which is the
+slice, is not actually solved following the accept/visit-structure of the
+visitor pattern. Instead, the slice is iterated over using the for-loop in
+connection with the range-construct. Anyhow, the data type in a
+functional/inductive representation looks as follows, where I use list as
+replacement for the slice in go:
+
+#+begin_example
+   type carpart = 
+     | Engine of unit 
+     | Wheel of string
+
+
+   type car = carpart list  
+#+end_example
+
+Unlike the representation in the go code, ~car~ here is not at the same
+time a ~carpart~. If one wanted a 100% correspondence, one had to make the
+two type definition mutually recursive, but it is clearly not what the
+example is intended to model.
+
+**** DONE Why is there no ~visit~-function for cars? <2015-07-17 Fri 19:57>
+     CLOSED: [2015-07-18 Sat 11:15]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 11:15]
+     :END:
+
+As explained, there are three concrete car parts, but car part visitor has
+only 2 two methods, i.e., it can only react to two of them (engines and
+wheels, but not cars). It's because the car (which is strangely also a car
+part), is nothing else than a ``list'' in the form of a slice. A visitor is
+supposed to iterate through that thing. But 1) a slice is not a car part
+insofar it does not support an ``accept'' method (but cars
+do). Furthermore, 2) there is an official way to iterate through a slice,
+that's the for-loop in connection with the range-construct. That's what's
+done here.
+
+
+
+*** TODO Check the Pizza visitors <2015-07-21 Tue 16:23>
+
+    
+    One of the most extended code examples (perhaps the final design) can
+    be found under there [[~/Collectionofreposes/SOFTTECH/trunk/lehre/javakurs/uebungen/code/uebung5/ausdruecke5][under ``softtech'']] (and other directories
+    there). Also there, the data structures(like expressions) support a
+    method ~accept~. It seems that concrete vistitors return objects of
+    type ~Object~ (more concretely the functions which are here called
+    ``visit'' functions), and als the ~accept~-method.  Sometimes some
+    casts are necessary therefore. It is, however not giving back a
+    visitor.
+
+    
+
+*** DONE in the ``Pizza-visitor'': (ExpressionVisitor): return type <2015-07-21 Tue 16:49>
+    CLOSED: [2015-07-21 Tue 17:03]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-21 Tue 17:03]
+    :END:
+    In that visitor, the functions forConst, forOder, forUnd return Objects
+    Will that actually be a visitor again, or something else. 
+    
+    Perhaps it can be seend in Eval_d wich is a concrete visitor for expressions.
+    
+    Therefore it must have 3 functions. What he returns in the forOrder case is
+    
+    That is not not yet the real thing, there is SetEval_V extends Eval_D
+    or Int_Eval and BoolEval_V. Those then finally give back the real
+    result. All of them a special cases of the evaluation visitor. The
+    reason why it gives back objects here is because it gives back
+    different values in different situations., namely a set, a boolean or
+    an it depending on how the stuff is interpreted. So that has to do with
+    the lack of universal polymorphism (at that time).  Anyway, what is
+    /not/ given back is a visitor, that's clear.
+    
+*** TODO expression visitor: forUnd why do they have 2 arguments? <2015-07-21 Tue 16:50>
+    Perhaps, it's a better design.  
+
+*** TODO duck typing  ``marker'' functions: accept <2015-07-18 Sat 13:45>
+
+    Currently the subtyping is done by some marker functions. Now that
+    we have the accept functions: do the make the older name based markers
+    superfluous?
+
+    Currently we leave them in, we experiment with it later 
+*** TODO add the argument to the accept functions for statements <2015-07-18 Sat 14:13>
+
+*** DORMANT perhaps install gocc <2015-04-18 Sat 06:38>
+    CLOSED: [2015-07-27 Mon 12:16]
+    :LOGBOOK:
+    - CLOSING NOTE [2015-07-27 Mon 12:16] \\
+      unklar
+    :END:
 
 *** DONE port it to ssh: change the url? <2015-07-17 Fri 08:47>
     CLOSED: [2015-07-17 Fri 08:50]
@@ -36,8 +514,45 @@
 
 
 
+*** DONE construct a concrete Stmt <2015-07-24 Fri 08:53>
+    CLOSED: [2015-07-24 Fri 11:24]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-24 Fri 11:24]
+    :END:
+
+*** DONE construct a SimpleExpr <2015-07-24 Fri 10:52>
+    CLOSED: [2015-07-24 Fri 11:24]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-24 Fri 11:24]
+    :END:
+
+    For the grammar, a clear representation is   [[~/teaching/compilers/tiny/src/ocaml/absynt.ml][absynt.ml]]
+
+**** DONE construct a term <2015-07-24 Fri 10:59>
+     CLOSED: [2015-07-24 Fri 11:23]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-24 Fri 11:23]
+     :END:
 
 
+**** FIXED What's wrong with ID, and the factor <2015-07-24 Fri 11:06>
+     CLOSED: [2015-07-24 Fri 11:20]
+     :LOGBOOK:
+     - CLOSING NOTE [2015-07-24 Fri 11:20]
+     :END:
+
+     Everything was fine in the data structure itself. But for the construction:
+
+     One needs to use ~var f = &ID{I:"s"}~ with ~&~. The receiver of the methods
+     are references to those things. 
+
+
+*** TODO what's the meaning of the return ``type'' (w Visitor) <2015-07-24 Fri 08:20>
+    In the file visitor2.go: One can actually return w or ``call it'' but
+    it's unclear what it   
+
+*** TODO related to that: why can one write just return? <2015-07-24 Fri 08:48>
+    In the visitors, both return v and return type check.
 *** DONE add a Node to the ast.go <2015-07-17 Fri 09:12>
     CLOSED: [2015-07-17 Fri 09:18]
     :LOGBOOK:
@@ -72,6 +587,14 @@
 
 
 
+
+*** DONE where is the ast in ml <2015-07-20 Mon 14:27>
+    CLOSED: [2015-07-20 Mon 14:29]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-20 Mon 14:29]
+    :END:
+    It's in ~/ocaml/go <2015-07-20 Mon 14:29>
+*** TODO just make a functional implementation, to make the types clearer <2015-07-18 Sat 09:02>
 *** DONE capitalize the rest in ast <2015-07-16 Thu 09:03>
     CLOSED: [2015-07-16 Thu 09:09]
     :LOGBOOK:
@@ -290,39 +813,105 @@
 **** TODO how did the "go" implementation walker implementation work? <2015-07-16 Thu 11:33>
       This one did not have problems.
 
+      Yes
 
-*** TODO analyze the other visitor <2015-07-17 Fri 15:07>
+
+*** TODO external visitor via embedding or wrappers or something? <2015-07-18 Sat 12:21>
+    is that possible? Currently I did not do that, just a more direct implementation
+
+*** TODO add recursion <2015-07-18 Sat 17:41>
+
+    I think that's the piece which is missing.
+
+**** TODO where should it be added (see the go ast walker) <2015-07-18 Sat 17:46>
+
+     type Visitor interface {
+	Visit (stmt Node) (w Visitor)   
+}  
+
+   The visitor is the return. But there is no accept 
+***** TODO give back a tuple? is that ok? <2015-07-18 Sat 17:53>
+    
+*** DONE make a visitor <2015-07-17 Fri 09:32>
+    CLOSED: [2015-07-27 Mon 12:17]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-27 Mon 12:17]
+    :END:
+*** TODO make a visit/accept visitor here <2015-07-18 Sat 11:41>
+**** TODO can one make the additional infra-structure in a sep. file <2015-07-18 Sat 12:01>
+     It still would not solve the problem, I assume, that one let the
+    original ``package'' untouched. But at least the file. I am pretty sure
+    that one cannot define it outside the package.
+
+***** TODO try to add an Accept method to Stmt <2015-07-18 Sat 12:09>
+      To figure out if I can do it in the same package but different file.
+
+      Ok, the latter one does not work, because it _needs to be done for
+      the Stmt interface. It may be possible
+****** DONE Add the correct type <2015-07-18 Sat 14:51>
+       CLOSED: [2015-07-18 Sat 14:54]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-07-18 Sat 14:54]
+       :END:
+****** TODO figure out the right type <2015-07-18 Sat 14:54>
+
+       we are given
+
+         stmt ::= IF exp ....
+
+       so IF must accept a Stmt_Visitor.
+       
+       This is what we have done anyway: the IF constuctor is a statement 
+       and therefore accepts a StmtVisitor. The problem starts with 
+       its first component, the expression. expressions are not of
+       type statement. Therefore they also don't support a visit_Exp.
+
+       note: of course: if the first component of the IF were a stmt
+       we could also not just do
+
+         visitor.visit_stmt(this)
+
+      we simply don't have those functions.
+
+      Probably, we need a generic visitor 
 
 
-The following seems a bit different. It also has a ``visit'' function and
-an ``accept'' function. It seems that one difference is: perhaps the
-ast-visitor was special isofar there was ``direct'' recursion.  But maybe
-not. Anyhow
 
-#+begin_example
- 
-type CarPart interface {   // CarPart not= CarPartVisitor
-    Accept(CarPartVisitor) 
+That does not work
+type Visitor interface {     // new attempt
+	visit_Stmt (s Stmt)  // just a dispatch
+	visit_Expr (e Expr)  // just a dispatch
 }
 
-#+end_example
-
- 
-
-
-#+begin_example
-
-type CarPartVisitor interface {
-    visitWheel(wheel *Wheel)
-    visitEngine(engine *Engine)
-}
+func (s *Stmt) visit_Stmt () {}
+func (s *Expr) visit_Expr () {}
 
 
-#+end_example
+****** TODO why not manke Visitor a super-interface? <2015-07-18 Sat 16:10>
+       I guess that might work, the question is, does it fit with duck typing
+
+       The problem also is: everything works fine with concrete stuff
+       gluing stuff to
+
+       IF / WhEN so visit_IF is ok, but not visit_Expr because Expr is not a struct. 
+       We cannot glue anything to Exp.
+
+****** TODO  Make a general visitor +  general dispatch <2015-07-18 Sat 15:28>      
 
 
-*** TODO make a visitor <2015-07-17 Fri 09:32>
-**** TODO can one make a less flat visitor <2015-07-17 Fri 09:33>
+
+
+**** DONE simplify the syntax: stmt no slice <2015-07-18 Sat 15:33>
+     CLOSED: [2015-07-18 Sat 15:58]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 15:58]
+     :END:
+**** TODO do the stmt slices back in <2015-07-18 Sat 15:33>
+**** DONE can one make a less flat visitor <2015-07-17 Fri 09:33>
+     CLOSED: [2015-07-18 Sat 14:14]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 14:14]
+     :END:
 
      The visitor of go is flat.  My recursive function was not. So, I would
      like a similar design here.
@@ -335,126 +924,18 @@ type CarPartVisitor interface {
      That would probably mean whe need a visitor interface for all the
      phrases.
 
+     Yes, it seems easily possible
 
-**** TODO add a visitor for staments <2015-07-17 Fri 09:59>
+**** DONE add a visitor for staments <2015-07-17 Fri 09:59>
+     CLOSED: [2015-07-18 Sat 14:14]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 14:14]
+     :END:
 
 
      What is uncear is how to escape to the other clauses. We have to see about that
      
      Why I need is an visitor, that's done with make(visitor)
-
-
-
-**** TODO Analyze the Visitor in the go compiler <2015-07-17 Fri 13:16>
-
-The visitor is contained in the ast-package (in the ast-directory). The
-code is mainly defined in walk.go.  But it's used in a different
-package. It's not clear if that is officially a visitor. One ingredient
-seems missing at least if one compares it to the visitor pattern as known,
-namely there is no accept method: typically, the data structure being
-visited has such a method, but the ast here does not. It could however be
-that one may use the word ``visitor'' more loosely, as any form of
-higher-order function that allows to iterate here through an inductively
-defined data structure, here the ast.
-
-#+begin_example
-
-type Visitor interface {
-	Visit (stmt Node) (w Visitor)   
-}
-     
-#+end_example
-
-The Node is the catch-all type for all nodes of the ast (i.e., it is
-embedded into all the more concrete nodes).
-
-
- What's strange he is also how it is later used, namely in the following
-form (at the beginning of the Walk, function):
-
-
-#+begin_example
-
-func Walk(v Visitor, node Node) {
-	if v = v.Visit(node); v == nil {
-		return
-	}
-
-        ...
-
-#+end_example
-
-
-See also the ``client'' code. There are two things to do: define the
-visitor, and then using it, by passing it to the Walk function. In order to
-be a visitor, it must satisfy the Visitor interface. The only thing
-required there is to implement the accept method (here Visit). So it's the
-combination of both the data type plus the Visit-method that makes it to a
-visitor.
-
-
-#+begin_example
-
-type visitor chan *ast.Ident   
-
-func (v visitor) Visit(n ast.Node) (w ast.Visitor) {
-	if ident, ok := n.(*ast.Ident); ok {  // ``special assignment'' for type assertion, ok is a boolean
-		v <- ident  // send to channel v
-	}
-	return v
-}
-
-
-#+end_example
-
-
-Note that the visitor is not even a struct, it's a channel (but I don't
-know what all is allowed). But indeed, it's some reference type that
-supports the Visit function. Also the receiver type, the argument type and
-the return type are as requested by the Visitor interface. This
-``function'' (represented by the visitor-references is of type
-
-  Visitor .-> Node -> Visitor
-
-
-The syntax of the if-statement is not too transparent. the "<-" syntax can
-mean send or receive. But since on the left hand side there's a channel,
-it's send.  Now, ast.Ident is just one kind of node, and n.(*ast.Ident) is
-a type assertion. However, it's a ``special'' one because it's used in a
-special kind of assignment. In this case, not panic occurs.
-
-
-#+begin_example
-
-func idents(f *ast.File) <-chan *ast.Ident {
-	v := make(visitor)   // due to the above method, this results in a Visitor
-	go func() {
-		ast.Walk(v, f)    
-		close(v)
-	}()
-	return v
-}
-
-#+end_example     
-
-
-- First the interface: The "interface { ... }" is an interface type, the
-  whole thing is a type declaration.  Inside the braces it the method
-  specification. [It's a bit unclear why we can leave out ";" but ok]. The
-  next one is the method name Accept, and  the signature    
-
-                (stmt Stmt) (w Visitor)  
-
-  https://golang.org/ref/spec#Signature
-
-  This one is more stricky. The signature is of one of two forms:
-  Parameters or Parameters Results. The signatures are described in
-  connection with function types (there are examples). Even if not really
-  explaned, the Visitor is the return type.
-  
-
-  
-
 
 
 
@@ -476,7 +957,11 @@ func idents(f *ast.File) <-chan *ast.Ident {
 
 
 
-**** TODO check some other visitor examples <2015-07-17 Fri 12:22>
+**** DONE check some other visitor examples <2015-07-17 Fri 12:22>
+     CLOSED: [2015-07-18 Sat 14:14]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 14:14]
+     :END:
 
 
      https://gist.github.com/francoishill/f0624e7760aacdc96b42
@@ -490,7 +975,11 @@ func idents(f *ast.File) <-chan *ast.Ident {
 
 
 
-***** TODO which are implementations (``substypes'') of CarPart <2015-07-17 Fri 12:53>
+***** DONE which are implementations (``substypes'') of CarPart <2015-07-17 Fri 12:53>
+      CLOSED: [2015-07-18 Sat 14:14]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-18 Sat 14:14]
+      :END:
 
       We have nominal subtyping, so we need one with Accept
 
@@ -504,7 +993,11 @@ func idents(f *ast.File) <-chan *ast.Ident {
 **** TODO are the visitors the (only) way that the go books speak about higher-order programming? <2015-07-17 Fri 12:23>
 
 
-**** TODO what does make <2015-07-17 Fri 11:41>
+**** DONE what does make <2015-07-17 Fri 11:41>
+     CLOSED: [2015-07-18 Sat 14:15]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 14:15]
+     :END:
      one cannot do make (int) for instance 
      
      for slices, maps, channels
@@ -513,6 +1006,8 @@ func idents(f *ast.File) <-chan *ast.Ident {
 
     But if make can be done for those things only, the question is what 
     is the function-visitor? I don't think it's a slice. In the example it's
+    a channel. It's not necessary connected with the thing we are after.
+    IT's just one specific visitor
 
 
 **** DONE what's the type ov visitor? <2015-07-17 Fri 11:48>
@@ -553,7 +1048,11 @@ func idents(f *ast.File) <-chan *ast.Ident {
      - State "DONE"       from "TODO"       [2015-07-17 Fri 10:22]
      :END:
      Seems like in printer/printer_test.go there is one 
-**** TODO make already now a client code <2015-07-17 Fri 10:00>
+**** DONE make already now a client code <2015-07-17 Fri 10:00>
+     CLOSED: [2015-07-18 Sat 14:15]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-18 Sat 14:15]
+     :END:
      for early testing.
 
 **** DONE what would be the functional equivalent to a visitor, implement one <2015-07-17 Fri 09:42>
@@ -568,6 +1067,7 @@ func idents(f *ast.File) <-chan *ast.Ident {
 
 
      
+
 **** TODO how does the walk-thing go <2015-07-14 Tue 07:57>
 
    See 
@@ -594,6 +1094,7 @@ func idents(f *ast.File) <-chan *ast.Ident {
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-07-17 Fri 07:57]
     :END:
+*** TODO make a main program in visitor2.go <2015-07-24 Fri 11:27>
 *** TODO make the print-out at least a bit readable <2015-07-16 Thu 14:34>
 *** TODO make a running program making use of a program <2015-07-14 Tue 12:16>
 **** DONE in the parser: how are the nodes created <2015-07-14 Tue 11:38>
@@ -810,7 +1311,46 @@ ast. That should very much determine the tree, because it's a tree.
 
 
 
-**** TODO why do they even distinguish 
+**** TODO make a walk-style visitor for the tiny-ast <2015-07-22 Wed 11:32>
+
+     That's done in the package [[~/go/src/github.com/MartinSteffen/tiny/absynt][absynt]]. I had been called ast2 before, but
+     perhaps that's a unallowed package name. It is modelled similar than
+     the one for [[~/go/src/github.com/golang/go/src/go/ast][go itself]], especially the file [[~/go/src/github.com/golang/go/src/go/ast/walk.go][walk.go]].  It's not modelled
+     after the visit-accept pattern (I might try that later again, but it
+     was very confusing).
+
+**** DONE make it compile <2015-07-23 Thu 11:27>
+     CLOSED: [2015-07-23 Thu 11:31]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-23 Thu 11:31]
+     :END:
+
+     Still a lot of dummy code.
+**** TODO make already a concrete client visitor <2015-07-23 Thu 11:02>
+     This way we can see better how it works. It should be modelled according to
+     
+**** TODO what's the type for the visitors <2015-07-23 Thu 09:01>
+     It seems that for the various walk functions, we need various
+     kind of visitors, how can we pass them, or do we need 
+     all of them?
+**** TODO checking for nil <2015-07-23 Thu 08:41>
+     the walk functions should be programmed defensively I assume.  In the
+     go-src it's done, for the time being, I left it out from, postponed.
+**** DONE add the cases for Stmt, first empty  <2015-07-23 Thu 08:47>
+     CLOSED: [2015-07-23 Thu 08:50]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-23 Thu 08:50]
+     :END:
+
+
+**** TODO What's actuallyt the type of the Walk-function <2015-07-22 Wed 15:42>
+
+
+     Ok, it's not a visitor, the return type is absent (like void), so
+     it's side-effect only.
+***** TODO make a visitor interface for Stmt <2015-07-22 Wed 15:45>
+***** TODO make a client visitor for Stmt <2015-07-22 Wed 15:45>
+***** TODO how can one make it less flat <2015-07-22 Wed 11:33>
 
 **** TODO analyze the statements  <2015-07-13 Mon 13:55>
 
