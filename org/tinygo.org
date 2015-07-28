@@ -13,7 +13,11 @@
 
 
 
-*** TODO make a statement Visitor <2015-07-28 Tue 09:00>
+*** DONE make a statement Visitor <2015-07-28 Tue 09:00>
+    CLOSED: [2015-07-28 Tue 09:11]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-28 Tue 09:11]
+    :END:
 
 *** TODO can one unify all the visitor (in an overloading kind of way)? <2015-07-28 Tue 09:00>
     Especially: now I have VisitStmt  and VisitExpr etc, can one just use Visit?

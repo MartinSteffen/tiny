@@ -65,7 +65,7 @@ var s = &absynt.IF{e,sl1,sl2}   // stmt
 
 func main () {
 	v := make (visitor)   // creating a visitor (which is a chan)
-	absynt.WalkStmt (v,2)
+	absynt.WalkStmt (v,s)
 }
 
 // ----------------------------------
