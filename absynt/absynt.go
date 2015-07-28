@@ -6,7 +6,7 @@ package absynt
 //import ("fmt")
 
 type Node interface {
-
+	
 }
 
 

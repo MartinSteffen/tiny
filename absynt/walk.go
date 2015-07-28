@@ -28,8 +28,11 @@ import ("fmt")
 
 type Visitor interface {
 	Visit(Node) (Visitor)
+	Visit(Stmt) (Visitor)
 }
 
+
+// it seems that the following are just synonyms then.
 type StmtVisitor interface {
 	Visitor
 }
@@ -65,13 +68,13 @@ func Walk (v Visitor, p Program) {
 
 
 
-func WalkStmt (sv StmtVisitor, s Stmt) {
+func WalkStmt (sv Visitor, s Stmt) {
 	// we might want to check of the visitor is empty.  or perhaps it
 	// should be one at the call site. We leave it out for the moment.
 	switch ts := s.(type) { // type assertion
 	case *IF:
 		fmt.Println ("IF (")
-		WalkExpr  (sv, ts.E)    // this is not how it works
+		WalkExpr (sv, ts.E)    // this is not how it works
 		WalkStmt (sv, ts.SL1)
 		WalkStmt (sv, ts.SL2)
 		fmt.Println (")")

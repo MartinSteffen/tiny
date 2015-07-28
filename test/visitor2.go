@@ -24,17 +24,17 @@ type visitor chan int
 // supposed to mean. 
 
 
- func (v visitor) Visit(n absynt.Program) (w absynt.Visitor) {
+// func (v visitor) Visit(n absynt.Program) (w absynt.Visitor) {
 //	 w.Visit (n)  // what would that mean
-	 return 
- }
+//	 return 
+// }
 
 
 // Note, the visitor function here is _not_ supposed to do the interation,
 // that needs to be done by the walk function
 
 
-func (v visitor) VisitStmt(s absynt.Stmt) (w absynt.StmtVisitor) {
+func (v visitor) Visit(s absynt.Stmt) (w absynt.Visitor) {
 	return v
 }
 
