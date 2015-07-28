@@ -15,7 +15,7 @@ type Visitor interface {
 
 
 type StmtVisitor interface {
-	Visit(Stmt) (StmtVisitor)
+	VisitStmt(Stmt) (StmtVisitor)   // can I ``overload'' Visit?
 }
 
 type ExprVisitor interface {

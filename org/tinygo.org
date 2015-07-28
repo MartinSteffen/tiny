@@ -16,6 +16,7 @@
 *** TODO make a statement Visitor <2015-07-28 Tue 09:00>
 
 *** TODO can one unify all the visitor (in an overloading kind of way)? <2015-07-28 Tue 09:00>
+    Especially: now I have VisitStmt  and VisitExpr etc, can one just use Visit?
 *** TODO create the second argument of the Walk function <2015-07-28 Tue 08:44>
     I take again inspiration from   [[~/go/src/github.com/golang/go/src/go/printer/printer_test.go][printer_test.go]].
 

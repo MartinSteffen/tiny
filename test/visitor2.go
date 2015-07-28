@@ -36,7 +36,7 @@ type visitor chan int
 // that needs to be done by the walk function
 
 
-func (v visitor) VisitStmt(s absynt.Stmt) (w absynt.Visitor) {
+func (v visitor) VisitStmt(s absynt.Stmt) (w absynt.StmtVisitor) {
 	return v
 }
 
