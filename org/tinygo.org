@@ -13,6 +13,13 @@
 
 
 
+*** TODO fill in more cases (and prints) to the statement visitor <2015-07-28 Tue 09:28>
+*** DONE add print into the visitor (stmt and expr perhaps)  <2015-07-28 Tue 09:13>
+    CLOSED: [2015-07-28 Tue 09:27]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-28 Tue 09:27]
+    :END:
+    That's for debugging.
 *** DONE make a statement Visitor <2015-07-28 Tue 09:00>
     CLOSED: [2015-07-28 Tue 09:11]
     :LOGBOOK:

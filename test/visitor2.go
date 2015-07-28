@@ -3,8 +3,6 @@
 package main
 
 
-
-
 import ("github.com/MartinSteffen/tiny/absynt")
 
 // Note that the visitor type is not the same of the same as Visitor.  It
