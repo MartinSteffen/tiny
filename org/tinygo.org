@@ -36,10 +36,24 @@
      that's more probable).
 
 
-*** TODO can one overload functions (not methods), say Walk <2015-07-28 Tue 09:51>
+*** DONE can one overload functions (not methods), say Walk <2015-07-28 Tue 09:51>
+    CLOSED: [2015-07-28 Tue 09:54]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-28 Tue 09:54]
+    :END:
+
+No, the two definitions cannot be in the same file (probably same package)
+
+func Walk (v Visitor, p Program) {
+}
 
 
-*** TODO fill out walk-simple-expression
+func Walk (w int, s Stmt) {
+}
+
+
+
+*** TODO fill out walk-simple-expression <2015-07-28 Tue 09:54>
 *** TODO make the print outside the walk itself <2015-07-28 Tue 09:31>
     Currently I add some prints to the walk. It would be more
     better/more instructive, if we could add them to the visiting function somehow.
