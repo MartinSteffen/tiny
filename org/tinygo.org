@@ -59,6 +59,10 @@ func Walk (w int, s Stmt) {
     better/more instructive, if we could add them to the visiting function somehow.
     For the time being, it's for debugging, but later we need to find
     different kind of visitors.
+*** TODO can one overload the Visit method <2015-07-28 Tue 09:55>
+
+*** PENDING Change back the visitor for Nodes? <2015-07-28 Tue 10:00>
+    It was "Program" before, for experimenting I made it to nodes.
 *** TODO fill in more cases (and prints) to the statement visitor <2015-07-28 Tue 09:28>
 *** DONE add print into the visitor (stmt and expr perhaps)  <2015-07-28 Tue 09:13>
     CLOSED: [2015-07-28 Tue 09:27]
