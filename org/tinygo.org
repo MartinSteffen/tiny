@@ -12,7 +12,12 @@
 ** Misc (later more structure)
 
 *** TODO what can one do with the visitor thing, the channel? <2015-07-28 Tue 12:05>
-**** TODO check perhaps the printer test code <2015-07-28 Tue 12:05>
+
+**** DONE check perhaps the printer test code <2015-07-28 Tue 12:05>
+     CLOSED: [2015-07-28 Tue 14:56]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-28 Tue 14:56]
+     :END:
 
 #+begin_example
 func idents(f *ast.File) <-chan *ast.Ident {
@@ -35,14 +40,35 @@ func identCount(f *ast.File) int {
 
 #+end_example
 
-**** TODO what's the type of the ~idents~ function here? <2015-07-28 Tue 12:14>
+The first function creates the visitor, which is a channel, actually, the
+way it's declared in this function for the return type, it's a
+read-channel. Actually, the second function makes a weird use of it, it
+does not receive and values, it just counts the number. The
+~close~-function is a built-in function for channels. The role of the
+~go~-statement here is not so clear. 
+
+**** DONE what's the type of the ~idents~ function here? <2015-07-28 Tue 12:14>
+     CLOSED: [2015-07-28 Tue 14:45]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-28 Tue 14:45]
+     :END:
 
 The ``type' seems to be ~(f *ast.File) <-chan *ast.Ident~. That's the
 /signature/. I would guess that ~*ast.File~ is the /parameters/ and the
-rest ~<-chan *ast.Ident~ is the /result/.
+rest ~<-chan *ast.Ident~ is the /result/. I guess, it's a ~Type~, not
+~Parameters~. From that, I guess it's a ~ChannelType~. Indeed, there are
+variations, distinguishing input and output channels. In this case, with
+the arrow attached to the /left/ of ~chan~, it's a channel to /receive/
+data, in this case, identifiers.
 
 
-*** TODO adapt the test directory accordingly <2015-07-28 Tue 10:55>
+
+
+*** DONE adapt the test directory accordingly <2015-07-28 Tue 10:55>
+    CLOSED: [2015-07-28 Tue 15:00]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-28 Tue 15:00]
+    :END:
 
 **** DONE glue on the various VisitXXX methods to visitor <2015-07-28 Tue 11:31>
      CLOSED: [2015-07-28 Tue 11:34]

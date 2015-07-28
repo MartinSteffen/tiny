@@ -1,5 +1,7 @@
 package main
-import ("github.com/MartinSteffen/tiny/absynt")
+import ("github.com/MartinSteffen/tiny/absynt"
+	"fmt"
+)
 
 // Note that the visitor type is not the same of the same as Visitor.  It
 // will be ``turned'' into a ``Visitor'' only when attaching the
@@ -50,6 +52,7 @@ var s = &absynt.IF{e,sl1,sl2}   // stmt
 func main () {
 	v := make (visitor)   // creating a visitor (which is a chan)
 	absynt.WalkStmt (v,s)
+	fmt.Println(v)
 }
 
 
