@@ -21,6 +21,7 @@ type StmtVisitor interface {
 }
 
 type ExprVisitor interface {
+//	Visit(Expr) (ExprVisitor)
 	// dummy
 	
 }
@@ -46,7 +47,7 @@ func WalkStmt (sv StmtVisitor, s Stmt) {
 	switch ts := s.(type) { // type assertion
 	case *IF:
 		fmt.Println ("IF (")
-		WalkExpr (sv, ts.E)
+		WalkExpr (sv, ts.E)    // this is not how it works
 		WalkStmt (sv, ts.SL1)
 		WalkStmt (sv, ts.SL2)
 		fmt.Println (")")

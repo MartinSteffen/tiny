@@ -6,8 +6,8 @@ package absynt
 //import ("fmt")
 
 type Node interface {
-}
 
+}
 
 
 type Symbol string      

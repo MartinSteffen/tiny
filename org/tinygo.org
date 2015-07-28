@@ -11,8 +11,35 @@
   
 ** Misc (later more structure)
 
+*** TODO make an ``overloaded'' visitor, is that possible  <2015-07-28 Tue 09:43>
+    
+    The problem currently is as follows: currently (being slightly
+    simplified) we concentrate on statements and expressions. Now, we have
+    2 visitors, statement visitors and expresion visitors. We start at a
+    statement, and call the function WalkStmt. the wargument is a statement
+    vistitor.
+
+    Now, as a consequence the following is incorrect:
+   
+     func WalkStmt (sv StmtVisitor, s Stmt) {
+	switch ts := s.(type) { // type assertion
+	case *IF:
+		fmt.Println ("IF (")
+		WalkExpr (sv, ts.E)    // this is not how it works
+		WalkStmt (sv, ts.SL1)
+     ...
+
+     The statement visitor cannot be used to visit the expression. We can
+     of course hand over all the visitors (perhaps arranged in an array or
+     record). That's however, not nice. Currently, Walk is a function, so one question
+     is: can one overload functions? It's unclear if one can overload methods (but I guess
+     that's more probable).
 
 
+*** TODO can one overload functions (not methods), say Walk <2015-07-28 Tue 09:51>
+
+
+*** TODO fill out walk-simple-expression
 *** TODO make the print outside the walk itself <2015-07-28 Tue 09:31>
     Currently I add some prints to the walk. It would be more
     better/more instructive, if we could add them to the visiting function somehow.
