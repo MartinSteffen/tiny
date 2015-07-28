@@ -10,21 +10,17 @@ import ("github.com/MartinSteffen/tiny/absynt")
 
 type visitor chan int 
 
-
 // What is unclear is the role of w: the w is not used (for me it could be
 // left out), but it's unclear anyhow: one could return w as well, or call
 // in the body something like w.Visit (n), but it's unclear what this is
 // supposed to mean. 
-
 
 // func (v visitor) Visit(n absynt.Program) (w absynt.Visitor) {
 //	 w.Visit (n)  // what would that mean
 //	 return 
 // }
 
-
-
-func (v visitor) Visit(s absynt.Stmt) (w absynt.Visitor) {
+func (v visitor) VisitStmt(s absynt.Stmt) (w absynt.Visitor) {
 	return v
 }
 

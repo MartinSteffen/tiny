@@ -91,17 +91,29 @@ func WalkStmt (v Visitor, s Stmt) {
 
 
 func WalkExpr (v Visitor, e Expr) {
+	fmt.Println("Expr(")	
 	switch te := e.(type) { // type assertion
 	case *SIMPLEEXPR:
-		fmt.Println("SimpleExpr(")
 		WalkSimpleExpr(v,te.S)
-		fmt.Println(")")		
 	case *COMPAREEXPR:
 	}
+	fmt.Println(")")		
 }
 
 
 func WalkSimpleExpr(v Visitor, se SimpleExpr) {
+	fmt.Println("SimpleExpr(")
+	switch tse :=se.(type) {
+	case *TERM:
+		WalkTerm(v,tse.T)
+	}
+	fmt.Println(")")
+}
+
+func WalkTerm(v Visitor, t Term) {
+	fmt.Println("Term(")
+	fmt.Println(")")
+	
 }
 
 

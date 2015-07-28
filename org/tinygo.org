@@ -11,8 +11,50 @@
   
 ** Misc (later more structure)
 
+*** TODO what can one do with the visitor thing, the channel? <2015-07-28 Tue 12:05>
+**** TODO check perhaps the printer test code <2015-07-28 Tue 12:05>
+
+#+begin_example
+func idents(f *ast.File) <-chan *ast.Ident {
+	v := make(visitor)
+	go func() {
+		ast.Walk(v, f)
+		close(v)
+	}()
+	return v
+}
+
+// identCount returns the number of identifiers found in f.
+func identCount(f *ast.File) int {
+	n := 0
+	for range idents(f) {
+		n++
+	}
+	return n
+}
+
+#+end_example
+
+**** TODO what's the type of the ~idents~ function here? <2015-07-28 Tue 12:14>
+
+The ``type' seems to be ~(f *ast.File) <-chan *ast.Ident~. That's the
+/signature/. I would guess that ~*ast.File~ is the /parameters/ and the
+rest ~<-chan *ast.Ident~ is the /result/.
+
+
 *** TODO adapt the test directory accordingly <2015-07-28 Tue 10:55>
-*** TODO make an ``overloaded'' visitor, is that possible  <2015-07-28 Tue 09:43>
+
+**** DONE glue on the various VisitXXX methods to visitor <2015-07-28 Tue 11:31>
+     CLOSED: [2015-07-28 Tue 11:34]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-28 Tue 11:34]
+     :END:
+     to make it to a Visitor 
+*** DONE make an ``overloaded'' visitor, is that possible  <2015-07-28 Tue 09:43>
+    CLOSED: [2015-07-28 Tue 11:35]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-28 Tue 11:35]
+    :END:
     
     The problem currently is as follows: currently (being slightly
     simplified) we concentrate on statements and expressions. Now, we have
@@ -35,6 +77,8 @@
      record). That's however, not nice. Currently, Walk is a function, so one question
      is: can one overload functions? It's unclear if one can overload methods (but I guess
      that's more probable).
+
+     Now it works
 
 
 *** DONE can one overload functions (not methods), say Walk <2015-07-28 Tue 09:51>
