@@ -13,6 +13,11 @@
 
 
 
+*** TODO make the print outside the walk itself <2015-07-28 Tue 09:31>
+    Currently I add some prints to the walk. It would be more
+    better/more instructive, if we could add them to the visiting function somehow.
+    For the time being, it's for debugging, but later we need to find
+    different kind of visitors.
 *** TODO fill in more cases (and prints) to the statement visitor <2015-07-28 Tue 09:28>
 *** DONE add print into the visitor (stmt and expr perhaps)  <2015-07-28 Tue 09:13>
     CLOSED: [2015-07-28 Tue 09:27]

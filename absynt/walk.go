@@ -45,10 +45,11 @@ func WalkStmt (sv StmtVisitor, s Stmt) {
 	// should be one at the call site. We leave it out for the moment.
 	switch ts := s.(type) { // type assertion
 	case *IF:
-		fmt.Println ("IF")
+		fmt.Println ("IF (")
 		WalkExpr (sv, ts.E)
 		WalkStmt (sv, ts.SL1)
 		WalkStmt (sv, ts.SL2)
+		fmt.Println (")")
 	case *READ:
 	case *WRITE:
 	case *REPEAT:
