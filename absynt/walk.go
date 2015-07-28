@@ -27,8 +27,9 @@ import ("fmt")
 // that, I make a Visitor interfaces for Node (which I make a supertype).
 
 type Visitor interface {
-	Visit(Node) (Visitor)
-	Visit(Stmt) (Visitor)
+//	Visit(Node) (Visitor)
+	VisitStmt(Stmt) (Visitor)
+	VisitExpr(Expr) (Visitor)	
 }
 
 

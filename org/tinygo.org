@@ -77,7 +77,19 @@ type Visitor interface {
 #+end_example
 
 **** TODO add multiple Visit-functions to the Visitor (to avoid overloading) <2015-07-28 Tue 10:42>
+
+     The design then is :
+
+#+begin_example
+type Visitor interface {
+//	Visit(Node) (Visitor)
+	VisitStmt(Stmt) (Visitor)
+	VisitExpr(Expr) (Visitor)	
+}
+#+end_example     
      
+   This is ``dual'' to before where I had VisitorStmt etc, but all with the 
+   commonly named Visit-Method.
 
 *** TODO fill out walk-simple-expression <2015-07-28 Tue 09:54>
 *** TODO make the print outside the walk itself <2015-07-28 Tue 09:31>
