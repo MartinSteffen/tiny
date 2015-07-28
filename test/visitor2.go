@@ -15,6 +15,8 @@ import ("github.com/MartinSteffen/tiny/absynt")
 // it up on the fly, not just send 1s over a channel. We try that later.
 
 
+// 
+
 type visitor chan int 
 
 
@@ -58,11 +60,13 @@ var s = &absynt.IF{e,sl1,sl2}   // stmt
 
 
 
+
 // -----------------------------------------------------
 
 func main () {
+	v := make (visitor)   // creating a visitor (which is a chan)
+	absynt.WalkStmt (v,2)
 }
-//Walk (v, w)
 
 // ----------------------------------
 // the following is taken from the go testprinter etc.

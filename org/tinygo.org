@@ -13,6 +13,21 @@
 
 
 
+*** TODO make a statement Visitor <2015-07-28 Tue 09:00>
+
+*** TODO can one unify all the visitor (in an overloading kind of way)? <2015-07-28 Tue 09:00>
+*** TODO create the second argument of the Walk function <2015-07-28 Tue 08:44>
+    I take again inspiration from   [[~/go/src/github.com/golang/go/src/go/printer/printer_test.go][printer_test.go]].
+
+    In that case: the second argument of the walk function f is an *ast.File
+
+*** DONE create a real visitor as argument for Walk <2015-07-28 Tue 08:39>
+    CLOSED: [2015-07-28 Tue 08:44]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-28 Tue 08:44]
+    :END:
+    The first argument of the walk-function (it is not a method) is a
+    visitor. It's created by make.
 *** DONE include the absynt package <2015-07-28 Tue 08:27>
     CLOSED: [2015-07-28 Tue 08:29]
     :LOGBOOK:
