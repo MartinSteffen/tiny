@@ -13,6 +13,17 @@
 
 
 
+*** DONE include the absynt package <2015-07-28 Tue 08:27>
+    CLOSED: [2015-07-28 Tue 08:29]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-28 Tue 08:29]
+    :END:
+   like this import ("github.com/MartinSteffen/tiny/absynt")
+*** DONE make the test-directory compilable <2015-07-28 Tue 08:23>
+    CLOSED: [2015-07-28 Tue 08:30]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-28 Tue 08:30]
+    :END:
 *** TODO make a real call to walk <2015-07-27 Mon 11:44>
 **** DONE make a main function etc. <2015-07-27 Mon 11:44>
      CLOSED: [2015-07-27 Mon 12:15]

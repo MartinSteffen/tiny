@@ -1,8 +1,11 @@
 
 
-package absynt
+package main
 
 
+
+
+import ("github.com/MartinSteffen/tiny/absynt")
 
 // Note that the visitor type is not the same of the same as Visitor.  It
 // will be ``turned'' into a ``Visitor'' only when attaching the
@@ -21,7 +24,7 @@ type visitor chan int
 // supposed to mean. 
 
 
- func (v visitor) Visit(n Program) (w Visitor) {
+ func (v visitor) Visit(n absynt.Program) (w absynt.Visitor) {
 //	 w.Visit (n)  // what would that mean
 	 return 
  }
@@ -31,12 +34,12 @@ type visitor chan int
 // that needs to be done by the walk function
 
 
-func (v visitor) VisitStmt(s Stmt) (w Visitor) {
+func (v visitor) VisitStmt(s absynt.Stmt) (w absynt.Visitor) {
 	return v
 }
 
 
-func (v visitor) VisitExpr(e Expr) (w Visitor) {
+func (v visitor) VisitExpr(e absynt.Expr) (w absynt.Visitor) {
 	v <- 1
 	return v     // why can I just write "return"?
 }
@@ -44,14 +47,14 @@ func (v visitor) VisitExpr(e Expr) (w Visitor) {
 //-----------------------------------------------------------------
 // 
 
-var f = &ID{I:"s"}   // factor
-var t = &FACTOR{f}   // term
-var se = &TERM{t}    // simple expr
-var e = &SIMPLEEXPR{se}  // expr 
-var sr = &READ{I:"x"}    // read stmt
+var f = &absynt.ID{I:"s"}   // factor
+var t = &absynt.FACTOR{f}   // term
+var se = &absynt.TERM{t}    // simple expr
+var e = &absynt.SIMPLEEXPR{se}  // expr 
+var sr = &absynt.READ{I:"x"}    // read stmt
 var sl1 = sr             // stmt (list) 
 var sl2 = sl1            // stmt (list) 
-var s = &IF{e,sl1,sl2}   // stmt 
+var s = &absynt.IF{e,sl1,sl2}   // stmt 
 
 
 
