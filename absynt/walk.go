@@ -11,6 +11,20 @@ import ("fmt")
 // make the various functions internal, for the time being, I export  all
 // functions.
 
+// There current design has the following problem. The definition of
+// statements and expressions are mutually recursive. That implies that
+// also the walk functions are mutuall recursive (where the different walk
+// functions I mean the walker for statements and the walker for
+// expression, and perhaps more). Currently, with the walkers as functions,
+// the different walkers are distinguished by name (if that's necessary
+// also if the walkers are methods is unclear, also if that would be
+// better). Anyhow that's not the current problem. The problem is the
+// recursive call in a walk function to other walk functions, where a/the
+// visitor has to be passed as argument.  Now, there are _different_
+// visitors of course, and they are an argument of the walk function. It
+// would be great if one could avoid handing over all visitors are
+// arguments, but instead make use of polymorphism or something.
+
 type Visitor interface {
 	Visit(Node) (Visitor)
 }
