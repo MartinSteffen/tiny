@@ -23,22 +23,32 @@ import ("fmt")
 // visitor has to be passed as argument.  Now, there are _different_
 // visitors of course, and they are an argument of the walk function. It
 // would be great if one could avoid handing over all visitors are
-// arguments, but instead make use of polymorphism or something.
+// arguments, but instead make use of polymorphism or something. To do
+// that, I make a Visitor interfaces for Node (which I make a supertype).
 
 type Visitor interface {
 	Visit(Node) (Visitor)
 }
 
-
 type StmtVisitor interface {
-	VisitStmt(Stmt) (StmtVisitor)   // can I ``overload'' Visit?
+	Visitor
 }
+
 
 type ExprVisitor interface {
-	Visit(Expr) (ExprVisitor)
-	// dummy
+	Visitor
+}	
+
+
+// type StmtVisitor interface {
+// 	VisitStmt(Stmt) (StmtVisitor)   // can I ``overload'' Visit?
+// }
+
+// type ExprVisitor interface {
+// 	Visit(Expr) (ExprVisitor)
+// 	// dummy
 	
-}
+// }
 
 
 type SimpleExprVisitor interface {
@@ -61,7 +71,7 @@ func WalkStmt (sv StmtVisitor, s Stmt) {
 	switch ts := s.(type) { // type assertion
 	case *IF:
 		fmt.Println ("IF (")
-		Walk  (sv, ts.E)    // this is not how it works
+		WalkExpr  (sv, ts.E)    // this is not how it works
 		WalkStmt (sv, ts.SL1)
 		WalkStmt (sv, ts.SL2)
 		fmt.Println (")")
