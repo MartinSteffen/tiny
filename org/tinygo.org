@@ -11,6 +11,7 @@
   
 ** Misc (later more structure)
 
+*** TODO adapt the test directory accordingly <2015-07-28 Tue 10:55>
 *** TODO make an ``overloaded'' visitor, is that possible  <2015-07-28 Tue 09:43>
     
     The problem currently is as follows: currently (being slightly

@@ -13,8 +13,8 @@ import ("fmt")
 
 // There current design has the following problem. The definition of
 // statements and expressions are mutually recursive. That implies that
-// also the walk functions are mutuall recursive (where the different walk
-// functions I mean the walker for statements and the walker for
+// also the walk functions are mutually recursive (where by the different
+// walk functions I mean the walker for statements and the walker for
 // expression, and perhaps more). Currently, with the walkers as functions,
 // the different walkers are distinguished by name (if that's necessary
 // also if the walkers are methods is unclear, also if that would be
@@ -27,45 +27,41 @@ import ("fmt")
 // that, I make a Visitor interfaces for Node (which I make a supertype).
 
 type Visitor interface {
-//	Visit(Node) (Visitor)
 	VisitStmt(Stmt) (Visitor)
 	VisitExpr(Expr) (Visitor)	
 }
 
 
 // it seems that the following are just synonyms then.
-type StmtVisitor interface {
-	Visitor
-}
-
-
-type ExprVisitor interface {
-	Visitor
-}	
-
-
+//type StmtVisitor interface {
+//	Visitor
+//}
+//
+//
+//type ExprVisitor interface {
+//	Visitor
+//}	
 // type StmtVisitor interface {
 // 	VisitStmt(Stmt) (StmtVisitor)   // can I ``overload'' Visit?
 // }
-
 // type ExprVisitor interface {
 // 	Visit(Expr) (ExprVisitor)
 // 	// dummy
-	
 // }
 
 
-type SimpleExprVisitor interface {
-	// dummy
-	
-}
+//type SimpleExprVisitor interface {
+//	// dummy
+//	
+//}
 // Note: the Walk-function is _not_ supposed to adhere to the Visitor
 // interface, therefore it does not return a Visitor, it's a
 // side-effect-only function. If one wanted a return type, one would have
 // to write for instance as func Walk (v int, p Program) (int) {....
 
-func Walk (v Visitor, p Program) {
-}
+
+//func Walk (v Visitor, p Program) {
+//}
 
 
 
@@ -94,7 +90,7 @@ func WalkStmt (v Visitor, s Stmt) {
         // }
 
 
-func WalkExpr (v ExprVisitor, e Expr) {
+func WalkExpr (v Visitor, e Expr) {
 	switch te := e.(type) { // type assertion
 	case *SIMPLEEXPR:
 		fmt.Println("SimpleExpr(")
@@ -105,7 +101,7 @@ func WalkExpr (v ExprVisitor, e Expr) {
 }
 
 
-func WalkSimpleExpr(sev SimpleExprVisitor, se SimpleExpr) {
+func WalkSimpleExpr(v Visitor, se SimpleExpr) {
 }
 
 
