@@ -64,6 +64,27 @@ data, in this case, identifiers.
 
 
 
+*** TODO deadlock: why? <2015-07-28 Tue 15:08>
+
+
+    Why does the following code give a deadlock
+
+#+begin_example
+func main () {
+	v := make (visitor)   // creating a visitor (which is a chan)
+	absynt.WalkStmt (v,s)
+	n := 0 
+	for range v {
+		n ++
+	}
+	fmt.Println(v)
+}
+#+end_example
+
+The error message (after printing the stuff) is ~fatal error: all
+goroutines are asleep - deadlock!~
+
+
 *** DONE adapt the test directory accordingly <2015-07-28 Tue 10:55>
     CLOSED: [2015-07-28 Tue 15:00]
     :LOGBOOK:
