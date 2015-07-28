@@ -69,15 +69,15 @@ func Walk (v Visitor, p Program) {
 
 
 
-func WalkStmt (sv Visitor, s Stmt) {
+func WalkStmt (v Visitor, s Stmt) {
 	// we might want to check of the visitor is empty.  or perhaps it
 	// should be one at the call site. We leave it out for the moment.
 	switch ts := s.(type) { // type assertion
 	case *IF:
 		fmt.Println ("IF (")
-		WalkExpr (sv, ts.E)    // this is not how it works
-		WalkStmt (sv, ts.SL1)
-		WalkStmt (sv, ts.SL2)
+		WalkExpr (v, ts.E)    // this is not how it works
+		WalkStmt (v, ts.SL1)
+		WalkStmt (v, ts.SL2)
 		fmt.Println (")")
 	case *READ:
 	case *WRITE:
@@ -94,11 +94,11 @@ func WalkStmt (sv Visitor, s Stmt) {
         // }
 
 
-func WalkExpr (sv ExprVisitor, e Expr) {
+func WalkExpr (v ExprVisitor, e Expr) {
 	switch te := e.(type) { // type assertion
 	case *SIMPLEEXPR:
 		fmt.Println("SimpleExpr(")
-		WalkSimpleExpr(sv,te.S)
+		WalkSimpleExpr(v,te.S)
 		fmt.Println(")")		
 	case *COMPAREEXPR:
 	}

@@ -44,6 +44,7 @@
 
 No, the two definitions cannot be in the same file (probably same package)
 
+#+begin_example
 func Walk (v Visitor, p Program) {
 }
 
@@ -51,14 +52,25 @@ func Walk (v Visitor, p Program) {
 func Walk (w int, s Stmt) {
 }
 
+#+end_example
 
 
-*** TODO add multiple visitors (if possoble) <2015-07-28 Tue 10:37>
+*** DONE add multiple visitors (if possible) <2015-07-28 Tue 10:37>
+    CLOSED: [2015-07-28 Tue 10:50]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-28 Tue 10:50]
+    :END:
     One of the problems I currently have: 
+
+#+begin_example
 
 	visitor does not implement absynt.Visitor (wrong type for Visit method)
 		have Visit(absynt.Stmt) absynt.Visitor
 		want Visit(absynt.Node) absynt.Visitor
+#+end_example
+     
+
+   So, basically I will not add multiple visitors, but one visitor with many visit-methods
 
 **** DONE does it compile if one overloads the Visit-method in one interface <2015-07-28 Tue 10:39>
      CLOSED: [2015-07-28 Tue 10:41]
@@ -76,7 +88,11 @@ type Visitor interface {
 }
 #+end_example
 
-**** TODO add multiple Visit-functions to the Visitor (to avoid overloading) <2015-07-28 Tue 10:42>
+**** DONE add multiple Visit-functions to the Visitor (to avoid overloading) <2015-07-28 Tue 10:42>
+     CLOSED: [2015-07-28 Tue 10:49]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-28 Tue 10:49]
+     :END:
 
      The design then is :
 
