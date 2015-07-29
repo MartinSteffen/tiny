@@ -50,10 +50,14 @@ func (v visitor) VisitCompareOp(co absynt.CompareOp) (w absynt.Visitor) {
 }
 
 func (v visitor) VisitTerm(t absynt.Term) (w absynt.Visitor) {
+	fmt.Println("Term(...)")
+	v <- 5
 	return v
 }
 
 func (v visitor) VisitFactor(t absynt.Factor) (w absynt.Visitor) {
+	fmt.Println("Factor(...)")
+	v <- 6
 	return v
 }
 
