@@ -13,6 +13,7 @@
 
 *** TODO what can one do with the visitor thing, the channel? <2015-07-28 Tue 12:05>
 
+Currently, my code gives a deadlock anyway.    
 **** DONE check perhaps the printer test code <2015-07-28 Tue 12:05>
      CLOSED: [2015-07-28 Tue 14:56]
      :LOGBOOK:
@@ -82,7 +83,8 @@ func main () {
 #+end_example
 
 The error message (after printing the stuff) is ~fatal error: all
-goroutines are asleep - deadlock!~
+goroutines are asleep - deadlock!~. If one removes the for-loop, there's no
+deadlock.
 
 
 *** DONE adapt the test directory accordingly <2015-07-28 Tue 10:55>
