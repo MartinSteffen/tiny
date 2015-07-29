@@ -33,6 +33,8 @@ type Visitor interface {
 	VisitCompareOp(CompareOp) (Visitor)
 	VisitTerm(Term)           (Visitor)
 	VisitFactor(Factor)       (Visitor)
+	VisitNumber (Number)      (Visitor)
+//	VisitAddOp (AddOp)        (Visitor)
 }
 
 

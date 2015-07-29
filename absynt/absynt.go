@@ -27,16 +27,16 @@ func (*EQ) compareopNode() {}
 
 //--------------------------------------------------------
 
-type Add_Op interface{
-	add_opNode()
+type AddOp interface{
+	addopNode()
 }
 type (
 	PLUS struct {}
 	MINUS struct {}
 )
 
-func (*PLUS) add_opNode() {}
-func (*MINUS) add_opNode() {}
+func (*PLUS) addopNode() {}
+func (*MINUS) addopNode() {}
 
 
 type Program     Stmt     // slice
@@ -101,7 +101,7 @@ type SimpleExpr interface {
 
 type (
 	TERM struct {T Term}
-	ADDEXPR struct {O Add_Op ; SE SimpleExpr; T Term }
+	ADDEXPR struct {O AddOp ; SE SimpleExpr; T Term }
 )
 
 func (*TERM) simpleexpr_Node() {}

@@ -365,6 +365,19 @@ type Visitor interface {
     :END:
 
 
+*** DONE why is there no ~AddOp~ or similar <2015-07-29 Wed 15:56>
+    CLOSED: [2015-07-29 Wed 15:57]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 15:57]
+    :END:
+    Actually, there is, in absynt.go
+*** TODO add ~VisitAddOp~ <2015-07-29 Wed 15:57>
+*** DONE replate Add_Op with AddOp, for uniformity <2015-07-29 Wed 15:58>
+    CLOSED: [2015-07-29 Wed 16:11]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 16:11]
+    :END:
+*** TODO add ~VisitNumber~ <2015-07-29 Wed 15:50>
 *** TODO add ~VisitTerm~ <2015-07-29 Wed 12:42>
 **** TODO fill out VisitTerm <2015-07-29 Wed 12:53>
 
