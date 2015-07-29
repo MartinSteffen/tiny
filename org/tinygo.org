@@ -11,10 +11,18 @@
   
 ** Misc (later more structure)
 
-*** TODO what's the status if visitor2.go <2015-07-29 Wed 07:06>
+*** DONE what's the status if visitor2.go <2015-07-29 Wed 07:06>
+    CLOSED: [2015-07-29 Wed 07:12]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 07:12]
+    :END:
     is it up-to date?
     
     No, the question is why?
+
+
+    => 2 different files, one not under git
+
 *** TODO what can one do with the visitor thing, the channel? <2015-07-28 Tue 12:05>
 
 Currently, my code gives a deadlock anyway.    
@@ -50,7 +58,10 @@ way it's declared in this function for the return type, it's a
 read-channel. Actually, the second function makes a weird use of it, it
 does not receive and values, it just counts the number. The
 ~close~-function is a built-in function for channels. The role of the
-~go~-statement here is not so clear. 
+~go~-statement here is not so clear.  The set-up here is different from the
+one in the go-compiler. 
+**** TODO test if one should close the channel? <2015-07-29 Wed 07:19>
+     
 
 **** DONE what's the type of the ~idents~ function here? <2015-07-28 Tue 12:14>
      CLOSED: [2015-07-28 Tue 14:45]
@@ -88,7 +99,15 @@ func main () {
 
 The error message (after printing the stuff) is ~fatal error: all
 goroutines are asleep - deadlock!~. If one removes the for-loop, there's no
-deadlock.
+deadlock.e It's the ~for range v~-loop, the body does not play a role. If
+one puts a print-command inside the loop, the prints are not executed
+before the deadlock happens. 
+
+If one closes the channel, the deadlock goes away. Nonetheless: the
+
+
+
+
 
 
 *** DONE adapt the test directory accordingly <2015-07-28 Tue 10:55>
@@ -1516,6 +1535,12 @@ func idents(f *ast.File) <-chan *ast.Ident {
 
    See also the go.org file
 
+*** DONE make (``channel''): what is the capacity of a made channel? <2015-07-29 Wed 07:28>
+    CLOSED: [2015-07-29 Wed 07:29]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 07:29]
+    :END:
+    If the capacity is absent, it's a synchronous channel. 
 *** TODO how is the AST of go designed <2015-07-13 Mon 13:05>
     
     Probably they use structural subtyping. There are 4 important
