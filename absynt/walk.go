@@ -27,14 +27,14 @@ import ("fmt")
 // that, I make a Visitor interfaces for Node (which I make a supertype).
 
 type Visitor interface {
-	VisitStmt(Stmt)           (Visitor)
-	VisitExpr(Expr)           (Visitor)	
-	VisitIdent(Ident)         (Visitor)	
-	VisitCompareOp(CompareOp) (Visitor)
-	VisitTerm(Term)           (Visitor)
-	VisitFactor(Factor)       (Visitor)
+	VisitStmt (Stmt)           (Visitor)
+	VisitExpr (Expr)           (Visitor)	
+	VisitIdent (Ident)         (Visitor)	
+	VisitCompareOp (CompareOp) (Visitor)
+	VisitTerm (Term)           (Visitor)
+	VisitFactor (Factor)       (Visitor)
 	VisitNumber (Number)      (Visitor)
-//	VisitAddOp (AddOp)        (Visitor)
+	VisitAddOp (AddOp)        (Visitor)
 }
 
 

@@ -61,8 +61,22 @@ func (v visitor) VisitFactor(t absynt.Factor) (w absynt.Visitor) {
 	return v
 }
 
+func (v visitor) VisitAddOp(ao absynt.AddOp) (w absynt.Visitor) {
+	fmt.Println("AddOp(...)")
+	v <- 7
+	return v
+
+}
+
+
+func (v visitor) VisitNumber(n absynt.Number) (w absynt.Visitor) {
+	fmt.Println("Number(...)")
+	v <- 8
+	return v
+
+}
 //-----------------------------------------------------------------
-// 
+// Some concrete tree
 
 var f = &absynt.ID{I:"s"}   // factor
 var t = &absynt.FACTOR{f}   // term
