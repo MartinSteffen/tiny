@@ -29,6 +29,7 @@ import ("fmt")
 type Visitor interface {
 	VisitStmt(Stmt) (Visitor)
 	VisitExpr(Expr) (Visitor)	
+	VisitIdent(Ident) (Visitor)	
 }
 
 
