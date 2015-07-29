@@ -105,6 +105,8 @@ data, in this case, identifiers.
 
      
 
+***** BUG why does the visitor (the walk) never print anything <2015-07-29 Wed 09:31>
+      Actually, the ~WalkStmt~ etc are executed
 ***** TODO it's there are difference between go ... and go func () ...? <2015-07-29 Wed 09:03>
       Perhaps just test it 
 ***** DONE What does ~range~ on a channel do <2015-07-29 Wed 08:04>
