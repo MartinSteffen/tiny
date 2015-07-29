@@ -68,6 +68,7 @@ type Visitor interface {
 func WalkStmt (v Visitor, s Stmt) {
 	// we might want to check of the visitor is empty.  or perhaps it
 	// should be one at the call site. We leave it out for the moment.
+	v.VisitStmt(s)          // action 
 	switch ts := s.(type) { // type assertion
 	case *IF:
 		fmt.Println ("IF (")
@@ -91,6 +92,7 @@ func WalkStmt (v Visitor, s Stmt) {
 
 
 func WalkExpr (v Visitor, e Expr) {
+	v.VisitExpr(e)          // action 
 	fmt.Println("Expr(")	
 	switch te := e.(type) { // type assertion
 	case *SIMPLEEXPR:

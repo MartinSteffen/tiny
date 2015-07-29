@@ -110,6 +110,13 @@ data, in this case, identifiers.
       added print-statements are executed. What seems not executed is the
       ``client-side'' code, i.e., the code in the file ~visitor2.go~.
 
+****** DONE add appropriate calls to ~Visit~-functions <2015-07-29 Wed 10:04>
+       CLOSED: [2015-07-29 Wed 10:06]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-07-29 Wed 10:06]
+       :END:
+       I added it to the walkers for statement and expressions 
+       
 ****** DONE do I ever /call/ any visit function? <2015-07-29 Wed 09:52>
        CLOSED: [2015-07-29 Wed 09:57]
        :LOGBOOK:
