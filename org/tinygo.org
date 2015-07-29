@@ -80,7 +80,11 @@ data, in this case, identifiers.
 
 
 
-*** TODO deadlock: why? <2015-07-28 Tue 15:08>
+*** DONE deadlock: why? <2015-07-28 Tue 15:08>
+    CLOSED: [2015-07-29 Wed 07:43]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 07:43]
+    :END:
 
 
     Why does the following code give a deadlock
@@ -103,7 +107,10 @@ deadlock.e It's the ~for range v~-loop, the body does not play a role. If
 one puts a print-command inside the loop, the prints are not executed
 before the deadlock happens. 
 
-If one closes the channel, the deadlock goes away. Nonetheless: the
+If one closes the channel, the deadlock goes away. But it's also not what
+we want. The closed channel is ``empty'' and has a range of 0, so the loop
+is not executed. Therefore we see also the deadlock: The walk function
+tries to write two times or more, and then that deadlocks.
 
 
 

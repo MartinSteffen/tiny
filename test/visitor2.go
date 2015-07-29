@@ -53,9 +53,9 @@ func main () {
 	v := make (visitor)   // creating a visitor (which is a synchronous chan)
 	absynt.WalkStmt (v,s)
 	fmt.Println("here")
-	close (v)      // if one does not close it, there is a deadlock          
 	n := 0 
 	fmt.Println(n)
+	close (v)      // if one does not close it, there is a deadlock          
 	for range v {
 		n++
 		fmt.Println("=")
