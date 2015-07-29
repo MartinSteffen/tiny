@@ -103,7 +103,20 @@ data, in this case, identifiers.
      probably, because if the main thread terminates, all is torn down, and
      therefore there is no deadlock.
 
-***** TODO What does ~range~ on a channel do <2015-07-29 Wed 08:04>
+     
+
+***** TODO it's there are difference between go ... and go func () ...? <2015-07-29 Wed 09:03>
+      Perhaps just test it 
+***** DONE What does ~range~ on a channel do <2015-07-29 Wed 08:04>
+      CLOSED: [2015-07-29 Wed 08:48]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-29 Wed 08:48]
+      :END:
+
+      Indeed, the range reads from the channel:
+      
+      ``For channels, the iteration values produced are the successive
+      values sent on the channel until the channel is closed.''
 
     
 *** DONE deadlock: why? <2015-07-28 Tue 15:08>

@@ -52,14 +52,21 @@ var s = &absynt.IF{e,sl1,sl2}   // stmt
 
 // -----------------------------------------------------
 
+// The visitor is a channel. To use it we need some concurrency, i.e., the
+// visiting function needs to run in parallel to send into the channel, and
+// another thread to read from it. Let's make the walking function the one
+// being spawned. The visitor sends on the synchronous channel, and the
+// main function receives the values. This is done via the range-command
+// (where currently the value is actually not remembered, since the main
+// function simply counts.
+
 func main () {
 	v := make (visitor)   // creating a visitor (which is a synchronous chan)
 	absynt.WalkStmt (v,s)
 	fmt.Println("here")
 	n := 0 
 	fmt.Println(n)
-	close (v)      // if one does not close it, there is a deadlock          
-	for range v {
+	for range v {  // read from the channel (but forget the value), stop when closed
 		n++
 		fmt.Println("=")
 	}
