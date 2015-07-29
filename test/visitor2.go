@@ -58,21 +58,48 @@ var s = &absynt.IF{e,sl1,sl2}   // stmt
 // being spawned. The visitor sends on the synchronous channel, and the
 // main function receives the values. This is done via the range-command
 // (where currently the value is actually not remembered, since the main
-// function simply counts.
+// function simply counts.  
+
+
+
+func idents() <-chan int {
+	v := make(visitor)
+	go func() {
+		absynt.WalkStmt(v, s)
+		close(v)
+	}()
+	return v
+}
+
 
 func main () {
-	v := make (visitor)   // creating a visitor (which is a synchronous chan)
-	absynt.WalkStmt (v,s)
 	fmt.Println("here")
 	n := 0 
-	fmt.Println(n)
-	for range v {  // read from the channel (but forget the value), stop when closed
+	for range idents() {  // read from the channel (but forget the value), stop when closed
+		fmt.Println("====")
 		n++
-		fmt.Println("=")
+
 	}
 	fmt.Println(n)
-	fmt.Println(v)
 }
+
+
+
+// func main () {
+// 	v := make (visitor)   // creating a visitor (which is a synchronous chan)
+// 	go func () {
+// 		absynt.WalkStmt (v,s)
+// 		close(v)
+// 	}()
+// 	fmt.Println("here")
+// 	n := 0 
+// 	for range v {  // read from the channel (but forget the value), stop when closed
+// 		n++
+// 		fmt.Println("====")
+// 	}
+// 	fmt.Println(n)
+// 	fmt.Println(v)
+// }
 
 
 
