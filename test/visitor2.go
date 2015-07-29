@@ -35,6 +35,13 @@ func (v visitor) VisitExpr(e absynt.Expr) (w absynt.Visitor) {
 	return v     // why can I just write "return"?
 }
 
+
+func (v visitor) VisitIdent(i absynt.Ident) (w absynt.Visitor) {
+	fmt.Println("send Identifier") 
+	v <- 3
+	return v     // why can I just write "return"?
+}
+
 //-----------------------------------------------------------------
 // 
 

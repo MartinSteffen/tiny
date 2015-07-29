@@ -378,6 +378,8 @@ type Visitor interface {
      - State "DONE"       from "TODO"       [2015-07-29 Wed 10:58]
      :END:
 *** TODO implement a decent ~VisitIdent~ <2015-07-29 Wed 10:58>
+    Now, that the ~VisitIdent~ is required by the interface, the client code
+    does not type check anymore, which is a good thing.
 *** TODO fill in more cases (and prints) to the statement visitor <2015-07-28 Tue 09:28>
 *** DONE add print into the visitor (stmt and expr perhaps)  <2015-07-28 Tue 09:13>
     CLOSED: [2015-07-28 Tue 09:27]
