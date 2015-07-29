@@ -80,6 +80,28 @@ data, in this case, identifiers.
 
 
 
+*** TODO why does the go-src channel visitor not deadlock <2015-07-29 Wed 07:44>
+
+    The Visit function does not contain parallelism. It's in the functions
+    afterwards. The function ~idents~ seems to spawn one new thread, which
+    does the walk (using the visitor channel). It's one thread, which
+    /sends/ on the channel. Since it's still a zero-element (synchronous)
+    channel, the walk through the ast cannot just finish, it will block
+    until another process reads from the channel, so there is some
+    /synchronization/ going on. Note that the walk is asynchronous, i.e.,
+    the ~idents~ function spawns the walker and, without waiting for its
+    finishing, returns the channel/visitor as result. 
+
+    Why the ~range~ works, is unclear, and also 
+
+**** TODO how can it not deadlock, considering that no receiving is done <2015-07-29 Wed 08:04>
+     It's strange, it seems that the ~idents~-function sends to the
+     channel, but no one actually reads from it. Therefore, I'd expect a
+     deadlock.  
+
+***** TODO What does ~range~ on a channel do <2015-07-29 Wed 08:04>
+
+    
 *** DONE deadlock: why? <2015-07-28 Tue 15:08>
     CLOSED: [2015-07-29 Wed 07:43]
     :LOGBOOK:
