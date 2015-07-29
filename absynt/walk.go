@@ -82,6 +82,9 @@ func WalkStmt (v Visitor, s Stmt) {
 		WalkIdent (v, ts.I)
 		fmt.Println (")")
 	case *WRITE:
+		fmt.Println ("Write(")
+		WalkExpr (v, ts.E)
+		fmt.Println (")")
 	case *REPEAT:
 	case *ASSIGN:
 	}
@@ -107,8 +110,8 @@ func WalkExpr (v Visitor, e Expr) {
 }
 
 func WalkIdent (v Visitor, i Ident) {
-	v.VisitIdent (i)
 	fmt.Println("Ident(")
+	v.VisitIdent (i)
 	fmt.Println(")")	
 	
 }

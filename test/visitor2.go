@@ -37,7 +37,7 @@ func (v visitor) VisitExpr(e absynt.Expr) (w absynt.Visitor) {
 
 
 func (v visitor) VisitIdent(i absynt.Ident) (w absynt.Visitor) {
-	fmt.Println("send Identifier") 
+	fmt.Println("I(", i, ")") 
 	v <- 3
 	return v     // why can I just write "return"?
 }

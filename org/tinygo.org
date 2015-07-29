@@ -128,7 +128,7 @@ data, in this case, identifiers.
       :END:
       The expression loops as follows
 
-           ~IF(SIMPLEEXPR(TERM(FACTOR(ID("s"))), READ("x"), READ("x"))~
+           ~IF(SIMPLEEXPR(TERM(FACTOR(ID("s"))), READo("x"), READ("x"))~
 
       Currently, only ~VisitExpr~ and ~VisitStmt~ has an action attached
       (in the form of sending an integer (and printing). The actuos are 
@@ -371,13 +371,26 @@ type Visitor interface {
     - State "DONE"       from "PENDING"    [2015-07-29 Wed 10:45]
     :END:
     It was "Program" before, for experimenting I made it to nodes.
-*** TODO add WalkIdent <2015-07-29 Wed 10:47>
+*** DONE add a case for WRITE <2015-07-29 Wed 11:08>
+    CLOSED: [2015-07-29 Wed 11:14]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 11:14]
+    :END:
+*** DONE add WalkIdent <2015-07-29 Wed 10:47>
+    CLOSED: [2015-07-29 Wed 11:07]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 11:07]
+    :END:
 **** DONE add VisitIdent to the Visitor-Interface <2015-07-29 Wed 10:57>
      CLOSED: [2015-07-29 Wed 10:58]
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-07-29 Wed 10:58]
      :END:
-*** TODO implement a decent ~VisitIdent~ <2015-07-29 Wed 10:58>
+*** DONE implement a decent ~VisitIdent~ <2015-07-29 Wed 10:58>
+    CLOSED: [2015-07-29 Wed 11:02]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 11:02]
+    :END:
     Now, that the ~VisitIdent~ is required by the interface, the client code
     does not type check anymore, which is a good thing.
 *** TODO fill in more cases (and prints) to the statement visitor <2015-07-28 Tue 09:28>
