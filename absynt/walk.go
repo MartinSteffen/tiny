@@ -30,6 +30,7 @@ type Visitor interface {
 	VisitStmt(Stmt) (Visitor)
 	VisitExpr(Expr) (Visitor)	
 	VisitIdent(Ident) (Visitor)	
+	VisitCompare_Op(Compare_Op) (Visitor)
 }
 
 
@@ -97,11 +98,6 @@ func WalkStmt (v Visitor, s Stmt) {
 		fmt.Println(")")
 	}
 }
-	// ASSIGN struct {I Ident; E Expr}
-
-        // }
-
-
 func WalkExpr (v Visitor, e Expr) {
 	v.VisitExpr(e)          // action 
 	fmt.Println("Expr(")	
@@ -109,8 +105,19 @@ func WalkExpr (v Visitor, e Expr) {
 	case *SIMPLEEXPR:
 		WalkSimpleExpr(v,te.S)
 	case *COMPAREEXPR:
+		WalkCompare_Op(v, te.CO)
+		WalkSimpleExpr(v,te.SE1)
+		WalkSimpleExpr(v,te.SE2)
 	}
 	fmt.Println(")")		
+}
+
+
+func WalkCompare_Op(v Visitor, co Compare_Op) {
+	fmt.Println("Compare_Op(")
+	v.VisitCompare_Op (co)
+	fmt.Println(")")	
+	
 }
 
 func WalkIdent (v Visitor, i Ident) {

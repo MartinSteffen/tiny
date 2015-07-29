@@ -42,6 +42,13 @@ func (v visitor) VisitIdent(i absynt.Ident) (w absynt.Visitor) {
 	return v     // why can I just write "return"?
 }
 
+
+func (v visitor) VisitCompare_Op(co absynt.Compare_Op) (w absynt.Visitor) {
+	fmt.Println("CompareOp(...)")
+	v <- 4
+	return v     
+}
+
 //-----------------------------------------------------------------
 // 
 
