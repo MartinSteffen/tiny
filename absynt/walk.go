@@ -30,7 +30,7 @@ type Visitor interface {
 	VisitStmt(Stmt) (Visitor)
 	VisitExpr(Expr) (Visitor)	
 	VisitIdent(Ident) (Visitor)	
-	VisitCompare_Op(Compare_Op) (Visitor)
+	VisitCompareOp(CompareOp) (Visitor)
 }
 
 
@@ -105,7 +105,7 @@ func WalkExpr (v Visitor, e Expr) {
 	case *SIMPLEEXPR:
 		WalkSimpleExpr(v,te.S)
 	case *COMPAREEXPR:
-		WalkCompare_Op(v, te.CO)
+		WalkCompareOp(v, te.CO)
 		WalkSimpleExpr(v,te.SE1)
 		WalkSimpleExpr(v,te.SE2)
 	}
@@ -113,9 +113,9 @@ func WalkExpr (v Visitor, e Expr) {
 }
 
 
-func WalkCompare_Op(v Visitor, co Compare_Op) {
-	fmt.Println("Compare_Op(")
-	v.VisitCompare_Op (co)
+func WalkCompareOp(v Visitor, co CompareOp) {
+	fmt.Println("CompareOp(")
+	v.VisitCompareOp (co)
 	fmt.Println(")")	
 	
 }
@@ -143,10 +143,4 @@ func WalkTerm(v Visitor, t Term) {
 }
 
 
-//	SIMPLEEXPR   struct {S SimpleExpr}
-//	COMPAREEXPR  struct {
-//		CO Compare_Op
-//		SE1 SimpleExpr
-//		SE2 SimpleExpr
-//	}
 

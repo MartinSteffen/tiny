@@ -365,7 +365,11 @@ type Visitor interface {
     :END:
 
 
-*** TODO rename Compare_Op to CompareOp (for style) <2015-07-29 Wed 11:33>
+*** DONE rename Compare_Op to CompareOp (for style) <2015-07-29 Wed 11:33>
+    CLOSED: [2015-07-29 Wed 12:31]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 12:31]
+    :END:
 *** DONE add an expression case  for  ~COMPAREEXPR~ <2015-07-29 Wed 11:23>
     CLOSED: [2015-07-29 Wed 12:29]
     :LOGBOOK:

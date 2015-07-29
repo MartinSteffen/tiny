@@ -43,7 +43,7 @@ func (v visitor) VisitIdent(i absynt.Ident) (w absynt.Visitor) {
 }
 
 
-func (v visitor) VisitCompare_Op(co absynt.Compare_Op) (w absynt.Visitor) {
+func (v visitor) VisitCompareOp(co absynt.CompareOp) (w absynt.Visitor) {
 	fmt.Println("CompareOp(...)")
 	v <- 4
 	return v     

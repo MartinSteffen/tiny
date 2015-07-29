@@ -15,15 +15,15 @@ type Ident Symbol
 type Number int         
                         
 //--------------------------------------------------------
-type Compare_Op interface { 
-	compare_opNode ()
+type CompareOp interface { 
+	compareopNode ()
 }
 type (                      
 	LT struct {}
 	EQ struct {}
 )
-func (*LT) compare_opNode() {}
-func (*EQ) compare_opNode() {}
+func (*LT) compareopNode() {}
+func (*EQ) compareopNode() {}
 
 //--------------------------------------------------------
 
