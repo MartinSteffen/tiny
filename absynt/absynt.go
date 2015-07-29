@@ -85,7 +85,7 @@ type Expr interface {
 type (
 	SIMPLEEXPR   struct {S SimpleExpr}
 	COMPAREEXPR  struct {
-		CO Compare_Op
+		CO CompareOp
 		SE1 SimpleExpr
 		SE2 SimpleExpr
 	}
