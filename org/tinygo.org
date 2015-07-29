@@ -105,7 +105,13 @@ data, in this case, identifiers.
 
      
 
-***** BUG why does the visitor (the walk) never print anything <2015-07-29 Wed 09:31>
+***** FIXED why does the visitor (the walk) never print anything <2015-07-29 Wed 09:31>
+      CLOSED: [2015-07-29 Wed 10:18]
+      :LOGBOOK:
+      - CLOSING NOTE [2015-07-29 Wed 10:18] \\
+	The walk functions just passed on the visitor, but it was never acted upon,
+	by calling it.
+      :END:
       Actually, the ~WalkStmt~ etc are executed, because the currently
       added print-statements are executed. What seems not executed is the
       ``client-side'' code, i.e., the code in the file ~visitor2.go~.
