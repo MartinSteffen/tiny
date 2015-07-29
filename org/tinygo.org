@@ -11,6 +11,10 @@
   
 ** Misc (later more structure)
 
+*** TODO what's the status if visitor2.go <2015-07-29 Wed 07:06>
+    is it up-to date?
+    
+    No, the question is why?
 *** TODO what can one do with the visitor thing, the channel? <2015-07-28 Tue 12:05>
 
 Currently, my code gives a deadlock anyway.    
