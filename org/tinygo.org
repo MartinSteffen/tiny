@@ -23,7 +23,11 @@
 
     => 2 different files, one not under git
 
-*** TODO what can one do with the visitor thing, the channel? <2015-07-28 Tue 12:05>
+*** DONE what can one do with the visitor thing, the channel? <2015-07-28 Tue 12:05>
+    CLOSED: [2015-07-29 Wed 10:44]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 10:44]
+    :END:
 
 Currently, my code gives a deadlock anyway.    
 **** DONE check perhaps the printer test code <2015-07-28 Tue 12:05>
@@ -60,7 +64,11 @@ does not receive and values, it just counts the number. The
 ~close~-function is a built-in function for channels. The role of the
 ~go~-statement here is not so clear.  The set-up here is different from the
 one in the go-compiler. 
-**** TODO test if one should close the channel? <2015-07-29 Wed 07:19>
+**** DONE test if one should close the channel? <2015-07-29 Wed 07:19>
+     CLOSED: [2015-07-29 Wed 10:44]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-29 Wed 10:44]
+     :END:
      
 
 **** DONE what's the type of the ~idents~ function here? <2015-07-28 Tue 12:14>
@@ -80,7 +88,11 @@ data, in this case, identifiers.
 
 
 
-*** TODO why does the go-src channel visitor not deadlock <2015-07-29 Wed 07:44>
+*** DONE why does the go-src channel visitor not deadlock <2015-07-29 Wed 07:44>
+    CLOSED: [2015-07-29 Wed 10:44]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 10:44]
+    :END:
 
     The Visit function does not contain parallelism. It's in the functions
     afterwards. The function ~idents~ seems to spawn one new thread, which
@@ -337,16 +349,30 @@ type Visitor interface {
    commonly named Visit-Method.
 
 *** TODO fill out walk-simple-expression <2015-07-28 Tue 09:54>
-*** TODO make the print outside the walk itself <2015-07-28 Tue 09:31>
+*** DONE make the print outside the walk itself <2015-07-28 Tue 09:31>
+    CLOSED: [2015-07-29 Wed 10:45]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 10:45]
+    :END:
     Currently I add some prints to the walk. It would be more
     better/more instructive, if we could add them to the visiting function somehow.
     For the time being, it's for debugging, but later we need to find
     different kind of visitors.
-*** TODO can one overload the Visit method <2015-07-28 Tue 09:55>
+*** DONE can one overload the Visit method <2015-07-28 Tue 09:55>
+    CLOSED: [2015-07-29 Wed 10:45]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 10:45]
+    :END:
 
 
-*** PENDING Change back the visitor for Nodes? <2015-07-28 Tue 10:00>
+*** DONE Change back the visitor for Nodes? <2015-07-28 Tue 10:00>
+    CLOSED: [2015-07-29 Wed 10:45]
+    :LOGBOOK:
+    - State "DONE"       from "PENDING"    [2015-07-29 Wed 10:45]
+    :END:
     It was "Program" before, for experimenting I made it to nodes.
+*** TODO add WalkIdent <2015-07-29 Wed 10:47>
+**** TODO add VisitIdent to the Visitor-Interface <2015-07-29 Wed 10:57>
 *** TODO fill in more cases (and prints) to the statement visitor <2015-07-28 Tue 09:28>
 *** DONE add print into the visitor (stmt and expr perhaps)  <2015-07-28 Tue 09:13>
     CLOSED: [2015-07-28 Tue 09:27]

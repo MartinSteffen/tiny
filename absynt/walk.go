@@ -77,6 +77,9 @@ func WalkStmt (v Visitor, s Stmt) {
 		WalkStmt (v, ts.SL2)
 		fmt.Println (")")
 	case *READ:
+		fmt.Println ("Read (")
+		WalkIdent (v, ts.I)
+		fmt.Println (")")
 	case *WRITE:
 	case *REPEAT:
 	case *ASSIGN:
@@ -102,6 +105,12 @@ func WalkExpr (v Visitor, e Expr) {
 	fmt.Println(")")		
 }
 
+func WalkIdent (v Visitor, i Ident) {
+	v.VisitIdent (i)
+	fmt.Println("Ident(")
+	fmt.Println(")")	
+	
+}
 
 func WalkSimpleExpr(v Visitor, se SimpleExpr) {
 	fmt.Println("SimpleExpr(")
