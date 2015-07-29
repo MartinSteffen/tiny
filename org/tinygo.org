@@ -106,10 +106,39 @@ data, in this case, identifiers.
      
 
 ***** BUG why does the visitor (the walk) never print anything <2015-07-29 Wed 09:31>
-      Actually, the ~WalkStmt~ etc are executed
+      Actually, the ~WalkStmt~ etc are executed, because the currently
+      added print-statements are executed. What seems not executed is the
+      ``client-side'' code, i.e., the code in the file ~visitor2.go~.
+
+****** DONE do I ever /call/ any visit function? <2015-07-29 Wed 09:52>
+       CLOSED: [2015-07-29 Wed 09:57]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-07-29 Wed 09:57]
+       :END:
+       The entry point in the current design is ~WalkStmt~.  However, it
+       the whole file ~walk.go~, no ~Visit~-function is ever
+       called. Basically it means, that the walk functions currently just
+       perform a walk-through, without ever executing the action connected
+       to the visitor.
+
+
+****** DONE does the go-src actually make use of functions like ~Visit~ <2015-07-29 Wed 09:36>
+       CLOSED: [2015-07-29 Wed 09:41]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-07-29 Wed 09:41]
+       :END:
+       Yes, they do, and it's the same as here, sending stuff over the channel
+****** DONE where and how in the go-src is the actual ~Visit~-function called? <2015-07-29 Wed 09:47>
+       CLOSED: [2015-07-29 Wed 09:50]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-07-29 Wed 09:50]
+       :END:
+       At the beginning of the ~Walk~-function! Since the walk-function is recursive,
+       it will be called repeatedly
 ***** TODO it's there are difference between go ... and go func () ...? <2015-07-29 Wed 09:03>
       Perhaps just test it 
 ***** DONE What does ~range~ on a channel do <2015-07-29 Wed 08:04>
+
       CLOSED: [2015-07-29 Wed 08:48]
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-07-29 Wed 08:48]
