@@ -122,24 +122,3 @@ func main () {
 	}
 	fmt.Println(n)
 }
-
-
-
-// func main () {
-// 	v := make (visitor)   // creating a visitor (which is a synchronous chan)
-// 	go func () {
-// 		absynt.WalkStmt (v,s)
-// 		close(v)
-// 	}()
-// 	fmt.Println("here")
-// 	n := 0 
-// 	for range v {  // read from the channel (but forget the value), stop when closed
-// 		n++
-// 		fmt.Println("====")
-// 	}
-// 	fmt.Println(n)
-// 	fmt.Println(v)
-// }
-
-
-

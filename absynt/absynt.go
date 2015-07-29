@@ -1,19 +1,7 @@
-
-
-// This one is the second attempt
 package absynt
-
-//import ("fmt")
-
-type Node interface {
-	
-}
-
-
 type Symbol string      
 type Ident Symbol
 type Number int         
-                        
 //--------------------------------------------------------
 type CompareOp interface { 
 	compareopNode ()
@@ -40,16 +28,6 @@ func (*MINUS) addopNode() {}
 
 
 type Program     Stmt     // slice
-
-//--------------------------------------------------------
-
-
-// The visitor must implement an ``visit'' function for all
-// ``constructors''. In the file here I made the convention that
-// constructors are all-capitals. The corresponding visitors are called
-// visit_<CONSTRUCTOR>.
-
-
 
 type Stmt interface {
 	stmt_Node ()             // it might be that this is no longer needed
@@ -133,22 +111,4 @@ func (*ID)   factor_Node() {return}
 func (*EXPR) factor_Node() {return }
 func (*NUMBER) factor_Node() {return }
 
-//------------------------------------------------------------
-
-
-
-
-
-
-// That's a stupid mix of styles.  The IF visitor is concrete, the
-// Stmt-visitor is abstract. Also: there is no separation between client
-// code, and the traversal. That should be the core of the design. The user
-// has to provide the core functionality, and the visitor infrastructure
-// applies it. A flat implementation can be achieved, I assume, but we
-// intend to 
-
-
-
-
-
-
+//----------------------------------------------------------------
