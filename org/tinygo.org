@@ -397,6 +397,15 @@ type Visitor interface {
      - State "DONE"       from "TODO"       [2015-07-29 Wed 16:20]
      :END:
 
+*** TODO add WalkAddOp <2015-07-29 Wed 17:49>
+*** FIXED Type error: ./walk.go:124:  <2015-07-29 Wed 17:04>
+    CLOSED: [2015-07-29 Wed 17:49]
+    :LOGBOOK:
+    - CLOSING NOTE [2015-07-29 Wed 17:49] \\
+      just wrong case
+    :END:
+    impossible type switch case: se (type SimpleExpr) cannot have dynamic type *COMPAREEXPR (missing simpleexpr_Node method)
+*** TODO add case for ~ADDEXPR~ <2015-07-29 Wed 16:36>
 *** TODO add ~VisitFactor~ <2015-07-29 Wed 12:42>
 **** DONE fill out VisitFactor <2015-07-29 Wed 12:53>
      CLOSED: [2015-07-29 Wed 16:29]
