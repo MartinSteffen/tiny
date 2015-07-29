@@ -386,11 +386,23 @@ type Visitor interface {
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-07-29 Wed 16:18]
     :END:
-*** TODO add ~VisitTerm~ <2015-07-29 Wed 12:42>
-**** TODO fill out VisitTerm <2015-07-29 Wed 12:53>
+*** DONE add ~VisitTerm~ <2015-07-29 Wed 12:42>
+    CLOSED: [2015-07-29 Wed 16:20]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 16:20]
+    :END:
+**** DONE fill out VisitTerm <2015-07-29 Wed 12:53>
+     CLOSED: [2015-07-29 Wed 16:20]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-29 Wed 16:20]
+     :END:
 
 *** TODO add ~VisitFactor~ <2015-07-29 Wed 12:42>
-**** TODO fill out VisitFactor <2015-07-29 Wed 12:53>
+**** DONE fill out VisitFactor <2015-07-29 Wed 12:53>
+     CLOSED: [2015-07-29 Wed 16:29]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-29 Wed 16:29]
+     :END:
 **** TODO call VisitFactor appropriately <2015-07-29 Wed 12:53>
 *** TODO write down a rational scheme how that worked <2015-07-29 Wed 12:34>
 
