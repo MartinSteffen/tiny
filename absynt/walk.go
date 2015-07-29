@@ -86,6 +86,10 @@ func WalkStmt (v Visitor, s Stmt) {
 		WalkExpr (v, ts.E)
 		fmt.Println (")")
 	case *REPEAT:
+		fmt.Println ("Repeat(")
+		WalkStmt(v,ts.SL)
+		WalkExpr(v,ts.C)
+		fmt.Println (")")
 	case *ASSIGN:
 	}
 }

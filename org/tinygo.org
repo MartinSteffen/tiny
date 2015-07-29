@@ -365,6 +365,11 @@ type Visitor interface {
     :END:
 
 
+*** DONE add a statement case for ~REPEAT~ <2015-07-29 Wed 11:16>
+    CLOSED: [2015-07-29 Wed 11:20]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 11:20]
+    :END:
 *** DONE Change back the visitor for Nodes? <2015-07-28 Tue 10:00>
     CLOSED: [2015-07-29 Wed 10:45]
     :LOGBOOK:
@@ -381,7 +386,7 @@ type Visitor interface {
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-07-29 Wed 11:07]
     :END:
-**** DONE add VisitIdent to the Visitor-Interface <2015-07-29 Wed 10:57>
+**** DONE add ~VisitIdent~ to the ~Visitor~-Interface <2015-07-29 Wed 10:57>
      CLOSED: [2015-07-29 Wed 10:58]
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-07-29 Wed 10:58]
