@@ -49,6 +49,14 @@ func (v visitor) VisitCompareOp(co absynt.CompareOp) (w absynt.Visitor) {
 	return v     
 }
 
+func (v visitor) VisitTerm(t absynt.Term) (w absynt.Visitor) {
+	return v
+}
+
+func (v visitor) VisitFactor(t absynt.Factor) (w absynt.Visitor) {
+	return v
+}
+
 //-----------------------------------------------------------------
 // 
 

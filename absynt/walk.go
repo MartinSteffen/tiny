@@ -27,10 +27,12 @@ import ("fmt")
 // that, I make a Visitor interfaces for Node (which I make a supertype).
 
 type Visitor interface {
-	VisitStmt(Stmt) (Visitor)
-	VisitExpr(Expr) (Visitor)	
-	VisitIdent(Ident) (Visitor)	
+	VisitStmt(Stmt)           (Visitor)
+	VisitExpr(Expr)           (Visitor)	
+	VisitIdent(Ident)         (Visitor)	
 	VisitCompareOp(CompareOp) (Visitor)
+	VisitTerm(Term)           (Visitor)
+	VisitFactor(Factor)       (Visitor)
 }
 
 
@@ -138,6 +140,7 @@ func WalkSimpleExpr(v Visitor, se SimpleExpr) {
 
 func WalkTerm(v Visitor, t Term) {
 	fmt.Println("Term(")
+	v.VisitTerm(t)
 	fmt.Println(")")
 	
 }

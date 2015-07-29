@@ -365,6 +365,18 @@ type Visitor interface {
     :END:
 
 
+*** TODO add ~VisitTerm~ <2015-07-29 Wed 12:42>
+**** TODO fill out VisitTerm <2015-07-29 Wed 12:53>
+
+*** TODO add ~VisitFactor~ <2015-07-29 Wed 12:42>
+**** TODO fill out VisitFactor <2015-07-29 Wed 12:53>
+**** TODO call VisitFactor appropriately <2015-07-29 Wed 12:53>
+*** TODO write down a rational scheme how that worked <2015-07-29 Wed 12:34>
+
+**** TODO what's the ``type'' of the whole  visitor thing? <2015-07-29 Wed 12:34>
+
+**** TODO can one do something else than a channel <2015-07-29 Wed 12:34>
+*** TODO which c
 *** DONE rename Compare_Op to CompareOp (for style) <2015-07-29 Wed 11:33>
     CLOSED: [2015-07-29 Wed 12:31]
     :LOGBOOK:
