@@ -2,14 +2,15 @@ package absynt  // ast2 might not work
 import ("fmt")
 
 type Visitor interface {
-	VisitStmt (Stmt)           (Visitor)
-	VisitExpr (Expr)           (Visitor)	
-	VisitIdent (Ident)         (Visitor)	
-	VisitCompareOp (CompareOp) (Visitor)
-	VisitTerm (Term)           (Visitor)
-	VisitFactor (Factor)       (Visitor)
-	VisitNumber (Number)      (Visitor)
-	VisitAddOp (AddOp)        (Visitor)
+	VisitStmt (Stmt)             (Visitor)
+	VisitExpr (Expr)             (Visitor)	
+	VisitSimpleExpr (SimpleExpr) (Visitor)	
+	VisitIdent (Ident)           (Visitor)	
+	VisitCompareOp (CompareOp)   (Visitor)
+	VisitTerm (Term)             (Visitor)
+	VisitFactor (Factor)         (Visitor)
+	VisitNumber (Number)         (Visitor)
+	VisitAddOp (AddOp)           (Visitor)
 }
 
 
@@ -59,6 +60,7 @@ func WalkExpr (v Visitor, e Expr) {
 }
 
 func WalkSimpleExpr(v Visitor, se SimpleExpr) {
+	v.VisitSimpleExpr(se)
 	fmt.Println("SimpleExpr(")
 	switch tse :=se.(type) {
 	case *TERM:
