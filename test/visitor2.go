@@ -30,7 +30,7 @@ func (v visitor) VisitStmt(s absynt.Stmt) (w absynt.Visitor) {
 
 
 func (v visitor) VisitExpr(e absynt.Expr) (w absynt.Visitor) {
-	fmt.Println("send 1")
+	fmt.Println("send 1")  // never printed
 	v <- 1
 	return v     // why can I just write "return"?
 }

@@ -97,7 +97,11 @@ data, in this case, identifiers.
 **** TODO how can it not deadlock, considering that no receiving is done <2015-07-29 Wed 08:04>
      It's strange, it seems that the ~idents~-function sends to the
      channel, but no one actually reads from it. Therefore, I'd expect a
-     deadlock.  
+     deadlock.  In /my/ current code, if I use the ~range~-loop, there's a
+     deadlock, but that is because I don't have parallelism. What is less
+     clear is: if I /remove/ the ~range~-loop, then all is fine. That's
+     probably, because if the main thread terminates, all is torn down, and
+     therefore there is no deadlock.
 
 ***** TODO What does ~range~ on a channel do <2015-07-29 Wed 08:04>
 
