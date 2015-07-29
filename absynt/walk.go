@@ -91,12 +91,12 @@ func WalkStmt (v Visitor, s Stmt) {
 		WalkExpr(v,ts.C)
 		fmt.Println (")")
 	case *ASSIGN:
+		fmt.Println("Assign(")
+		WalkIdent(v,ts.I)
+		WalkExpr(v,ts.E)
+		fmt.Println(")")
 	}
 }
-	// IF struct {E Expr
-	// READ struct {I Ident}
-	// WRITE struct {E Expr}
-	// REPEAT struct {SL Stmt; C Expr}  // slice
 	// ASSIGN struct {I Ident; E Expr}
 
         // }

@@ -365,6 +365,11 @@ type Visitor interface {
     :END:
 
 
+*** DONE add a statement case for ~ASSIGN~ <2015-07-29 Wed 11:21>
+    CLOSED: [2015-07-29 Wed 11:22]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-29 Wed 11:22]
+    :END:
 *** DONE add a statement case for ~REPEAT~ <2015-07-29 Wed 11:16>
     CLOSED: [2015-07-29 Wed 11:20]
     :LOGBOOK:
