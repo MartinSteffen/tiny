@@ -82,6 +82,13 @@ func (v visitor) VisitNumber(n absynt.Number) (w absynt.Visitor) {
 	return v
 
 }
+
+func (v visitor) VisitSymbol(s absynt.Symbol) (w absynt.Visitor) {
+	fmt.Println("Symbol(...)")
+	v <- 10
+	return v
+
+}
 //-----------------------------------------------------------------
 // Some concrete tree
 

@@ -10,7 +10,8 @@ type Visitor interface {
 	VisitTerm (Term)             (Visitor)
 	VisitFactor (Factor)         (Visitor)
 	VisitNumber (Number)         (Visitor)
-	VisitAddOp (AddOp)           (Visitor)
+	VisitSymbol (Symbol)         (Visitor)
+	VisitAddOp  (AddOp)          (Visitor)
 }
 
 
@@ -98,6 +99,13 @@ func WalkIdent (v Visitor, i Ident) {
 func WalkTerm(v Visitor, t Term) {
 	fmt.Println("Term(")
 	v.VisitTerm(t)
+	fmt.Println(")")
+}
+
+
+func WalkSymbol(v Visitor, s Symbol) {
+	fmt.Println("Symbol(")
+	v.VisitSymbol(s)
 	fmt.Println(")")
 }
 
