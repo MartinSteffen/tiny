@@ -23,14 +23,14 @@ type visitor chan int
 // }
 
 func (v visitor) VisitStmt(s absynt.Stmt) (w absynt.Visitor) {
-	fmt.Println("send 2")  // never printed
+	fmt.Println("send Stmt") 
 	v <- 2
 	return v
 }
 
 
 func (v visitor) VisitExpr(e absynt.Expr) (w absynt.Visitor) {
-	fmt.Println("send 1")  // never printed
+	fmt.Println("send Expr") 
 	v <- 1
 	return v     // why can I just write "return"?
 }
@@ -76,7 +76,7 @@ func main () {
 	fmt.Println("here")
 	n := 0 
 	for range idents() {  // read from the channel (but forget the value), stop when closed
-		fmt.Println("====")
+		fmt.Println("loop")
 		n++
 
 	}

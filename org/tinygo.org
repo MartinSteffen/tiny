@@ -94,7 +94,11 @@ data, in this case, identifiers.
 
     Why the ~range~ works, is unclear, and also 
 
-**** TODO how can it not deadlock, considering that no receiving is done <2015-07-29 Wed 08:04>
+**** DONE how can it not deadlock, considering that no receiving is done <2015-07-29 Wed 08:04>
+     CLOSED: [2015-07-29 Wed 10:41]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-07-29 Wed 10:41]
+     :END:
      It's strange, it seems that the ~idents~-function sends to the
      channel, but no one actually reads from it. Therefore, I'd expect a
      deadlock.  In /my/ current code, if I use the ~range~-loop, there's a
@@ -105,6 +109,20 @@ data, in this case, identifiers.
 
      
 
+***** DONE check if the visitor does the right thing on the example <2015-07-29 Wed 10:19>
+      CLOSED: [2015-07-29 Wed 10:40]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-29 Wed 10:40]
+      :END:
+      The expression loops as follows
+
+           ~IF(SIMPLEEXPR(TERM(FACTOR(ID("s"))), READ("x"), READ("x"))~
+
+      Currently, only ~VisitExpr~ and ~VisitStmt~ has an action attached
+      (in the form of sending an integer (and printing). The actuos are 
+      Stmt -> Expr -> Expr -> Expr, which makes sense.
+
+      
 ***** FIXED why does the visitor (the walk) never print anything <2015-07-29 Wed 09:31>
       CLOSED: [2015-07-29 Wed 10:18]
       :LOGBOOK:
@@ -148,7 +166,11 @@ data, in this case, identifiers.
        :END:
        At the beginning of the ~Walk~-function! Since the walk-function is recursive,
        it will be called repeatedly
-***** TODO it's there are difference between go ... and go func () ...? <2015-07-29 Wed 09:03>
+***** CANCELLED it's there are difference between go ... and go func () ...? <2015-07-29 Wed 09:03>
+      CLOSED: [2015-07-29 Wed 10:41]
+      :LOGBOOK:
+      - CLOSING NOTE [2015-07-29 Wed 10:41]
+      :END:
       Perhaps just test it 
 ***** DONE What does ~range~ on a channel do <2015-07-29 Wed 08:04>
 
