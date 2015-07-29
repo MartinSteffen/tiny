@@ -11,6 +11,7 @@
   
 ** Misc (later more structure)
 
+*** TODO Is there no multiplication in the original grammar? Is there such a grammer? <2015-07-29 Wed 20:40>
 *** DONE what's the status if visitor2.go <2015-07-29 Wed 07:06>
     CLOSED: [2015-07-29 Wed 07:12]
     :LOGBOOK:
