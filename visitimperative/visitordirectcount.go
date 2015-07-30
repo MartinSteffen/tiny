@@ -84,6 +84,6 @@ var s = example.S2     // stmt
 // spawn a new process-
 func main () {
 	v := &visitor{0}   // address of
-	absynt.WalkStmt(v, s)
+	walkimperative.WalkStmt(v, s)
 	fmt.Println(v)
 }
