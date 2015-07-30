@@ -10,7 +10,7 @@ type visitor struct {count int}
 func (v visitor) VisitStmt(s absynt.Stmt) (w absynt.Visitor) {
 	fmt.Println("send Stmt") 
 	v.count = v.count + 1
-	fmt.Println(v.count)
+	fmt.Println("{",v.count,"}")
 	return v
 }
 
