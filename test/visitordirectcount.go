@@ -4,11 +4,11 @@ import ("github.com/MartinSteffen/tiny/absynt"
 )
 
 
-type visitor struct {count int}
+type visitor struct {count int}   // we cannot make it as pointer to a struct
 
 
 
-func (v visitor) VisitStmt(s absynt.Stmt) {
+func (v *visitor) VisitStmt(s absynt.Stmt) {
 	fmt.Println("send Stmt") 
 	v.count = v.count + 1
 	fmt.Println("{",v.count,"}")
@@ -125,7 +125,7 @@ var s2 = &absynt.REPEAT{s,e3}     // stmt
 // This time we don't make use of concurrency. Therefore we don't need to
 // spawn a new process-
 func main () {
-	v := visitor{-1}
+	v := &visitor{-1}   // address of
 	absynt.WalkStmt(v, s2)
 	fmt.Println(v)
 }
