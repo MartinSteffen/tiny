@@ -135,7 +135,6 @@ the arrow attached to the /left/ of ~chan~, it's a channel to /receive/
 data, in this case, identifiers.
 
 
-
 *** DONE why does the go-src channel visitor not deadlock <2015-07-29 Wed 07:44>
     CLOSED: [2015-07-29 Wed 10:44]
     :LOGBOOK:
@@ -275,7 +274,6 @@ If one closes the channel, the deadlock goes away. But it's also not what
 we want. The closed channel is ``empty'' and has a range of 0, so the loop
 is not executed. Therefore we see also the deadlock: The walk function
 tries to write two times or more, and then that deadlocks.
-
 
 
 
@@ -509,6 +507,8 @@ type Visitor interface {
       - State "DONE"       from "TODO"       [2015-07-30 Thu 10:48]
       :END:
 ***** TODO make the record thing imperative first <2015-07-30 Thu 10:29>
+***** TODO change the visitor interface to an imperative one <2015-07-30 Thu 11:42>
+***** TODO adapt the client code <2015-07-30 Thu 11:42>
 ****** DONE are structs immutable <2015-07-30 Thu 11:16>
        CLOSED: [2015-07-30 Thu 11:24]
        :LOGBOOK:
