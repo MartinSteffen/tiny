@@ -70,6 +70,20 @@ func (*PLUS) add_opNode() {}
 func (*MINUS) add_opNode() {}
 
 
+//--------------------------------------------------------
+
+type Mul_Op interface{
+	mul_opNode()
+}
+type (
+	TIMES struct {}
+	 OVER struct {}
+)
+
+func (*TIMES) mul_opNode() {}
+func (*OVER)  mul_opNode() {}
+
+
 type Program    [] Stmt   // this is a slice type.
 
 //--------------------------------------------------------
@@ -154,6 +168,7 @@ func (*ID)   factor_Node() {}
 func (*EXPR) factor_Node() {}
 func (*NUMBER) factor_Node() {}
 //------------------------------------------------------------
+
 
 
 

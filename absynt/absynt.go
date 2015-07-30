@@ -26,6 +26,21 @@ type (
 func (*PLUS) addopNode() {}
 func (*MINUS) addopNode() {}
 
+//--------------------------------------------------------
+
+type MulOp interface{
+	mulopNode()
+}
+type (
+	TIMES struct {}
+	 OVER struct {}
+)
+
+func (*TIMES) mulopNode() {}
+func (*OVER)  mulopNode() {}
+
+
+
 
 type Program     Stmt     // slice
 
@@ -92,9 +107,11 @@ type Term interface {
 
 type (
 	FACTOR struct {F Factor}
+	MULEXPR struct {MO MulOp; T Term; F Factor}
 )
 
-func (*FACTOR)   term_Node() {}
+func (*FACTOR)    term_Node() {}
+func (*MULEXPR)   term_Node() {}
 //-----------------------------------------------------------------
 
 type Factor interface {

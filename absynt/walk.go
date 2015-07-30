@@ -12,6 +12,7 @@ type Visitor interface {
 	VisitNumber (Number)         (Visitor)
 	VisitSymbol (Symbol)         (Visitor)
 	VisitAddOp  (AddOp)          (Visitor)
+	VisitMulOp  (MulOp)          (Visitor)
 }
 
 
@@ -83,6 +84,13 @@ func WalkAddOp(v Visitor, ao AddOp) {
 }
 
 
+func WalkMulOp(v Visitor, mo MulOp) {
+	fmt.Println("MulOp(")
+	v.VisitMulOp(mo)
+	fmt.Println(")")	
+}
+
+
 func WalkCompareOp(v Visitor, co CompareOp) {
 	fmt.Println("CompareOp(")
 	v.VisitCompareOp (co)
@@ -96,9 +104,20 @@ func WalkIdent (v Visitor, i Ident) {
 }
 
 
+func WalkFactor(v Visitor, f Factor) { // fill
+}
+
 func WalkTerm(v Visitor, t Term) {
 	fmt.Println("Term(")
-	v.VisitTerm(t)
+	v.VisitTerm(t)                // action
+	switch tt := t.(type) {
+	case *FACTOR:
+		WalkFactor(v,tt.F)
+	case *MULEXPR:
+		WalkMulOp(v,tt.MO)
+		WalkTerm(v,tt.T)
+		WalkFactor(v,tt.F)
+	}
 	fmt.Println(")")
 }
 
