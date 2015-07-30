@@ -98,14 +98,11 @@ func (v *visitor) VisitSymbol(s absynt.Symbol)  {
 }
 
 
-var s = example.S2     // stmt 
+var s = example.S2        // stmt 
 
 
-
-// This time we don't make use of concurrency. Therefore we don't need to
-// spawn a new process-
 func main () {
-	v := &visitor{0}   // address of
+	v := &visitor{0}  // address of
 	walkimperative.WalkStmt(v, s)
 	fmt.Println(v)
 }
