@@ -105,8 +105,25 @@ func WalkIdent (v Visitor, i Ident) {
 
 
 func WalkFactor(v Visitor, f Factor) { // fill
+	fmt.Println("Term(")           // action
+	v.VisitFactor(f)
+	switch tf := f.(type) {
+	case *ID:
+		WalkId(v,tf.I)
+	case *EXPR:
+		WalkExpr(v,tf.E)
+	case *NUMBER:
+		WalkNumber(v,tf.N)
+	}
+	fmt.Println(")")
 }
 
+
+func WalkNumber (v Visitor, n Number) {
+}
+
+func WalkId (v Visitor, i Ident) {
+}
 func WalkTerm(v Visitor, t Term) {
 	fmt.Println("Term(")
 	v.VisitTerm(t)                // action
