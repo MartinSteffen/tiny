@@ -2229,7 +2229,9 @@ ast. That should very much determine the tree, because it's a tree.
 
 ** Imperative visitor 
 *** [[../walkimperative][Imperative walk through]]
-*** Imperative visiting client code
+
+    
+*** [[../visitimperative][Imperative visiting client code]]
 
 The directory contains all the visit-methods. For each /type/ (of the
 underlying inductive definition, there is one ~Visit<Type>~-function. It is
@@ -2251,3 +2253,21 @@ one had the receiver type ~*visitor~, one could make a recursive call
 dot-notation is overloaded, and implicitly dereferences member access. It's
 important here that the ~v~ parameter is called by reference. Otherwise,
 the original value does not change.
+
+
+** Functional visitor
+
+The code here corresponds more closely to the code as found in the ast part
+of the go compiler. However, it's not really functional
+anyway. Furthermore, the go-compiler makes only /once/ use of such a
+visitor, but there, the functional aspect is ignored, as well. The point
+where it's not really functional is the various ~Walk~-functions: they do
+not give back a visitor, as would be plausible if it were functional. On
+the other hand, the visitor functions seem to be intended for functional
+use, insofar the ~Visitor~-interface requires to return a visitor as
+result, as opposed to simply changing the state of the argument visitor
+(which is the receiver of the various visit functions.
+
+
+***  [[../walkfunctional][Functional walk through]]
+***  [[../visitfunctional][Functional visiting client code]]
