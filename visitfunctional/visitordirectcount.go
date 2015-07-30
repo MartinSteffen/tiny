@@ -13,7 +13,7 @@ type visitor struct {count int}
 
 
 
-func (v visitor) VisitStmt(s absynt.Stmt) (absynt.Visitor) {
+func (v visitor) VisitStmt(s absynt.Stmt) (walkfunctional.Visitor) {
 	fmt.Println("send Stmt") 
 	v.count = v.count + 1
 	fmt.Println("{",v.count,"}")
@@ -21,52 +21,52 @@ func (v visitor) VisitStmt(s absynt.Stmt) (absynt.Visitor) {
 }
 
 
-func (v visitor) VisitExpr(e absynt.Expr) (w absynt.Visitor) {
+func (v visitor) VisitExpr(e absynt.Expr) (w walkfunctional.Visitor) {
 	fmt.Println("send Expr")
 	v.count = v.count + 1
 	return v     // why can I just write "return"?
 }
 
 
-func (v visitor) VisitSimpleExpr(e absynt.SimpleExpr) (w absynt.Visitor) {
+func (v visitor) VisitSimpleExpr(e absynt.SimpleExpr) (w walkfunctional.Visitor) {
 	fmt.Println("send SimpleExpr")
 	return v     // why can I just write "return"?
 }
 
 
-func (v visitor) VisitIdent(i absynt.Ident) (w absynt.Visitor) {
+func (v visitor) VisitIdent(i absynt.Ident) (w walkfunctional.Visitor) {
 	fmt.Println("I(", i, ")")
 	v.count = v.count + 1	
 	return v     // why can I just write "return"?
 }
 
 
-func (v visitor) VisitCompareOp(co absynt.CompareOp) (w absynt.Visitor) {
+func (v visitor) VisitCompareOp(co absynt.CompareOp) (w walkfunctional.Visitor) {
 	fmt.Println("CompareOp(...)")
 	v.count = v.count + 1
 	return v     
 }
 
-func (v visitor) VisitTerm(t absynt.Term) (w absynt.Visitor) {
+func (v visitor) VisitTerm(t absynt.Term) (w walkfunctional.Visitor) {
 	fmt.Println("Term(...)")
 	v.count = v.count + 1	
 	return v
 }
 
-func (v visitor) VisitFactor(t absynt.Factor) (w absynt.Visitor) {
+func (v visitor) VisitFactor(t absynt.Factor) (w walkfunctional.Visitor) {
 	fmt.Println("Factor(...)")
 	v.count = v.count + 1	
 	return v
 }
 
-func (v visitor) VisitAddOp(ao absynt.AddOp) (w absynt.Visitor) {
+func (v visitor) VisitAddOp(ao absynt.AddOp) (w walkfunctional.Visitor) {
 	fmt.Println("AddOp(...)")
 	v.count = v.count + 1	
 	return v
 
 }
 
-func (v visitor) VisitMulOp(s absynt.MulOp) (w absynt.Visitor) {
+func (v visitor) VisitMulOp(s absynt.MulOp) (w walkfunctional.Visitor) {
 	fmt.Println("MulOp")
 	v.count = v.count + 1	
 	return v
@@ -75,14 +75,14 @@ func (v visitor) VisitMulOp(s absynt.MulOp) (w absynt.Visitor) {
 
 
 
-func (v visitor) VisitNumber(n absynt.Number) (w absynt.Visitor) {
+func (v visitor) VisitNumber(n absynt.Number) (w walkfunctional.Visitor) {
 	fmt.Println("Number(...)")
 	v.count = v.count + 1	
 	return v
 
 }
 
-func (v visitor) VisitSymbol(s absynt.Symbol) (w absynt.Visitor) {
+func (v visitor) VisitSymbol(s absynt.Symbol) (w walkfunctional.Visitor) {
 	fmt.Println("Symbol(...)")
 	v.count = v.count + 1	
 	return v
@@ -115,33 +115,11 @@ var t3 = &absynt.FACTOR{f3}           // term
 var se3 = &absynt.ADDEXPR{ao4,se2,t3}  // simple expression
 var s2 = &absynt.REPEAT{s,e3}     // stmt 
 
-//repeat (if "s" (read "x") (read "x"))
-// until  ("f5" - 42)
-
-// -----------------------------------------------------
-
-// The visitor is a channel. To use it we need some concurrency, i.e., the
-// visiting function needs to run in parallel to send into the channel, and
-// another thread to read from it. Let's make the walking function the one
-// being spawned. The visitor sends on the synchronous channel, and the
-// main function receives the values. This is done via the range-command
-// (where currently the value is actually not remembered, since the main
-// function simply counts.  
-
-
-
-//func idents() <-chan int {
-//	v := visitor{}      // create a struct
-//	go func() {
-//		
-//	}()
-//	return v
-//}
 
 // This time we don't make use of concurrency. Therefore we don't need to
-// spawn a new process-
+// spawn a new process.
 func main () {
 	v := visitor{-1}
-	absynt.WalkStmt(v, s2)
+	walkfunctional.WalkStmt(v, s2)
 	fmt.Println(v)
 }
