@@ -4,65 +4,65 @@ import ("github.com/MartinSteffen/tiny/absynt"
 )
 
 
-type visitor struct {}
+type visitor struct {count int}
 
 
 func (v visitor) VisitStmt(s absynt.Stmt) (w absynt.Visitor) {
 	fmt.Println("send Stmt") 
-//	v <- 2
+	v.count = v.count + 1
+	fmt.Println(v.count)
 	return v
 }
 
 
 func (v visitor) VisitExpr(e absynt.Expr) (w absynt.Visitor) {
-	fmt.Println("send Expr") 
-//	v <- 1
+	fmt.Println("send Expr")
+	v.count = v.count + 1
 	return v     // why can I just write "return"?
 }
 
 
 func (v visitor) VisitSimpleExpr(e absynt.SimpleExpr) (w absynt.Visitor) {
-	fmt.Println("send SimpleExpr") 
-//	v <- 9
+	fmt.Println("send SimpleExpr")
 	return v     // why can I just write "return"?
 }
 
 
 func (v visitor) VisitIdent(i absynt.Ident) (w absynt.Visitor) {
-	fmt.Println("I(", i, ")") 
-//	v <- 3
+	fmt.Println("I(", i, ")")
+	v.count = v.count + 1	
 	return v     // why can I just write "return"?
 }
 
 
 func (v visitor) VisitCompareOp(co absynt.CompareOp) (w absynt.Visitor) {
 	fmt.Println("CompareOp(...)")
-//	v <- 4
+	v.count = v.count + 1
 	return v     
 }
 
 func (v visitor) VisitTerm(t absynt.Term) (w absynt.Visitor) {
 	fmt.Println("Term(...)")
-//	v <- 5
+	v.count = v.count + 1	
 	return v
 }
 
 func (v visitor) VisitFactor(t absynt.Factor) (w absynt.Visitor) {
 	fmt.Println("Factor(...)")
-//	v <- 6
+	v.count = v.count + 1	
 	return v
 }
 
 func (v visitor) VisitAddOp(ao absynt.AddOp) (w absynt.Visitor) {
 	fmt.Println("AddOp(...)")
-//	v <- 7
+	v.count = v.count + 1	
 	return v
 
 }
 
 func (v visitor) VisitMulOp(s absynt.MulOp) (w absynt.Visitor) {
 	fmt.Println("MulOp")
-//	v <- 11
+	v.count = v.count + 1	
 	return v
 
 }
@@ -71,16 +71,15 @@ func (v visitor) VisitMulOp(s absynt.MulOp) (w absynt.Visitor) {
 
 func (v visitor) VisitNumber(n absynt.Number) (w absynt.Visitor) {
 	fmt.Println("Number(...)")
-//	v <- 8
+	v.count = v.count + 1	
 	return v
 
 }
 
 func (v visitor) VisitSymbol(s absynt.Symbol) (w absynt.Visitor) {
 	fmt.Println("Symbol(...)")
-//	v <- 10
+	v.count = v.count + 1	
 	return v
-
 }
 
 
@@ -138,4 +137,5 @@ var s2 = &absynt.REPEAT{s,e3}     // stmt
 func main () {
 	v := visitor{}
 	absynt.WalkStmt(v, s2)
+	fmt.Println(v)
 }
