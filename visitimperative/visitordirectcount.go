@@ -11,8 +11,29 @@ type visitor struct {count int}   // we cannot make it as pointer to a struct
 
 
 
+
+// The following contains all the visit-methods. It is instructive to
+// compare their definition with the functional setting.  The type
+// ~visitor~ in both cases is the same (the struct). One obvious difference
+// is, of course, that in the functional setting the visit functions give
+// back an argument of type ~Visitor~ whereas here, there is no return
+// value. Less obvious is the type of the receiver. Here it is crucial,
+// that it receiver is of type ~*visitor~. Note that with both this type
+// and with plain type ~visitor~, the record ~visitor~ is turned into a
+// ~Visitor~. Note that in the below definitons, one may even /mix/ the
+// receiver types and the compiler won't complain. That means that the
+// interface for ``methods'' does not distinguish between call-by-reference
+// and call-by-value. Note that one can recursively call in its body for
+// instance ~VisitStmt~ as ~v.VisitStmt(s)~ as well as ~(*v).VisitStmt(s)~
+// (which of course results in meaningless behavior here). Alternatively,
+// if one had the receiver type ~*visitor~, one could make a recursive call
+// ~v.VisitStmt(s)~ or ~(&v).VisitStmt(s)~. That's probably because the
+// dot-notation is overloaded, and implicitly dereferences member
+// access. It's important here that the ~v~ parameter is called by
+// reference. Otherwise, the original value does not change.
+
 func (v *visitor) VisitStmt(s absynt.Stmt) {
-	fmt.Println("send Stmt") 
+	fmt.Println("send Stmt")
 	v.count = v.count + 1
 	fmt.Println("{",v.count,"}")
 }
@@ -20,6 +41,7 @@ func (v *visitor) VisitStmt(s absynt.Stmt) {
 
 func (v *visitor) VisitExpr(e absynt.Expr) {
 	fmt.Println("send Expr")
+
 	v.count = v.count + 1
 }
 
