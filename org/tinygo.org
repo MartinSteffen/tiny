@@ -2227,10 +2227,12 @@ ast. That should very much determine the tree, because it's a tree.
  
     See also now the remarks here. Also the attempts in
 
+** Imperative visitor 
+*** [[../walkimperative][Imperative walk through]]
+*** Imperative visiting client code
 
-** Imperative visitor
-
-The following contains all the visit-methods. For each ``/type/'' It is
+The directory contains all the visit-methods. For each /type/ (of the
+underlying inductive definition, there is one ~Visit<Type>~-function. It is
 instructive to compare their definition with the functional setting.  The
 type ~visitor~ in both cases is the same (the struct). One obvious
 difference is, of course, that in the functional setting the visit
