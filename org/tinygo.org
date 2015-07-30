@@ -499,6 +499,7 @@ type Visitor interface {
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-07-29 Wed 19:22]
      :END:
+*** TODO Can one make a direct (channelless) counting visitor? <2015-07-30 Thu 10:08>
 *** TODO write down a rational scheme how that worked <2015-07-29 Wed 12:34>
 
     Now the visitors etc work. The question is, how close it's connected 
