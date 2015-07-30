@@ -20,7 +20,11 @@
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-07-30 Thu 08:17]
     :END:
-*** TODO add walk for numbers <2015-07-30 Thu 08:26>
+*** DONE add walk for numbers <2015-07-30 Thu 08:26>
+    CLOSED: [2015-07-30 Thu 08:35]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 08:35]
+    :END:
 *** TODO walk for compare operations <2015-07-30 Thu 08:20>
 *** TODO add ~WalkFactor~ <2015-07-30 Thu 07:59>
 *** DONE Is there no multiplication in the original grammar? Is there such a grammer? <2015-07-29 Wed 20:40>

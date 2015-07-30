@@ -104,6 +104,13 @@ func WalkIdent (v Visitor, i Ident) {
 }
 
 
+func WalkNumber (v Visitor, n Number) {
+	fmt.Println("Number(")
+	v.VisitNumber (n)
+	fmt.Println(")")		
+}
+
+
 func WalkFactor(v Visitor, f Factor) { // fill
 	fmt.Println("Term(")           // action
 	v.VisitFactor(f)
@@ -118,9 +125,6 @@ func WalkFactor(v Visitor, f Factor) { // fill
 	fmt.Println(")")
 }
 
-
-func WalkNumber (v Visitor, n Number) {
-}
 
 
 func WalkTerm(v Visitor, t Term) {
