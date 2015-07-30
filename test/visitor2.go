@@ -22,79 +22,68 @@ type visitor chan int
 //	 return 
 // }
 
-func (v visitor) VisitStmt(s absynt.Stmt) (w absynt.Visitor) {
+func (v visitor) VisitStmt(s absynt.Stmt) {
 	fmt.Println("send Stmt") 
 	v <- 2
-	return v
 }
 
 
-func (v visitor) VisitExpr(e absynt.Expr) (w absynt.Visitor) {
+func (v visitor) VisitExpr(e absynt.Expr) {
 	fmt.Println("send Expr") 
 	v <- 1
-	return v     // why can I just write "return"?
 }
 
 
-func (v visitor) VisitSimpleExpr(e absynt.SimpleExpr) (w absynt.Visitor) {
+func (v visitor) VisitSimpleExpr(e absynt.SimpleExpr)  {
 	fmt.Println("send SimpleExpr") 
 	v <- 9
-	return v     // why can I just write "return"?
 }
 
 
-func (v visitor) VisitIdent(i absynt.Ident) (w absynt.Visitor) {
+func (v visitor) VisitIdent(i absynt.Ident) {
 	fmt.Println("I(", i, ")") 
 	v <- 3
-	return v     // why can I just write "return"?
 }
 
 
-func (v visitor) VisitCompareOp(co absynt.CompareOp) (w absynt.Visitor) {
+func (v visitor) VisitCompareOp(co absynt.CompareOp)  {
 	fmt.Println("CompareOp(...)")
 	v <- 4
-	return v     
 }
 
-func (v visitor) VisitTerm(t absynt.Term) (w absynt.Visitor) {
+func (v visitor) VisitTerm(t absynt.Term) {
 	fmt.Println("Term(...)")
 	v <- 5
-	return v
 }
 
-func (v visitor) VisitFactor(t absynt.Factor) (w absynt.Visitor) {
+func (v visitor) VisitFactor(t absynt.Factor) {
 	fmt.Println("Factor(...)")
 	v <- 6
-	return v
 }
 
-func (v visitor) VisitAddOp(ao absynt.AddOp) (w absynt.Visitor) {
+func (v visitor) VisitAddOp(ao absynt.AddOp) {
 	fmt.Println("AddOp(...)")
 	v <- 7
-	return v
 
 }
 
-func (v visitor) VisitMulOp(s absynt.MulOp) (w absynt.Visitor) {
+func (v visitor) VisitMulOp(s absynt.MulOp)  {
 	fmt.Println("MulOp")
 	v <- 11
-	return v
 
 }
 
 
 
-func (v visitor) VisitNumber(n absynt.Number) (w absynt.Visitor) {
+func (v visitor) VisitNumber(n absynt.Number)  {
 	fmt.Println("Number(...)")
 	v <- 8
-	return v
 
 }
 
-func (v visitor) VisitSymbol(s absynt.Symbol) (w absynt.Visitor) {
+func (v visitor) VisitSymbol(s absynt.Symbol) {
 	fmt.Println("Symbol(...)")
 	v <- 10
-	return v
 
 }
 

@@ -8,79 +8,68 @@ type visitor struct {count int}
 
 
 
-func (v visitor) VisitStmt(s absynt.Stmt) (absynt.Visitor) {
+func (v visitor) VisitStmt(s absynt.Stmt) {
 	fmt.Println("send Stmt") 
 	v.count = v.count + 1
 	fmt.Println("{",v.count,"}")
-	return visitor{v.count +1}
 }
 
 
-func (v visitor) VisitExpr(e absynt.Expr) (w absynt.Visitor) {
+func (v visitor) VisitExpr(e absynt.Expr) {
 	fmt.Println("send Expr")
 	v.count = v.count + 1
-	return v     // why can I just write "return"?
 }
 
 
-func (v visitor) VisitSimpleExpr(e absynt.SimpleExpr) (w absynt.Visitor) {
+func (v visitor) VisitSimpleExpr(e absynt.SimpleExpr) {
 	fmt.Println("send SimpleExpr")
-	return v     // why can I just write "return"?
 }
 
 
-func (v visitor) VisitIdent(i absynt.Ident) (w absynt.Visitor) {
+func (v visitor) VisitIdent(i absynt.Ident)  {
 	fmt.Println("I(", i, ")")
 	v.count = v.count + 1	
-	return v     // why can I just write "return"?
 }
 
 
-func (v visitor) VisitCompareOp(co absynt.CompareOp) (w absynt.Visitor) {
+func (v visitor) VisitCompareOp(co absynt.CompareOp) {
 	fmt.Println("CompareOp(...)")
 	v.count = v.count + 1
-	return v     
 }
 
-func (v visitor) VisitTerm(t absynt.Term) (w absynt.Visitor) {
+func (v visitor) VisitTerm(t absynt.Term)  {
 	fmt.Println("Term(...)")
 	v.count = v.count + 1	
-	return v
 }
 
-func (v visitor) VisitFactor(t absynt.Factor) (w absynt.Visitor) {
+func (v visitor) VisitFactor(t absynt.Factor)  {
 	fmt.Println("Factor(...)")
 	v.count = v.count + 1	
-	return v
 }
 
-func (v visitor) VisitAddOp(ao absynt.AddOp) (w absynt.Visitor) {
+func (v visitor) VisitAddOp(ao absynt.AddOp)  {
 	fmt.Println("AddOp(...)")
 	v.count = v.count + 1	
-	return v
 
 }
 
-func (v visitor) VisitMulOp(s absynt.MulOp) (w absynt.Visitor) {
+func (v visitor) VisitMulOp(s absynt.MulOp) {
 	fmt.Println("MulOp")
 	v.count = v.count + 1	
-	return v
 
 }
 
 
 
-func (v visitor) VisitNumber(n absynt.Number) (w absynt.Visitor) {
+func (v visitor) VisitNumber(n absynt.Number)  {
 	fmt.Println("Number(...)")
 	v.count = v.count + 1	
-	return v
 
 }
 
-func (v visitor) VisitSymbol(s absynt.Symbol) (w absynt.Visitor) {
+func (v visitor) VisitSymbol(s absynt.Symbol)  {
 	fmt.Println("Symbol(...)")
 	v.count = v.count + 1	
-	return v
 }
 
 
