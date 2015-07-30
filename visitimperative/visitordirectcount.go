@@ -1,5 +1,6 @@
 package main
 import ("github.com/MartinSteffen/tiny/absynt"
+	"github.com/MartinSteffen/tiny/walkimperative"
 	"github.com/MartinSteffen/tiny/example"
 	"fmt"
 )

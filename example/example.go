@@ -25,3 +25,7 @@ var F3  = &absynt.EXPR{E3}      // factor
 var T3 = &absynt.FACTOR{F3}           // term
 var SE3 = &absynt.ADDEXPR{AO4,SE2,T3}  // simple expression
 var S2 = &absynt.REPEAT{S,E3}     // stmt 
+
+
+//repeat (if "s" (read "x") (read "x"))
+// until  ("f5" - 42)
