@@ -497,14 +497,31 @@ type Visitor interface {
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-07-29 Wed 19:22]
      :END:
-*** TODO re-add the functional stuff <2015-07-30 Thu 12:35>
-*** TODO make visitor2 work again <2015-07-30 Thu 12:39>
+*** DONE re-add the functional stuff <2015-07-30 Thu 12:35>
+    CLOSED: [2015-07-30 Thu 14:14]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 14:14]
+    :END:
+*** DONE make visitor2 work again <2015-07-30 Thu 12:39>
+    CLOSED: [2015-07-30 Thu 14:18]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 14:18]
+    :END:
 *** DONE clean up the stuff <2015-07-30 Thu 12:24>
     CLOSED: [2015-07-30 Thu 12:35]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-07-30 Thu 12:35]
     :END:
-*** TODO clean up <2015-07-30 Thu 14:00>
+*** DONE hook onto the example <2015-07-30 Thu 14:11>
+    CLOSED: [2015-07-30 Thu 14:13]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 14:13]
+    :END:
+*** DONE clean up <2015-07-30 Thu 14:00>
+    CLOSED: [2015-07-30 Thu 14:15]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 14:15]
+    :END:
 *** DONE make visitfunctional compile again <2015-07-30 Thu 14:00>
     CLOSED: [2015-07-30 Thu 14:08]
     :LOGBOOK:

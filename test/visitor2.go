@@ -1,5 +1,7 @@
 package main
 import ("github.com/MartinSteffen/tiny/absynt"
+	"github.com/MartinSteffen/tiny/walkimperative"
+	"github.com/MartinSteffen/tiny/example"
 	"fmt"
 )
 
@@ -87,35 +89,8 @@ func (v visitor) VisitSymbol(s absynt.Symbol) {
 
 }
 
+var s = example.S2     // stmt
 
-//-----------------------------------------------------------------
-// Some concrete tree
-
-var f = &absynt.ID{I:"s"}   // factor
-var t = &absynt.FACTOR{f}   // term
-var se = &absynt.TERM{t}    // simple expr
-var e = &absynt.SIMPLEEXPR{se}  // expr 
-var sr = &absynt.READ{I:"x"}    // read stmt
-var sl1 = sr             // stmt (list) 
-var sl2 = sl1            // stmt (list) 
-var s = &absynt.IF{e,sl1,sl2}     // stmt 
-var ao =  &absynt.PLUS{}           // add op "+"
-var f2 = &absynt.NUMBER{N:42}      // factor
-var t2 = &absynt.FACTOR{f2}      // term
-var se2 =  &absynt.TERM{t2}       // simple expression
-var ao4 = &absynt.MINUS{}         // add op "-"
-var f5  = &absynt.ID{"f5"}
-var t5 = &absynt.FACTOR{f5}
-var se5 = &absynt.TERM{t5}      
-var se4 =  &absynt.ADDEXPR{ao4,se5,t2}    // simple expression
-var e3  = &absynt.SIMPLEEXPR{se4} // expression
-var f3  = &absynt.EXPR{e3}      // factor
-var t3 = &absynt.FACTOR{f3}           // term
-var se3 = &absynt.ADDEXPR{ao4,se2,t3}  // simple expression
-var s2 = &absynt.REPEAT{s,e3}     // stmt 
-
-//repeat (if "s" (read "x") (read "x"))
-// until  ("f5" - 42)
 
 // -----------------------------------------------------
 
@@ -132,7 +107,7 @@ var s2 = &absynt.REPEAT{s,e3}     // stmt
 func idents() <-chan int {
 	v := make(visitor)
 	go func() {
-		absynt.WalkStmt(v, s2)
+		walkimperative.WalkStmt(v, s)
 		close(v)
 	}()
 	return v
