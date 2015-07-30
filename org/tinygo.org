@@ -60,7 +60,6 @@
     :END:
     Wes, there is. We should also add it to the ml-file.
 
-    
 *** DONE what's the status if visitor2.go <2015-07-29 Wed 07:06>
     CLOSED: [2015-07-29 Wed 07:12]
     :LOGBOOK:
@@ -134,7 +133,6 @@ rest ~<-chan *ast.Ident~ is the /result/. I guess, it's a ~Type~, not
 variations, distinguishing input and output channels. In this case, with
 the arrow attached to the /left/ of ~chan~, it's a channel to /receive/
 data, in this case, identifiers.
-
 
 
 
@@ -246,7 +244,6 @@ data, in this case, identifiers.
       ``For channels, the iteration values produced are the successive
       values sent on the channel until the channel is closed.''
 
-    
 *** DONE deadlock: why? <2015-07-28 Tue 15:08>
     CLOSED: [2015-07-29 Wed 07:43]
     :LOGBOOK:
@@ -278,7 +275,6 @@ If one closes the channel, the deadlock goes away. But it's also not what
 we want. The closed channel is ``empty'' and has a range of 0, so the loop
 is not executed. Therefore we see also the deadlock: The walk function
 tries to write two times or more, and then that deadlocks.
-
 
 
 
@@ -326,7 +322,6 @@ tries to write two times or more, and then that deadlocks.
 
      Now it works
 
-
 *** DONE can one overload functions (not methods), say Walk <2015-07-28 Tue 09:51>
     CLOSED: [2015-07-28 Tue 09:54]
     :LOGBOOK:
@@ -344,7 +339,6 @@ func Walk (w int, s Stmt) {
 }
 
 #+end_example
-
 
 *** DONE add multiple visitors (if possible) <2015-07-28 Tue 10:37>
     CLOSED: [2015-07-28 Tue 10:50]
@@ -417,7 +411,6 @@ type Visitor interface {
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-07-29 Wed 10:45]
     :END:
-
 
 *** DONE why is there no ~AddOp~ or similar <2015-07-29 Wed 15:56>
     CLOSED: [2015-07-29 Wed 15:57]
@@ -508,6 +501,14 @@ type Visitor interface {
      :END:
 *** TODO write down a rational scheme how that worked <2015-07-29 Wed 12:34>
 
+    Now the visitors etc work. The question is, how close it's connected 
+**** TODO is it necessary to give back the ~v~ in the visitor <2015-07-30 Thu 10:01>
+     Actually, in my code it's not needed, it seems. Perhaps that's due to the fact that
+     the channel is essentially imperative, we don't give back the value, but 
+     share a channel
+     
+**** TODO what's the role now of ~w~? <2015-07-30 Thu 09:56>
+     
 **** TODO what's the ``type'' of the whole  visitor thing? <2015-07-29 Wed 12:34>
 
 **** TODO can one do something else than a channel <2015-07-29 Wed 12:34>
