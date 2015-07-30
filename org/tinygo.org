@@ -503,6 +503,13 @@ type Visitor interface {
 **** TODO Can one make a direct (channelless) counting visitor? <2015-07-30 Thu 10:08>
     Let's do it in ~visitordirectcount.go~.
 
+***** TODO make a visitable counting visitor <2015-07-30 Thu 10:16>
+***** DONE how to create a struct <2015-07-30 Thu 10:20>
+      CLOSED: [2015-07-30 Thu 10:21]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-30 Thu 10:21]
+      :END:
+      Need the type name
 ***** DONE can one turn ~int~ into a visitor? <2015-07-30 Thu 10:13>
       CLOSED: [2015-07-30 Thu 10:15]
       :LOGBOOK:

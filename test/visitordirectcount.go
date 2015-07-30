@@ -4,7 +4,7 @@ import ("github.com/MartinSteffen/tiny/absynt"
 )
 
 
-type visitor int 
+type visitor struct {}
 
 
 func (v visitor) VisitStmt(s absynt.Stmt) (w absynt.Visitor) {
@@ -125,23 +125,17 @@ var s2 = &absynt.REPEAT{s,e3}     // stmt
 
 
 
-func idents() <-chan int {
-	v := 1
-	go func() {
-		absynt.WalkStmt(v, s2)
-		close(v)
-	}()
-	return v
-}
+//func idents() <-chan int {
+//	v := visitor{}      // create a struct
+//	go func() {
+//		
+//	}()
+//	return v
+//}
 
-
+// This time we don't make use of concurrency. Therefore we don't need to
+// spawn a new process-
 func main () {
- 	fmt.Println("here")
- 	n := 0 
- 	for range idents() {  // read from the channel (but forget the value), stop when closed
- 		fmt.Println("loop")
- 		n++
-		
- 	}
- 	fmt.Println(n)
+	v := visitor{}
+	absynt.WalkStmt(v, s2)
 }
