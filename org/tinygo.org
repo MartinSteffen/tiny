@@ -497,9 +497,23 @@ type Visitor interface {
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-07-29 Wed 19:22]
      :END:
-*** TODO clean up the stuff <2015-07-30 Thu 12:24>
-*** TODO externalize the example tree in a separate file (or package) <2015-07-30 Thu 10:11>
-**** TODO Can one make a direct (channelless) counting visitor? <2015-07-30 Thu 10:08>
+*** TODO re-add the functional stuff <2015-07-30 Thu 12:35>
+*** DONE clean up the stuff <2015-07-30 Thu 12:24>
+    CLOSED: [2015-07-30 Thu 12:35]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 12:35]
+    :END:
+*** DONE externalize the example tree in a separate file (or package) <2015-07-30 Thu 10:11>
+    CLOSED: [2015-07-30 Thu 12:36]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 12:36]
+    :END:
+***** DONE make the record thing functional <2015-07-30 Thu 10:29>
+      CLOSED: [2015-07-30 Thu 12:36]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-30 Thu 12:36]
+      :END:
+      Just to se**** TODO Can one make a direct (channelless) counting visitor? <2015-07-30 Thu 10:08>
     Let's do it in ~visitordirectcount.go~.
 
 ***** DONE make a visitable counting visitor <2015-07-30 Thu 10:16>
@@ -507,16 +521,32 @@ type Visitor interface {
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-07-30 Thu 10:48]
       :END:
-***** TODO make the record thing imperative first <2015-07-30 Thu 10:29>
-***** TODO change the visitor interface to an imperative one <2015-07-30 Thu 11:42>
-***** TODO adapt the client code <2015-07-30 Thu 11:42>
+***** DONE make the record thing imperative first <2015-07-30 Thu 10:29>
+      CLOSED: [2015-07-30 Thu 12:35]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-30 Thu 12:35]
+      :END:
+***** DONE change the visitor interface to an imperative one <2015-07-30 Thu 11:42>
+      CLOSED: [2015-07-30 Thu 12:36]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-30 Thu 12:36]
+      :END:
+***** DONE adapt the client code <2015-07-30 Thu 11:42>
+      CLOSED: [2015-07-30 Thu 12:35]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-30 Thu 12:35]
+      :END:
 ****** DONE are structs immutable <2015-07-30 Thu 11:16>
        CLOSED: [2015-07-30 Thu 11:24]
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-07-30 Thu 11:24]
        :END:
        no, easy to change
-******* TODO make the same experiment with parameter passing <2015-07-30 Thu 11:28>
+******* DONE make the same experiment with parameter passing <2015-07-30 Thu 11:28>
+	CLOSED: [2015-07-30 Thu 12:35]
+	:LOGBOOK:
+	- State "DONE"       from "TODO"       [2015-07-30 Thu 12:35]
+	:END:
 
 	If we do it like that, it's ok.
 #+begin_example
@@ -544,8 +574,7 @@ func main () {
        :END:
        Currently
        v=v.VisitStmt(s)          // action 
-***** TODO make the record thing functional <2015-07-30 Thu 10:29>
-      Just to se
+
 ***** DONE how to create a struct <2015-07-30 Thu 10:20>
       CLOSED: [2015-07-30 Thu 10:21]
       :LOGBOOK:
@@ -563,7 +592,9 @@ func main () {
     
 
     
-*** TODO write down a rational scheme how that worked <2015-07-29 Wed 12:34>
+
+*** TODO make the record thing functional <2015-07-30 Thu 10:29>
+      Just to se*** TODO write down a rational scheme how that worked <2015-07-29 Wed 12:34>
 
     Now the visitors etc work. The question is, how close it's connected 
 **** TODO is it necessary to give back the ~v~ in the visitor <2015-07-30 Thu 10:01>
