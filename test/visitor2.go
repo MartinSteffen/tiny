@@ -75,6 +75,14 @@ func (v visitor) VisitAddOp(ao absynt.AddOp) (w absynt.Visitor) {
 
 }
 
+func (v visitor) VisitMulOp(s absynt.MulOp) (w absynt.Visitor) {
+	fmt.Println("MulOp")
+	v <- 11
+	return v
+
+}
+
+
 
 func (v visitor) VisitNumber(n absynt.Number) (w absynt.Visitor) {
 	fmt.Println("Number(...)")
@@ -89,6 +97,8 @@ func (v visitor) VisitSymbol(s absynt.Symbol) (w absynt.Visitor) {
 	return v
 
 }
+
+
 //-----------------------------------------------------------------
 // Some concrete tree
 
@@ -141,12 +151,12 @@ func idents() <-chan int {
 
 
 func main () {
-	fmt.Println("here")
-	n := 0 
-	for range idents() {  // read from the channel (but forget the value), stop when closed
-		fmt.Println("loop")
-		n++
-
-	}
-	fmt.Println(n)
+ 	fmt.Println("here")
+ 	n := 0 
+ 	for range idents() {  // read from the channel (but forget the value), stop when closed
+ 		fmt.Println("loop")
+ 		n++
+		
+ 	}
+ 	fmt.Println(n)
 }
