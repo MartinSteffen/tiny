@@ -4,65 +4,65 @@ import ("github.com/MartinSteffen/tiny/absynt"
 )
 
 
-type visitor chan int 
+type visitor int 
 
 
 func (v visitor) VisitStmt(s absynt.Stmt) (w absynt.Visitor) {
 	fmt.Println("send Stmt") 
-	v <- 2
+//	v <- 2
 	return v
 }
 
 
 func (v visitor) VisitExpr(e absynt.Expr) (w absynt.Visitor) {
 	fmt.Println("send Expr") 
-	v <- 1
+//	v <- 1
 	return v     // why can I just write "return"?
 }
 
 
 func (v visitor) VisitSimpleExpr(e absynt.SimpleExpr) (w absynt.Visitor) {
 	fmt.Println("send SimpleExpr") 
-	v <- 9
+//	v <- 9
 	return v     // why can I just write "return"?
 }
 
 
 func (v visitor) VisitIdent(i absynt.Ident) (w absynt.Visitor) {
 	fmt.Println("I(", i, ")") 
-	v <- 3
+//	v <- 3
 	return v     // why can I just write "return"?
 }
 
 
 func (v visitor) VisitCompareOp(co absynt.CompareOp) (w absynt.Visitor) {
 	fmt.Println("CompareOp(...)")
-	v <- 4
+//	v <- 4
 	return v     
 }
 
 func (v visitor) VisitTerm(t absynt.Term) (w absynt.Visitor) {
 	fmt.Println("Term(...)")
-	v <- 5
+//	v <- 5
 	return v
 }
 
 func (v visitor) VisitFactor(t absynt.Factor) (w absynt.Visitor) {
 	fmt.Println("Factor(...)")
-	v <- 6
+//	v <- 6
 	return v
 }
 
 func (v visitor) VisitAddOp(ao absynt.AddOp) (w absynt.Visitor) {
 	fmt.Println("AddOp(...)")
-	v <- 7
+//	v <- 7
 	return v
 
 }
 
 func (v visitor) VisitMulOp(s absynt.MulOp) (w absynt.Visitor) {
 	fmt.Println("MulOp")
-	v <- 11
+//	v <- 11
 	return v
 
 }
@@ -71,14 +71,14 @@ func (v visitor) VisitMulOp(s absynt.MulOp) (w absynt.Visitor) {
 
 func (v visitor) VisitNumber(n absynt.Number) (w absynt.Visitor) {
 	fmt.Println("Number(...)")
-	v <- 8
+//	v <- 8
 	return v
 
 }
 
 func (v visitor) VisitSymbol(s absynt.Symbol) (w absynt.Visitor) {
 	fmt.Println("Symbol(...)")
-	v <- 10
+//	v <- 10
 	return v
 
 }
@@ -126,7 +126,7 @@ var s2 = &absynt.REPEAT{s,e3}     // stmt
 
 
 func idents() <-chan int {
-	v := make(visitor)
+	v := 1
 	go func() {
 		absynt.WalkStmt(v, s2)
 		close(v)

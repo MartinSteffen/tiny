@@ -499,7 +499,21 @@ type Visitor interface {
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-07-29 Wed 19:22]
      :END:
-*** TODO Can one make a direct (channelless) counting visitor? <2015-07-30 Thu 10:08>
+*** TODO externalize the example tree in a separate file (or package) <2015-07-30 Thu 10:11>
+**** TODO Can one make a direct (channelless) counting visitor? <2015-07-30 Thu 10:08>
+    Let's do it in ~visitordirectcount.go~.
+
+***** DONE can one turn ~int~ into a visitor? <2015-07-30 Thu 10:13>
+      CLOSED: [2015-07-30 Thu 10:15]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-07-30 Thu 10:15]
+      :END:
+
+      Not really, numbers cannot accept methods.
+
+    
+
+    
 *** TODO write down a rational scheme how that worked <2015-07-29 Wed 12:34>
 
     Now the visitors etc work. The question is, how close it's connected 
