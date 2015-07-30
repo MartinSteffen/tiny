@@ -497,6 +497,7 @@ type Visitor interface {
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-07-29 Wed 19:22]
      :END:
+*** TODO clean up the stuff <2015-07-30 Thu 12:24>
 *** TODO externalize the example tree in a separate file (or package) <2015-07-30 Thu 10:11>
 **** TODO Can one make a direct (channelless) counting visitor? <2015-07-30 Thu 10:08>
     Let's do it in ~visitordirectcount.go~.
@@ -536,7 +537,11 @@ func main () {
 }
 
 #+end_example
-****** TODO why does the count does not go up <2015-07-30 Thu 10:49>
+****** DONE why does the count does not go up <2015-07-30 Thu 10:49>
+       CLOSED: [2015-07-30 Thu 12:24]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-07-30 Thu 12:24]
+       :END:
        Currently
        v=v.VisitStmt(s)          // action 
 ***** TODO make the record thing functional <2015-07-30 Thu 10:29>
