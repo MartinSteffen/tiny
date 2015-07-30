@@ -11,6 +11,11 @@
   
 ** Misc (later more structure)
 
+*** DONE remove the prints from the walker  <2015-07-30 Thu 09:44>
+    CLOSED: [2015-07-30 Thu 09:46]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 09:46]
+    :END:
 *** DONE adapt the client-side visitor <2015-07-30 Thu 08:49>
     CLOSED: [2015-07-30 Thu 09:42]
     :LOGBOOK:
