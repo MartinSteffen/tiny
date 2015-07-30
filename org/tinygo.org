@@ -509,7 +509,10 @@ type Visitor interface {
       - State "DONE"       from "TODO"       [2015-07-30 Thu 10:48]
       :END:
 ***** TODO make the record thing imperative first <2015-07-30 Thu 10:29>
-****** TODO why does the count does not go up <2015-07-30 Thu 10:49>     
+****** TODO are structs immutable <2015-07-30 Thu 11:16>
+****** TODO why does the count does not go up <2015-07-30 Thu 10:49>
+       Currently
+       v=v.VisitStmt(s)          // action 
 ***** TODO make the record thing functional <2015-07-30 Thu 10:29>
       Just to se
 ***** DONE how to create a struct <2015-07-30 Thu 10:20>

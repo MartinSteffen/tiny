@@ -16,10 +16,10 @@ type Visitor interface {
 }
 
 
-func WalkStmt (v Visitor, s Stmt) {
+func WalkStmt (v Visitor, s Stmt)  {
 	// we might want to check of the visitor is empty.  or perhaps it
 	// should be one at the call site. We leave it out for the moment.
-	v.VisitStmt(s)          // action 
+	v=v.VisitStmt(s)          // action 
 	switch ts := s.(type) { // type assertion
 	case *IF:
 		WalkExpr (v, ts.E)   
