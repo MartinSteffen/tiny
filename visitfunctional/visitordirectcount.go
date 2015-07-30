@@ -14,18 +14,19 @@ type visitor struct {count int}
 
 
 
-func (v visitor) VisitStmt(s absynt.Stmt) (walkfunctional.Visitor) {
+func (v visitor) VisitStmt(s absynt.Stmt) (w walkfunctional.Visitor) {
 	fmt.Println("send Stmt") 
 	v.count = v.count + 1
-	fmt.Println("{",v.count,"}")
-	return visitor{v.count +1}
+	fmt.Println("{",v.count,"}")  // w.cound does not work (lack of public field
+	w = visitor{v.count+1+1}
+	return v
 }
 
 
 func (v visitor) VisitExpr(e absynt.Expr) (w walkfunctional.Visitor) {
 	fmt.Println("send Expr")
-	v.count = v.count + 1
-	return v     // why can I just write "return"?
+	w  = visitor{v.count + 1}
+	return w     // why can I just write "return"?
 }
 
 
@@ -96,7 +97,7 @@ var s = example.S2     // stmt
 // This time we don't make use of concurrency. Therefore we don't need to
 // spawn a new process.
 func main () {
-	v := visitor{-1}
+	v := visitor{0}
 	walkfunctional.WalkStmt(v, s)
 	fmt.Println(v)
 }

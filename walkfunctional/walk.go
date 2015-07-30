@@ -39,7 +39,7 @@ func WalkStmt (v Visitor, s absynt.Stmt)  {
 	}
 }
 func WalkExpr (v Visitor, e absynt.Expr) {
-	v.VisitExpr(e)          // action 
+	v=v.VisitExpr(e)          // action 
 	switch te := e.(type) { // type assertion
 	case *absynt.SIMPLEEXPR:
 		WalkSimpleExpr(v,te.S)
