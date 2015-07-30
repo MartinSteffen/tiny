@@ -1,9 +1,13 @@
 package main
 import ("github.com/MartinSteffen/tiny/absynt"
+	"github.com/MartinSteffen/tiny/walkfunctional"
 	"fmt"
 )
 
 
+// even if functional, the visitor cannot be just an ~int~. Therefore we
+// make a struct again. We don't to change it, so the argument is not
+// passed by reference.
 
 type visitor struct {count int}
 

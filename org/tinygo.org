@@ -498,11 +498,14 @@ type Visitor interface {
      - State "DONE"       from "TODO"       [2015-07-29 Wed 19:22]
      :END:
 *** TODO re-add the functional stuff <2015-07-30 Thu 12:35>
+*** TODO make visitor2 work again <2015-07-30 Thu 12:39>
 *** DONE clean up the stuff <2015-07-30 Thu 12:24>
     CLOSED: [2015-07-30 Thu 12:35]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-07-30 Thu 12:35]
     :END:
+*** TODO clean up <2015-07-30 Thu 14:00>
+*** TODO make visitfunctional compile again <2015-07-30 Thu 14:00>
 *** DONE externalize the example tree in a separate file (or package) <2015-07-30 Thu 10:11>
     CLOSED: [2015-07-30 Thu 12:36]
     :LOGBOOK:
