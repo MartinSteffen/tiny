@@ -509,7 +509,33 @@ type Visitor interface {
       - State "DONE"       from "TODO"       [2015-07-30 Thu 10:48]
       :END:
 ***** TODO make the record thing imperative first <2015-07-30 Thu 10:29>
-****** TODO are structs immutable <2015-07-30 Thu 11:16>
+****** DONE are structs immutable <2015-07-30 Thu 11:16>
+       CLOSED: [2015-07-30 Thu 11:24]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-07-30 Thu 11:24]
+       :END:
+       no, easy to change
+******* TODO make the same experiment with parameter passing <2015-07-30 Thu 11:28>
+
+	If we do it like that, it's ok.
+#+begin_example
+type record struct{x int}
+
+func inc (s  *record) {
+	s.x = 7
+}
+
+func main () {
+	r:= record{4}
+	fmt.Println("1",r)
+	r.x = 5
+	fmt.Println("2",r)
+	inc(&r)
+	fmt.Println("2",r)
+	
+}
+
+#+end_example
 ****** TODO why does the count does not go up <2015-07-30 Thu 10:49>
        Currently
        v=v.VisitStmt(s)          // action 
