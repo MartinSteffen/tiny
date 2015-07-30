@@ -2,24 +2,24 @@ package absynt  // ast2 might not work
 
 
 type Visitor interface {
-	VisitStmt (Stmt)             (Visitor)
-	VisitExpr (Expr)             (Visitor)	
-	VisitSimpleExpr (SimpleExpr) (Visitor)	
-	VisitIdent (Ident)           (Visitor)	
-	VisitCompareOp (CompareOp)   (Visitor)
-	VisitTerm (Term)             (Visitor)
-	VisitFactor (Factor)         (Visitor)
-	VisitNumber (Number)         (Visitor)
-	VisitSymbol (Symbol)         (Visitor)
-	VisitAddOp  (AddOp)          (Visitor)
-	VisitMulOp  (MulOp)          (Visitor)
+	VisitStmt (Stmt)             
+	VisitExpr (Expr)             
+	VisitSimpleExpr (SimpleExpr) 
+	VisitIdent (Ident)           
+	VisitCompareOp (CompareOp)   
+	VisitTerm (Term)             
+	VisitFactor (Factor)         
+	VisitNumber (Number)         
+	VisitSymbol (Symbol)         
+	VisitAddOp  (AddOp)          
+	VisitMulOp  (MulOp)          
 }
 
 
 func WalkStmt (v Visitor, s Stmt)  {
 	// we might want to check of the visitor is empty.  or perhaps it
 	// should be one at the call site. We leave it out for the moment.
-	v=v.VisitStmt(s)          // action 
+	v.VisitStmt(s)          // action 
 	switch ts := s.(type) { // type assertion
 	case *IF:
 		WalkExpr (v, ts.E)   
