@@ -25,8 +25,16 @@
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-07-30 Thu 08:35]
     :END:
-*** TODO walk for compare operations <2015-07-30 Thu 08:20>
-*** TODO add ~WalkFactor~ <2015-07-30 Thu 07:59>
+*** DONE walk for compare operations <2015-07-30 Thu 08:20>
+    CLOSED: [2015-07-30 Thu 08:42]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 08:42]
+    :END:
+*** DONE add ~WalkFactor~ <2015-07-30 Thu 07:59>
+    CLOSED: [2015-07-30 Thu 08:37]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 08:37]
+    :END:
 *** DONE Is there no multiplication in the original grammar? Is there such a grammer? <2015-07-29 Wed 20:40>
     CLOSED: [2015-07-30 Thu 07:40]
     :LOGBOOK:
@@ -372,7 +380,11 @@ type Visitor interface {
    This is ``dual'' to before where I had VisitorStmt etc, but all with the 
    commonly named Visit-Method.
 
-*** TODO fill out walk-simple-expression <2015-07-28 Tue 09:54>
+*** DONE fill out walk-simple-expression <2015-07-28 Tue 09:54>
+    CLOSED: [2015-07-30 Thu 08:37]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 08:37]
+    :END:
 *** DONE make the print outside the walk itself <2015-07-28 Tue 09:31>
     CLOSED: [2015-07-29 Wed 10:45]
     :LOGBOOK:
@@ -444,7 +456,11 @@ type Visitor interface {
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-07-29 Wed 18:47]
     :END:
-*** TODO add WalkAddOp <2015-07-29 Wed 17:49>
+*** DONE add WalkAddOp <2015-07-29 Wed 17:49>
+    CLOSED: [2015-07-30 Thu 08:38]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 08:38]
+    :END:
 *** FIXED Type error: ./walk.go:124:  <2015-07-29 Wed 17:04>
     CLOSED: [2015-07-29 Wed 17:49]
     :LOGBOOK:
@@ -477,7 +493,6 @@ type Visitor interface {
 **** TODO what's the ``type'' of the whole  visitor thing? <2015-07-29 Wed 12:34>
 
 **** TODO can one do something else than a channel <2015-07-29 Wed 12:34>
-*** TODO which c
 *** DONE rename Compare_Op to CompareOp (for style) <2015-07-29 Wed 11:33>
     CLOSED: [2015-07-29 Wed 12:31]
     :LOGBOOK:
@@ -541,7 +556,11 @@ type Visitor interface {
     :END:
     Now, that the ~VisitIdent~ is required by the interface, the client code
     does not type check anymore, which is a good thing.
-*** TODO fill in more cases (and prints) to the statement visitor <2015-07-28 Tue 09:28>
+*** DONE fill in more cases (and prints) to the statement visitor <2015-07-28 Tue 09:28>
+    CLOSED: [2015-07-30 Thu 08:38]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 08:38]
+    :END:
 *** DONE add print into the visitor (stmt and expr perhaps)  <2015-07-28 Tue 09:13>
     CLOSED: [2015-07-28 Tue 09:27]
     :LOGBOOK:
@@ -554,9 +573,17 @@ type Visitor interface {
     - State "DONE"       from "TODO"       [2015-07-28 Tue 09:11]
     :END:
 
-*** TODO can one unify all the visitor (in an overloading kind of way)? <2015-07-28 Tue 09:00>
+*** DONE can one unify all the visitor (in an overloading kind of way)? <2015-07-28 Tue 09:00>
+    CLOSED: [2015-07-30 Thu 08:38]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 08:38]
+    :END:
     Especially: now I have VisitStmt  and VisitExpr etc, can one just use Visit?
-*** TODO create the second argument of the Walk function <2015-07-28 Tue 08:44>
+*** DONE create the second argument of the Walk function <2015-07-28 Tue 08:44>
+    CLOSED: [2015-07-30 Thu 08:38]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 08:38]
+    :END:
     I take again inspiration from   [[~/go/src/github.com/golang/go/src/go/printer/printer_test.go][printer_test.go]].
 
     In that case: the second argument of the walk function f is an *ast.File
@@ -579,7 +606,11 @@ type Visitor interface {
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-07-28 Tue 08:30]
     :END:
-*** TODO make a real call to walk <2015-07-27 Mon 11:44>
+*** DONE make a real call to walk <2015-07-27 Mon 11:44>
+    CLOSED: [2015-07-30 Thu 08:38]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 08:38]
+    :END:
 **** DONE make a main function etc. <2015-07-27 Mon 11:44>
      CLOSED: [2015-07-27 Mon 12:15]
      :LOGBOOK:
@@ -597,7 +628,11 @@ type Visitor interface {
     :END:
 
     ok, to ~/go/src/github.com/golang/go
-*** TODO Analyze the visitor in the go compiler <2015-07-17 Fri 13:16>
+*** DONE Analyze the visitor in the go compiler <2015-07-17 Fri 13:16>
+    CLOSED: [2015-07-30 Thu 08:38]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-30 Thu 08:38]
+    :END:
 
 
 **** Visitor infrastructure.
