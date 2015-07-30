@@ -8,7 +8,7 @@ type visitor struct {count int}
 
 
 
-func (v visitor) VisitStmt(s absynt.Stmt) (bsynt.Visitor) {
+func (v visitor) VisitStmt(s absynt.Stmt) (absynt.Visitor) {
 	fmt.Println("send Stmt") 
 	v.count = v.count + 1
 	fmt.Println("{",v.count,"}")
