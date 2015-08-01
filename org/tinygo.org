@@ -11,6 +11,8 @@
   
 ** Misc (later more structure)
 
+*** TODO read about SSA <2015-08-01 Sat 08:34>
+    I do it in notes/sa.tex
 *** DONE remove the prints from the walker  <2015-07-30 Thu 09:44>
     CLOSED: [2015-07-30 Thu 09:46]
     :LOGBOOK:
