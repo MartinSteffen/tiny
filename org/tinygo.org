@@ -2272,7 +2272,11 @@ ast. That should very much determine the tree, because it's a tree.
     - State "DONE"       from "TODO"       [2015-08-02 Sun 17:43]
     :END:
 
-*** TODO external type methods: would embedding as described be a viable solution <2015-07-16 Thu 10:31>
+*** DONE external type methods: would embedding as described be a viable solution <2015-07-16 Thu 10:31>
+    CLOSED: [2015-08-02 Sun 17:43]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-02 Sun 17:43]
+    :END:
 *** TODO external type methods: compare that to the Walk-visotor in Go <2015-07-16 Thu 10:02>
 
 *** DONE make a more complex client in somename <2015-07-16 Thu 09:14>
