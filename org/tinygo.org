@@ -2356,6 +2356,7 @@ result, as opposed to simply changing the state of the argument visitor
    See [[~/go/src/golang.org/x/tools/go/ssa/]]
 
 
+*** TODO implement Pos() for the ast <2015-08-07 Fri 09:39>
 *** TODO implement the ``accessor functions'' <2015-08-07 Fri 09:30>
     Best probably for an external file, to make the structure clearer
     maybe with interface file
