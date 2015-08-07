@@ -11,6 +11,7 @@
   
 ** Misc (later more structure)
 
+
 *** DONE remove the prints from the walker  <2015-07-30 Thu 09:44>
     CLOSED: [2015-07-30 Thu 09:46]
     :LOGBOOK:
@@ -2255,6 +2256,7 @@ important here that the ~v~ parameter is called by reference. Otherwise,
 the original value does not change.
 
 
+
 ** Functional visitor
 
 The code here corresponds more closely to the code as found in the ast part
@@ -2271,3 +2273,13 @@ result, as opposed to simply changing the state of the argument visitor
 
 ***  [[../walkfunctional][Functional walk through]]
 ***  [[../visitfunctional][Functional visiting client code]]
+** Analysis of the SSA code of go
+
+
+
+*** TODO move the ssa on the laptop to the right place <2015-08-07 Fri 07:44>
+     /ifi/asgard/a01/msteffen/go/src/golang.org/x/tools/go:
+*** TODO Who generates the SSA <2015-08-07 Fri 07:52>
+*** TODO where is the SSa data structure <2015-08-07 Fri 07:52>
+*** TODO what's the Operands function <2015-08-07 Fri 07:56>
+*** TODO what's a Value <2015-08-07 Fri 07:57>
