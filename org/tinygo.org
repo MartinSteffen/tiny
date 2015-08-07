@@ -2353,7 +2353,12 @@ result, as opposed to simply changing the state of the argument visitor
 *** Go implementation
 *** ML reconstruction
 
-**** TODO add a end function for nodes <2015-08-07 Fri 10:12>
+**** DORMANT end_node and pos_node 	<2015-08-07 Fri 10:20> 	       :stub:
+**** DONE add a end function for nodes <2015-08-07 Fri 10:12>
+     CLOSED: [2015-08-07 Fri 10:19]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 10:19]
+     :END:
 **** DONE how does one select an element/field  in an ocaml struct <2015-08-07 Fri 10:05>
      CLOSED: [2015-08-07 Fri 10:11]
      :LOGBOOK:
