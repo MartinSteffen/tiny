@@ -2368,6 +2368,31 @@ result, as opposed to simply changing the state of the argument visitor
 
 
 
+**** TODO add functype <2015-08-07 Fri 13:27>
+
+**** TODO add blockstmt <2015-08-07 Fri 13:27>
+
+**** DORMANT remove the warnings about duplicate fields <2015-08-07 Fri 13:27>
+**** DONE add basic literals <2015-08-07 Fri 13:04>
+     CLOSED: [2015-08-07 Fri 13:22]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:22]
+     :END:
+**** DONE Add function literals <2015-08-07 Fri 13:03>
+     CLOSED: [2015-08-07 Fri 13:27]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:27]
+     :END:
+**** DONE add Token.token <2015-08-07 Fri 13:00>
+     CLOSED: [2015-08-07 Fri 13:03]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:03]
+     :END:
+**** DONE add Ellipsis for real <2015-08-07 Fri 12:58>
+     CLOSED: [2015-08-07 Fri 13:03]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:03]
+     :END:
 **** DORMANT Ast.ident: perhaps it must be mutable/a reference <2015-08-07 Fri 12:57>
 **** TODO what's Object in Go <2015-08-07 Fri 12:55>
 **** DONE add better IDent <2015-08-07 Fri 12:45>
