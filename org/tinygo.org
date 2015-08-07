@@ -2357,10 +2357,21 @@ result, as opposed to simply changing the state of the argument visitor
 
 ** Analysis of SSA
 
-*** TODO move the ssa on the laptop to the right place <2015-08-07 Fri 07:44>
-     /ifi/asgard/a01/msteffen/go/src/golang.org/x/tools/go:
+   See [[~/go/src/golang.org/x/tools/go/ssa/]]
+
+*** DONE move the ssa on the laptop to the right place <2015-08-07 Fri 07:44>
+    CLOSED: [2015-08-07 Fri 08:13]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-07 Fri 08:13]
+    :END:
+     ~/go/src/golang.org/x/tools/go:
+
+     Ok, it's moved
 *** TODO Who generates the SSA <2015-08-07 Fri 07:52>
 *** TODO where is the SSa data structure <2015-08-07 Fri 07:52>
 *** TODO what's the Operands function <2015-08-07 Fri 07:56>
 *** TODO what's a Value <2015-08-07 Fri 07:57>
-    That seems 
+    A value seems to be related to instructions
+*** TODO What's an instructions <2015-08-07 Fri 08:01>
+*** TODO make an ml ``implementation'' for better overview <2015-08-07 Fri 08:03>
+*** TODO where's the old go-ast in ml <2015-08-07 Fri 08:08>
