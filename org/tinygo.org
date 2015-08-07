@@ -2364,11 +2364,17 @@ result, as opposed to simply changing the state of the argument visitor
 
 *** Go implementation
 *** ML reconstruction
-
-
-
-
-**** TODO IndexExpr struct <2015-08-07 Fri 13:38>
+*** DONE add slice expr <2015-08-07 Fri 13:43>
+    CLOSED: [2015-08-07 Fri 13:45]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-07 Fri 13:45]
+    :END:
+*** TODO add TypeAssertExpr <2015-08-07 Fri 13:44>
+**** DONE IndexExpr struct <2015-08-07 Fri 13:38>
+     CLOSED: [2015-08-07 Fri 13:41]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:41]
+     :END:
 **** DONE add SelectorExpr <2015-08-07 Fri 13:35>
      CLOSED: [2015-08-07 Fri 13:38]
      :LOGBOOK:
