@@ -2353,6 +2353,28 @@ result, as opposed to simply changing the state of the argument visitor
 *** Go implementation
 *** ML reconstruction
 
+
+
+**** TODO add a type for expressions and for statements in the non-flat <2015-08-07 Fri 11:19>
+**** TODO what's the ``interface'' for expressions <2015-08-07 Fri 11:25>
+     it's characterized by ~exprNode~. that's basically a marker function.
+     Therefore we don't need to implement it.
+**** DORMANT Ast.commentgroup: perhaps list should be mutable <2015-08-07 Fri 10:57>
+**** DORMANT striptrailingwhitespace <2015-08-07 Fri 10:52>	       :stub:
+**** DORMANT is_whitespace <2015-08-07 Fri 10:48>		       :stub:
+**** DONE implement a better commentgroup <2015-08-07 Fri 10:41>
+     CLOSED: [2015-08-07 Fri 10:57]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 10:57]
+     :END:
+**** DORMANT text in the ast client	<2015-08-07 Fri 10:24>			       :stub:
+     Text is only applied in the go-code to the cosntructor
+
+     We cannot directly do that, we could introduce a separate type.
+     or make exceptions, or option.
+
+     Well, we already have of course the commentgroup type. Therefore
+     let's do it like that
 **** DORMANT end_node and pos_node 	<2015-08-07 Fri 10:20> 	       :stub:
 **** DONE add a end function for nodes <2015-08-07 Fri 10:12>
      CLOSED: [2015-08-07 Fri 10:19]
