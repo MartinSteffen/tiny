@@ -2355,8 +2355,18 @@ result, as opposed to simply changing the state of the argument visitor
 
 
 
+**** DORMANT expr_pos, expr_end fill out <2015-08-07 Fri 11:39>	       :stub:
+**** DONE implement Pos and End for expressions (and types) <2015-08-07 Fri 11:33>
+     CLOSED: [2015-08-07 Fri 11:39]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 11:39]
+     :END:
 **** TODO add a type for expressions and for statements in the non-flat <2015-08-07 Fri 11:19>
-**** TODO what's the ``interface'' for expressions <2015-08-07 Fri 11:25>
+**** DONE what's the ``interface'' for expressions <2015-08-07 Fri 11:25>
+     CLOSED: [2015-08-07 Fri 11:33]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 11:33]
+     :END:
      it's characterized by ~exprNode~. that's basically a marker function.
      Therefore we don't need to implement it.
 **** DORMANT Ast.commentgroup: perhaps list should be mutable <2015-08-07 Fri 10:57>
