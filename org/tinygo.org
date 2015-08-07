@@ -2369,8 +2369,16 @@ result, as opposed to simply changing the state of the argument visitor
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-08-07 Fri 14:04]
      :END:
-**** TODO add	StructType  <2015-08-07 Fri 14:01>
-**** TODO add	FuncType   <2015-08-07 Fri 14:01>
+**** DONE add	StructType  <2015-08-07 Fri 14:01>
+     CLOSED: [2015-08-07 Fri 14:06]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 14:06]
+     :END:
+**** DONE add	FuncType   <2015-08-07 Fri 14:01>
+     CLOSED: [2015-08-07 Fri 14:08]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 14:08]
+     :END:
 **** TODO add	InterfaceType   <2015-08-07 Fri 14:01>
 **** TODO add	MapType   <2015-08-07 Fri 14:01>
 	// A ChanType node represents a channel type.
