@@ -2365,32 +2365,116 @@ result, as opposed to simply changing the state of the argument visitor
 *** Go implementation
 *** ML reconstruction
 **** TODO add type decl <2015-08-07 Fri 16:11>
-**** TODO add Statements <2015-08-07 Fri 15:53>
+**** DONE add Statements <2015-08-07 Fri 15:53>
+     CLOSED: [2015-08-07 Fri 16:41]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+     :END:
 ***** DONE add BadStmt  <2015-08-07 Fri 16:00>
       CLOSED: [2015-08-07 Fri 16:11]
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-08-07 Fri 16:11]
       :END:
-***** TODO add  DeclStmt <2015-08-07 Fri 16:00>
-***** TODO add	EmptyStmt <2015-08-07 Fri 15:54>
-***** TODO add LabeledStmt <2015-08-07 Fri 15:55>
-***** TODO add 	ExprStmt <2015-08-07 Fri 15:55>
-***** TODO add 	SendStmt <2015-08-07 Fri 15:55>
-***** TODO add IncDecStmt <2015-08-07 Fri 15:55>
-***** TODO add AssignStmt <2015-08-07 Fri 15:56>
-***** TODO add 	GoStmt <2015-08-07 Fri 15:56>
-***** TODO add DeferStmt <2015-08-07 Fri 15:56>
-***** TODO add ReturnStmt <2015-08-07 Fri 15:56>
-***** TODO add BranchStmt <2015-08-07 Fri 15:56>
-***** TODO add BlockStmt <2015-08-07 Fri 15:57>
-***** TODO add IfStmt <2015-08-07 Fri 15:57>
-***** TODO add CaseClause <2015-08-07 Fri 15:59>
-***** TODO add SwitchStmt <2015-08-07 Fri 15:59>
-***** TODO add TypeSwitchStmt <2015-08-07 Fri 15:59>
-***** TODO add CommClause <2015-08-07 Fri 16:00>
-***** TODO add SelectStmt <2015-08-07 Fri 16:00>
-***** TODO add ForStmt  <2015-08-07 Fri 16:07>
-***** TODO add RangeStmt <2015-08-07 Fri 16:07>
+***** DONE add  DeclStmt <2015-08-07 Fri 16:00>
+      CLOSED: [2015-08-07 Fri 16:12]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:12]
+      :END:
+***** DONE add	EmptyStmt <2015-08-07 Fri 15:54>
+      CLOSED: [2015-08-07 Fri 16:40]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
+      :END:
+***** DONE add LabeledStmt <2015-08-07 Fri 15:55>
+      CLOSED: [2015-08-07 Fri 16:40]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
+      :END:
+***** DONE add 	ExprStmt <2015-08-07 Fri 15:55>
+      CLOSED: [2015-08-07 Fri 16:40]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
+      :END:
+***** DONE add 	SendStmt <2015-08-07 Fri 15:55>
+      CLOSED: [2015-08-07 Fri 16:40]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
+      :END:
+***** DONE add IncDecStmt <2015-08-07 Fri 15:55>
+      CLOSED: [2015-08-07 Fri 16:40]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
+      :END:
+***** DONE add AssignStmt <2015-08-07 Fri 15:56>
+      CLOSED: [2015-08-07 Fri 16:40]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
+      :END:
+***** DONE add 	GoStmt <2015-08-07 Fri 15:56>
+      CLOSED: [2015-08-07 Fri 16:40]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
+      :END:
+***** DONE add DeferStmt <2015-08-07 Fri 15:56>
+      CLOSED: [2015-08-07 Fri 16:41]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+      :END:
+***** DONE add ReturnStmt <2015-08-07 Fri 15:56>
+      CLOSED: [2015-08-07 Fri 16:41]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+      :END:
+***** DONE add BranchStmt <2015-08-07 Fri 15:56>
+      CLOSED: [2015-08-07 Fri 16:41]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+      :END:
+***** DONE add BlockStmt <2015-08-07 Fri 15:57>
+      CLOSED: [2015-08-07 Fri 16:41]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+      :END:
+***** DONE add IfStmt <2015-08-07 Fri 15:57>
+      CLOSED: [2015-08-07 Fri 16:41]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+      :END:
+***** DONE add CaseClause <2015-08-07 Fri 15:59>
+      CLOSED: [2015-08-07 Fri 16:41]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+      :END:
+***** DONE add SwitchStmt <2015-08-07 Fri 15:59>
+      CLOSED: [2015-08-07 Fri 16:41]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+      :END:
+***** DONE add TypeSwitchStmt <2015-08-07 Fri 15:59>
+      CLOSED: [2015-08-07 Fri 16:41]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+      :END:
+***** DONE add CommClause <2015-08-07 Fri 16:00>
+      CLOSED: [2015-08-07 Fri 16:41]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+      :END:
+***** DONE add SelectStmt <2015-08-07 Fri 16:00>
+      CLOSED: [2015-08-07 Fri 16:41]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+      :END:
+***** DONE add ForStmt  <2015-08-07 Fri 16:07>
+      CLOSED: [2015-08-07 Fri 16:41]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+      :END:
+***** DONE add RangeStmt <2015-08-07 Fri 16:07>
+      CLOSED: [2015-08-07 Fri 16:41]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
+      :END:
 **** DONE add ArrayType   <2015-08-07 Fri 14:01>
      CLOSED: [2015-08-07 Fri 14:04]
      :LOGBOOK:
