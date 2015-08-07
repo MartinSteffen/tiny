@@ -1,4 +1,3 @@
-
 * Go
 
   http://noypi-linux.blogspot.no/2014/07/golang-parser-generator-ebnfyacclex.html
@@ -12,6 +11,11 @@
 ** Misc (later more structure)
 
 
+
+*** TODO read about SSA <2015-08-01 Sat 08:34>
+    I do it in notes/sa.tex
+*** TODO where do they transform the program into SSA? <2015-08-01 Sat 09:20>
+*** TODO do they represent the Phi functions` <2015-08-01 Sat 09:20>
 *** DONE remove the prints from the walker  <2015-07-30 Thu 09:44>
     CLOSED: [2015-07-30 Thu 09:46]
     :LOGBOOK:
@@ -134,7 +138,6 @@ rest ~<-chan *ast.Ident~ is the /result/. I guess, it's a ~Type~, not
 variations, distinguishing input and output channels. In this case, with
 the arrow attached to the /left/ of ~chan~, it's a channel to /receive/
 data, in this case, identifiers.
-
 
 *** DONE why does the go-src channel visitor not deadlock <2015-07-29 Wed 07:44>
     CLOSED: [2015-07-29 Wed 10:44]
@@ -275,7 +278,6 @@ If one closes the channel, the deadlock goes away. But it's also not what
 we want. The closed channel is ``empty'' and has a range of 0, so the loop
 is not executed. Therefore we see also the deadlock: The walk function
 tries to write two times or more, and then that deadlocks.
-
 
 
 
@@ -631,7 +633,11 @@ func main () {
      
 **** TODO what's the ``type'' of the whole  visitor thing? <2015-07-29 Wed 12:34>
 
-**** TODO can one do something else than a channel <2015-07-29 Wed 12:34>
+**** DONE can one do something else than a channel <2015-07-29 Wed 12:34>
+     CLOSED: [2015-08-01 Sat 09:21]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-01 Sat 09:21]
+     :END:
 *** DONE rename Compare_Op to CompareOp (for style) <2015-07-29 Wed 11:33>
     CLOSED: [2015-07-29 Wed 12:31]
     :LOGBOOK:
@@ -1287,12 +1293,23 @@ done here.
      are references to those things. 
 
 
-*** TODO what's the meaning of the return ``type'' (w Visitor) <2015-07-24 Fri 08:20>
+*** DONE what's the meaning of the return ``type'' (w Visitor) <2015-07-24 Fri 08:20>
+    CLOSED: [2015-08-01 Sat 09:22]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-01 Sat 09:22]
+    :END:
     In the file visitor2.go: One can actually return w or ``call it'' but
     it's unclear what it   
 
-*** TODO related to that: why can one write just return? <2015-07-24 Fri 08:48>
+    Duplicate entry
+
+*** DONE related to that: why can one write just return? <2015-07-24 Fri 08:48>
+    CLOSED: [2015-08-01 Sat 09:22]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-01 Sat 09:22]
+    :END:
     In the visitors, both return v and return type check.
+    Probably short hand for ``self''
 *** DONE add a Node to the ast.go <2015-07-17 Fri 09:12>
     CLOSED: [2015-07-17 Fri 09:18]
     :LOGBOOK:
@@ -1334,7 +1351,11 @@ done here.
     - State "DONE"       from "TODO"       [2015-07-20 Mon 14:29]
     :END:
     It's in ~/ocaml/go <2015-07-20 Mon 14:29>
-*** TODO just make a functional implementation, to make the types clearer <2015-07-18 Sat 09:02>
+*** DONE just make a functional implementation, to make the types clearer <2015-07-18 Sat 09:02>
+    CLOSED: [2015-08-01 Sat 09:22]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-01 Sat 09:22]
+    :END:
 *** DONE capitalize the rest in ast <2015-07-16 Thu 09:03>
     CLOSED: [2015-07-16 Thu 09:09]
     :LOGBOOK:
@@ -1458,7 +1479,11 @@ done here.
 
 *** TODO can one access the stuff inside the package ast itself? <2015-07-16 Thu 10:38>
 
-**** TODO if yes, would it help: can one make use of it? <2015-07-16 Thu 10:38>
+**** DONE if yes, would it help: can one make use of it? <2015-07-16 Thu 10:38>
+     CLOSED: [2015-08-01 Sat 09:22]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-01 Sat 09:22]
+     :END:
 
 
 **** DONE add print_Number <2015-07-16 Thu 14:15>
@@ -1515,10 +1540,16 @@ done here.
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-07-16 Thu 13:34]
      :END:
-**** TODO make more careful name conventions <2015-07-16 Thu 14:28>
-**** TODO grouping: can one group the marker methods inside the ()? <2015-07-16 Thu 14:30>
+*** TODO make more careful name conventions <2015-07-16 Thu 14:28>
+**** DONE grouping: can one group the marker methods inside the ()? <2015-07-16 Thu 14:30>
+     CLOSED: [2015-08-01 Sat 09:23]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-01 Sat 09:23]
+     :END:
      of course it may not be worth it.
-**** TODO Stmt etc.: use slices <2015-07-16 Thu 14:28>
+
+     Nope
+*** TODO Stmt etc.: use slices <2015-07-16 Thu 14:28>
 **** DONE can one make the functions mutually recursive <2015-07-16 Thu 12:01>
      CLOSED: [2015-07-16 Thu 12:31]
      :LOGBOOK:
@@ -1550,7 +1581,11 @@ done here.
       - State "DONE"       from "TODO"       [2015-07-16 Thu 11:51]
       :END:
       Ok, at least one can pass that as argument
-**** TODO how did the "go" implementation walker implementation work? <2015-07-16 Thu 11:33>
+**** DONE how did the "go" implementation walker implementation work? <2015-07-16 Thu 11:33>
+     CLOSED: [2015-08-01 Sat 09:23]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-01 Sat 09:23]
+     :END:
       This one did not have problems.
 
       Yes
@@ -1570,8 +1605,12 @@ done here.
 }  
 
    The visitor is the return. But there is no accept 
-***** TODO give back a tuple? is that ok? <2015-07-18 Sat 17:53>
-    
+***** DONE give back a tuple? is that ok? <2015-07-18 Sat 17:53>
+      CLOSED: [2015-08-01 Sat 09:23]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-01 Sat 09:23]
+      :END:
+      No, not really
 *** DONE make a visitor <2015-07-17 Fri 09:32>
     CLOSED: [2015-07-27 Mon 12:17]
     :LOGBOOK:
@@ -1834,9 +1873,17 @@ func idents(f *ast.File) <-chan *ast.Ident {
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-07-17 Fri 07:57]
     :END:
-*** TODO make a main program in visitor2.go <2015-07-24 Fri 11:27>
+*** DONE make a main program in visitor2.go <2015-07-24 Fri 11:27>
+    CLOSED: [2015-08-01 Sat 09:24]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-01 Sat 09:24]
+    :END:
 *** TODO make the print-out at least a bit readable <2015-07-16 Thu 14:34>
-*** TODO make a running program making use of a program <2015-07-14 Tue 12:16>
+*** DONE make a running program making use of a program <2015-07-14 Tue 12:16>
+    CLOSED: [2015-08-01 Sat 09:24]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-01 Sat 09:24]
+    :END:
 **** DONE in the parser: how are the nodes created <2015-07-14 Tue 11:38>
      CLOSED: [2015-07-15 Wed 08:04]
      :LOGBOOK:
@@ -1964,9 +2011,13 @@ func idents(f *ast.File) <-chan *ast.Ident {
      
 
 
-**** TODO  what's struct ( interfaces ) <2015-07-15 Wed 08:14>
+**** DONE what's struct ( interfaces ) <2015-07-15 Wed 08:14>
+     CLOSED: [2015-08-01 Sat 09:24]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-01 Sat 09:24]
+     :END:
      It's in the ast of go. We shoold also look at the book and the spec
-**** TODO AST: Fields why are some of the things as pointers and some not <2015-07-14 Tue 08:58>
+*** TODO AST: Fields why are some of the things as pointers and some not <2015-07-14 Tue 08:58>
 **** DONE Constructors: it seems that in AST, they ``mimic'' those: how to set them <2015-07-14 Tue 09:16>
      CLOSED: [2015-07-15 Wed 08:06]
      :LOGBOOK:
@@ -1991,8 +2042,16 @@ func idents(f *ast.File) <-chan *ast.Ident {
       - State "DONE"       from "TODO"       [2015-07-15 Wed 08:06]
       :END:
 *** TODO look at how the parser works <2015-07-14 Tue 07:55>
-*** TODO look at the example_test.go program <2015-07-14 Tue 07:52>
-*** TODO constructors / inductive definition in go <2015-07-14 Tue 07:26>
+*** DONE look at the example_test.go program <2015-07-14 Tue 07:52>
+    CLOSED: [2015-08-01 Sat 09:24]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-01 Sat 09:24]
+    :END:
+*** DONE constructors / inductive definition in go <2015-07-14 Tue 07:26>
+    CLOSED: [2015-08-01 Sat 09:23]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-01 Sat 09:23]
+    :END:
 *** DONE how can one implement the AST? <2015-07-12 Sun 18:22>
     CLOSED: [2015-07-14 Tue 07:18]
     :LOGBOOK:
@@ -2147,7 +2206,11 @@ ast. That should very much determine the tree, because it's a tree.
     all stuff added
 
 
-*** TODO make a sample program <2015-07-16 Thu 12:25>
+*** DONE make a sample program <2015-07-16 Thu 12:25>
+    CLOSED: [2015-08-02 Sun 17:43]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-02 Sun 17:43]
+    :END:
 *** DONE re-add the slices again and iterate over them <2015-07-16 Thu 12:21>
     CLOSED: [2015-07-17 Fri 08:24]
     :LOGBOOK:
@@ -2203,9 +2266,17 @@ ast. That should very much determine the tree, because it's a tree.
 
 
     Functions are easier
-*** TODO can one make a visitor function across package boundaries <2015-07-16 Thu 12:05>
+*** DONE can one make a visitor function across package boundaries <2015-07-16 Thu 12:05>
+    CLOSED: [2015-08-02 Sun 17:43]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-02 Sun 17:43]
+    :END:
 
-*** TODO external type methods: would embedding as described be a viable solution <2015-07-16 Thu 10:31>
+*** DONE external type methods: would embedding as described be a viable solution <2015-07-16 Thu 10:31>
+    CLOSED: [2015-08-02 Sun 17:43]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-02 Sun 17:43]
+    :END:
 *** TODO external type methods: compare that to the Walk-visotor in Go <2015-07-16 Thu 10:02>
 
 *** DONE make a more complex client in somename <2015-07-16 Thu 09:14>
@@ -2283,3 +2354,13 @@ result, as opposed to simply changing the state of the argument visitor
 *** TODO where is the SSa data structure <2015-08-07 Fri 07:52>
 *** TODO what's the Operands function <2015-08-07 Fri 07:56>
 *** TODO what's a Value <2015-08-07 Fri 07:57>
+
+** Analysis of SSA
+
+*** TODO move the ssa on the laptop to the right place <2015-08-07 Fri 07:44>
+     /ifi/asgard/a01/msteffen/go/src/golang.org/x/tools/go:
+*** TODO Who generates the SSA <2015-08-07 Fri 07:52>
+*** TODO where is the SSa data structure <2015-08-07 Fri 07:52>
+*** TODO what's the Operands function <2015-08-07 Fri 07:56>
+*** TODO what's a Value <2015-08-07 Fri 07:57>
+    That seems 
