@@ -2356,9 +2356,17 @@ result, as opposed to simply changing the state of the argument visitor
    See [[~/go/src/golang.org/x/tools/go/ssa/]]
 
 
+*** TODO implement the ``accessor functions'' <2015-08-07 Fri 09:30>
+    Best probably for an external file, to make the structure clearer
+    maybe with interface file
+    
 *** TODO make a non-flat implementation <2015-08-07 Fri 09:14>
 
-*** TODO make it compilable <2015-08-07 Fri 09:14>
+*** DONE make it compilable <2015-08-07 Fri 09:14>
+    CLOSED: [2015-08-07 Fri 09:23]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-07 Fri 09:23]
+    :END:
 *** DONE move the ssa on the laptop to the right place <2015-08-07 Fri 07:44>
     CLOSED: [2015-08-07 Fri 08:13]
     :LOGBOOK:
