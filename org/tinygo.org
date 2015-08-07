@@ -2364,64 +2364,75 @@ result, as opposed to simply changing the state of the argument visitor
 
 *** Go implementation
 *** ML reconstruction
-*** DONE add slice expr <2015-08-07 Fri 13:43>
+**** DONE add ArrayType   <2015-08-07 Fri 14:01>
+     CLOSED: [2015-08-07 Fri 14:04]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 14:04]
+     :END:
+**** TODO add	StructType  <2015-08-07 Fri 14:01>
+**** TODO add	FuncType   <2015-08-07 Fri 14:01>
+**** TODO add	InterfaceType   <2015-08-07 Fri 14:01>
+**** TODO add	MapType   <2015-08-07 Fri 14:01>
+	// A ChanType node represents a channel type.
+**** TODO add	ChanType   <2015-08-07 Fri 14:02>
+**** DONE add slice expr <2015-08-07 Fri 13:43>
     CLOSED: [2015-08-07 Fri 13:45]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:45]
     :END:
-*** DONE add TypeAssertExpr <2015-08-07 Fri 13:44>
+**** DONE add TypeAssertExpr <2015-08-07 Fri 13:44>
     CLOSED: [2015-08-07 Fri 13:48]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:48]
     :END:
-*** DONE IndexExpr struct <2015-08-07 Fri 13:38>
+**** DONE IndexExpr struct <2015-08-07 Fri 13:38>
      CLOSED: [2015-08-07 Fri 13:41]
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-08-07 Fri 13:41]
      :END:
-*** DONE add SelectorExpr <2015-08-07 Fri 13:35>
+**** DONE add SelectorExpr <2015-08-07 Fri 13:35>
      CLOSED: [2015-08-07 Fri 13:38]
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-08-07 Fri 13:38]
      :END:
-*** DONE add ParenExpr <2015-08-07 Fri 13:32>
+**** DONE add ParenExpr <2015-08-07 Fri 13:32>
     CLOSED: [2015-08-07 Fri 13:35]
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-08-07 Fri 13:35]
      :END:
-*** DONE add composite lit <2015-08-07 Fri 13:29>
+**** DONE add composite lit <2015-08-07 Fri 13:29>
     CLOSED: [2015-08-07 Fri 13:48]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:48]
     :END:
-*** DONE add callexpr <2015-08-07 Fri 13:51>
+**** DONE add callexpr <2015-08-07 Fri 13:51>
     CLOSED: [2015-08-07 Fri 13:52]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:52]
     :END:
-*** DONE add Star expr <2015-08-07 Fri 13:52>
+**** DONE add Star expr <2015-08-07 Fri 13:52>
     CLOSED: [2015-08-07 Fri 13:54]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:54]
     :END:
-*** DONE add Unare Expr <2015-08-07 Fri 13:52>
+**** DONE add Unare Expr <2015-08-07 Fri 13:52>
     CLOSED: [2015-08-07 Fri 13:55]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:55]
     :END:
-*** DONE add Binary expr <2015-08-07 Fri 13:52>
+**** DONE add Binary expr <2015-08-07 Fri 13:52>
     CLOSED: [2015-08-07 Fri 13:57]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:57]
     :END:
-*** DONE add KeyValue expr <2015-08-07 Fri 13:52>
+**** DONE add KeyValue expr <2015-08-07 Fri 13:52>
     CLOSED: [2015-08-07 Fri 13:58]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-07 Fri 13:58]
     :END:
-*** TODO add functype <2015-08-07 Fri 13:27>
+**** TODO add functype <2015-08-07 Fri 13:27>
 
-*** TODO add blockstmt <2015-08-07 Fri 13:27>
+**** TODO add blockstmt <2015-08-07 Fri 13:27>
 
 **** DORMANT remove the warnings about duplicate fields <2015-08-07 Fri 13:27>
 **** DONE add basic literals <2015-08-07 Fri 13:04>
