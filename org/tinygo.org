@@ -12,7 +12,11 @@
 
 
 
-*** TODO read about SSA <2015-08-01 Sat 08:34>
+*** DONE read about SSA <2015-08-01 Sat 08:34>
+    CLOSED: [2015-08-07 Fri 12:43]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-07 Fri 12:43]
+    :END:
     I do it in notes/sa.tex
 *** TODO where do they transform the program into SSA? <2015-08-01 Sat 09:20>
 *** TODO do they represent the Phi functions` <2015-08-01 Sat 09:20>
@@ -631,7 +635,11 @@ func main () {
      
 **** TODO what's the role now of ~w~? <2015-07-30 Thu 09:56>
      
-**** TODO what's the ``type'' of the whole  visitor thing? <2015-07-29 Wed 12:34>
+**** DONE what's the ``type'' of the whole  visitor thing? <2015-07-29 Wed 12:34>
+     CLOSED: [2015-08-07 Fri 12:43]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 12:43]
+     :END:
 
 **** DONE can one do something else than a channel <2015-07-29 Wed 12:34>
      CLOSED: [2015-08-01 Sat 09:21]
@@ -967,7 +975,11 @@ tree.
 
 
 
-*** TODO Analyze the ``Car'' visitor <2015-07-17 Fri 15:07>
+*** DONE Analyze the ``Car'' visitor <2015-07-17 Fri 15:07>
+    CLOSED: [2015-08-07 Fri 12:43]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-07 Fri 12:43]
+    :END:
 
 The following is an analysis of the code found at
 https://gist.github.com/f0624e7760aacdc96b42.git. The structure is a bit
@@ -2356,6 +2368,13 @@ result, as opposed to simply changing the state of the argument visitor
 
 
 
+**** DORMANT Ast.ident: perhaps it must be mutable/a reference <2015-08-07 Fri 12:57>
+**** TODO what's Object in Go <2015-08-07 Fri 12:55>
+**** DONE add better IDent <2015-08-07 Fri 12:45>
+     CLOSED: [2015-08-07 Fri 12:55]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 12:55]
+     :END:
 **** DONE add BadExpr <2015-08-07 Fri 12:11>
      CLOSED: [2015-08-07 Fri 12:13]
      :LOGBOOK:
@@ -2435,7 +2454,11 @@ result, as opposed to simply changing the state of the argument visitor
     Best probably for an external file, to make the structure clearer
     maybe with interface file
     
-**** TODO make a non-flat implementation <2015-08-07 Fri 09:14>
+**** DONE make a non-flat implementation <2015-08-07 Fri 09:14>
+     CLOSED: [2015-08-07 Fri 12:44]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 12:44]
+     :END:
 
 **** DONE make it compilable <2015-08-07 Fri 09:14>
     CLOSED: [2015-08-07 Fri 09:23]
@@ -2443,7 +2466,11 @@ result, as opposed to simply changing the state of the argument visitor
     - State "DONE"       from "TODO"       [2015-08-07 Fri 09:23]
     :END:
 
-**** TODO make an ml ``implementation'' for better overview <2015-08-07 Fri 08:03>
+**** DONE make an ml ``implementation'' for better overview <2015-08-07 Fri 08:03>
+     CLOSED: [2015-08-07 Fri 12:44]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-07 Fri 12:44]
+     :END:
 **** DONE add a Makefile <2015-08-07 Fri 08:44>
     CLOSED: [2015-08-07 Fri 09:13]
     :LOGBOOK:
