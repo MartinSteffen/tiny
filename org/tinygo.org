@@ -2344,20 +2344,16 @@ result, as opposed to simply changing the state of the argument visitor
 
 ***  [[../walkfunctional][Functional walk through]]
 ***  [[../visitfunctional][Functional visiting client code]]
-** Analysis of the SSA code of go
 
 
+* Analysis of the Go compiler
+** Analysis of AST 
+** Analysis of the SSA
 
-*** TODO move the ssa on the laptop to the right place <2015-08-07 Fri 07:44>
-     /ifi/asgard/a01/msteffen/go/src/golang.org/x/tools/go:
-*** TODO Who generates the SSA <2015-08-07 Fri 07:52>
-*** TODO where is the SSa data structure <2015-08-07 Fri 07:52>
-*** TODO what's the Operands function <2015-08-07 Fri 07:56>
-*** TODO what's a Value <2015-08-07 Fri 07:57>
 
-** Analysis of SSA
 
    See [[~/go/src/golang.org/x/tools/go/ssa/]]
+
 
 *** DONE move the ssa on the laptop to the right place <2015-08-07 Fri 07:44>
     CLOSED: [2015-08-07 Fri 08:13]
