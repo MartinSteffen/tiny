@@ -2349,55 +2349,30 @@ result, as opposed to simply changing the state of the argument visitor
 * Analysis of the Go compiler
 ** Analysis of AST
    See   [[~/go/src/github.com/golang/go/src/go/ast]]
-** Analysis of the SSA
 
+*** Go implementation
+*** ML reconstruction
 
-
-   See [[~/go/src/golang.org/x/tools/go/ssa/]]
-
-
-*** TODO implement Pos() for the ast <2015-08-07 Fri 09:39>
-*** TODO implement the ``accessor functions'' <2015-08-07 Fri 09:30>
+**** TODO implement Pos() for the ast <2015-08-07 Fri 09:39>
+**** TODO implement the ``accessor functions'' <2015-08-07 Fri 09:30>
     Best probably for an external file, to make the structure clearer
     maybe with interface file
     
-*** TODO make a non-flat implementation <2015-08-07 Fri 09:14>
+**** TODO make a non-flat implementation <2015-08-07 Fri 09:14>
 
-*** DONE make it compilable <2015-08-07 Fri 09:14>
+**** DONE make it compilable <2015-08-07 Fri 09:14>
     CLOSED: [2015-08-07 Fri 09:23]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-07 Fri 09:23]
     :END:
-*** DONE move the ssa on the laptop to the right place <2015-08-07 Fri 07:44>
-    CLOSED: [2015-08-07 Fri 08:13]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-07 Fri 08:13]
-    :END:
-     ~/go/src/golang.org/x/tools/go:
 
-     Ok, it's moved
-*** TODO Who generates the SSA <2015-08-07 Fri 07:52>
-*** TODO where is the SSa data structure <2015-08-07 Fri 07:52>
-*** TODO what's the Operands function <2015-08-07 Fri 07:56>
-*** TODO what's a Value <2015-08-07 Fri 07:57>
-    A value seems to be related to instructions
-*** TODO What's an ~Instruction~ Interface <2015-08-07 Fri 08:01>
-**** TODO ~BinOp~ why not an instruction <2015-08-07 Fri 08:15>
-     As an example they say that binary ops are instructions, but 
-     how do I see that in the code?
-     
-     ~BinOp~ is a struct later (p 8).
-
-     There's then the function ~Operands~ on the ~BinOp~
-
-**** TODO is ~BinOp~ an ``instance'' of an Instraction <2015-08-07 Fri 08:40>
-*** TODO make an ml ``implementation'' for better overview <2015-08-07 Fri 08:03>
-*** DONE add a Makefile <2015-08-07 Fri 08:44>
+**** TODO make an ml ``implementation'' for better overview <2015-08-07 Fri 08:03>
+**** DONE add a Makefile <2015-08-07 Fri 08:44>
     CLOSED: [2015-08-07 Fri 09:13]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-07 Fri 09:13]
     :END:
-*** DONE where's the old go-ast in ml <2015-08-07 Fri 08:08>
+**** DONE where's the old go-ast in ml <2015-08-07 Fri 08:08>
     CLOSED: [2015-08-07 Fri 08:28]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-07 Fri 08:28]
@@ -2407,3 +2382,37 @@ result, as opposed to simply changing the state of the argument visitor
     
     [[~/Collectionofreposes/GITUIO/staticanalysis/go/src/misc]]
 
+
+
+** Analysis of the SSA
+
+
+
+
+
+   See [[~/go/src/golang.org/x/tools/go/ssa/]]
+
+
+**** DONE move the ssa on the laptop to the right place <2015-08-07 Fri 07:44>
+    CLOSED: [2015-08-07 Fri 08:13]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-07 Fri 08:13]
+    :END:
+     ~/go/src/golang.org/x/tools/go:
+
+     Ok, it's moved
+**** TODO Who generates the SSA <2015-08-07 Fri 07:52>
+**** TODO where is the SSa data structure <2015-08-07 Fri 07:52>
+**** TODO what's the Operands function <2015-08-07 Fri 07:56>
+**** TODO what's a Value <2015-08-07 Fri 07:57>
+    A value seems to be related to instructions
+**** TODO What's an ~Instruction~ Interface <2015-08-07 Fri 08:01>
+***** TODO ~BinOp~ why not an instruction <2015-08-07 Fri 08:15>
+     As an example they say that binary ops are instructions, but 
+     how do I see that in the code?
+     
+     ~BinOp~ is a struct later (p 8).
+
+     There's then the function ~Operands~ on the ~BinOp~
+
+***** TODO is ~BinOp~ an ``instance'' of an Instraction <2015-08-07 Fri 08:40>
