@@ -2535,7 +2535,11 @@ type Node interface {
        more specific and informative Value or Instruction interfaces where
        appropriate.''
 
-       
+
+****** TODO how can one build the ``embedding/subtyping'' structure <2015-08-08 Sat 15:46>
+       in the sso.go data structures it's used for extending Instruction to CallInstructions.
+
+       Every call instruction therefore is an instuction.
 ***** create.go
 ****** TODO try to figure out the interface of that one <2015-08-08 Sat 13:05>
 ****** DONE what's a Package, and where defined <2015-08-08 Sat 13:14>
