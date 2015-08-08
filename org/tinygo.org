@@ -2421,8 +2421,18 @@ result, as opposed to simply changing the state of the argument visitor
 **** [[~/go/src/golang.org/x/tools/go/ssa][SSA]]
 
 
-***** Create.go
-***** Builder.go
+***** ssa.go
+      This seems basically a data structure.
+***** create.go
+****** TODO try to figure out the interface of that one <2015-08-08 Sat 13:05>
+****** DONE what's a Package, and where defined <2015-08-08 Sat 13:14>
+       CLOSED: [2015-08-08 Sat 13:27]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-08 Sat 13:27]
+       :END:
+       it's actually in ssa.go
+***** builder.go
+****** TODO try to figure out the interface of that one <2015-08-08 Sat 13:04>
 ***** General questions
      It seems that it they implement standard stuff from the literature
      (cytron*:efficiently). There are two different phases (at least),
