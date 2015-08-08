@@ -2415,8 +2415,10 @@ result, as opposed to simply changing the state of the argument visitor
 
 
 
-* Analysis of the SSA
-
+* extra stuff under [[~/go/src/golang.org/x][x]]
+** Tools
+*** [[~/go/src/golang.org/x/tools/go][Go]]
+**** [[~/go/src/golang.org/x/tools/go/ssa][SSA]]
 
 
 
