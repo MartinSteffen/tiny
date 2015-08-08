@@ -2539,7 +2539,36 @@ type Node interface {
 ****** TODO how can one build the ``embedding/subtyping'' structure <2015-08-08 Sat 15:46>
        in the sso.go data structures it's used for extending Instruction to CallInstructions.
 
-       Every call instruction therefore is an instuction.
+       Every call instruction therefore is an instuction. How would one do it inductively?
+       Let's not 
+
+******* TODO can one ``reuse constructors'' <2015-08-08 Sat 15:58>
+	actually, it seems yes, but that's strange. The compiler does not give an error.
+	I would have betted it's impossible. The following example, the two types are ok,
+	but it seems that the latest one wins. I.e., the value is wrong because of the type.
+
+#+begin_example
+type valuex = 
+  | Builtin of int
+  | FreeVar of unit
+  | Const of unit 
+  | Function of unit 
+  | Global of unit 
+  | Parameter of unit 
+
+type value = 
+  | Builtin of int
+  | FreeVar of unit
+  | Const of unit 
+  | Function of unit 
+  | Global of unit 
+  | Parameter of unit 
+
+let x : valuex = Const ();;
+
+#+end_example
+ 
+
 ***** create.go
 ****** TODO try to figure out the interface of that one <2015-08-08 Sat 13:05>
 ****** DONE what's a Package, and where defined <2015-08-08 Sat 13:14>
