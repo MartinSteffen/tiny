@@ -2423,7 +2423,11 @@ result, as opposed to simply changing the state of the argument visitor
 
 ***** ssa.go
       This seems basically a data structure.
-****** TODO Clarify the duck typing <2015-08-08 Sat 13:47>
+****** TODO Clarify the duck typing for instructions and values <2015-08-08 Sat 13:47>
+
+       They share some functions, but they also have separate, it's not a
+       subtype.
+       
 ***** create.go
 ****** TODO try to figure out the interface of that one <2015-08-08 Sat 13:05>
 ****** DONE what's a Package, and where defined <2015-08-08 Sat 13:14>
