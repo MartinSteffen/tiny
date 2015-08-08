@@ -2374,7 +2374,29 @@ result, as opposed to simply changing the state of the argument visitor
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-08-08 Sat 08:03]
      :END:
-**** TODO add the pos/end functions as stubs for delcs etc. <2015-08-08 Sat 08:04>
+**** DORMANT type Scope.scope dummy <2015-08-08 Sat 08:32>
+**** DONE add the type scope <2015-08-08 Sat 08:19>
+     CLOSED: [2015-08-08 Sat 08:31]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-08 Sat 08:31]
+     :END:
+***** DONE add a file scope <2015-08-08 Sat 08:25>
+      CLOSED: [2015-08-08 Sat 08:31]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-08 Sat 08:31]
+      :END:
+***** DONE where is the type Scope in ast.go? it's not in the file <2015-08-08 Sat 08:20>
+      CLOSED: [2015-08-08 Sat 08:25]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-08 Sat 08:25]
+      :END:
+      There is a file scope 
+**** DORMANT in Ast.package: Ast.imports and Ast.files dummy <2015-08-08 Sat 08:18> :stub: 
+**** DONE add the pos/end functions as stubs for delcs etc. <2015-08-08 Sat 08:04>
+     CLOSED: [2015-08-08 Sat 08:06]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-08 Sat 08:06]
+     :END:
 **** DORMANT stmt_pos and stmt_end and the others: fill out <2015-08-07 Fri 18:46>
 **** DONE add the pos and end for stmts as dummies <2015-08-07 Fri 16:47>
      CLOSED: [2015-08-07 Fri 18:45]
