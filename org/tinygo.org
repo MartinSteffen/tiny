@@ -2374,7 +2374,8 @@ result, as opposed to simply changing the state of the argument visitor
      :LOGBOOK:
      - State "DONE"       from "TODO"       [2015-08-08 Sat 08:03]
      :END:
-**** DORMANT stmt_pos and stmt_end fill out <2015-08-07 Fri 18:46>
+**** TODO add the pos/end functions as stubs for delcs etc. <2015-08-08 Sat 08:04>
+**** DORMANT stmt_pos and stmt_end and the others: fill out <2015-08-07 Fri 18:46>
 **** DONE add the pos and end for stmts as dummies <2015-08-07 Fri 16:47>
      CLOSED: [2015-08-07 Fri 18:45]
      :LOGBOOK:
