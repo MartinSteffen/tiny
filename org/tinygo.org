@@ -2364,24 +2364,34 @@ result, as opposed to simply changing the state of the argument visitor
 *** bytes
 *** builtin 
 
-*** go
+*** [[~/go/src/github.com/golang/go/src/go][go]]
+
+    What is strange here is that it looks a bit that it's more like a
+    front-end. It's not clear whether it contains a back-end. Maybe the
+    build.
+    
 **** ast
      See   [[~/go/src/github.com/golang/go/src/go/ast]]
 
 
 
-** cmd
-***  [[~/go/src/github.com/golang/go/src/cmd/compile][compile]]
-    That is a small package, at least the file main.go is small. It's 
-    basically only a switch according to the architectures (arm etc). It's interesting
-    perhaps insofar in that one can see perhaps a main functions, like ~x86.Main()~.
+**** build
 
-**** TODO What's the difference between go build and go compile? What's go compile? <2015-08-08 Sat 09:05>
+     That's also a package. According to the documentation, it's not really
+     about go build, it's about collecting info about go packages. So that
+     may still be for the front end.
+**** [[~/go/src/github.com/golang/go/src/go/constant][constant]]
 
-     Strange, go compile does not exists, despite the fact that it's a ~cmd~.
-
-
-**** Analysis of the ~types~ package
+     A small package, for ``built-in'' constants or something
+     
+**** [[~/go/src/github.com/golang/go/src/go/doc][doc]]
+**** format
+**** importer
+**** internal
+**** printer
+**** scanner
+**** token 
+****   [[~/go/src/github.com/golang/go/src/go/types][types]]
 
    I would guess, the ~types~ package is a client of the ast.  
 ***** TODO who uses the types functions, which is the main one <2015-08-08 Sat 08:47>
@@ -2393,8 +2403,19 @@ result, as opposed to simply changing the state of the argument visitor
 ***** TODO what's the result of the type checker? <2015-08-08 Sat 08:49>
 
 
+*** cmd
+****  [[~/go/src/github.com/golang/go/src/cmd/compile][compile]]
+     That is a small package, at least the file main.go is small. It's 
+     basically only a switch according to the architectures (arm etc). It's interesting
+     perhaps insofar in that one can see perhaps a main functions, like ~x86.Main()~.
 
-** Analysis of the SSA
+***** TODO What's the difference between go build and go compile? What's go compile? <2015-08-08 Sat 09:05>
+
+      Strange, go compile does not exists, despite the fact that it's a ~cmd~.
+
+
+
+* Analysis of the SSA
 
 
 
@@ -2707,7 +2728,12 @@ result, as opposed to simply changing the state of the argument visitor
        - State "DONE"       from "TODO"       [2015-08-07 Fri 13:03]
        :END:
 ****** DORMANT Ast.ident: perhaps it must be mutable/a reference <2015-08-07 Fri 12:57>
-****** TODO what's Object in Go <2015-08-07 Fri 12:55>
+****** DONE what's Object in Go <2015-08-07 Fri 12:55>
+       CLOSED: [2015-08-08 Sat 10:23]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-08 Sat 10:23]
+       :END:
+       It's defined in scope.go see there
 ****** DONE add better IDent <2015-08-07 Fri 12:45>
        CLOSED: [2015-08-07 Fri 12:55]
        :LOGBOOK:
