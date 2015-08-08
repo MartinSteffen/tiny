@@ -2423,10 +2423,118 @@ result, as opposed to simply changing the state of the argument visitor
 
 ***** ssa.go
       This seems basically a data structure.
+
+****** TODO check the various types <2015-08-08 Sat 14:47>
+
+       Node: String Pos Parent [Operands] [Referrers]
+       
+
+        |                 | Node |   |   | Operands |
+        |-----------------+------+---+---+----------|
+        | Program         | -    |   |   |          |
+        | Package         | -    |   |   |          |
+        | Type            | -    |   |   |          |
+        | NamedConst      | -    |   |   |          |
+        |-----------------+------+---+---+----------|
+        | Function        |      |   |   |          |
+        | BasicBlock      |      |   |   |          |
+        | FreeVar         |      |   |   |          |
+        | Parameter       |      |   |   |          |
+        | Const           |      |   |   |          |
+        | Global          |      |   |   |          |
+        | Builtin         |      |   |   |          |
+        | Alloc           |      |   |   |          |
+        | Phi             |      |   |   |          |
+        | Call            |      |   |   |          |
+        | BinOp           |      |   |   |          |
+        | UnOp            |      |   |   |          |
+        | ChangeType      |      |   |   |          |
+        | Convert         |      |   |   |          |
+        | ChangeInterface |      |   |   |          |
+        | MakeInterface   |      |   |   |          |
+        | MakeClosure     |      |   |   |          |
+        | MakeMap         |      |   |   |          |
+        | MakeChan        |      |   |   |          |
+        | MakeSlice       |      |   |   |          |
+        | Slice           |      |   |   |          |
+        | FieldAddr       |      |   |   |          |
+        | Field           |      |   |   |          |
+        | IndexAddr       |      |   |   |          |
+        | Index           |      |   |   |          |
+        | Lookup          |      |   |   |          |
+        | SelectState     |      |   |   |          |
+        | Select          |      |   |   |          |
+        | Range           |      |   |   |          |
+        | Next            |      |   |   |          |
+        | TypeAssert      |      |   |   |          |
+        | Extract         |      |   |   |          |
+        | Jump            |      |   |   |          |
+        | If              |      |   |   |          |
+        | Return          |      |   |   |          |
+        | RunDefers       |      |   |   |          |
+        | Panic           |      |   |   |          |
+        | Go              |      |   |   |          |
+        | Defer           |      |   |   |          |
+        | Send            |      |   |   |          |
+        | Store           |      |   |   |          |
+        | MapUpdate       |      |   |   |          |
+        | DebugRef        |      |   |   |          |
+        |-----------------+------+---+---+----------|
+        | register        |      |   |   |          |
+        | anInstruction   |      |   |   |          |
+        |-----------------+------+---+---+----------|
+        | CallCommon      |      |   |   |          | 
+
+
+(*
+------------ Value 
+	Name() string    -
+	String() string  +
+	Type() types.Type  -
+	Parent() *Function  +
+	Referrers() *[]Instruction -
+	Pos() token.Pos +
+
+
+
+----------- Instruction
+
+type Instruction interface {
+	String() string  +
+	Parent() *Function   +
+	Block() *BasicBlock  -
+	setBlock(*BasicBlock)
+	Operands(rands []*Value) []*Value - 
+	Pos() token.Pos  +
+}
+
+--- Node
+		  
+type Node interface {
+	String() string  ++
+	Pos() token.Pos  ++
+	Parent() *Function ++
+---------------------
+	Operands(rands []*Value) []*Value -+ // nil for non-Instructions
+	Referrers() *[]Instruction   +-     NOPE // nil for non-Values
+}
+
+
+     
+*)
+  
 ****** TODO Clarify the duck typing for instructions and values <2015-08-08 Sat 13:47>
 
        They share some functions, but they also have separate, it's not a
-       subtype.
+       subtype. Also Nodes it not a supertype. However, for the nodes, it
+       seems intended that the node is conceptually a supertype of
+       instructions and values.  The two methods Operands and Referrers,
+       which are not common, but specific for values or instructions, are
+       called ``partial methods''.  It's a but unclear, they say: ``Node is
+       provided to simplify SSA graph algorithms.  Clients should use the
+       more specific and informative Value or Instruction interfaces where
+       appropriate.''
+
        
 ***** create.go
 ****** TODO try to figure out the interface of that one <2015-08-08 Sat 13:05>
