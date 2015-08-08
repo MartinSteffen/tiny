@@ -2359,11 +2359,23 @@ result, as opposed to simply changing the state of the argument visitor
 
 
 * Analysis of the Go compiler
+** Analysis of the commands (~cmd~)
+***  [[~/go/src/github.com/golang/go/src/cmd/compile][compile]]
+    That is a small package, at least the file main.go is small. It's 
+    basically only a switch according to the architectures (arm etc). It's interesting
+    perhaps insofar in that one can see perhaps a main functions, like ~x86.Main()~.
+
+**** TODO What's the difference between go build and go compile? What's go compile? <2015-08-08 Sat 09:05>
+
+     Strange, go compile does not exists, despite the fact that it's a ~cmd~.
+
+
 ** Analysis of AST
    See   [[~/go/src/github.com/golang/go/src/go/ast]]
 
 *** Go implementation
 *** ML reconstruction
+**** DORMANT stub in pacakges/file: maps missing <2015-08-08 Sat 08:34> :stub:
 **** DONE add type spec <2015-08-07 Fri 18:56>
      CLOSED: [2015-08-08 Sat 07:48]
      :LOGBOOK:
@@ -2758,6 +2770,16 @@ result, as opposed to simply changing the state of the argument visitor
 
 
 
+** Analysis of the ~types~ package
+
+   I would guess, the ~types~ package is a client of the ast.  
+*** TODO who uses the types functions, which is the main one <2015-08-08 Sat 08:47>
+    There's a function ~Check~ but it seems mainly used only inside the
+    types packages, not outside. So, that's strange. I looked only in the
+    directory go/src/go. There's also more, though, for instance
+     cmd/vet/main.go:347:	asmCheck(pkg)
+    that gives the command go vet
+*** TODO what's the result of the type checker? <2015-08-08 Sat 08:49>
 ** Analysis of the SSA
 
 
