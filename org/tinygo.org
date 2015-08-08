@@ -2358,17 +2358,19 @@ result, as opposed to simply changing the state of the argument visitor
 ***  [[../visitfunctional][Functional visiting client code]]
 
 
-* Analysis of the Go compiler (under go/src)
-** Directory go
+* Analysis of the Go compiler (under go)
+** api
+** src
 *** bytes
-*** builtin
+*** builtin 
+
 *** go
 **** ast
      See   [[~/go/src/github.com/golang/go/src/go/ast]]
 
-***** Go implementation
 
-** Analysis of the commands (~cmd~)
+
+** cmd
 ***  [[~/go/src/github.com/golang/go/src/cmd/compile][compile]]
     That is a small package, at least the file main.go is small. It's 
     basically only a switch according to the architectures (arm etc). It's interesting
@@ -2379,16 +2381,19 @@ result, as opposed to simply changing the state of the argument visitor
      Strange, go compile does not exists, despite the fact that it's a ~cmd~.
 
 
-** Analysis of the ~types~ package
+**** Analysis of the ~types~ package
 
    I would guess, the ~types~ package is a client of the ast.  
-*** TODO who uses the types functions, which is the main one <2015-08-08 Sat 08:47>
+***** TODO who uses the types functions, which is the main one <2015-08-08 Sat 08:47>
     There's a function ~Check~ but it seems mainly used only inside the
     types packages, not outside. So, that's strange. I looked only in the
     directory go/src/go. There's also more, though, for instance
      cmd/vet/main.go:347:	asmCheck(pkg)
     that gives the command go vet
-*** TODO what's the result of the type checker? <2015-08-08 Sat 08:49>
+***** TODO what's the result of the type checker? <2015-08-08 Sat 08:49>
+
+
+
 ** Analysis of the SSA
 
 
