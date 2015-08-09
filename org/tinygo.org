@@ -2570,61 +2570,64 @@ result, as opposed to simply changing the state of the argument visitor
        Node: String Pos Parent [Operands] [Referrers]
        
 
-        |                 | Node |   |   | Operands |
-        |-----------------+------+---+---+----------|
-        | Program         | -    |   |   |          |
-        | Package         | -    |   |   |          |
-        | Type            | -    |   |   |          |
-        | NamedConst      | -    |   |   |          |
-        |-----------------+------+---+---+----------|
-        | Function        |      |   |   |          |
-        | BasicBlock      |      |   |   |          |
-        | FreeVar         |      |   |   |          |
-        | Parameter       |      |   |   |          |
-        | Const           |      |   |   |          |
-        | Global          |      |   |   |          |
-        | Builtin         |      |   |   |          |
-        | Alloc           |      |   |   |          |
-        | Phi             |      |   |   |          |
-        | Call            |      |   |   |          |
-        | BinOp           |      |   |   |          |
-        | UnOp            |      |   |   |          |
-        | ChangeType      |      |   |   |          |
-        | Convert         |      |   |   |          |
-        | ChangeInterface |      |   |   |          |
-        | MakeInterface   |      |   |   |          |
-        | MakeClosure     |      |   |   |          |
-        | MakeMap         |      |   |   |          |
-        | MakeChan        |      |   |   |          |
-        | MakeSlice       |      |   |   |          |
-        | Slice           |      |   |   |          |
-        | FieldAddr       |      |   |   |          |
-        | Field           |      |   |   |          |
-        | IndexAddr       |      |   |   |          |
-        | Index           |      |   |   |          |
-        | Lookup          |      |   |   |          |
-        | SelectState     |      |   |   |          |
-        | Select          |      |   |   |          |
-        | Range           |      |   |   |          |
-        | Next            |      |   |   |          |
-        | TypeAssert      |      |   |   |          |
-        | Extract         |      |   |   |          |
-        | Jump            |      |   |   |          |
-        | If              |      |   |   |          |
-        | Return          |      |   |   |          |
-        | RunDefers       |      |   |   |          |
-        | Panic           |      |   |   |          |
-        | Go              |      |   |   |          |
-        | Defer           |      |   |   |          |
-        | Send            |      |   |   |          |
-        | Store           |      |   |   |          |
-        | MapUpdate       |      |   |   |          |
-        | DebugRef        |      |   |   |          |
-        |-----------------+------+---+---+----------|
-        | register        |      |   |   |          |
-        | anInstruction   |      |   |   |          |
-        |-----------------+------+---+---+----------|
-        | CallCommon      |      |   |   |          | 
+        |                 | Node |   |   | String | Pos | Parent | Ops | Refs | Block | setBlock | Type |
+        |-----------------+------+---+---+--------+-----+--------+-----+------+-------+----------+------|
+        | Node            |      |   |   | x      | x   | x      | [x] | [x]  |       |          |      |
+        | Instruction     |      |   |   | x      | x   | x      | x   |      | x     | x        |      |
+        |-----------------+------+---+---+--------+-----+--------+-----+------+-------+----------+------|
+        | Program         | -    |   |   |        |     |        |     |      |       |          |      |
+        | Package         | -    |   |   |        |     |        |     |      |       |          |      |
+        | Type            | -    |   |   |        |     |        |     |      |       |          |      |
+        | NamedConst      | -    |   |   |        |     |        |     |      |       |          |      |
+        |-----------------+------+---+---+--------+-----+--------+-----+------+-------+----------+------|
+        | Function        |      |   |   |        |     |        |     |      |       |          |      |
+        | BasicBlock      |      |   |   |        |     |        |     |      |       |          |      |
+        | FreeVar         |      |   |   |        |     |        |     |      |       |          |      |
+        | Parameter       |      |   |   |        |     |        |     |      |       |          |      |
+        | Const           |      |   |   |        |     |        |     |      |       |          |      |
+        | Global          |      |   |   |        |     |        |     |      |       |          |      |
+        | Builtin         |      |   |   |        |     |        |     |      |       |          |      |
+        | Alloc           |      |   |   |        |     |        |     |      |       |          |      |
+        | Phi             |      |   |   |        |     |        |     |      |       |          |      |
+        | Call            |      |   |   |        |     |        |     |      |       |          |      |
+        | BinOp           |      |   |   |        |     |        |     |      |       |          |      |
+        | UnOp            |      |   |   |        |     |        |     |      |       |          |      |
+        | ChangeType      |      |   |   |        |     |        |     |      |       |          |      |
+        | Convert         |      |   |   |        |     |        |     |      |       |          |      |
+        | ChangeInterface |      |   |   |        |     |        |     |      |       |          |      |
+        | MakeInterface   |      |   |   |        |     |        |     |      |       |          |      |
+        | MakeClosure     |      |   |   |        |     |        |     |      |       |          |      |
+        | MakeMap         |      |   |   |        |     |        |     |      |       |          |      |
+        | MakeChan        |      |   |   |        |     |        |     |      |       |          |      |
+        | MakeSlice       |      |   |   |        |     |        |     |      |       |          |      |
+        | Slice           |      |   |   |        |     |        |     |      |       |          |      |
+        | FieldAddr       |      |   |   |        |     |        |     |      |       |          |      |
+        | Field           |      |   |   |        |     |        |     |      |       |          |      |
+        | IndexAddr       |      |   |   |        |     |        |     |      |       |          |      |
+        | Index           |      |   |   |        |     |        |     |      |       |          |      |
+        | Lookup          |      |   |   |        |     |        |     |      |       |          |      |
+        | SelectState     |      |   |   |        |     |        |     |      |       |          |      |
+        | Select          |      |   |   |        |     |        |     |      |       |          |      |
+        | Range           |      |   |   |        |     |        |     |      |       |          |      |
+        | Next            |      |   |   |        |     |        |     |      |       |          |      |
+        | TypeAssert      |      |   |   |        |     |        |     |      |       |          |      |
+        | Extract         |      |   |   |        |     |        |     |      |       |          |      |
+        | Jump            |      |   |   |        |     |        |     |      |       |          |      |
+        | If              |      |   |   |        |     |        |     |      |       |          |      |
+        | Return          |      |   |   |        |     |        |     |      |       |          |      |
+        | RunDefers       |      |   |   |        |     |        |     |      |       |          |      |
+        | Panic           |      |   |   |        |     |        |     |      |       |          |      |
+        | Go              |      |   |   |        |     |        |     |      |       |          |      |
+        | Defer           |      |   |   |        |     |        |     |      |       |          |      |
+        | Send            |      |   |   |        |     |        |     |      |       |          |      |
+        | Store           |      |   |   |        |     |        |     |      |       |          |      |
+        | MapUpdate       |      |   |   |        |     |        |     |      |       |          |      |
+        | DebugRef        |      |   |   |        |     |        |     |      |       |          |      |
+        |-----------------+------+---+---+--------+-----+--------+-----+------+-------+----------+------|
+        | register        |      |   |   |        |     |        |     |      |       |          |      |
+        | anInstruction   |      |   |   |        |     |        |     |      |       |          |      |
+        |-----------------+------+---+---+--------+-----+--------+-----+------+-------+----------+------|
+        | CallCommon      |      |   |   |        |     |        |     |      |       |          |      |
 
 
 (*
