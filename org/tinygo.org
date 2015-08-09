@@ -2570,7 +2570,7 @@ result, as opposed to simply changing the state of the argument visitor
        Node: String Pos Parent [Operands] [Referrers]
        
 
-        |                 | Node |   | Name | Str | Pos | Par | Ops | Refs | Block | setBlock | Type | Val | Common | Descr | sig | staticallee | isinvoke | Object |       |      |        |
+        |                 | Node |   | Name | Str | Pos | Par | Ops | Refs | Block | setBlock | Type | Val | Common | Descr | sig | staticallee | isinvoke | Object | Token | Pack | Rstr   |
         |-----------------+------+---+------+-----+-----+-----+-----+------+-------+----------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------|
         | Node            |      |   |      | x   | x   | x   | [x] | [x]  |       |          |      |     |        |       |     |             |          |        |       |      |        |
         | Instruction     |      |   |      | x   | x   | x   | x   |      | x     | x        |      |     |        |       |     |             |          |        |       |      |        |
@@ -2582,7 +2582,7 @@ result, as opposed to simply changing the state of the argument visitor
         | Type            | -    |   |      |     |     |     |     |      |       |          |      |     |        |       |     |             |          |        |       |      |        |
         | NamedConst      | -    |   |      |     |     |     |     |      |       |          |      |     |        |       |     |             |          |        |       |      |        |
         |-----------------+------+---+------+-----+-----+-----+-----+------+-------+----------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------|
-        | Function        |      |   |      |     |     |     |     |      |       |          |      |     |        |       |     |             |          |        |       |      |        |
+        | Function        |      |   | name | str | pos | par |     | refs |       |          | type |     |        |       |     |             |          | object | token | pack |        |
         | BasicBlock      |      |   |      |     |     |     |     |      |       |          |      |     |        |       |     |             |          |        |       |      |        |
         | FreeVar         |      |   | name |     | pos | par |     | refs |       |          | type |     |        |       |     |             |          |        |       |      |        |
         | Parameter       |      |   |      |     |     |     |     |      |       |          |      |     |        |       |     |             |          |        |       |      |        |
