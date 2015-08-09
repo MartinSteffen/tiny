@@ -19,7 +19,13 @@
     :END:
     I do it in notes/sa.tex
 *** TODO where do they transform the program into SSA? <2015-08-01 Sat 09:20>
+    :PROPERTIES:
+    :ID:       873919ce-1cd9-4578-86fe-d32ca30589d0
+    :END:
 *** TODO do they represent the Phi functions` <2015-08-01 Sat 09:20>
+    :PROPERTIES:
+    :ID:       d93ad74b-1919-4807-ae3c-73d5920ddefa
+    :END:
 *** DONE remove the prints from the walker  <2015-07-30 Thu 09:44>
     CLOSED: [2015-07-30 Thu 09:46]
     :LOGBOOK:
@@ -625,15 +631,24 @@ func main () {
     
 
 *** TODO make the record thing functional <2015-07-30 Thu 10:29>
+    :PROPERTIES:
+    :ID:       50dd9fa7-d794-4ba3-80bb-6bda466b5987
+    :END:
       Just to se*** TODO write down a rational scheme how that worked <2015-07-29 Wed 12:34>
 
     Now the visitors etc work. The question is, how close it's connected 
 **** TODO is it necessary to give back the ~v~ in the visitor <2015-07-30 Thu 10:01>
+     :PROPERTIES:
+     :ID:       4b724bfc-00ef-461e-86e0-08c9c4e80fb1
+     :END:
      Actually, in my code it's not needed, it seems. Perhaps that's due to the fact that
      the channel is essentially imperative, we don't give back the value, but 
      share a channel
      
 **** TODO what's the role now of ~w~? <2015-07-30 Thu 09:56>
+     :PROPERTIES:
+     :ID:       06132efe-b502-4ecc-bf1a-2f0310c35119
+     :END:
      
 **** DONE what's the ``type'' of the whole  visitor thing? <2015-07-29 Wed 12:34>
      CLOSED: [2015-08-07 Fri 12:43]
@@ -1198,6 +1213,9 @@ done here.
 
 
 *** TODO Check the Pizza visitors <2015-07-21 Tue 16:23>
+    :PROPERTIES:
+    :ID:       cb8e5a9a-0833-4b80-b6fa-dd8573e97137
+    :END:
 
     
     One of the most extended code examples (perhaps the final design) can
@@ -1233,9 +1251,15 @@ done here.
     /not/ given back is a visitor, that's clear.
     
 *** TODO expression visitor: forUnd why do they have 2 arguments? <2015-07-21 Tue 16:50>
+    :PROPERTIES:
+    :ID:       594f1417-6165-41ae-a036-95dc07d8795b
+    :END:
     Perhaps, it's a better design.  
 
 *** TODO duck typing  ``marker'' functions: accept <2015-07-18 Sat 13:45>
+    :PROPERTIES:
+    :ID:       20212731-e476-4f8d-b92e-a10486d758fa
+    :END:
 
     Currently the subtyping is done by some marker functions. Now that
     we have the accept functions: do the make the older name based markers
@@ -1243,6 +1267,9 @@ done here.
 
     Currently we leave them in, we experiment with it later 
 *** TODO add the argument to the accept functions for statements <2015-07-18 Sat 14:13>
+    :PROPERTIES:
+    :ID:       d4f24852-d0a7-4619-8fa3-5e13ac37b074
+    :END:
 
 *** DORMANT perhaps install gocc <2015-04-18 Sat 06:38>
     CLOSED: [2015-07-27 Mon 12:16]
@@ -1490,6 +1517,9 @@ done here.
 
 
 *** TODO can one access the stuff inside the package ast itself? <2015-07-16 Thu 10:38>
+    :PROPERTIES:
+    :ID:       f8e76229-e102-48ee-bed8-78c37e2285fa
+    :END:
 
 **** DONE if yes, would it help: can one make use of it? <2015-07-16 Thu 10:38>
      CLOSED: [2015-08-01 Sat 09:22]
@@ -1553,6 +1583,9 @@ done here.
      - State "DONE"       from "TODO"       [2015-07-16 Thu 13:34]
      :END:
 *** TODO make more careful name conventions <2015-07-16 Thu 14:28>
+    :PROPERTIES:
+    :ID:       523a94a3-0d10-4293-a381-b45e42ec9418
+    :END:
 **** DONE grouping: can one group the marker methods inside the ()? <2015-07-16 Thu 14:30>
      CLOSED: [2015-08-01 Sat 09:23]
      :LOGBOOK:
@@ -1562,6 +1595,9 @@ done here.
 
      Nope
 *** TODO Stmt etc.: use slices <2015-07-16 Thu 14:28>
+    :PROPERTIES:
+    :ID:       cb7b7ca9-481a-4d4f-881b-96241e7776f0
+    :END:
 **** DONE can one make the functions mutually recursive <2015-07-16 Thu 12:01>
      CLOSED: [2015-07-16 Thu 12:31]
      :LOGBOOK:
@@ -1604,13 +1640,22 @@ done here.
 
 
 *** TODO external visitor via embedding or wrappers or something? <2015-07-18 Sat 12:21>
+    :PROPERTIES:
+    :ID:       282c8a9a-cc59-42c2-bd6a-9f15b04903d6
+    :END:
     is that possible? Currently I did not do that, just a more direct implementation
 
 *** TODO add recursion <2015-07-18 Sat 17:41>
+    :PROPERTIES:
+    :ID:       350d7ad8-58b7-4085-a0ed-1cc36a48afd9
+    :END:
 
     I think that's the piece which is missing.
 
 **** TODO where should it be added (see the go ast walker) <2015-07-18 Sat 17:46>
+     :PROPERTIES:
+     :ID:       287526cd-5e79-4753-a79e-fde39aa8d989
+     :END:
 
      type Visitor interface {
 	Visit (stmt Node) (w Visitor)   
@@ -1629,12 +1674,21 @@ done here.
     - State "DONE"       from "TODO"       [2015-07-27 Mon 12:17]
     :END:
 *** TODO make a visit/accept visitor here <2015-07-18 Sat 11:41>
+    :PROPERTIES:
+    :ID:       d0be6437-d614-45f3-95f7-774a2ed98ca7
+    :END:
 **** TODO can one make the additional infra-structure in a sep. file <2015-07-18 Sat 12:01>
+     :PROPERTIES:
+     :ID:       b8447063-924c-45ed-9d05-07477152115f
+     :END:
      It still would not solve the problem, I assume, that one let the
     original ``package'' untouched. But at least the file. I am pretty sure
     that one cannot define it outside the package.
 
 ***** TODO try to add an Accept method to Stmt <2015-07-18 Sat 12:09>
+      :PROPERTIES:
+      :ID:       fe8d1cf0-cb17-48e2-babf-571721593852
+      :END:
       To figure out if I can do it in the same package but different file.
 
       Ok, the latter one does not work, because it _needs to be done for
@@ -1645,6 +1699,9 @@ done here.
        - State "DONE"       from "TODO"       [2015-07-18 Sat 14:54]
        :END:
 ****** TODO figure out the right type <2015-07-18 Sat 14:54>
+       :PROPERTIES:
+       :ID:       030b3955-d1c3-4f63-af63-14710661cfe6
+       :END:
 
        we are given
 
@@ -1679,6 +1736,9 @@ func (s *Expr) visit_Expr () {}
 
 
 ****** TODO why not manke Visitor a super-interface? <2015-07-18 Sat 16:10>
+       :PROPERTIES:
+       :ID:       7da8eac3-d13e-44dd-b622-ff2cecfc657b
+       :END:
        I guess that might work, the question is, does it fit with duck typing
 
        The problem also is: everything works fine with concrete stuff
@@ -1688,6 +1748,9 @@ func (s *Expr) visit_Expr () {}
        We cannot glue anything to Exp.
 
 ****** TODO  Make a general visitor +  general dispatch <2015-07-18 Sat 15:28>      
+       :PROPERTIES:
+       :ID:       329a53f1-dc49-40d9-8a2a-d35af8622076
+       :END:
 
 
 
@@ -1698,6 +1761,9 @@ func (s *Expr) visit_Expr () {}
      - State "DONE"       from "TODO"       [2015-07-18 Sat 15:58]
      :END:
 **** TODO do the stmt slices back in <2015-07-18 Sat 15:33>
+     :PROPERTIES:
+     :ID:       3e183a03-49d7-407e-ae9b-f3356452807d
+     :END:
 **** DONE can one make a less flat visitor <2015-07-17 Fri 09:33>
      CLOSED: [2015-07-18 Sat 14:14]
      :LOGBOOK:
@@ -1782,6 +1848,9 @@ func (s *Expr) visit_Expr () {}
      
 
 **** TODO are the visitors the (only) way that the go books speak about higher-order programming? <2015-07-17 Fri 12:23>
+     :PROPERTIES:
+     :ID:       81a61549-405b-43b8-a8da-a6a9f41a136b
+     :END:
 
 
 **** DONE what does make <2015-07-17 Fri 11:41>
@@ -1860,6 +1929,9 @@ func idents(f *ast.File) <-chan *ast.Ident {
      
 
 **** TODO how does the walk-thing go <2015-07-14 Tue 07:57>
+     :PROPERTIES:
+     :ID:       2eb448cb-e8cd-4911-916e-d33c0a62868d
+     :END:
 
    See 
 
@@ -1891,6 +1963,9 @@ func idents(f *ast.File) <-chan *ast.Ident {
     - State "DONE"       from "TODO"       [2015-08-01 Sat 09:24]
     :END:
 *** TODO make the print-out at least a bit readable <2015-07-16 Thu 14:34>
+    :PROPERTIES:
+    :ID:       b55634ac-cf19-4e8d-8ed1-588da39887c1
+    :END:
 *** DONE make a running program making use of a program <2015-07-14 Tue 12:16>
     CLOSED: [2015-08-01 Sat 09:24]
     :LOGBOOK:
@@ -2030,6 +2105,9 @@ func idents(f *ast.File) <-chan *ast.Ident {
      :END:
      It's in the ast of go. We shoold also look at the book and the spec
 *** TODO AST: Fields why are some of the things as pointers and some not <2015-07-14 Tue 08:58>
+    :PROPERTIES:
+    :ID:       b0001adb-a6ce-46d9-a72c-1f26a97bc5d8
+    :END:
 **** DONE Constructors: it seems that in AST, they ``mimic'' those: how to set them <2015-07-14 Tue 09:16>
      CLOSED: [2015-07-15 Wed 08:06]
      :LOGBOOK:
@@ -2054,6 +2132,9 @@ func idents(f *ast.File) <-chan *ast.Ident {
       - State "DONE"       from "TODO"       [2015-07-15 Wed 08:06]
       :END:
 *** TODO look at how the parser works <2015-07-14 Tue 07:55>
+    :PROPERTIES:
+    :ID:       eb9cad91-068d-4142-bfa5-03dedb8af326
+    :END:
 *** DONE look at the example_test.go program <2015-07-14 Tue 07:52>
     CLOSED: [2015-08-01 Sat 09:24]
     :LOGBOOK:
@@ -2093,6 +2174,9 @@ func idents(f *ast.File) <-chan *ast.Ident {
     :END:
     If the capacity is absent, it's a synchronous channel. 
 *** TODO how is the AST of go designed <2015-07-13 Mon 13:05>
+    :PROPERTIES:
+    :ID:       eda1e959-57fd-44cb-984c-5f96175734b4
+    :END:
     
     Probably they use structural subtyping. There are 4 important
     interfaces. Probably one can illustrate it as follows:
@@ -2129,6 +2213,9 @@ ast. That should very much determine the tree, because it's a tree.
 
 
 **** TODO make a walk-style visitor for the tiny-ast <2015-07-22 Wed 11:32>
+     :PROPERTIES:
+     :ID:       fca59627-5abb-48bd-884d-9660ba7c9217
+     :END:
 
      That's done in the package [[~/go/src/github.com/MartinSteffen/tiny/absynt][absynt]]. I had been called ast2 before, but
      perhaps that's a unallowed package name. It is modelled similar than
@@ -2144,13 +2231,22 @@ ast. That should very much determine the tree, because it's a tree.
 
      Still a lot of dummy code.
 **** TODO make already a concrete client visitor <2015-07-23 Thu 11:02>
+     :PROPERTIES:
+     :ID:       863547ca-ce89-437e-a8a1-8d10f53d45af
+     :END:
      This way we can see better how it works. It should be modelled according to
      
 **** TODO what's the type for the visitors <2015-07-23 Thu 09:01>
+     :PROPERTIES:
+     :ID:       30ec8f0a-e2c5-4fd9-aba4-62fe586a10e5
+     :END:
      It seems that for the various walk functions, we need various
      kind of visitors, how can we pass them, or do we need 
      all of them?
 **** TODO checking for nil <2015-07-23 Thu 08:41>
+     :PROPERTIES:
+     :ID:       ae02ba3a-c73d-4766-b157-d6c6f0b4d463
+     :END:
      the walk functions should be programmed defensively I assume.  In the
      go-src it's done, for the time being, I left it out from, postponed.
 **** DONE add the cases for Stmt, first empty  <2015-07-23 Thu 08:47>
@@ -2161,19 +2257,40 @@ ast. That should very much determine the tree, because it's a tree.
 
 
 **** TODO What's actuallyt the type of the Walk-function <2015-07-22 Wed 15:42>
+     :PROPERTIES:
+     :ID:       21d6a17a-cd9e-4948-8ad9-a7d7d5381810
+     :END:
 
 
      Ok, it's not a visitor, the return type is absent (like void), so
      it's side-effect only.
 ***** TODO make a visitor interface for Stmt <2015-07-22 Wed 15:45>
+      :PROPERTIES:
+      :ID:       2e3e450d-9c05-4aae-bda7-9b82029336a5
+      :END:
 ***** TODO make a client visitor for Stmt <2015-07-22 Wed 15:45>
+      :PROPERTIES:
+      :ID:       934f2372-5395-4d71-a7d1-6dc449d33f85
+      :END:
 ***** TODO how can one make it less flat <2015-07-22 Wed 11:33>
+      :PROPERTIES:
+      :ID:       029ebaf0-8db4-47d1-89f1-3211e8345160
+      :END:
 
 **** TODO analyze the statements  <2015-07-13 Mon 13:55>
+     :PROPERTIES:
+     :ID:       1d8c8bb5-84e9-4e1e-9f17-5991a05122e8
+     :END:
 
 **** TODO where do I get the productions for Go from <2015-07-13 Mon 13:55>
+     :PROPERTIES:
+     :ID:       7f6953b1-d719-45b9-96d8-28aa26f79379
+     :END:
 
 **** TODO what's a production name? <2015-07-13 Mon 13:55>
+     :PROPERTIES:
+     :ID:       8c0c71e9-0fc2-4813-9942-480a05a40bc0
+     :END:
 
 **** DONE do go implement itself with yacc? <2015-07-13 Mon 13:56>
      CLOSED: [2015-07-13 Mon 14:05]
@@ -2234,6 +2351,9 @@ ast. That should very much determine the tree, because it's a tree.
     - State "DONE"       from "TODO"       [2015-07-16 Thu 12:18]
     :END:
 *** TODO make a ``visitor'' <2015-07-16 Thu 09:54>
+    :PROPERTIES:
+    :ID:       d0aab739-539d-46d1-891e-c4a7e07d02c0
+    :END:
 
     There seem to be a kind of visitor pattern in the go-implementation
     itself. One question is why that is necessary at all. Because we have
@@ -2290,6 +2410,9 @@ ast. That should very much determine the tree, because it's a tree.
     - State "DONE"       from "TODO"       [2015-08-02 Sun 17:43]
     :END:
 *** TODO external type methods: compare that to the Walk-visotor in Go <2015-07-16 Thu 10:02>
+    :PROPERTIES:
+    :ID:       40d72ff0-36e9-4972-8f3a-a65d3aee4801
+    :END:
 
 *** DONE make a more complex client in somename <2015-07-16 Thu 09:14>
     CLOSED: [2015-07-16 Thu 09:54]
@@ -2297,7 +2420,13 @@ ast. That should very much determine the tree, because it's a tree.
     - State "DONE"       from "TODO"       [2015-07-16 Thu 09:54]
     :END:
 *** TODO what constructs do normal people use for syntax trees <2015-07-13 Mon 12:02>
+    :PROPERTIES:
+    :ID:       09ae9fff-8ea7-4a5f-8838-3bed82ed3237
+    :END:
 **** TODO which does go itself use <2015-07-13 Mon 12:02>
+     :PROPERTIES:
+     :ID:       8d0cd17b-a072-49f1-900a-3208558046bf
+     :END:
 **** DONE can one check out the whole thing <2015-07-13 Mon 12:03>
      CLOSED: [2015-07-13 Mon 12:16]
      :LOGBOOK:
@@ -2395,12 +2524,18 @@ result, as opposed to simply changing the state of the argument visitor
 
    I would guess, the ~types~ package is a client of the ast.  
 ***** TODO who uses the types functions, which is the main one <2015-08-08 Sat 08:47>
+      :PROPERTIES:
+      :ID:       5a573e7c-dca2-4a80-bc89-bb35e59c1c53
+      :END:
     There's a function ~Check~ but it seems mainly used only inside the
     types packages, not outside. So, that's strange. I looked only in the
     directory go/src/go. There's also more, though, for instance
      cmd/vet/main.go:347:	asmCheck(pkg)
     that gives the command go vet
 ***** TODO what's the result of the type checker? <2015-08-08 Sat 08:49>
+      :PROPERTIES:
+      :ID:       4dd10cb5-4483-465e-8a18-9a369f683d22
+      :END:
 
 
 *** cmd
@@ -2410,6 +2545,9 @@ result, as opposed to simply changing the state of the argument visitor
      perhaps insofar in that one can see perhaps a main functions, like ~x86.Main()~.
 
 ***** TODO What's the difference between go build and go compile? What's go compile? <2015-08-08 Sat 09:05>
+      :PROPERTIES:
+      :ID:       0d5d00a9-f6a9-4856-b6ab-45b434dd300e
+      :END:
 
       Strange, go compile does not exists, despite the fact that it's a ~cmd~.
 
@@ -2425,6 +2563,9 @@ result, as opposed to simply changing the state of the argument visitor
       This seems basically a data structure.
 
 ****** TODO check the various types <2015-08-08 Sat 14:47>
+       :PROPERTIES:
+       :ID:       ce717af7-031c-43b0-a14c-e137464f7284
+       :END:
 
        Node: String Pos Parent [Operands] [Referrers]
        
@@ -2524,6 +2665,9 @@ type Node interface {
 *)
   
 ****** TODO Clarify the duck typing for instructions and values <2015-08-08 Sat 13:47>
+       :PROPERTIES:
+       :ID:       e9040670-bc7f-4cc2-a36b-3b8104bd326d
+       :END:
 
        They share some functions, but they also have separate, it's not a
        subtype. Also Nodes it not a supertype. However, for the nodes, it
@@ -2537,15 +2681,22 @@ type Node interface {
 
 
 ****** TODO how can one build the ``embedding/subtyping'' structure <2015-08-08 Sat 15:46>
+       :PROPERTIES:
+       :ID:       ac1d2103-d1e0-44d0-8fd5-d23bb80a01f1
+       :END:
        in the sso.go data structures it's used for extending Instruction to CallInstructions.
 
        Every call instruction therefore is an instuction. How would one do it inductively?
        Let's not 
 
 ******* TODO can one ``reuse constructors'' <2015-08-08 Sat 15:58>
-	actually, it seems yes, but that's strange. The compiler does not give an error.
-	I would have betted it's impossible. The following example, the two types are ok,
-	but it seems that the latest one wins. I.e., the value is wrong because of the type.
+	:PROPERTIES:
+	:ID:       feb37d79-425e-43d9-8066-3f464140fbd8
+	:END:
+	actually, it seems yes, but that's strange. The compiler does not
+	give an error.  I would have betted it's impossible. The following
+	example, the two types are ok, but it seems that the latest one
+	wins. I.e., the value is wrong because of the type.
 
 #+begin_example
 type valuex = 
@@ -2567,18 +2718,33 @@ type value =
 let x : valuex = Const ();;
 
 #+end_example
+
+That would mean it's not too good, and in particular I have not achived
+that value and valuex are substypes or something. Of course, one can also
+not make some embedding. I guess the basic way is to ``embed'' it with
+another constructor. That's not automatic or implicit, but explicit is fine
+as well.  So, let's do it like that. 
  
 
 ***** create.go
 ****** TODO try to figure out the interface of that one <2015-08-08 Sat 13:05>
+       :PROPERTIES:
+       :ID:       d6927ee9-96b9-4ea6-8ffd-43e66e4b5044
+       :END:
 ****** DONE what's a Package, and where defined <2015-08-08 Sat 13:14>
        CLOSED: [2015-08-08 Sat 13:27]
+       :PROPERTIES:
+       :ID:       d3551a01-8a59-4c3d-a505-67c3909ce3e5
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-08 Sat 13:27]
        :END:
        it's actually in ssa.go
 ***** builder.go
 ****** TODO try to figure out the interface of that one <2015-08-08 Sat 13:04>
+       :PROPERTIES:
+       :ID:       a36726a4-20d9-497a-97d4-fa1e377e9c2d
+       :END:
 ***** General questions
      It seems that it they implement standard stuff from the literature
      (cytron*:efficiently). There are two different phases (at least),
@@ -2587,10 +2753,16 @@ let x : valuex = Const ();;
 
 
 ****** TODO what's the lifting pass in a SSA thing <2015-08-08 Sat 12:04>
+       :PROPERTIES:
+       :ID:       9f04ad37-89b8-44af-81c5-946241bed06d
+       :END:
       Perhaps it's related to lambda-lifting.
 
 ****** DONE move the ssa on the laptop to the right place <2015-08-07 Fri 07:44>
     CLOSED: [2015-08-07 Fri 08:13]
+    :PROPERTIES:
+    :ID:       3b582dfe-7bfd-4b54-a5a3-26161a5ebe6e
+    :END:
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-07 Fri 08:13]
     :END:
@@ -2598,12 +2770,30 @@ let x : valuex = Const ();;
 
      Ok, it's moved
 ****** TODO Who generates the SSA <2015-08-07 Fri 07:52>
+       :PROPERTIES:
+       :ID:       738caab9-36a2-426a-8e1e-6efbb178c835
+       :END:
 ****** TODO where is the SSa data structure <2015-08-07 Fri 07:52>
+       :PROPERTIES:
+       :ID:       fe720f3a-af1c-4e17-ba10-9811d8e88f06
+       :END:
 ****** TODO what's the Operands function <2015-08-07 Fri 07:56>
+       :PROPERTIES:
+       :ID:       d0afc06c-127b-4445-b95e-526a577a31f5
+       :END:
 ****** TODO what's a Value <2015-08-07 Fri 07:57>
+       :PROPERTIES:
+       :ID:       784a2435-9215-449c-a999-f0d288306d16
+       :END:
     A value seems to be related to instructions
 ****** TODO What's an ~Instruction~ Interface <2015-08-07 Fri 08:01>
+       :PROPERTIES:
+       :ID:       51ddf392-eedc-48ab-8bcf-5428f27cb9f3
+       :END:
 ***** TODO ~BinOp~ why not an instruction <2015-08-07 Fri 08:15>
+      :PROPERTIES:
+      :ID:       50524935-e8e2-44db-afe8-6f0c1c7a245c
+      :END:
      As an example they say that binary ops are instructions, but 
      how do I see that in the code?
      
@@ -2612,334 +2802,559 @@ let x : valuex = Const ();;
      There's then the function ~Operands~ on the ~BinOp~
 
 ***** TODO is ~BinOp~ an ``instance'' of an Instraction <2015-08-07 Fri 08:40>
+      :PROPERTIES:
+      :ID:       f2dc8d80-8d67-4159-bc48-0b09fe8c8679
+      :END:
 
 
 * ML
 
 ***** ML reconstruction
 ****** DORMANT stub in pacakges/file: maps missing <2015-08-08 Sat 08:34> :stub:
+       :PROPERTIES:
+       :ID:       e2b450fc-1ede-475f-9781-8e7919a0fe79
+       :END:
 ****** DONE add type spec <2015-08-07 Fri 18:56>
        CLOSED: [2015-08-08 Sat 07:48]
+       :PROPERTIES:
+       :ID:       5c1114c0-b369-49c9-8ffb-b551cb75cfe6
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-08 Sat 07:48]
        :END:
 ****** DONE add type decl <2015-08-07 Fri 16:11>
        CLOSED: [2015-08-08 Sat 08:03]
+       :PROPERTIES:
+       :ID:       fe81425a-0f98-4642-9a39-523834914a4d
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-08 Sat 08:03]
        :END:
 ****** DORMANT type Scope.scope dummy <2015-08-08 Sat 08:32>
+       :PROPERTIES:
+       :ID:       c1dbd9e9-e6d2-4ea5-8150-0670b7a069e1
+       :END:
 ****** DONE add the type scope <2015-08-08 Sat 08:19>
        CLOSED: [2015-08-08 Sat 08:31]
+       :PROPERTIES:
+       :ID:       e821f089-21eb-47a9-b783-cc902bdc7208
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-08 Sat 08:31]
        :END:
 ******* DONE add a file scope <2015-08-08 Sat 08:25>
 	CLOSED: [2015-08-08 Sat 08:31]
+	:PROPERTIES:
+	:ID:       ec0e523c-37b6-4789-8dbc-2fbd31e0b89f
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-08 Sat 08:31]
 	:END:
 ******* DONE where is the type Scope in ast.go? it's not in the file <2015-08-08 Sat 08:20>
 	CLOSED: [2015-08-08 Sat 08:25]
+	:PROPERTIES:
+	:ID:       4eefcf74-b44d-44c1-a22e-707fd558e4aa
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-08 Sat 08:25]
 	:END:
 	There is a file scope 
 ****** DORMANT in Ast.package: Ast.imports and Ast.files dummy <2015-08-08 Sat 08:18> :stub:
+       :PROPERTIES:
+       :ID:       cf488f5d-e18a-4e23-a6ea-93de469f7d7b
+       :END:
 ****** DONE add the pos/end functions as stubs for delcs etc. <2015-08-08 Sat 08:04>
        CLOSED: [2015-08-08 Sat 08:06]
+       :PROPERTIES:
+       :ID:       972bb2da-fb4e-4773-9315-cc2747866af1
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-08 Sat 08:06]
        :END:
 ****** DORMANT stmt_pos and stmt_end and the others: fill out <2015-08-07 Fri 18:46>
+       :PROPERTIES:
+       :ID:       24b6bb76-9a92-43d5-b727-fe5ce605b76f
+       :END:
 ****** DONE add the pos and end for stmts as dummies <2015-08-07 Fri 16:47>
        CLOSED: [2015-08-07 Fri 18:45]
+       :PROPERTIES:
+       :ID:       1bb07c58-86ba-43a6-9263-71432fd29481
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 18:45]
        :END:
 ****** DONE check the statements <2015-08-07 Fri 16:42>
        CLOSED: [2015-08-07 Fri 16:46]
+       :PROPERTIES:
+       :ID:       17f266a7-1ef3-4ade-9b82-460a3075f1ea
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 16:46]
        :END:
 ****** DONE add Statements <2015-08-07 Fri 15:53>
        CLOSED: [2015-08-07 Fri 16:41]
+       :PROPERTIES:
+       :ID:       fbf57fa8-4b30-449f-909a-030a16daf28e
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
        :END:
 ******* DONE add BadStmt  <2015-08-07 Fri 16:00>
 	CLOSED: [2015-08-07 Fri 16:11]
+	:PROPERTIES:
+	:ID:       d27a81a3-bd8f-4434-87ca-381118975966
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:11]
 	:END:
 ******* DONE add  DeclStmt <2015-08-07 Fri 16:00>
 	CLOSED: [2015-08-07 Fri 16:12]
+	:PROPERTIES:
+	:ID:       25cfd6a5-99cf-4d25-9278-a3d779cd933f
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:12]
 	:END:
 ******* DONE add	EmptyStmt <2015-08-07 Fri 15:54>
 	CLOSED: [2015-08-07 Fri 16:40]
+	:PROPERTIES:
+	:ID:       6a12a764-4733-48b3-9be3-c812252fac6f
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
 	:END:
 ******* DONE add LabeledStmt <2015-08-07 Fri 15:55>
 	CLOSED: [2015-08-07 Fri 16:40]
+	:PROPERTIES:
+	:ID:       aa2ea50e-193d-4c2f-b073-45be7c5e3c1a
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
 	:END:
 ******* DONE add 	ExprStmt <2015-08-07 Fri 15:55>
 	CLOSED: [2015-08-07 Fri 16:40]
+	:PROPERTIES:
+	:ID:       df8a54a6-c2a4-4b28-a2c8-0da833b1ce25
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
 	:END:
 ******* DONE add 	SendStmt <2015-08-07 Fri 15:55>
 	CLOSED: [2015-08-07 Fri 16:40]
+	:PROPERTIES:
+	:ID:       afb31467-ab6a-4068-90fc-20651397c71a
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
 	:END:
 ******* DONE add IncDecStmt <2015-08-07 Fri 15:55>
 	CLOSED: [2015-08-07 Fri 16:40]
+	:PROPERTIES:
+	:ID:       97a48669-04be-4969-845e-69626310d229
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
 	:END:
 ******* DONE add AssignStmt <2015-08-07 Fri 15:56>
 	CLOSED: [2015-08-07 Fri 16:40]
+	:PROPERTIES:
+	:ID:       3e36a3c3-d4b8-4dbc-91d0-c9aa78cbf164
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
 	:END:
 ******* DONE add 	GoStmt <2015-08-07 Fri 15:56>
 	CLOSED: [2015-08-07 Fri 16:40]
+	:PROPERTIES:
+	:ID:       be27bf36-9a9a-4f64-bcd1-05012d91ca42
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:40]
 	:END:
 ******* DONE add DeferStmt <2015-08-07 Fri 15:56>
 	CLOSED: [2015-08-07 Fri 16:41]
+	:PROPERTIES:
+	:ID:       f0a1a980-e9a9-4faf-a901-49546afd9f72
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
 	:END:
 ******* DONE add ReturnStmt <2015-08-07 Fri 15:56>
 	CLOSED: [2015-08-07 Fri 16:41]
+	:PROPERTIES:
+	:ID:       d9a8f1e3-e459-4942-b27a-39fb15642326
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
 	:END:
 ******* DONE add BranchStmt <2015-08-07 Fri 15:56>
 	CLOSED: [2015-08-07 Fri 16:41]
+	:PROPERTIES:
+	:ID:       87a0b7ec-1bc7-4ab5-8716-d3cf4c1fdb9b
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
 	:END:
 ******* DONE add BlockStmt <2015-08-07 Fri 15:57>
 	CLOSED: [2015-08-07 Fri 16:41]
+	:PROPERTIES:
+	:ID:       6f3d9ead-e849-47db-a41d-f2ccd0496669
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
 	:END:
 ******* DONE add IfStmt <2015-08-07 Fri 15:57>
 	CLOSED: [2015-08-07 Fri 16:41]
+	:PROPERTIES:
+	:ID:       879e7820-9ca3-43ae-a2d7-7685a4d4bf7c
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
 	:END:
 ******* DONE add CaseClause <2015-08-07 Fri 15:59>
 	CLOSED: [2015-08-07 Fri 16:41]
+	:PROPERTIES:
+	:ID:       7d6cfe88-c5d7-474e-9243-295ac618bf1f
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
 	:END:
 ******* DONE add SwitchStmt <2015-08-07 Fri 15:59>
 	CLOSED: [2015-08-07 Fri 16:41]
+	:PROPERTIES:
+	:ID:       ae88a5bb-dc05-482c-b884-a71520f1cd40
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
 	:END:
 ******* DONE add TypeSwitchStmt <2015-08-07 Fri 15:59>
 	CLOSED: [2015-08-07 Fri 16:41]
+	:PROPERTIES:
+	:ID:       996b209d-67dc-4d0a-9427-b1ccccf0382d
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
 	:END:
 ******* DONE add CommClause <2015-08-07 Fri 16:00>
 	CLOSED: [2015-08-07 Fri 16:41]
+	:PROPERTIES:
+	:ID:       6200a009-285f-46f2-982d-4a5689a6a5e9
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
 	:END:
 ******* DONE add SelectStmt <2015-08-07 Fri 16:00>
 	CLOSED: [2015-08-07 Fri 16:41]
+	:PROPERTIES:
+	:ID:       2a645ffd-2310-41c4-a52f-e79516579573
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
 	:END:
 ******* DONE add ForStmt  <2015-08-07 Fri 16:07>
 	CLOSED: [2015-08-07 Fri 16:41]
+	:PROPERTIES:
+	:ID:       10a72a30-f580-4fee-ac5a-46a984f08b05
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
 	:END:
 ******* DONE add RangeStmt <2015-08-07 Fri 16:07>
 	CLOSED: [2015-08-07 Fri 16:41]
+	:PROPERTIES:
+	:ID:       a3f2fb29-ab94-4c32-87b2-152c9bdaaec8
+	:END:
 	:LOGBOOK:
 	- State "DONE"       from "TODO"       [2015-08-07 Fri 16:41]
 	:END:
 ****** DONE add ArrayType   <2015-08-07 Fri 14:01>
        CLOSED: [2015-08-07 Fri 14:04]
+       :PROPERTIES:
+       :ID:       5b9daa64-8145-4c5d-ad2f-b38eb02099c0
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 14:04]
        :END:
 ****** DONE add	StructType  <2015-08-07 Fri 14:01>
        CLOSED: [2015-08-07 Fri 14:06]
+       :PROPERTIES:
+       :ID:       70fed43c-b091-44d2-83e1-3194137caead
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 14:06]
        :END:
 ****** DONE add	FuncType   <2015-08-07 Fri 14:01>
        CLOSED: [2015-08-07 Fri 14:08]
+       :PROPERTIES:
+       :ID:       28b122a4-4bdf-47e3-b81e-67633d090670
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 14:08]
        :END:
 ****** DONE add	InterfaceType   <2015-08-07 Fri 14:01>
        CLOSED: [2015-08-07 Fri 14:09]
+       :PROPERTIES:
+       :ID:       97b2112c-a817-4619-89dd-33d470dc596f
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 14:09]
        :END:
 ****** DONE add	MapType   <2015-08-07 Fri 14:01>
        CLOSED: [2015-08-07 Fri 14:11]
+       :PROPERTIES:
+       :ID:       b9f16b25-e49a-4326-830f-9307ac6a908b
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 14:11]
        :END:
 	  // A ChanType node represents a channel type.
 ****** DONE add chandir type <2015-08-07 Fri 14:12>
        CLOSED: [2015-08-07 Fri 14:13]
+       :PROPERTIES:
+       :ID:       1c07cd04-6a91-47f2-803c-e7cabe3cc26f
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 14:13]
        :END:
 ****** DONE add	ChanType   <2015-08-07 Fri 14:02>
        CLOSED: [2015-08-07 Fri 14:14]
+       :PROPERTIES:
+       :ID:       96b3f470-f405-4f1b-8d40-500c9bcf9bb9
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 14:14]
        :END:
 ****** DONE add slice expr <2015-08-07 Fri 13:43>
        CLOSED: [2015-08-07 Fri 13:45]
+       :PROPERTIES:
+       :ID:       57a22e6e-b1d3-4d38-bc42-e36c8f795a0a
+       :END:
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-08-07 Fri 13:45]
       :END:
 ****** DONE add TypeAssertExpr <2015-08-07 Fri 13:44>
        CLOSED: [2015-08-07 Fri 13:48]
+       :PROPERTIES:
+       :ID:       1d781629-a120-4042-8955-5eb4b5ee5f4b
+       :END:
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-08-07 Fri 13:48]
       :END:
 ****** DONE IndexExpr struct <2015-08-07 Fri 13:38>
        CLOSED: [2015-08-07 Fri 13:41]
+       :PROPERTIES:
+       :ID:       87a08823-e7f4-4bdf-9c17-43f8d966ad97
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 13:41]
        :END:
 ****** DONE add SelectorExpr <2015-08-07 Fri 13:35>
        CLOSED: [2015-08-07 Fri 13:38]
+       :PROPERTIES:
+       :ID:       442b31db-d366-48b1-9de4-8c5934b598b9
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 13:38]
        :END:
 ****** DONE add ParenExpr <2015-08-07 Fri 13:32>
        CLOSED: [2015-08-07 Fri 13:35]
+       :PROPERTIES:
+       :ID:       65ee58e4-116a-4904-9acb-10a5af3e5cfe
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 13:35]
        :END:
 ****** DONE add composite lit <2015-08-07 Fri 13:29>
        CLOSED: [2015-08-07 Fri 13:48]
+       :PROPERTIES:
+       :ID:       b12ed33d-1428-4c81-adac-9dcf7cd27b8b
+       :END:
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-08-07 Fri 13:48]
       :END:
 ****** DONE add callexpr <2015-08-07 Fri 13:51>
        CLOSED: [2015-08-07 Fri 13:52]
+       :PROPERTIES:
+       :ID:       1fad0b26-911e-4225-b69b-22b01f1099a3
+       :END:
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-08-07 Fri 13:52]
       :END:
 ****** DONE add Star expr <2015-08-07 Fri 13:52>
        CLOSED: [2015-08-07 Fri 13:54]
+       :PROPERTIES:
+       :ID:       a223a860-34c7-4530-b58a-62eb8fe2ab18
+       :END:
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-08-07 Fri 13:54]
       :END:
 ****** DONE add Unare Expr <2015-08-07 Fri 13:52>
        CLOSED: [2015-08-07 Fri 13:55]
+       :PROPERTIES:
+       :ID:       5ad5ebd9-b0a8-4539-9515-4dd0032ada3b
+       :END:
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-08-07 Fri 13:55]
       :END:
 ****** DONE add Binary expr <2015-08-07 Fri 13:52>
        CLOSED: [2015-08-07 Fri 13:57]
+       :PROPERTIES:
+       :ID:       5f553c10-bdb4-4a39-84d4-19e00f8c937f
+       :END:
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-08-07 Fri 13:57]
       :END:
 ****** DONE add KeyValue expr <2015-08-07 Fri 13:52>
        CLOSED: [2015-08-07 Fri 13:58]
+       :PROPERTIES:
+       :ID:       deab3a6e-68fd-45e3-b693-a50ffbeef461
+       :END:
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-08-07 Fri 13:58]
       :END:
 ****** DONE add functype <2015-08-07 Fri 13:27>
        CLOSED: [2015-08-07 Fri 14:14]
+       :PROPERTIES:
+       :ID:       3fe0da73-b673-4dfb-833b-06ce3c39393a
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 14:14]
        :END:
 
 ****** TODO add blockstmt <2015-08-07 Fri 13:27>
+       :PROPERTIES:
+       :ID:       3d51bb5b-44e0-41f9-8c2d-2e5fdd84e46e
+       :END:
 
 ****** DORMANT remove the warnings about duplicate fields <2015-08-07 Fri 13:27>
+       :PROPERTIES:
+       :ID:       a2e75d98-35a6-43f0-b8f5-852c81688d55
+       :END:
 ****** DONE add basic literals <2015-08-07 Fri 13:04>
        CLOSED: [2015-08-07 Fri 13:22]
+       :PROPERTIES:
+       :ID:       c886f22c-d562-4bdb-aff6-6f0167fafca6
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 13:22]
        :END:
 ****** DONE Add function literals <2015-08-07 Fri 13:03>
        CLOSED: [2015-08-07 Fri 13:27]
+       :PROPERTIES:
+       :ID:       9b5241d5-224b-4698-beab-47dc0509e2b7
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 13:27]
        :END:
 ****** DONE add Token.token <2015-08-07 Fri 13:00>
        CLOSED: [2015-08-07 Fri 13:03]
+       :PROPERTIES:
+       :ID:       8f4f983b-6acc-431b-b6f0-a18330d9d2d7
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 13:03]
        :END:
 ****** DONE add Ellipsis for real <2015-08-07 Fri 12:58>
        CLOSED: [2015-08-07 Fri 13:03]
+       :PROPERTIES:
+       :ID:       0647ce0b-68e6-4a33-aa43-357e0fbc05c8
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 13:03]
        :END:
 ****** DORMANT Ast.ident: perhaps it must be mutable/a reference <2015-08-07 Fri 12:57>
+       :PROPERTIES:
+       :ID:       2be9af48-1f22-4f44-b0de-d68d2ca94e62
+       :END:
 ****** DONE what's Object in Go <2015-08-07 Fri 12:55>
        CLOSED: [2015-08-08 Sat 10:23]
+       :PROPERTIES:
+       :ID:       e970de71-ab37-4cd8-8609-3955dac82090
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-08 Sat 10:23]
        :END:
        It's defined in scope.go see there
 ****** DONE add better IDent <2015-08-07 Fri 12:45>
        CLOSED: [2015-08-07 Fri 12:55]
+       :PROPERTIES:
+       :ID:       5e8efcf5-3e5f-4bcd-abc5-d1b214730db5
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 12:55]
        :END:
 ****** DONE add BadExpr <2015-08-07 Fri 12:11>
        CLOSED: [2015-08-07 Fri 12:13]
+       :PROPERTIES:
+       :ID:       b3caa9b8-88fd-41e0-a434-6ee2398653a4
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 12:13]
        :END:
        That's simple <2015-08-07 Fri 12:12>
 ****** DONE do FieldList <2015-08-07 Fri 12:07>
        CLOSED: [2015-08-07 Fri 12:08]
+       :PROPERTIES:
+       :ID:       694a2076-6652-43ef-8ece-cee895a411f5
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 12:08]
        :END:
        already done 
 ****** DORMANT Ast.badexpr.list: perhaps mutable? <2015-08-07 Fri 11:52> :stub:
+       :PROPERTIES:
+       :ID:       6477755a-25e2-46c7-af68-fffa92fcf069
+       :END:
 ****** DORMANT expr_pos, expr_end fill out <2015-08-07 Fri 11:39>      :stub:
+       :PROPERTIES:
+       :ID:       f7f6e3d3-1f62-42a3-a4d5-f8c532889212
+       :END:
 ****** DONE implement Pos and End for expressions (and types) <2015-08-07 Fri 11:33>
        CLOSED: [2015-08-07 Fri 11:39]
+       :PROPERTIES:
+       :ID:       c74f468a-614b-48e9-8731-ebf93e9f6968
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 11:39]
        :END:
 ****** TODO add a type for expressions and for statements in the non-flat <2015-08-07 Fri 11:19>
+       :PROPERTIES:
+       :ID:       158ecede-885f-424c-b50a-90284c1e5c00
+       :END:
 ****** DONE what's the ``interface'' for expressions <2015-08-07 Fri 11:25>
        CLOSED: [2015-08-07 Fri 11:33]
+       :PROPERTIES:
+       :ID:       3e6ed0d7-3cfd-432c-876e-98f0c89956f0
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 11:33]
        :END:
        it's characterized by ~exprNode~. that's basically a marker function.
        Therefore we don't need to implement it.
 ****** DORMANT Ast.commentgroup: perhaps list should be mutable <2015-08-07 Fri 10:57>
+       :PROPERTIES:
+       :ID:       757740a3-959e-445f-b510-fee168e9589b
+       :END:
 ****** DORMANT striptrailingwhitespace <2015-08-07 Fri 10:52>	       :stub:
+       :PROPERTIES:
+       :ID:       6553ef5f-6c23-4fc0-8e8d-4ed18ee4da18
+       :END:
 ****** DORMANT is_whitespace <2015-08-07 Fri 10:48>		       :stub:
+       :PROPERTIES:
+       :ID:       f931ba87-fd13-4765-8ec1-c7ef133defda
+       :END:
 ****** DONE implement a better commentgroup <2015-08-07 Fri 10:41>
        CLOSED: [2015-08-07 Fri 10:57]
+       :PROPERTIES:
+       :ID:       a3adfc49-d516-4801-a8ed-b1dbde4401be
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 10:57]
        :END:
 ****** DORMANT text in the ast client	<2015-08-07 Fri 10:24>	       :stub:
+       :PROPERTIES:
+       :ID:       8097d893-cee7-4c6e-acb9-7a06074b6cab
+       :END:
        Text is only applied in the go-code to the cosntructor
 
        We cannot directly do that, we could introduce a separate type.
@@ -2948,13 +3363,22 @@ let x : valuex = Const ();;
        Well, we already have of course the commentgroup type. Therefore
        let's do it like that
 ****** DORMANT end_node and pos_node 	<2015-08-07 Fri 10:20>	       :stub:
+       :PROPERTIES:
+       :ID:       a3e8e29c-2251-4464-8dfa-c2fe2f5350ee
+       :END:
 ****** DONE add a end function for nodes <2015-08-07 Fri 10:12>
        CLOSED: [2015-08-07 Fri 10:19]
+       :PROPERTIES:
+       :ID:       edc4ab97-a00b-4f1c-8083-3eb8a4ee9434
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 10:19]
        :END:
 ****** DONE how does one select an element/field  in an ocaml struct <2015-08-07 Fri 10:05>
        CLOSED: [2015-08-07 Fri 10:11]
+       :PROPERTIES:
+       :ID:       f81ddcb7-47dd-4e7b-b2cc-78ad5ec63847
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 10:11]
        :END:
@@ -2962,6 +3386,9 @@ let x : valuex = Const ();;
        Records may be mutable. Selection via dot, as usual
 ****** DONE check the Field constructor <2015-08-07 Fri 09:57>
        CLOSED: [2015-08-07 Fri 09:59]
+       :PROPERTIES:
+       :ID:       d6bc7d7b-5dbf-4e55-9014-687a92eac732
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 09:59]
        :END:
@@ -2969,44 +3396,71 @@ let x : valuex = Const ();;
        the subparts are dummies. For the time being, ok
 ****** DONE add a token stub <2015-08-07 Fri 09:53>
        CLOSED: [2015-08-07 Fri 09:56]
+       :PROPERTIES:
+       :ID:       a4bc2cd2-f466-494c-90b8-c8a72871ecdc
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 09:56]
        :END:
 ****** DONE can one do recursion over inductive type including records? <2015-08-07 Fri 11:50>
        CLOSED: [2015-08-07 Fri 11:51]
+       :PROPERTIES:
+       :ID:       f19d0cb3-ef33-4822-ac85-2121bdd039f4
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 11:51]
        :END:
        Yes, just fine
 ****** TODO implement Pos() for the ast <2015-08-07 Fri 09:39>
+       :PROPERTIES:
+       :ID:       440fa2f0-aef5-4232-8c07-92cdf0378292
+       :END:
 ****** TODO implement the ``accessor functions'' <2015-08-07 Fri 09:30>
+       :PROPERTIES:
+       :ID:       79a6e857-83ea-4a9e-bf72-9c3ff4cde02f
+       :END:
       Best probably for an external file, to make the structure clearer
       maybe with interface file
     
 ****** DONE make a non-flat implementation <2015-08-07 Fri 09:14>
        CLOSED: [2015-08-07 Fri 12:44]
+       :PROPERTIES:
+       :ID:       1446cdea-c2d8-40bc-961d-7ca8a17c0c08
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 12:44]
        :END:
 
 ****** DONE make it compilable <2015-08-07 Fri 09:14>
        CLOSED: [2015-08-07 Fri 09:23]
+       :PROPERTIES:
+       :ID:       1732e403-c2ef-4f64-8edb-f945e41f3240
+       :END:
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-08-07 Fri 09:23]
       :END:
 
 ****** DONE make an ml ``implementation'' for better overview <2015-08-07 Fri 08:03>
        CLOSED: [2015-08-07 Fri 12:44]
+       :PROPERTIES:
+       :ID:       81643125-35f2-4cfc-8f2f-583abf9328c1
+       :END:
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-07 Fri 12:44]
        :END:
 ****** DONE add a Makefile <2015-08-07 Fri 08:44>
        CLOSED: [2015-08-07 Fri 09:13]
+       :PROPERTIES:
+       :ID:       51454913-4e8d-4855-86fb-8a08925cf2fb
+       :END:
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-08-07 Fri 09:13]
       :END:
 ****** DONE where's the old go-ast in ml <2015-08-07 Fri 08:08>
        CLOSED: [2015-08-07 Fri 08:28]
+       :PROPERTIES:
+       :ID:       6ebb5f4b-45c4-4d0c-afc9-26e26e407712
+       :END:
       :LOGBOOK:
       - State "DONE"       from "TODO"       [2015-08-07 Fri 08:28]
       :END:
