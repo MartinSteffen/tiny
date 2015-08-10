@@ -2612,8 +2612,8 @@ result, as opposed to simply changing the state of the argument visitor
         | MakeInterface   |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | MakeClosure     |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | MakeMap         |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MakeChan        |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MakeSlice       |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | MakeChan        |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | MakeSlice       |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Slice           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | FieldAddr       |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Field           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2825,6 +2825,16 @@ as well.  So, let's do it like that.
        instructions, i.e. virtual registers, and provides a uniform
        implementation of most of the Value interface: Value.Name() is a
 
+****** DONE add makeslice <2015-08-10 Mon 10:46>
+       CLOSED: [2015-08-10 Mon 10:49]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 10:49]
+       :END:
+****** DONE add makechan <2015-08-10 Mon 10:45>
+       CLOSED: [2015-08-10 Mon 10:49]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 10:49]
+       :END:
 ****** DONE add MakeMap <2015-08-10 Mon 10:41>
        CLOSED: [2015-08-10 Mon 10:44]
        :LOGBOOK:
