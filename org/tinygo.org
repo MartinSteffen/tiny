@@ -2617,7 +2617,7 @@ result, as opposed to simply changing the state of the argument visitor
         | Slice           |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | FieldAddr       |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Field           |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | IndexAddr       |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | IndexAddr       |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Index           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Lookup          |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | SelectState     |   |   |   |     |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2825,6 +2825,7 @@ as well.  So, let's do it like that.
        instructions, i.e. virtual registers, and provides a uniform
        implementation of most of the Value interface: Value.Name() is a
 
+****** TODO add indexaddre <2015-08-10 Mon 10:58>
 ****** TODO add field <2015-08-10 Mon 10:55>
 ****** TODO add field address <2015-08-10 Mon 10:53>
 ****** DONE add slice <2015-08-10 Mon 10:51>
