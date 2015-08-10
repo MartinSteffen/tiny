@@ -2824,7 +2824,13 @@ as well.  So, let's do it like that.
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-10 Mon 09:18]
        :END:
-****** TODO add global <2015-08-10 Mon 09:12>
+****** TODO add builtin <2015-08-10 Mon 09:23>
+****** TODO add alloc <2015-08-10 Mon 09:27>
+****** DONE add global <2015-08-10 Mon 09:12>
+       CLOSED: [2015-08-10 Mon 09:21]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 09:21]
+       :END:
 ****** TODO what are pure values? <2015-08-10 Mon 08:46>
        probably freevars, parameters, const, global, builtin, but that's basic on comments
 ******* TODO check that against the duck typing <2015-08-10 Mon 08:54>
