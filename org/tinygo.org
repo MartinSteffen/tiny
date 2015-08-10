@@ -2594,13 +2594,13 @@ result, as opposed to simply changing the state of the argument visitor
         | Type            | - |   |   | Name | str | Pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
         | NamedConst      | - |   |   | name | str | pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
         |-----------------+---+---+---+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | Function        |   |   |   | name | str | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object | token | pack |        |         |        |        |      |     |       |
-        | BasicBlock      |   |   |   |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | FreeVar         |   |   |   | name |     | pos | par | ops | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Parameter       |   |   |   | name |     | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object |       |      |        |         |        |        |      |     |       |
-        | Const           |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Global          |   |   |   | name | str | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object | token | pack | relstr |         |        |        |      |     |       |
         | Builtin         |   |   |   | name |     | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object |       |      |        |         |        |        |      |     |       |
+        | Const           |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Function        |   |   |   | name | str | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object | token | pack |        |         |        |        |      |     |       |
+        | BasicBlock      |   |   |   |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Alloc           |   |   |   |      |     | pos |     | ops | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Phi             |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Call            |   |   |   |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2814,7 +2814,12 @@ as well.  So, let's do it like that.
 * ML
 
 ***** ML reconstruction
+****** TODO what are pure values? <2015-08-10 Mon 08:46>
+       probably freevars, parameters, const, global, builtin, but that's basic on comments
+******* TODO check that against the duck typing <2015-08-10 Mon 08:54>
+	No, it's not obvious 
 ****** TODO is there also basic blocks in AST and what's the diff? <2015-08-10 Mon 08:37>
+
 ****** TODO add basic blocks <2015-08-10 Mon 08:32>
 ****** DONE add Function <2015-08-10 Mon 08:13>
        CLOSED: [2015-08-10 Mon 08:32]
