@@ -2618,7 +2618,7 @@ result, as opposed to simply changing the state of the argument visitor
         | FieldAddr       |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Field           |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | IndexAddr       |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Index           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Index           |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Lookup          |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | SelectState     |   |   |   |     |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Select          |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2825,9 +2825,22 @@ as well.  So, let's do it like that.
        instructions, i.e. virtual registers, and provides a uniform
        implementation of most of the Value interface: Value.Name() is a
 
-****** TODO add indexaddre <2015-08-10 Mon 10:58>
-****** TODO add field <2015-08-10 Mon 10:55>
-****** TODO add field address <2015-08-10 Mon 10:53>
+****** TODO add index <2015-08-10 Mon 11:34>
+****** DONE add indexaddr <2015-08-10 Mon 10:58>
+       CLOSED: [2015-08-10 Mon 11:34]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 11:34]
+       :END:
+****** DONE add field <2015-08-10 Mon 10:55>
+       CLOSED: [2015-08-10 Mon 11:27]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 11:27]
+       :END:
+****** DONE add field address <2015-08-10 Mon 10:53>
+       CLOSED: [2015-08-10 Mon 11:27]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 11:27]
+       :END:
 ****** DONE add slice <2015-08-10 Mon 10:51>
        CLOSED: [2015-08-10 Mon 10:53]
        :LOGBOOK:
