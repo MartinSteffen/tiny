@@ -2582,6 +2582,7 @@ result, as opposed to simply changing the state of the argument visitor
         | Instruction     |   |   |   |      | x   | x   | x   | x   |      | x     | x      |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Value           |   |   |   | x    | x   | x   | x   |     | x    |       |        | x    |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | CInstruction    |   |   |   |      |     |     |     |     |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Member          |   |   |   | name | str | pos |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         |-----------------+---+---+---+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
         | Program         | - |   |   |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Package         | - |   |   |      |     |     |     |     |      |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        | func | var | const |
@@ -2661,6 +2662,7 @@ I	build bare [I]nit functions: no init guards or calls to dependent inits.
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-09 Sun 13:57]
        :END:
+
 ****** TODO Clarify the duck typing for instructions and values <2015-08-08 Sat 13:47>
        :PROPERTIES:
        :ID:       e9040670-bc7f-4cc2-a36b-3b8104bd326d
