@@ -2618,8 +2618,8 @@ result, as opposed to simply changing the state of the argument visitor
         | Lookup          |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | SelectState     |   |   |   | [?] |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Select          |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Range           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Next            |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Range           |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Next            |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | TypeAssert      |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Extract         |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Jump            |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2834,19 +2834,33 @@ as well.  So, let's do it like that.
        instructions, i.e. virtual registers, and provides a uniform
        implementation of most of the Value interface: Value.Name() is a
 
+****** TODO add next <2015-08-10 Mon 13:05>
+****** DONE add Range <2015-08-10 Mon 12:12>
+       CLOSED: [2015-08-10 Mon 13:04]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:04]
+       :END:
 ****** DONE add SelectState <2015-08-10 Mon 11:44>
        CLOSED: [2015-08-10 Mon 11:48]
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-10 Mon 11:48]
        :END:
 
-****** TODO add Select <2015-08-10 Mon 11:44>
+****** DONE add Select <2015-08-10 Mon 11:44>
+       CLOSED: [2015-08-10 Mon 13:04]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:04]
+       :END:
 ****** DONE add lookup <2015-08-10 Mon 11:40>
        CLOSED: [2015-08-10 Mon 11:42]
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-10 Mon 11:42]
        :END:
-****** TODO add index <2015-08-10 Mon 11:34>
+****** DONE add index <2015-08-10 Mon 11:34>
+       CLOSED: [2015-08-10 Mon 12:12]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 12:12]
+       :END:
 ****** DONE add indexaddr <2015-08-10 Mon 10:58>
        CLOSED: [2015-08-10 Mon 11:34]
        :LOGBOOK:
@@ -2938,8 +2952,16 @@ as well.  So, let's do it like that.
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-10 Mon 09:18]
        :END:
-****** TODO add builtin <2015-08-10 Mon 09:23>
-****** TODO add alloc <2015-08-10 Mon 09:27>
+****** DONE add builtin <2015-08-10 Mon 09:23>
+       CLOSED: [2015-08-10 Mon 12:12]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 12:12]
+       :END:
+****** DONE add alloc <2015-08-10 Mon 09:27>
+       CLOSED: [2015-08-10 Mon 12:12]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 12:12]
+       :END:
 ****** DONE in ssa.go alloc: what's register <2015-08-10 Mon 09:31>
        CLOSED: [2015-08-10 Mon 09:34]
        :LOGBOOK:
