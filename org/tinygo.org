@@ -2619,7 +2619,7 @@ result, as opposed to simply changing the state of the argument visitor
         | Field           |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | IndexAddr       |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Index           |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Lookup          |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Lookup          |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | SelectState     |   |   |   |     |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Select          |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Range           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2825,6 +2825,7 @@ as well.  So, let's do it like that.
        instructions, i.e. virtual registers, and provides a uniform
        implementation of most of the Value interface: Value.Name() is a
 
+****** TODO add lookup <2015-08-10 Mon 11:40>
 ****** TODO add index <2015-08-10 Mon 11:34>
 ****** DONE add indexaddr <2015-08-10 Mon 10:58>
        CLOSED: [2015-08-10 Mon 11:34]
