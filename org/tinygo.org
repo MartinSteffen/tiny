@@ -2814,7 +2814,13 @@ as well.  So, let's do it like that.
 * ML
 
 ***** ML reconstruction
-****** TODO add Function <2015-08-10 Mon 08:13>
+****** TODO is there also basic blocks in AST and what's the diff? <2015-08-10 Mon 08:37>
+****** TODO add basic blocks <2015-08-10 Mon 08:32>
+****** DONE add Function <2015-08-10 Mon 08:13>
+       CLOSED: [2015-08-10 Mon 08:32]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 08:32]
+       :END:
        That should be mfunction I guess
 ****** DONE add I Node <2015-08-10 Mon 08:11>
        CLOSED: [2015-08-10 Mon 08:13]
