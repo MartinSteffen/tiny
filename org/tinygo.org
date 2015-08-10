@@ -2624,10 +2624,10 @@ result, as opposed to simply changing the state of the argument visitor
         | Extract         |   |   |   |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Jump            |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | If              |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Return          |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | RunDefers       |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Panic           |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Go              |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Return          |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | RunDefers       |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Panic           |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Go              |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Defer           |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Send            |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Store           |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2836,7 +2836,13 @@ as well.  So, let's do it like that.
 
        Same for anInstruction
 
-****** TODO add Return <2015-08-10 Mon 13:32>
+****** TODO add panic <2015-08-10 Mon 13:37>
+****** TODO add rundefers <2015-08-10 Mon 13:36>
+****** DONE add Return <2015-08-10 Mon 13:32>
+       CLOSED: [2015-08-10 Mon 13:35]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:35]
+       :END:
 ****** DONE add IF <2015-08-10 Mon 13:30>
        CLOSED: [2015-08-10 Mon 13:31]
        :LOGBOOK:
