@@ -2814,13 +2814,28 @@ as well.  So, let's do it like that.
 * ML
 
 ***** ML reconstruction
+****** DONE add parameters <2015-08-10 Mon 09:12>
+       CLOSED: [2015-08-10 Mon 09:18]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 09:18]
+       :END:
+****** DONE add const <2015-08-10 Mon 09:12>
+       CLOSED: [2015-08-10 Mon 09:18]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 09:18]
+       :END:
+****** TODO add global <2015-08-10 Mon 09:12>
 ****** TODO what are pure values? <2015-08-10 Mon 08:46>
        probably freevars, parameters, const, global, builtin, but that's basic on comments
 ******* TODO check that against the duck typing <2015-08-10 Mon 08:54>
 	No, it's not obvious 
 ****** TODO is there also basic blocks in AST and what's the diff? <2015-08-10 Mon 08:37>
 
-****** TODO add basic blocks <2015-08-10 Mon 08:32>
+****** DONE add basic blocks <2015-08-10 Mon 08:32>
+       CLOSED: [2015-08-10 Mon 09:12]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 09:12]
+       :END:
 ****** DONE add Function <2015-08-10 Mon 08:13>
        CLOSED: [2015-08-10 Mon 08:32]
        :LOGBOOK:
