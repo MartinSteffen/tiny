@@ -2562,6 +2562,11 @@ result, as opposed to simply changing the state of the argument visitor
 ***** ssa.go
       This seems basically a data structure.
 
+****** TODO add mamber interface <2015-08-10 Mon 07:38>
+       THis one is not flat already, since the text states that, we should
+       check it though.
+
+****** TODO check if the structure of member is ok <2015-08-10 Mon 07:38>
 ****** DONE check the various types and their access functions <2015-08-08 Sat 14:47>
        CLOSED: [2015-08-09 Sun 11:08]
        :PROPERTIES:
@@ -2582,7 +2587,7 @@ result, as opposed to simply changing the state of the argument visitor
         | Instruction     |   |   |   |      | x   | x   | x   | x   |      | x     | x      |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Value           |   |   |   | x    | x   | x   | x   |     | x    |       |        | x    |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | CInstruction    |   |   |   |      |     |     |     |     |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Member          |   |   |   | name | str | pos |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | I:  Member      |   |   |   | name | str | pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
         |-----------------+---+---+---+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
         | Program         | - |   |   |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Package         | - |   |   |      |     |     |     |     |      |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        | func | var | const |
@@ -2809,6 +2814,12 @@ as well.  So, let's do it like that.
 * ML
 
 ***** ML reconstruction
+****** TODO add type_tyname <2015-08-10 Mon 07:52>
+****** DONE add mtype <2015-08-10 Mon 07:50>
+       CLOSED: [2015-08-10 Mon 07:52]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 07:52]
+       :END:
 ****** DORMANT stub in pacakges/file: maps missing <2015-08-08 Sat 08:34> :stub:
        :PROPERTIES:
        :ID:       e2b450fc-1ede-475f-9781-8e7919a0fe79
