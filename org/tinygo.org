@@ -2583,7 +2583,7 @@ result, as opposed to simply changing the state of the argument visitor
 
         |                 | N | I | V | Name | Str | Pos | Par | Ops | Refs | Block | SBlock | Type | Val | Common | Descr | sig | staticallee | isinvoke | Object | Token | Pack | Rstr   | stype   | snum   | spos   | Func | Var |       |
         |-----------------+---+---+---+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | Node            |   |   |   |      | x   | x   | x   | [x] | [x]  |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | I: Node         |   |   |   |      | str | pos | par | [x] | [x]  |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | I: Instruction  |   |   |   |      | str | pos | par | ops |      | block | sblock |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | CInstruction    |   |   |   |      |     |     |     |     |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | I: Value        |   |   |   | name | str | pos | par |     | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2814,6 +2814,11 @@ as well.  So, let's do it like that.
 * ML
 
 ***** ML reconstruction
+****** DONE add I Node <2015-08-10 Mon 08:11>
+       CLOSED: [2015-08-10 Mon 08:13]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 08:13]
+       :END:
 ****** DONE add type_tyname <2015-08-10 Mon 07:52>
        CLOSED: [2015-08-10 Mon 08:01]
        :LOGBOOK:
