@@ -2604,7 +2604,7 @@ result, as opposed to simply changing the state of the argument visitor
         | Alloc           |   |   |   | reg |      |     | pos |     | ops | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Phi             |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Call            |   |   |   | reg |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | BinOp           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | BinOp           |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | UnOp            |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | ChangeType      |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Convert         |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2824,6 +2824,12 @@ as well.  So, let's do it like that.
        register is a mix-in embedded by all SSA values that are also
        instructions, i.e. virtual registers, and provides a uniform
        implementation of most of the Value interface: Value.Name() is a
+
+****** DONE add BinOp <2015-08-10 Mon 10:05>
+       CLOSED: [2015-08-10 Mon 10:12]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 10:12]
+       :END:
 
 ****** DONE add Call <2015-08-10 Mon 09:56>
        CLOSED: [2015-08-10 Mon 09:58]
