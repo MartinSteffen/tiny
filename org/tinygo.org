@@ -2607,8 +2607,8 @@ result, as opposed to simply changing the state of the argument visitor
         | BinOp           |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | UnOp            |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | ChangeType      |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Convert         |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | ChangeInterface |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Convert         |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | ChangeInterface |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | MakeInterface   |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | MakeClosure     |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | MakeMap         |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2825,7 +2825,17 @@ as well.  So, let's do it like that.
        instructions, i.e. virtual registers, and provides a uniform
        implementation of most of the Value interface: Value.Name() is a
 
-****** TODO ChangeType <2015-08-10 Mon 10:16>
+****** TODO add ChangeInterface <2015-08-10 Mon 10:22>
+****** DONE add Convert <2015-08-10 Mon 10:21>
+       CLOSED: [2015-08-10 Mon 10:22]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 10:22]
+       :END:
+****** DONE ChangeType <2015-08-10 Mon 10:16>
+       CLOSED: [2015-08-10 Mon 10:20]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 10:20]
+       :END:
 ****** DONE add UnOp <2015-08-10 Mon 10:14>
        CLOSED: [2015-08-10 Mon 10:16]
        :LOGBOOK:
