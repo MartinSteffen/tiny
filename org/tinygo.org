@@ -2623,7 +2623,7 @@ result, as opposed to simply changing the state of the argument visitor
         | TypeAssert      |   |   |   |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Extract         |   |   |   |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Jump            |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | If              |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | If              |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Return          |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | RunDefers       |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Panic           |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2836,7 +2836,17 @@ as well.  So, let's do it like that.
 
        Same for anInstruction
 
-****** TODO add Jump <2015-08-10 Mon 13:16>
+****** TODO add Return <2015-08-10 Mon 13:32>
+****** DONE add IF <2015-08-10 Mon 13:30>
+       CLOSED: [2015-08-10 Mon 13:31]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:31]
+       :END:
+****** DONE add Jump <2015-08-10 Mon 13:16>
+       CLOSED: [2015-08-10 Mon 13:30]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:30]
+       :END:
 ****** DONE add type assert <2015-08-10 Mon 13:09>
        CLOSED: [2015-08-10 Mon 13:15]
        :LOGBOOK:
