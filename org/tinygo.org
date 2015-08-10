@@ -2629,12 +2629,12 @@ result, as opposed to simply changing the state of the argument visitor
         | Panic           |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Go              |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Defer           |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Send            |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Store           |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MapUpdate       |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | DebugRef        |   |   |   |         |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Send            |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Store           |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | MapUpdate       |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | DebugRef        |   |   |   | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         |-----------------+---+---+---+---------+-----+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | register        |   |   |   |         |     | name |     | pos |     |     | refs |       |        | type |     |        |       |     |             |          |        |       |      |        | settype | setnum | setpos |      |     |       |
+        | register        |   |   |   | aninstr |     | name |     | pos |     |     | refs |       |        | type |     |        |       |     |             |          |        |       |      |        | settype | setnum | setpos |      |     |       |
         | anInstruction   |   |   |   |         |     |      |     |     | par |     | refs | block | sblock |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         |-----------------+---+---+---+---------+-----+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
         | CallCommon      |   |   |   |         |     |      |     | pos |     | op  |      |       |        |      |     | x      | x     | x   | x           | x        |        |       |      |        |         |        |        |      |     |       |
@@ -2836,10 +2836,46 @@ as well.  So, let's do it like that.
 
        Same for anInstruction
 
-****** TODO add defer <2015-08-10 Mon 13:40>
-****** TODO add go <2015-08-10 Mon 13:39>
-****** TODO add panic <2015-08-10 Mon 13:37>
-****** TODO add rundefers <2015-08-10 Mon 13:36>
+****** DONE add debugref <2015-08-10 Mon 13:48>
+       CLOSED: [2015-08-10 Mon 13:50]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:50]
+       :END:
+****** DONE add mapupdate <2015-08-10 Mon 13:47>
+       CLOSED: [2015-08-10 Mon 13:50]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:50]
+       :END:
+****** DONE add store <2015-08-10 Mon 13:44>
+       CLOSED: [2015-08-10 Mon 13:50]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:50]
+       :END:
+****** DONE add send <2015-08-10 Mon 13:42>
+       CLOSED: [2015-08-10 Mon 13:50]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:50]
+       :END:
+****** DONE add defer <2015-08-10 Mon 13:40>
+       CLOSED: [2015-08-10 Mon 13:50]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:50]
+       :END:
+****** DONE add go <2015-08-10 Mon 13:39>
+       CLOSED: [2015-08-10 Mon 13:51]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:51]
+       :END:
+****** DONE add panic <2015-08-10 Mon 13:37>
+       CLOSED: [2015-08-10 Mon 13:51]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:51]
+       :END:
+****** DONE add rundefers <2015-08-10 Mon 13:36>
+       CLOSED: [2015-08-10 Mon 13:51]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:51]
+       :END:
 ****** DONE add Return <2015-08-10 Mon 13:32>
        CLOSED: [2015-08-10 Mon 13:35]
        :LOGBOOK:
