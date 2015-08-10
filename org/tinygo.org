@@ -2822,6 +2822,17 @@ as well.  So, let's do it like that.
 
 ****** TODO check if the structure of member is ok <2015-08-10 Mon 07:38>
 
+****** DONE add register <2015-08-10 Mon 13:57>
+       CLOSED: [2015-08-10 Mon 13:58]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:58]
+       :END:
+
+****** DONE add aninstruction <2015-08-10 Mon 13:58>
+       CLOSED: [2015-08-10 Mon 13:58]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:58]
+       :END:
 ****** DONE add register to the table <2015-08-10 Mon 09:41>
        CLOSED: [2015-08-10 Mon 09:51]
        :LOGBOOK:
