@@ -2603,7 +2603,7 @@ result, as opposed to simply changing the state of the argument visitor
         | BasicBlock      |   |   |   |     |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Alloc           |   |   |   | reg |      |     | pos |     | ops | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Phi             |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Call            |   |   |   |     |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Call            |   |   |   | reg |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | BinOp           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | UnOp            |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | ChangeType      |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2825,6 +2825,11 @@ as well.  So, let's do it like that.
        instructions, i.e. virtual registers, and provides a uniform
        implementation of most of the Value interface: Value.Name() is a
 
+****** DONE add Call <2015-08-10 Mon 09:56>
+       CLOSED: [2015-08-10 Mon 09:58]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 09:58]
+       :END:
 ****** DONE add Phi <2015-08-10 Mon 09:51>
        CLOSED: [2015-08-10 Mon 09:53]
        :LOGBOOK:
