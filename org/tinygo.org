@@ -2581,67 +2581,67 @@ result, as opposed to simply changing the state of the argument visitor
        To get an overview over the inteface
        
 
-        |                 | N | I | V | Name | Str | Pos | Par | Ops | Refs | Block | SBlock | Type | Val | Common | Descr | sig | staticallee | isinvoke | Object | Token | Pack | Rstr   | stype   | snum   | spos   | Func | Var |       |
-        |-----------------+---+---+---+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | I: Node         |   |   |   |      | str | pos | par | [x] | [x]  |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | I: Instruction  |   |   |   |      | str | pos | par | ops |      | block | sblock |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | CInstruction    |   |   |   |      |     |     |     |     |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | I: Value        |   |   |   | name | str | pos | par |     | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | I:  Member      |   |   |   | name | str | pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
-        |-----------------+---+---+---+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | Program         | - |   |   |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Package         | - |   |   |      |     |     |     |     |      |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        | func | var | const |
-        | Type            | - |   |   | Name | str | Pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
-        | NamedConst      | - |   |   | name | str | pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
-        |-----------------+---+---+---+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | FreeVar         |   |   |   | name |     | pos | par | ops | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Parameter       |   |   |   | name |     | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object |       |      |        |         |        |        |      |     |       |
-        | Global          |   |   |   | name | str | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object | token | pack | relstr |         |        |        |      |     |       |
-        | Builtin         |   |   |   | name |     | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object |       |      |        |         |        |        |      |     |       |
-        | Const           |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Function        |   |   |   | name | str | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object | token | pack |        |         |        |        |      |     |       |
-        | BasicBlock      |   |   |   |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Alloc           |   |   |   |      |     | pos |     | ops | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Phi             |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Call            |   |   |   |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | BinOp           |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | UnOp            |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | ChangeType      |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Convert         |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | ChangeInterface |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MakeInterface   |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MakeClosure     |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MakeMap         |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MakeChan        |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MakeSlice       |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Slice           |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | FieldAddr       |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Field           |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | IndexAddr       |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Index           |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Lookup          |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | SelectState     |   |   |   |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Select          |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Range           |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Next            |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | TypeAssert      |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Extract         |   |   |   |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Jump            |   |   |   |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | If              |   |   |   |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Return          |   |   |   |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | RunDefers       |   |   |   |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Panic           |   |   |   |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Go              |   |   |   |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Defer           |   |   |   |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Send            |   |   |   |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Store           |   |   |   |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MapUpdate       |   |   |   |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | DebugRef        |   |   |   |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        |-----------------+---+---+---+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | register        |   |   |   | name |     | pos |     |     | refs |       |        | type |     |        |       |     |             |          |        |       |      |        | settype | setnum | setpos |      |     |       |
-        | anInstruction   |   |   |   |      |     |     | par |     | refs | block | sblock |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        |-----------------+---+---+---+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | CallCommon      |   |   |   |      |     | pos |     | op  |      |       |        |      |     | x      | x     | x   | x           | x        |        |       |      |        |         |        |        |      |     |       |
+        |                 | N | I | V | reg | Name | Str | Pos | Par | Ops | Refs | Block | SBlock | Type | Val | Common | Descr | sig | staticallee | isinvoke | Object | Token | Pack | Rstr   | stype   | snum   | spos   | Func | Var |       |
+        |-----------------+---+---+---+-----+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
+        | I: Node         |   |   |   |     |      | str | pos | par | [x] | [x]  |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | I: Instruction  |   |   |   |     |      | str | pos | par | ops |      | block | sblock |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | CInstruction    |   |   |   |     |      |     |     |     |     |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | I: Value        |   |   |   |     | name | str | pos | par |     | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | I:  Member      |   |   |   |     | name | str | pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
+        |-----------------+---+---+---+-----+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
+        | Program         | - |   |   |     |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Package         | - |   |   |     |      |     |     |     |     |      |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        | func | var | const |
+        | Type            | - |   |   |     | Name | str | Pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
+        | NamedConst      | - |   |   |     | name | str | pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
+        |-----------------+---+---+---+-----+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
+        | FreeVar         |   |   |   |     | name |     | pos | par | ops | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Parameter       |   |   |   |     | name |     | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object |       |      |        |         |        |        |      |     |       |
+        | Global          |   |   |   |     | name | str | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object | token | pack | relstr |         |        |        |      |     |       |
+        | Builtin         |   |   |   |     | name |     | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object |       |      |        |         |        |        |      |     |       |
+        | Const           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Function        |   |   |   |     | name | str | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object | token | pack |        |         |        |        |      |     |       |
+        | BasicBlock      |   |   |   |     |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Alloc           |   |   |   | reg |      |     | pos |     | ops | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Phi             |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Call            |   |   |   |     |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | BinOp           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | UnOp            |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | ChangeType      |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Convert         |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | ChangeInterface |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | MakeInterface   |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | MakeClosure     |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | MakeMap         |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | MakeChan        |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | MakeSlice       |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Slice           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | FieldAddr       |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Field           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | IndexAddr       |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Index           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Lookup          |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | SelectState     |   |   |   |     |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Select          |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Range           |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Next            |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | TypeAssert      |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Extract         |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Jump            |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | If              |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Return          |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | RunDefers       |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Panic           |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Go              |   |   |   |     |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Defer           |   |   |   |     |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Send            |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Store           |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | MapUpdate       |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | DebugRef        |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        |-----------------+---+---+---+-----+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
+        | register        |   |   |   |     | name |     | pos |     |     | refs |       |        | type |     |        |       |     |             |          |        |       |      |        | settype | setnum | setpos |      |     |       |
+        | anInstruction   |   |   |   |     |      |     |     | par |     | refs | block | sblock |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        |-----------------+---+---+---+-----+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
+        | CallCommon      |   |   |   |     |      |     | pos |     | op  |      |       |        |      |     | x      | x     | x   | x           | x        |        |       |      |        |         |        |        |      |     |       |
 
 
   
@@ -2814,6 +2814,13 @@ as well.  So, let's do it like that.
 * ML
 
 ***** ML reconstruction
+****** TODO add register to the table <2015-08-10 Mon 09:41>
+****** TODO register: what's that and how can we deal with it <2015-08-10 Mon 09:33>
+       See // Embeddable mix-ins and helpers for common parts of other structs.
+       register is a mix-in embedded by all SSA values that are also
+       instructions, i.e. virtual registers, and provides a uniform
+       implementation of most of the Value interface: Value.Name() is a
+
 ****** DONE add parameters <2015-08-10 Mon 09:12>
        CLOSED: [2015-08-10 Mon 09:18]
        :LOGBOOK:
@@ -2826,6 +2833,12 @@ as well.  So, let's do it like that.
        :END:
 ****** TODO add builtin <2015-08-10 Mon 09:23>
 ****** TODO add alloc <2015-08-10 Mon 09:27>
+****** DONE in ssa.go alloc: what's register <2015-08-10 Mon 09:31>
+       CLOSED: [2015-08-10 Mon 09:34]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 09:34]
+       :END:
+       It's not just there, there's some explanation. It's at least not a keyword
 ****** DONE add global <2015-08-10 Mon 09:12>
        CLOSED: [2015-08-10 Mon 09:21]
        :LOGBOOK:
