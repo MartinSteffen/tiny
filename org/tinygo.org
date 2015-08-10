@@ -2620,8 +2620,8 @@ result, as opposed to simply changing the state of the argument visitor
         | Select          |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Range           |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Next            |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | TypeAssert      |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Extract         |   |   |   |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | TypeAssert      |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | Extract         |   |   |   | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Jump            |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | If              |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | Return          |   |   |   |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2834,7 +2834,21 @@ as well.  So, let's do it like that.
        instructions, i.e. virtual registers, and provides a uniform
        implementation of most of the Value interface: Value.Name() is a
 
-****** TODO add next <2015-08-10 Mon 13:05>
+****** DONE add type assert <2015-08-10 Mon 13:09>
+       CLOSED: [2015-08-10 Mon 13:15]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:15]
+       :END:
+****** DONE add next <2015-08-10 Mon 13:05>
+       CLOSED: [2015-08-10 Mon 13:15]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:15]
+       :END:
+****** DONE add extract <2015-08-10 Mon 13:14>
+       CLOSED: [2015-08-10 Mon 13:14]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 13:14]
+       :END:
 ****** DONE add Range <2015-08-10 Mon 12:12>
        CLOSED: [2015-08-10 Mon 13:04]
        :LOGBOOK:
