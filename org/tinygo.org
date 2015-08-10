@@ -2584,9 +2584,9 @@ result, as opposed to simply changing the state of the argument visitor
         |                 | N | I | V | Name | Str | Pos | Par | Ops | Refs | Block | SBlock | Type | Val | Common | Descr | sig | staticallee | isinvoke | Object | Token | Pack | Rstr   | stype   | snum   | spos   | Func | Var |       |
         |-----------------+---+---+---+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
         | Node            |   |   |   |      | x   | x   | x   | [x] | [x]  |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Instruction     |   |   |   |      | x   | x   | x   | x   |      | x     | x      |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Value           |   |   |   | x    | x   | x   | x   |     | x    |       |        | x    |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | I: Instruction  |   |   |   |      | str | pos | par | ops |      | block | sblock |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | CInstruction    |   |   |   |      |     |     |     |     |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
+        | I: Value        |   |   |   | name | str | pos | par |     | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
         | I:  Member      |   |   |   | name | str | pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
         |-----------------+---+---+---+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
         | Program         | - |   |   |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
@@ -2814,8 +2814,11 @@ as well.  So, let's do it like that.
 * ML
 
 ***** ML reconstruction
-****** TODO add type_tyname <2015-08-10 Mon 07:52>
-****** TODO
+****** DONE add type_tyname <2015-08-10 Mon 07:52>
+       CLOSED: [2015-08-10 Mon 08:01]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 08:01]
+       :END:
 ****** DONE add mtype <2015-08-10 Mon 07:50>
        CLOSED: [2015-08-10 Mon 07:52]
        :LOGBOOK:
