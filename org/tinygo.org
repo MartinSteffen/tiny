@@ -2562,11 +2562,7 @@ result, as opposed to simply changing the state of the argument visitor
 ***** ssa.go
       This seems basically a data structure.
 
-****** TODO add mamber interface <2015-08-10 Mon 07:38>
-       THis one is not flat already, since the text states that, we should
-       check it though.
-
-****** TODO check if the structure of member is ok <2015-08-10 Mon 07:38>
+****** TODO how does that embedding with register works <2015-08-10 Mon 12:01>
 ****** DONE check the various types and their access functions <2015-08-08 Sat 14:47>
        CLOSED: [2015-08-09 Sun 11:08]
        :PROPERTIES:
@@ -2814,9 +2810,22 @@ as well.  So, let's do it like that.
 * ML
 
 ***** ML reconstruction
+
+
+****** DONE add member interface <2015-08-10 Mon 07:38>
+       CLOSED: [2015-08-10 Mon 11:54]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 11:54]
+       :END:
+       THis one is not flat already, since the text states that, we should
+       check it though.
+
+****** TODO check if the structure of member is ok <2015-08-10 Mon 07:38>
+
 ****** DONE add register to the table <2015-08-10 Mon 09:41>
        CLOSED: [2015-08-10 Mon 09:51]
        :LOGBOOK:
+       - State "DONE"       from "DONE"       [2015-08-10 Mon 11:54]
        - State "DONE"       from "TODO"       [2015-08-10 Mon 09:51]
        :END:
 ****** TODO register: what's that and how can we deal with it <2015-08-10 Mon 09:33>
@@ -2825,7 +2834,11 @@ as well.  So, let's do it like that.
        instructions, i.e. virtual registers, and provides a uniform
        implementation of most of the Value interface: Value.Name() is a
 
-****** TODO add SelectState <2015-08-10 Mon 11:44>
+****** DONE add SelectState <2015-08-10 Mon 11:44>
+       CLOSED: [2015-08-10 Mon 11:48]
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2015-08-10 Mon 11:48]
+       :END:
 
 ****** TODO add Select <2015-08-10 Mon 11:44>
 ****** DONE add lookup <2015-08-10 Mon 11:40>
