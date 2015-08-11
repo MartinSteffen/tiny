@@ -2842,7 +2842,11 @@ as well.  So, let's do it like that.
      - State "DONE"       from "TODO"       [2015-08-11 Tue 07:38]
      :END:
      It's called typename 
-*** TODO types_const <2015-08-11 Tue 07:22>
+*** DONE types_const <2015-08-11 Tue 07:22>
+    CLOSED: [2015-08-11 Tue 07:51]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-11 Tue 07:51]
+    :END:
 *** TODO types_object <2015-08-11 Tue 07:22>
 *** TODO types_selection <2015-08-11 Tue 07:22>
 *** TODO types_signature <2015-08-11 Tue 07:23>
