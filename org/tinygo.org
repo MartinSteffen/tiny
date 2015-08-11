@@ -2883,5 +2883,20 @@ as well.  So, let's do it like that.
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-11 Tue 07:16]
     :END:
+*** TODO what about create.go and builder.go <2015-08-11 Tue 08:42>
+    2 phases, where create is first, I guess. bilder is much more complex.
 
+*** TODO make a stub interface for create <2015-08-11 Tue 08:43>
+    This one is relatively more easy 
+*** DONE fill in the interface of create.ml as stub <2015-08-11 Tue 09:39>
+    CLOSED: [2015-08-11 Tue 10:04]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-11 Tue 10:04]
+    :END:
 *** TODO get the structure of type.type <2015-08-11 Tue 08:26>
+*** DONE in create: which "package" in the function  createpackage <2015-08-11 Tue 09:06>
+    CLOSED: [2015-08-11 Tue 09:37]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-11 Tue 09:37]
+    :END:
+    The argument is typesPackage, the result is just Package
