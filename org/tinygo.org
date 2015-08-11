@@ -2854,7 +2854,11 @@ as well.  So, let's do it like that.
     :END:
 
     It's an interface 
-*** TODO types_selection <2015-08-11 Tue 07:22>
+*** DONE types_selection <2015-08-11 Tue 07:22>
+    CLOSED: [2015-08-11 Tue 08:17]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-11 Tue 08:17]
+    :END:
 *** TODO types_signature <2015-08-11 Tue 07:23>
 *** TODO types_type <2015-08-11 Tue 07:23>
 *** DONE remove the extra extraflat.ml <2015-08-11 Tue 07:21>
