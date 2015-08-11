@@ -2865,7 +2865,14 @@ as well.  So, let's do it like that.
     - State "DONE"       from "TODO"       [2015-08-11 Tue 08:24]
     :END:
     it's in type.go
-*** TODO types_type <2015-08-11 Tue 07:23>
+
+*** DONE types_type <2015-08-11 Tue 07:23>
+    CLOSED: [2015-08-11 Tue 08:29]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-11 Tue 08:29]
+    :END:
+    type is an interface
+    
 *** DONE remove the extra extraflat.ml <2015-08-11 Tue 07:21>
     CLOSED: [2015-08-11 Tue 07:21]
     :LOGBOOK:
@@ -2876,3 +2883,5 @@ as well.  So, let's do it like that.
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-11 Tue 07:16]
     :END:
+
+*** TODO get the structure of type.type <2015-08-11 Tue 08:26>
