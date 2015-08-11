@@ -2825,7 +2825,23 @@ as well.  So, let's do it like that.
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-11 Tue 07:35]
     :END:
-*** TODO types_tyname <2015-08-11 Tue 07:22>
+*** DONE add Object <2015-08-11 Tue 07:42>
+    CLOSED: [2015-08-11 Tue 07:48]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-11 Tue 07:48]
+    :END:
+    already there, just extended
+*** DONE types_typename <2015-08-11 Tue 07:22>
+    CLOSED: [2015-08-11 Tue 07:48]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-11 Tue 07:48]
+    :END:
+**** DONE where is that <2015-08-11 Tue 07:37>
+     CLOSED: [2015-08-11 Tue 07:38]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-11 Tue 07:38]
+     :END:
+     It's called typename 
 *** TODO types_const <2015-08-11 Tue 07:22>
 *** TODO types_object <2015-08-11 Tue 07:22>
 *** TODO types_selection <2015-08-11 Tue 07:22>
