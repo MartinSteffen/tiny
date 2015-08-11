@@ -2859,7 +2859,12 @@ as well.  So, let's do it like that.
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-11 Tue 08:17]
     :END:
-*** TODO types_signature <2015-08-11 Tue 07:23>
+*** DONE types_signature <2015-08-11 Tue 07:23>
+    CLOSED: [2015-08-11 Tue 08:24]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-11 Tue 08:24]
+    :END:
+    it's in type.go
 *** TODO types_type <2015-08-11 Tue 07:23>
 *** DONE remove the extra extraflat.ml <2015-08-11 Tue 07:21>
     CLOSED: [2015-08-11 Tue 07:21]
