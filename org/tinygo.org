@@ -2814,7 +2814,12 @@ as well.  So, let's do it like that.
 
 
 ** Tmp
-*** TODO types_chandir <2015-08-11 Tue 07:22>
+*** DONE types_chandir <2015-08-11 Tue 07:22>
+    CLOSED: [2015-08-11 Tue 07:28]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-11 Tue 07:28]
+    :END:
+    that's in type.go
 *** TODO types_info <2015-08-11 Tue 07:22>
 *** TODO types_tyname <2015-08-11 Tue 07:22>
 *** TODO types_const <2015-08-11 Tue 07:22>
@@ -2822,7 +2827,6 @@ as well.  So, let's do it like that.
 *** TODO types_selection <2015-08-11 Tue 07:22>
 *** TODO types_signature <2015-08-11 Tue 07:23>
 *** TODO types_type <2015-08-11 Tue 07:23>
-
 *** DONE remove the extra extraflat.ml <2015-08-11 Tue 07:21>
     CLOSED: [2015-08-11 Tue 07:21]
     :LOGBOOK:
