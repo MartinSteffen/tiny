@@ -2812,6 +2812,22 @@ as well.  So, let's do it like that.
 
 * Misc
 
+
+** Tmp
+*** TODO types_chandir <2015-08-11 Tue 07:22>
+*** TODO types_info <2015-08-11 Tue 07:22>
+*** TODO types_tyname <2015-08-11 Tue 07:22>
+*** TODO types_const <2015-08-11 Tue 07:22>
+*** TODO types_object <2015-08-11 Tue 07:22>
+*** TODO types_selection <2015-08-11 Tue 07:22>
+*** TODO types_signature <2015-08-11 Tue 07:23>
+*** TODO types_type <2015-08-11 Tue 07:23>
+
+*** DONE remove the extra extraflat.ml <2015-08-11 Tue 07:21>
+    CLOSED: [2015-08-11 Tue 07:21]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-11 Tue 07:21]
+    :END:
 *** DONE make compilable on the computer <2015-08-11 Tue 07:14>
     CLOSED: [2015-08-11 Tue 07:16]
     :LOGBOOK:
