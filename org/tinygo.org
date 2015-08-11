@@ -2230,9 +2230,13 @@ ast. That should very much determine the tree, because it's a tree.
      :END:
 
      Still a lot of dummy code.
-**** TODO make already a concrete client visitor <2015-07-23 Thu 11:02>
+**** DONE make already a concrete client visitor <2015-07-23 Thu 11:02>
+     CLOSED: [2015-08-11 Tue 07:09]
      :PROPERTIES:
      :ID:       863547ca-ce89-437e-a8a1-8d10f53d45af
+     :END:
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-11 Tue 07:09]
      :END:
      This way we can see better how it works. It should be modelled according to
      
@@ -2302,7 +2306,6 @@ ast. That should very much determine the tree, because it's a tree.
 
      Many of them are also in the go-org, but while working here, 
      I add them here
-
 
 
 *** Structure and meta things
