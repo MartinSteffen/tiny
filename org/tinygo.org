@@ -2921,3 +2921,24 @@ as well.  So, let's do it like that.
 *** TODO what's the pattern types.Typ[types.Bool] <2015-08-13 Thu 11:19>
     x/go/tools/go/types is the source
     Theres types.Type, which is an interface, but we need Typ
+    There's unverse.Typ
+
+    It seems like related to a map,
+
+    var Typ = []*Basic{
+	Invalid: {Invalid, 0, "invalid type"},
+
+	Bool:          {Bool, IsBoolean, "bool"},
+	Int:           {Int, IsInteger, "int"},
+** universe.go
+*** DONE what's the | in structs <2015-08-13 Thu 11:37>
+    CLOSED: [2015-08-13 Thu 11:37]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-13 Thu 11:37]
+    :END:
+    seems like anonymous fields. No, it's not,
+
+    It's and add-op. It's probably that the isBooleans etc. are seem as
+    bits, basically it means it's ``both'' unsiged and integers
+*** TODO what are anonymous fields <2015-08-13 Thu 11:38>
+    It's where a field is defined implictly (only type)
