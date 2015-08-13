@@ -2809,7 +2809,7 @@ as well.  So, let's do it like that.
       :END:
 
 
-
+      
 * Misc
 
 
@@ -2900,3 +2900,6 @@ as well.  So, let's do it like that.
     - State "DONE"       from "TODO"       [2015-08-11 Tue 09:37]
     :END:
     The argument is typesPackage, the result is just Package
+
+** Create go
+*** TODO where do I find stuff like prog.canon <2015-08-13 Thu 08:07>
