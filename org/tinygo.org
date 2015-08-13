@@ -2917,4 +2917,7 @@ as well.  So, let's do it like that.
     - State "DONE"       from "TODO"       [2015-08-13 Thu 08:44]
     :END:
 ** Typeutil.go 
-    
+** Builder.go    
+*** TODO what's the pattern types.Typ[types.Bool] <2015-08-13 Thu 11:19>
+    x/go/tools/go/types is the source
+    Theres types.Type, which is an interface, but we need Typ
