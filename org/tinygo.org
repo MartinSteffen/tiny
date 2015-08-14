@@ -2950,3 +2950,4 @@ as well.  So, let's do it like that.
     
 *** TODO what are anonymous fields <2015-08-13 Thu 11:38>
     It's where a field is defined implictly (only type)
+
