@@ -2842,7 +2842,19 @@ as well.  So, let's do it like that.
     - State "DONE"       from "TODO"       [2015-08-15 Sat 12:02]
     :END:
     actually it's in operand.go? But where is it in call? Or is it?
-*** TODO what's the mode <2015-08-15 Sat 10:34>
+
+*** DONE how does expr.internal work <2015-08-15 Sat 12:21>
+    CLOSED: [2015-08-15 Sat 12:21]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-15 Sat 12:21]
+    :END:
+    It seems to be the core of expression cheching
+*** DONE what's the mode <2015-08-15 Sat 10:34>
+    CLOSED: [2015-08-15 Sat 12:20]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-15 Sat 12:20]
+    :END:
+
     it's part of the operand
 *** DONE add expr <2015-08-15 Sat 08:34>
     CLOSED: [2015-08-15 Sat 10:33]
@@ -2856,7 +2868,11 @@ as well.  So, let's do it like that.
     api.Config.
 *** TODO what is the api.Check <2015-08-15 Sat 07:26>
 *** TODO what is the data structure(s) the checker works on? <2015-08-15 Sat 07:15>
-*** TODO analyze the check a bit <2015-08-15 Sat 07:04>
+*** DONE analyze the check a bit <2015-08-15 Sat 07:04>
+    CLOSED: [2015-08-15 Sat 12:57]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-15 Sat 12:57]
+    :END:
 *** DONE add check <2015-08-15 Sat 06:48>
     CLOSED: [2015-08-15 Sat 07:04]
     :LOGBOOK:
@@ -2872,6 +2888,7 @@ as well.  So, let's do it like that.
 *** TODO make a stub interface for create <2015-08-11 Tue 08:43>
     This one is relatively more easy 
 *** TODO get the structure of type.type <2015-08-11 Tue 08:26>
+*** TODO add the mode better <2015-08-15 Sat 12:57>
 *** DONE types_chandir <2015-08-11 Tue 07:22>
     CLOSED: [2015-08-11 Tue 07:28]
     :LOGBOOK:
