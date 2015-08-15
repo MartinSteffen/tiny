@@ -2816,7 +2816,12 @@ as well.  So, let's do it like that.
 ** Tmp goreconstruction
 
 
+*** TODO why are there no functions exported from builtin.go <2015-08-15 Sat 07:56>
+*** TODO where are single clauses for real syntax in the type checker? <2015-08-15 Sat 07:45>
+    Maybe in builtins, there should be some
 *** TODO what is conf.Check <2015-08-15 Sat 07:27>
+    It's behind api.Check. We have to look into
+    api.Config.
 *** TODO what is the api.Check <2015-08-15 Sat 07:26>
 *** TODO what is the data structure(s) the checker works on? <2015-08-15 Sat 07:15>
 *** TODO analyze the check a bit <2015-08-15 Sat 07:04>
