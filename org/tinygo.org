@@ -2816,6 +2816,8 @@ as well.  So, let's do it like that.
 ** Tmp goreconstruction
 
 
+*** TODO what is conf.Check <2015-08-15 Sat 07:27>
+*** TODO what is the api.Check <2015-08-15 Sat 07:26>
 *** TODO what is the data structure(s) the checker works on? <2015-08-15 Sat 07:15>
 *** TODO analyze the check a bit <2015-08-15 Sat 07:04>
 *** DONE add check <2015-08-15 Sat 06:48>
