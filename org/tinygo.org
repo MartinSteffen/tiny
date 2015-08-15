@@ -2836,7 +2836,10 @@ as well.  So, let's do it like that.
 
     It seems that export is across packages, inside it's fine.
     
+*** TODO make the call.operand more detailed <2015-08-15 Sat 10:51>
+    actually it's in operand.go
 *** TODO what's the mode <2015-08-15 Sat 10:34>
+    it's part of the operand
 *** DONE add expr <2015-08-15 Sat 08:34>
     CLOSED: [2015-08-15 Sat 10:33]
     :LOGBOOK:
