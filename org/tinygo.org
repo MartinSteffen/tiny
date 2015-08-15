@@ -2816,7 +2816,12 @@ as well.  So, let's do it like that.
 ** Tmp goreconstruction
 
 
+*** TODO what are the visibility scopes of functions <2015-08-15 Sat 08:10>
+
+    Can non-exported functions be seen in the same package? 
 *** TODO why are there no functions exported from builtin.go <2015-08-15 Sat 07:56>
+    We should see if we can find uses. It could be in call.go
+    
 *** TODO where are single clauses for real syntax in the type checker? <2015-08-15 Sat 07:45>
     Maybe in builtins, there should be some
 *** TODO what is conf.Check <2015-08-15 Sat 07:27>
