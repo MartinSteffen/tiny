@@ -2816,12 +2816,32 @@ as well.  So, let's do it like that.
 ** Tmp goreconstruction
 
 
-*** TODO what are the visibility scopes of functions <2015-08-15 Sat 08:10>
+*** DONE what are the visibility scopes of functions <2015-08-15 Sat 08:10>
+    CLOSED: [2015-08-15 Sat 08:14]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-15 Sat 08:14]
+    :END:
 
     Can non-exported functions be seen in the same package? 
-*** TODO why are there no functions exported from builtin.go <2015-08-15 Sat 07:56>
+
+    It seems that export is either inside the package or outside, so
+    that means probably that functions like builtins are usable within
+    the package 
+*** DONE why are there no functions exported from builtin.go <2015-08-15 Sat 07:56>
+    CLOSED: [2015-08-15 Sat 08:16]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-15 Sat 08:16]
+    :END:
     We should see if we can find uses. It could be in call.go
+
+    It seems that export is across packages, inside it's fine.
     
+*** TODO what's the mode <2015-08-15 Sat 10:34>
+*** DONE add expr <2015-08-15 Sat 08:34>
+    CLOSED: [2015-08-15 Sat 10:33]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-15 Sat 10:33]
+    :END:
 *** TODO where are single clauses for real syntax in the type checker? <2015-08-15 Sat 07:45>
     Maybe in builtins, there should be some
 *** TODO what is conf.Check <2015-08-15 Sat 07:27>
