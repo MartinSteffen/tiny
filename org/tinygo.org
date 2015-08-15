@@ -2878,6 +2878,30 @@ as well.  So, let's do it like that.
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-15 Sat 07:04]
     :END:
+*** TODO how to implement Type.Typ <2015-08-15 Sat 13:33>
+    I guess it's rather universe.Typ. there is some use in builder.go.
+    In go, the reference (from outside the package) must write type.Typ, in ml
+    it's rather Universe.typ
+**** DONE do they have enums in ocaml? <2015-08-15 Sat 13:39>
+     CLOSED: [2015-08-15 Sat 13:40]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-15 Sat 13:40]
+     :END:
+     Well, just inductive stuff.
+**** DONE mappings <2015-08-15 Sat 13:41>
+     CLOSED: [2015-08-15 Sat 13:43]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-15 Sat 13:43]
+     :END:
+     So, arrays etc don't work with indices other than
+     integers. So, one have the choice either to make the same trick as in the 
+     go-compiler (basickind), or make a mapping. Ok, let's do it like that.
+**** DONE can one do in ocaml an arrow indexed by some constructed type? <2015-08-15 Sat 13:33>
+     CLOSED: [2015-08-15 Sat 13:37]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-15 Sat 13:37]
+     :END:
+     Probably not
 *** DONE what about create.go and builder.go <2015-08-11 Tue 08:42>
     CLOSED: [2015-08-15 Sat 06:47]
     :LOGBOOK:
@@ -2993,7 +3017,24 @@ as well.  So, let's do it like that.
     :END:
 ** Typeutil.go 
 ** Builder.go    
+*** DONE how does one define not the keys but the values <2015-08-15 Sat 14:42>
+    CLOSED: [2015-08-15 Sat 14:44]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-15 Sat 14:44]
+    :END:
+
+    for instance like this
+
+
+    let x : 'a Typ.t  = Typ.empty;;
+*** DONE how can we do the the Order? <2015-08-15 Sat 14:30>
+    CLOSED: [2015-08-15 Sat 14:41]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-15 Sat 14:41]
+    :END:
 *** TODO what's the pattern types.Typ[types.Bool] <2015-08-13 Thu 11:19>
+    
+    the "types" refers to the package, not the file. Typ is in types/Universe.go
     x/go/tools/go/types is the source
     Theres types.Type, which is an interface, but we need Typ
     There's unverse.Typ
@@ -3007,6 +3048,7 @@ as well.  So, let's do it like that.
 	Int:           {Int, IsInteger, "int"},
 
     It seems like this: in type.go, they define "types" but these are just 
+    integers.
 
 
     
@@ -3022,7 +3064,6 @@ as well.  So, let's do it like that.
     bits, basically it means it's ``both'' unsiged and integers. It's a
     bitwise or.
 
-    
 *** TODO what are anonymous fields <2015-08-13 Thu 11:38>
     It's where a field is defined implictly (only type)
 
