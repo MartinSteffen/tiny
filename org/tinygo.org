@@ -2888,6 +2888,7 @@ as well.  So, let's do it like that.
 *** TODO make a stub interface for create <2015-08-11 Tue 08:43>
     This one is relatively more easy 
 *** TODO get the structure of type.type <2015-08-11 Tue 08:26>
+*** TODO why can one not access o.mode (operand) <2015-08-15 Sat 13:09>
 *** TODO add the mode better <2015-08-15 Sat 12:57>
 *** DONE types_chandir <2015-08-11 Tue 07:22>
     CLOSED: [2015-08-11 Tue 07:28]
