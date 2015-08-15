@@ -2813,8 +2813,14 @@ as well.  So, let's do it like that.
 * Misc
 
 
-** Tmp
-*** TODO what about create.go and builder.go <2015-08-11 Tue 08:42>
+** Tmp goreconstruction
+
+
+*** DONE what about create.go and builder.go <2015-08-11 Tue 08:42>
+    CLOSED: [2015-08-15 Sat 06:47]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-15 Sat 06:47]
+    :END:
     2 phases, where create is first, I guess. bilder is much more complex.
 
 *** TODO make a stub interface for create <2015-08-11 Tue 08:43>
