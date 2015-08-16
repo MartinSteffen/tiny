@@ -3096,6 +3096,59 @@ so it's a triple.
 
 
 
+*** DONE can one redistribute recursive functions? <2015-08-16 Sun 12:56>
+    CLOSED: [2015-08-16 Sun 13:22]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 13:22]
+    :END:
+    Make a test. Seems to work, would not have expected that.
+*** TODO what's check.scope (in types) <2015-08-16 Sun 14:27>
+    it's used in 	scope, obj := check.scope.LookupParent(e.Name, check.pos)
+
+
+    check: is something of type *Checker.
+*** TODO where's Checker <2015-08-16 Sun 14:32>
+*** TODO is there a difference between check.scope and environment.scope? <2015-08-16 Sun 14:56>
+    there is also check.Checker.Scopes
+*** TODO analyze 	scope, obj := check.scope.LookupParent(e.Name, check.pos) <2015-08-16 Sun 15:05>
+    it's in typexpr.go.
+
+    check is of type check.Checker. Strangely, it does not have a field
+    scope. There is a record type check.context with that label. There is also a file scope.go. 
+    That's for type checking.
+
+**** TODO Check LookupParent <2015-08-16 Sun 15:16>
+     It's defined in types/scope.go. It's a method, where the receiver is a scope
+**** DONE is the struct Checker extended somehow <2015-08-16 Sun 15:15>
+     CLOSED: [2015-08-16 Sun 15:16]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-16 Sun 15:16]
+     :END:
+
+     Don't find it. But it's like that: the "context" is mixed in.
+**** TODO How can we do such an embedding? <2015-08-16 Sun 15:53>
+     There is similar things for register. It's somehow should in principle
+     not be hard. The question is more, how can we doing most uniformely
+     and most elegantly.
+***** DONE have we done it before <2015-08-16 Sun 15:54>
+      CLOSED: [2015-08-16 Sun 15:56]
+      :LOGBOOK:
+      - State "DONE"       from "TODO"       [2015-08-16 Sun 15:56]
+      :END:
+      No, it was for register, but we have not solved it yet.
+
+*** DONE is assert builtin into go? <2015-08-16 Sun 14:59>
+    CLOSED: [2015-08-16 Sun 15:00]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 15:00]
+    :END:
+    seems like, some instances. leads to panic
+*** DONE do they have assert in ocaml <2015-08-16 Sun 15:00>
+    CLOSED: [2015-08-16 Sun 15:01]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 15:01]
+    :END:
+    yep
 *** TODO check_ident <2015-08-16 Sun 12:25>
 *** DONE how do we do a type switch in ocaml <2015-08-16 Sun 11:28>
     CLOSED: [2015-08-16 Sun 12:25]
