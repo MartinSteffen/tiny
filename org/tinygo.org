@@ -3117,7 +3117,19 @@ so it's a triple.
     scope. There is a record type check.context with that label. There is also a file scope.go. 
     That's for type checking.
 
-**** TODO Check LookupParent <2015-08-16 Sun 15:16>
+**** TODO make a better structure of Check.check <2015-08-16 Sun 16:13>
+
+**** TODO what's in Checker  <2015-08-16 Sun 17:04>
+
+type Checker struct {
+...
+	*Info
+}
+**** DONE Check LookupParent <2015-08-16 Sun 15:16>
+     CLOSED: [2015-08-16 Sun 16:10]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-16 Sun 16:10]
+     :END:
      It's defined in types/scope.go. It's a method, where the receiver is a scope
 **** DONE is the struct Checker extended somehow <2015-08-16 Sun 15:15>
      CLOSED: [2015-08-16 Sun 15:16]
@@ -3126,7 +3138,11 @@ so it's a triple.
      :END:
 
      Don't find it. But it's like that: the "context" is mixed in.
-**** TODO How can we do such an embedding? <2015-08-16 Sun 15:53>
+**** DONE How can we do such an embedding? <2015-08-16 Sun 15:53>
+     CLOSED: [2015-08-16 Sun 16:10]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-16 Sun 16:10]
+     :END:
      There is similar things for register. It's somehow should in principle
      not be hard. The question is more, how can we doing most uniformely
      and most elegantly.
