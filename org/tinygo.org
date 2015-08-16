@@ -3096,7 +3096,12 @@ so it's a triple.
 
 
 
-*** TODO how do we do a type switch in ocaml <2015-08-16 Sun 11:28>
+*** TODO check_ident <2015-08-16 Sun 12:25>
+*** DONE how do we do a type switch in ocaml <2015-08-16 Sun 11:28>
+    CLOSED: [2015-08-16 Sun 12:25]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 12:25]
+    :END:
     That is done here in exprinternal, 
 
     e:= e.(type)
@@ -3110,7 +3115,11 @@ so it's a triple.
     Then the question is what's the e left of the :=
 
     Well, in the switch case, for instance of identifiers:
-    case.ast.Ident. That's a struct.  casee *ast.Ident
+    case.ast.Ident. That's a struct.  
+
+    It seems that basically the two e's above are the same, but
+    in the second case, it's the struct, so in a way it works 
+    as a type case.
 
 *** DONE what e.(type) and e:= e.(type) <2015-08-16 Sun 11:09>
     CLOSED: [2015-08-16 Sun 11:27]
