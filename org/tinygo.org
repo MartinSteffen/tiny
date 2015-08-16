@@ -3032,6 +3032,9 @@ as well.  So, let's do it like that.
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-15 Sat 14:41]
     :END:
+*** TODO what the type of typ[Invalid] etc <2015-08-16 Sun 07:22>
+
+    It's strange.
 *** TODO what's the pattern types.Typ[types.Bool] <2015-08-13 Thu 11:19>
     
     the "types" refers to the package, not the file. Typ is in types/Universe.go
