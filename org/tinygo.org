@@ -3032,9 +3032,19 @@ as well.  So, let's do it like that.
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-15 Sat 14:41]
     :END:
-*** TODO what the type of typ[Invalid] etc <2015-08-16 Sun 07:22>
+*** DONE what the type of typ[Invalid] etc <2015-08-16 Sun 07:22>
+    CLOSED: [2015-08-16 Sun 07:28]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 07:28]
+    :END:
 
-    It's strange.
+    It's strange. in operand.go: operand.typ is of type Type. That's
+    defined in type.go. Type is an interface. In type.ml the ttype is an
+    variant type.  So, we need the constructor Basickind as wrapper, then
+    it fits.
+
+
+
 *** TODO what's the pattern types.Typ[types.Bool] <2015-08-13 Thu 11:19>
     
     the "types" refers to the package, not the file. Typ is in types/Universe.go
