@@ -3027,6 +3027,15 @@ as well.  So, let's do it like that.
 
 
     let x : 'a Typ.t  = Typ.empty;;
+
+*** TODO make the first case distinction. <2015-08-16 Sun 09:10>
+
+*** DONE do we have ast already <2015-08-16 Sun 09:11>
+    CLOSED: [2015-08-16 Sun 09:40]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 09:40]
+    :END:
+    yes
 *** DONE how can we do the the Order? <2015-08-15 Sat 14:30>
     CLOSED: [2015-08-15 Sat 14:41]
     :LOGBOOK:
