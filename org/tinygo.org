@@ -3130,6 +3130,16 @@ so it's a triple.
      There is similar things for register. It's somehow should in principle
      not be hard. The question is more, how can we doing most uniformely
      and most elegantly.
+
+     But the elegance is not too deep. In the thing we are now doing,
+     it's like:
+
+        Checker{contex, ...}  That allows for a check: Checker, to access
+	fields of context, we can do check.scope. That is shorter than
+	check.context.scope, but well. Not much. Let's just make another
+	entry. The explicitness is also not too bad.
+
+     
 ***** DONE have we done it before <2015-08-16 Sun 15:54>
       CLOSED: [2015-08-16 Sun 15:56]
       :LOGBOOK:
