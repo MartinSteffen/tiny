@@ -3045,7 +3045,17 @@ as well.  So, let's do it like that.
 *** TODO make the constructors unique <2015-08-16 Sun 07:34>
     in type.ml and operand.ml there is constructor Invalid. I currently need
     to open the "Type" and "Operand", but then it's not unique.
-*** TODO can one export it with an mli file/interface
+
+    Note: in go, there are the ``constructors'' invalid for the modes
+    and Invalid for the types, so there is no confusion there.
+
+
+*** DONE can one export it with an mli file/interface <2015-08-16 Sun 07:42>
+    CLOSED: [2015-08-16 Sun 07:51]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 07:51]
+    :END:
+    That did not work.
 *** TODO what's the pattern types.Typ[types.Bool] <2015-08-13 Thu 11:19>
     
     the "types" refers to the package, not the file. Typ is in types/Universe.go
