@@ -3042,9 +3042,10 @@ as well.  So, let's do it like that.
     defined in type.go. Type is an interface. In type.ml the ttype is an
     variant type.  So, we need the constructor Basickind as wrapper, then
     it fits.
-
-
-
+*** TODO make the constructors unique <2015-08-16 Sun 07:34>
+    in type.ml and operand.ml there is constructor Invalid. I currently need
+    to open the "Type" and "Operand", but then it's not unique.
+*** TODO can one export it with an mli file/interface
 *** TODO what's the pattern types.Typ[types.Bool] <2015-08-13 Thu 11:19>
     
     the "types" refers to the package, not the file. Typ is in types/Universe.go
