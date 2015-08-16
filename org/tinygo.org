@@ -3056,7 +3056,31 @@ as well.  So, let's do it like that.
     - State "DONE"       from "TODO"       [2015-08-16 Sun 07:51]
     :END:
     That did not work.
-*** TODO what is wrong with the types basic<->basictypes <2015-08-16 Sun 08:14>
+*** DONE what is wrong with the types basic <-> basictype <2015-08-16 Sun 08:14>
+    CLOSED: [2015-08-16 Sun 08:43]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 08:43]
+    :END:
+    The mapping in the universe is a mapping from basictype -> basic, that seems ok.
+
+    
+    x.typ = Typ[Invalid]
+
+    Invalid: Basickind (= int)
+
+    Typ: in Universe.go, and it is a mapping, and the result should be Basic.
+    That should be the struct in type.go: type Basic struct {
+	kind BasicKind
+	info BasicInfo
+	name string
+}
+
+so it's a triple.
+
+   now: x is of type *operand, the field typ is of type "Type" (which is an
+   interface is type.go. One element is Basic! Therefore, the type in ml Basic
+   is wrong.
+
 *** TODO what's the pattern types.Typ[types.Bool] <2015-08-13 Thu 11:19>
     
     the "types" refers to the package, not the file. Typ is in types/Universe.go
