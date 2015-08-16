@@ -3042,7 +3042,11 @@ as well.  So, let's do it like that.
     defined in type.go. Type is an interface. In type.ml the ttype is an
     variant type.  So, we need the constructor Basickind as wrapper, then
     it fits.
-*** TODO make the constructors unique <2015-08-16 Sun 07:34>
+*** DONE make the constructors unique <2015-08-16 Sun 07:34>
+    CLOSED: [2015-08-16 Sun 08:44]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 08:44]
+    :END:
     in type.ml and operand.ml there is constructor Invalid. I currently need
     to open the "Type" and "Operand", but then it's not unique.
 
@@ -3081,7 +3085,11 @@ so it's a triple.
    interface is type.go. One element is Basic! Therefore, the type in ml Basic
    is wrong.
 
-*** TODO what's the pattern types.Typ[types.Bool] <2015-08-13 Thu 11:19>
+*** DONE what's the pattern types.Typ[types.Bool] <2015-08-13 Thu 11:19>
+    CLOSED: [2015-08-16 Sun 08:44]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 08:44]
+    :END:
     
     the "types" refers to the package, not the file. Typ is in types/Universe.go
     x/go/tools/go/types is the source
