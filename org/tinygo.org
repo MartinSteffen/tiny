@@ -3094,6 +3094,43 @@ so it's a triple.
    interface is type.go. One element is Basic! Therefore, the type in ml Basic
    is wrong.
 
+
+
+*** TODO how do we do a type switch in ocaml <2015-08-16 Sun 11:28>
+    That is done here in exprinternal, 
+
+    e:= e.(type)
+
+    e must be an interface. There, the interface is ast.Expr.
+
+    The case switch is according to the types (structs) that implements
+    that interface. Here, it's done better. We don't need a case switch, we
+    just switiching
+
+    Then the question is what's the e left of the :=
+
+    Well, in the switch case, for instance of identifiers:
+    case.ast.Ident. That's a struct.  casee *ast.Ident
+
+*** DONE what e.(type) and e:= e.(type) <2015-08-16 Sun 11:09>
+    CLOSED: [2015-08-16 Sun 11:27]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 11:27]
+    :END:
+    It's in expr.go
+
+    It's a type assertion. It's often used in a case switch, a type switch.
+*** DONE add exceptions <2015-08-16 Sun 10:50>
+    CLOSED: [2015-08-16 Sun 11:09]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 11:09]
+    :END:
+*** DONE probably we need to restructure the thing <2015-08-16 Sun 10:21>
+    CLOSED: [2015-08-16 Sun 10:22]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 10:22]
+    :END:
+*** TODO what's the goto Error doing in expr.go <2015-08-16 Sun 09:49>
 *** DONE what's the pattern types.Typ[types.Bool] <2015-08-13 Thu 11:19>
     CLOSED: [2015-08-16 Sun 08:44]
     :LOGBOOK:
