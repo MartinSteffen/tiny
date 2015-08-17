@@ -3028,7 +3028,11 @@ as well.  So, let's do it like that.
 
     let x : 'a Typ.t  = Typ.empty;;
 
-*** TODO make the first case distinction. <2015-08-16 Sun 09:10>
+*** DONE make the first case distinction. <2015-08-16 Sun 09:10>
+    CLOSED: [2015-08-16 Sun 18:20]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 18:20]
+    :END:
 
 *** DONE do we have ast already <2015-08-16 Sun 09:11>
     CLOSED: [2015-08-16 Sun 09:40]
@@ -3096,35 +3100,76 @@ so it's a triple.
 
 
 
+*** TODO where is "error" <2015-08-16 Sun 18:21>
 *** DONE can one redistribute recursive functions? <2015-08-16 Sun 12:56>
     CLOSED: [2015-08-16 Sun 13:22]
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2015-08-16 Sun 13:22]
     :END:
     Make a test. Seems to work, would not have expected that.
-*** TODO what's check.scope (in types) <2015-08-16 Sun 14:27>
+*** DONE what's check.scope (in types) <2015-08-16 Sun 14:27>
+    CLOSED: [2015-08-16 Sun 18:21]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 18:21]
+    :END:
     it's used in 	scope, obj := check.scope.LookupParent(e.Name, check.pos)
 
 
     check: is something of type *Checker.
-*** TODO where's Checker <2015-08-16 Sun 14:32>
+*** DONE where's Checker <2015-08-16 Sun 14:32>
+    CLOSED: [2015-08-16 Sun 18:20]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 18:20]
+    :END:
 *** TODO is there a difference between check.scope and environment.scope? <2015-08-16 Sun 14:56>
     there is also check.Checker.Scopes
-*** TODO analyze 	scope, obj := check.scope.LookupParent(e.Name, check.pos) <2015-08-16 Sun 15:05>
+*** DONE analyze 	scope, obj := check.scope.LookupParent(e.Name, check.pos) <2015-08-16 Sun 15:05>
+    CLOSED: [2015-08-16 Sun 18:18]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 18:18]
+    :END:
     it's in typexpr.go.
 
     check is of type check.Checker. Strangely, it does not have a field
     scope. There is a record type check.context with that label. There is also a file scope.go. 
     That's for type checking.
 
-**** TODO make a better structure of Check.check <2015-08-16 Sun 16:13>
+**** DONE make a better structure of Check.check <2015-08-16 Sun 16:13>
+     CLOSED: [2015-08-16 Sun 18:18]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-16 Sun 18:18]
+     :END:
 
-**** TODO what's in Checker  <2015-08-16 Sun 17:04>
+**** DONE what's the following field in Checker  <2015-08-16 Sun 17:04>
+     CLOSED: [2015-08-16 Sun 17:55]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-16 Sun 17:55]
+     :END:
 
 type Checker struct {
 ...
 	*Info
 }
+
+Info is from api. Seems like an anonymous field.
+
+A field declared with a type but no explicit field name is an anonymous
+field, also called an embedded field or an embedding of the type in the
+struct. An embedded type must be specified as a type name T or as a pointer
+to a non-interface type name *T, and T itself may not be a pointer type.
+The unqualified type name acts as the field name.  Qualified name is
+probably the "*".  Technically, qualified refers to package names.
+
+
+**** DONE check if there is check.Info <2015-08-16 Sun 17:49
+     CLOSED: [2015-08-16 Sun 17:55]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2015-08-16 Sun 17:55]
+     :END:
+     yes, in initorder.go for instance
+
+     	check.Info.InitOrder = check.Info.InitOrder[:0]
+
 **** DONE Check LookupParent <2015-08-16 Sun 15:16>
      CLOSED: [2015-08-16 Sun 16:10]
      :LOGBOOK:
@@ -3175,7 +3220,11 @@ type Checker struct {
     - State "DONE"       from "TODO"       [2015-08-16 Sun 15:01]
     :END:
     yep
-*** TODO check_ident <2015-08-16 Sun 12:25>
+*** DONE check_ident <2015-08-16 Sun 12:25>
+    CLOSED: [2015-08-16 Sun 18:20]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-16 Sun 18:20]
+    :END:
 *** DONE how do we do a type switch in ocaml <2015-08-16 Sun 11:28>
     CLOSED: [2015-08-16 Sun 12:25]
     :LOGBOOK:
