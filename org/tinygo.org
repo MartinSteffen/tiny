@@ -1228,7 +1228,6 @@ done here.
     visitor.
 
     
-
 *** DONE in the ``Pizza-visitor'': (ExpressionVisitor): return type <2015-07-21 Tue 16:49>
     CLOSED: [2015-07-21 Tue 17:03]
     :LOGBOOK:
