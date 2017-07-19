@@ -2351,6 +2351,9 @@ result, as opposed to simply changing the state of the argument visitor
 
 * Go language questions 
 
+** TODO relocatable code and workspaces
+
+
 
 ** TODO what's a go workspace 
 <2017-07-19 Mi 16:59>
