@@ -1,7 +1,7 @@
 package walkfunctional  // ast2 might not work
 
-//import ("github.com/MartinSteffen/tiny/absynt")
-import ("absynt")
+// import ("github.com/MartinSteffen/tiny/absynt")  no longer here 
+import ("absynt") 
 
 
 type Visitor interface {
