@@ -2,9 +2,8 @@ Prerequisites
 -------------
 
 
-o make a go workspace + set GOROOT
-
-o check out 
+-  make a go workspace + set GOROOT
+-  check out 
 
 
 Sub-directories
