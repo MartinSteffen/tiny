@@ -21,7 +21,16 @@ under ~$(HOME)/teaching/compilers/tiny~.
 
 * Prerequisits
 
-  - should work independent of the go version (not too ancient though)
+The code should work independent from the go version (not too ancient
+though, one would presume.)
+
+
+#+BEGIN_SRC 
+GOROOT=
+GOPATH=/home/msteffen/cor/tiny
+#+END_SRC
+
+
 
 * Rest 
 
