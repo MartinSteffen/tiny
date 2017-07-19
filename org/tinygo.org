@@ -4,6 +4,8 @@
 
 
 
+** Links
+
 
 
   http://noypi-linux.blogspot.no/2014/07/golang-parser-generator-ebnfyacclex.html
@@ -24,6 +26,10 @@
     - State "DONE"       from "TODO"       [2015-08-07 Fri 12:43]
     :END:
     I do it in notes/sa.tex
+
+*** TODO what's the overview of the stuff
+<2017-07-19 Mi 16:58>
+
 *** TODO where do they transform the program into SSA? <2015-08-01 Sat 09:20>
     :PROPERTIES:
     :ID:       873919ce-1cd9-4578-86fe-d32ca30589d0
@@ -2345,6 +2351,14 @@ result, as opposed to simply changing the state of the argument visitor
 
 * Go language questions 
 
+
+** TODO what's a go workspace 
+<2017-07-19 Mi 16:59>
+
+See [[https://golang.org/doc/code.html#Workspaces]]
+
+
+3 standard subdirs
 
 ** DONE make (``channel''): what is the capacity of a made channel? <2015-07-29 Wed 07:28>
    CLOSED: [2015-07-29 Wed 07:29]

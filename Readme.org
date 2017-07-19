@@ -32,6 +32,29 @@ GOPATH=/home/msteffen/cor/tiny
 
 
 
+
+If one had already a go workspace (say under ~$(HOME)/go~, a standard set-up may be 
+
+
+#+BEGIN_SRC 
+GOROOT=
+GOPATH=$(HOME)/go
+#+END_SRC
+
+Then, it seem kind of standard to clone the repos under 
+
+#+BEGIN_SRC 
+  $(HOME)/go/src/github.com/MartinSteffen/
+#+END_SRC
+The import of ~absynt~ then would look like
+
+#+BEGIN_SRC  go
+import ("github.com/MartinSteffen/tiny/absynt"
+#+END_SRC
+
+
+** Remarks 
+
 * Rest 
 
 Prerequisites
