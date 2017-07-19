@@ -4,9 +4,11 @@
 
 This describes the (currently very rudimentary) code for the ~tiny~ (from
 the compiler-construction book of Louden) language in Go. Currently it's
-more like playing around with Go and visitors, nothing really finished.
+more like playing around with Go and differerent flavors of /visitors/,
+nothing really finished.
 
-There is also a version in ~ocaml~ but not here ([[~/teaching/compilers/tiny]]]
+There is also a version in ~ocaml~ but not here, it's locally
+under ~$(HOME)/teaching/compilers/tiny~.
 
 
 
@@ -17,6 +19,11 @@ There is also a version in ~ocaml~ but not here ([[~/teaching/compilers/tiny]]]
    - [[./org]]: organizational remarks, todo's, bug lists 
 
 
+* Prerequisits
+
+  - should work independent of the go version (not too ancient though)
+
+* Rest 
 
 Prerequisites
 -------------
