@@ -2360,6 +2360,13 @@ See [[https://golang.org/doc/code.html#Workspaces]]
 
 3 standard subdirs
 
+** TODO GOPATH multiple
+<2017-07-19 Mi 17:38>
+
+Koennen there be more than one directory?
+
+
+
 ** DONE make (``channel''): what is the capacity of a made channel? <2015-07-29 Wed 07:28>
    CLOSED: [2015-07-29 Wed 07:29]
    :LOGBOOK:

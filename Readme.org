@@ -22,7 +22,11 @@ under ~$(HOME)/teaching/compilers/tiny~.
 * Prerequisits
 
 The code should work independent from the go version (not too ancient
-though, one would presume.)
+though, one would presume.) Currently I assume it's /part/ of a go
+/workspace/, it's not a workspace in itself (i.e., there are no ~src~ etc
+subdirectories). It's difficul5
+
+
 
 
 #+BEGIN_SRC 
