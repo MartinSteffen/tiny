@@ -1,3 +1,22 @@
+
+* Intro
+
+
+This describes the (currently very rudimentary) code for the ~tiny~ (from
+the compiler-construction book of Louden) language in Go. Currently it's
+more like playing around with Go and visitors, nothing really finished.
+
+There is also a version in ~ocaml~ but not here ([[~/teaching/compilers/tiny]]]
+
+
+
+
+* Structure
+
+   - [[./org]]: organizational remarks, todo's, bug lists 
+
+
+
 Prerequisites
 -------------
 
