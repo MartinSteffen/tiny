@@ -2371,6 +2371,10 @@ See also the [[https://golang.org/cmd/go/#hdr-GOPATH_environment_variable][link]
 list. All of the 
 
 
+It seems that it's the case that especially for github (as one example),
+it's /remote import path/ (see again [[https://golang.org/cmd/go/#hdr-GOPATH_environment_variable][the documentation]])
+
+
 ** QUESTION Why ~GOBIN~ 
 
 <2017-07-20 Do 09:30>

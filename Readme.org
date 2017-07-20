@@ -57,6 +57,8 @@ and the import of ~absynt~  would look like
 import ("github.com/MartinSteffen/tiny/absynt"
 #+END_SRC
 
+*** Remote import paths
+
 
 ** Remarks 
 
