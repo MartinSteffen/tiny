@@ -2425,6 +2425,13 @@ See [[https://golang.org/doc/code.html#Workspaces]]
 
 3 standard subdirs
 
+** TODO Make it portable, perhaps with remote import paths
+<2017-07-20 Do 09:51>
+
+
+It's all fine, but it seems like a convention
+
+
 ** DONE GOPATH multiple directories?
    CLOSED: [2017-07-20 Do 06:27]
    :LOGBOOK:

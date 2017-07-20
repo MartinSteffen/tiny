@@ -1,6 +1,7 @@
 package example
-import ("github.com/MartinSteffen/tiny/absynt"
+import ("github.com/MartinSteffen/tiny/absynt"  // that should do it.
 )
+// what is uncler is if it is taken from the net.
 
 
 var F = &absynt.ID{I:"s"}   // factor
