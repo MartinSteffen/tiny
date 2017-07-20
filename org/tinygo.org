@@ -2414,6 +2414,12 @@ GOPATH=/home/msteffen/go
 
 no buildable Go source files in /home/msteffen/go/src/github.com/MartinSteffen/tiny
 
+it seems that one  cannot get the whole ``repos'' but packages.
+
+
+I try now [[../test2]].
+
+
 ** QUESTION What's ~go get~
 <2017-07-20 Do 10:59>
 
