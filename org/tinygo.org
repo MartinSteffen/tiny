@@ -2351,7 +2351,17 @@ result, as opposed to simply changing the state of the argument visitor
 
 * Go language questions 
 
-** TODO relocatable code and workspaces
+** TODO how to do a relocatable code and workspaces?
+<2017-07-19 Mi 20:11>
+
+It's a bit unclear, how one can achieve that (and how other achieve
+that). One thing of course is that one can have multiple entries.
+
+The problem is the way that the go-documentation describes the
+[[https://golang.org/doc/code.html#Workspaces][workspaces]]. It contains three subdirectories, ~src~, ~bin~, and ~pgk~.
+
+
+
 
 
 
@@ -2363,10 +2373,20 @@ See [[https://golang.org/doc/code.html#Workspaces]]
 
 3 standard subdirs
 
-** TODO GOPATH multiple
+** DONE GOPATH multiple directories?
+   CLOSED: [2017-07-20 Do 06:27]
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2017-07-20 Do 06:27]
+   :END:
 <2017-07-19 Mi 17:38>
 
 Koennen there be more than one directory?
+
+
+Seems like yes:
+
+The GOPATH environment variable is used to specify directories outside of
+$GOROOT that contain the source for Go projects and their binaries.
 
 
 
