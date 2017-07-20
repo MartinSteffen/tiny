@@ -15,12 +15,12 @@
 package main
 
 
-//import ("fmt"
-//	"github.com/MartinSteffen/tiny/absynt")
-
-
 import ("fmt"
-	"absynt")
+	"github.com/MartinSteffen/tiny/absynt")
+
+
+//import ("fmt"
+//	"absynt")
 
 
 // If we want to make use if the visitor, which is basically a higher-order
