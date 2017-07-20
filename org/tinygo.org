@@ -2409,8 +2409,23 @@ GOPATH=/home/msteffen/go
 
 
 
-	
+** BUG why does go get does not work?
+<2017-07-20 Do 11:14>
 
+no buildable Go source files in /home/msteffen/go/src/github.com/MartinSteffen/tiny
+
+** QUESTION What's ~go get~
+<2017-07-20 Do 10:59>
+
+See the [[https://golang.org/cmd/go/][documentation]]
+
+
+** QUESTION Remote import paths 
+<2017-07-20 Do 10:40>
+
+How does the remote path work? Is it a convention? Are they supposed to be
+taken from the net? See perhaps this [[http://engineeredweb.com/blog/2016/go-exposed-remote-import-paths/][blog]], but it's not clear there
+either. Here's a [[https://medium.com/@c9s/golang-the-annoying-remote-import-path-c6c7e76517e5][critical opinion]].
 
 
 
