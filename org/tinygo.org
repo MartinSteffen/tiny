@@ -2351,14 +2351,62 @@ result, as opposed to simply changing the state of the argument visitor
 
 * Go language questions 
 
-** TODO how to do a relocatable code and workspaces?
+** QUESTION how to do a relocatable code and workspaces?
 <2017-07-19 Mi 20:11>
 
 It's a bit unclear, how one can achieve that (and how other achieve
 that). One thing of course is that one can have multiple entries.
 
 The problem is the way that the go-documentation describes the
-[[https://golang.org/doc/code.html#Workspaces][workspaces]]. It contains three subdirectories, ~src~, ~bin~, and ~pgk~.
+[[https://golang.org/doc/code.html#Workspaces][workspaces]]. It contains three subdirectories, ~src~, ~bin~, and ~pgk~.  The
+default seems to be ~$(HOME)/go~ and that seems to indicate that one
+intention is to have all the stuff inside there. It's strange to assume
+that all clients use the same setup. If one checks it out /inside/ there,
+then it's /inside/ the ~src~ dir, and that means one should not have
+another ~src~-dir further down, it seems.
+
+
+
+See also the [[https://golang.org/cmd/go/#hdr-GOPATH_environment_variable][link]] about the gopath. The go-path indeed is intended to be a
+list. All of the 
+
+
+** QUESTION Why ~GOBIN~ 
+
+<2017-07-20 Do 09:30>
+
+It seems that it's possible
+
+If you want per-project bin/ directory then you can simply append your
+project path to GOPATH, however you must have your code under
+$project-path/src/ and go install will put all the binaries in
+$project-path/bin.
+
+
+In my case it fails, but it's unclear why. Maybe look at ~go help gopath~
+
+
+
+** QUESTION multiple GODIRS and bins                              
+<2017-07-20 Do 09:06>
+
+Where does the bins show up in that case.
+
+
+
+Let's best do an experiment.
+
+Let's start with one 
+#+BEGIN_SRC 
+GOROOT=
+GOPATH=/home/msteffen/go
+#+END_SRC
+
+
+
+
+	
+
 
 
 
