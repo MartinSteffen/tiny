@@ -2409,7 +2409,20 @@ GOPATH=/home/msteffen/go
 
 
 
-** BUG why does go get does not work?
+** How should we arrange the stuff
+
+<2017-07-20 Do 12:11>
+
+
+#+BEGIN_SRC 
+  go get github.com/MartinSteffen/tiny/ast 
+#+END_SRC
+
+** DONE why does go get does not work?
+   CLOSED: [2017-07-20 Do 12:11]
+   :LOGBOOK:
+   - State "DONE"       from "BUG"        [2017-07-20 Do 12:11]
+   :END:
 <2017-07-20 Do 11:14>
 
 no buildable Go source files in /home/msteffen/go/src/github.com/MartinSteffen/tiny
@@ -2419,11 +2432,39 @@ it seems that one  cannot get the whole ``repos'' but packages.
 
 I try now [[../test2]].
 
+In the first attempts it did not work.  The reason was I assume is that
+under the expected path (in the GOPATH)
+~/go/src/github.com/MartinSteffen/tiny, there was already some stuff.
+
+After I removed it (move aside), then it worked (at least there is a
+official git-clone again. If I do ~go get ast~ for example, I get a full
+clone, not just the directories or packages I need. I guess git would not
+support that anyway.
+
+
+
+** DONE how was it done in the ~gotcha~ tool?
+   CLOSED: [2017-07-20 Do 13:16]
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2017-07-20 Do 13:16]
+   :END:
+<2017-07-20 Do 12:59>
+
+
+
+The tool recommends ~go get github.com/akwick/gotcha~
+
+und auch import mittels
+
+	"github.com/akwick/gotcha/worklist"
+
+
 
 ** QUESTION What's ~go get~
 <2017-07-20 Do 10:59>
 
-See the [[https://golang.org/cmd/go/][documentation]]
+See the [[https://golang.org/cmd/go/][documentation]]. Das start 
+
 
 
 ** QUESTION Remote import paths 
@@ -2433,11 +2474,13 @@ How does the remote path work? Is it a convention? Are they supposed to be
 taken from the net? See perhaps this [[http://engineeredweb.com/blog/2016/go-exposed-remote-import-paths/][blog]], but it's not clear there
 either. Here's a [[https://medium.com/@c9s/golang-the-annoying-remote-import-path-c6c7e76517e5][critical opinion]].
 
+It seems really that it's (when 
 
 
 
 
 
+** 
 ** TODO what's a go workspace 
 <2017-07-19 Mi 16:59>
 

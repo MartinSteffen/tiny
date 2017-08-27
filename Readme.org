@@ -18,8 +18,11 @@ under ~$(HOME)/teaching/compilers/tiny~.
 
    - [[./org]]: organizational remarks, todo's, bug lists 
 
-
 * Prerequisits
+
+
+
+
 
 The code should work independent from the go version (not too ancient
 though, one would presume.) Currently I assume it's /part/ of a go
@@ -59,6 +62,10 @@ import ("github.com/MartinSteffen/tiny/absynt"
 
 *** Remote import paths
 
+
+#+BEGIN_SRC 
+  go get github.com/MartinSteffen/tiny/ast 
+#+END_SRC
 
 
 
