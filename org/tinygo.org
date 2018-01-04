@@ -28,6 +28,9 @@
     I do it in notes/sa.tex
 
 *** TODO what's the overview of the stuff
+    :PROPERTIES:
+    :ID:       567a84d8-a287-4721-9f23-57e366f54747
+    :END:
 <2017-07-19 Mi 16:58>
 
 *** TODO where do they transform the program into SSA? <2015-08-01 Sat 09:20>
@@ -2352,6 +2355,9 @@ result, as opposed to simply changing the state of the argument visitor
 * Go language questions 
 
 ** QUESTION how to do a relocatable code and workspaces?
+   :PROPERTIES:
+   :ID:       e6c6c7c1-42e7-4f89-87fb-ec1e5444d04a
+   :END:
 <2017-07-19 Mi 20:11>
 
 It's a bit unclear, how one can achieve that (and how other achieve
@@ -2376,6 +2382,9 @@ it's /remote import path/ (see again [[https://golang.org/cmd/go/#hdr-GOPATH_env
 
 
 ** QUESTION Why ~GOBIN~ 
+   :PROPERTIES:
+   :ID:       c0c2693a-f8c2-4951-831a-dfc02f7da63c
+   :END:
 
 <2017-07-20 Do 09:30>
 
@@ -2392,6 +2401,9 @@ In my case it fails, but it's unclear why. Maybe look at ~go help gopath~
 
 
 ** QUESTION multiple GODIRS and bins                              
+   :PROPERTIES:
+   :ID:       2d9bbcfb-7480-4fa8-a25d-ebcbebb903c8
+   :END:
 <2017-07-20 Do 09:06>
 
 Where does the bins show up in that case.
@@ -2461,6 +2473,9 @@ und auch import mittels
 
 
 ** QUESTION What's ~go get~
+   :PROPERTIES:
+   :ID:       b6e119c8-4697-47b6-b6df-fa2b2a7da86d
+   :END:
 <2017-07-20 Do 10:59>
 
 See the [[https://golang.org/cmd/go/][documentation]]. Das start 
@@ -2468,6 +2483,9 @@ See the [[https://golang.org/cmd/go/][documentation]]. Das start
 
 
 ** QUESTION Remote import paths 
+   :PROPERTIES:
+   :ID:       8fb260ed-f2ad-4f2c-b7c4-20eeed2bcda1
+   :END:
 <2017-07-20 Do 10:40>
 
 How does the remote path work? Is it a convention? Are they supposed to be
@@ -2482,6 +2500,9 @@ It seems really that it's (when
 
 ** 
 ** TODO what's a go workspace 
+   :PROPERTIES:
+   :ID:       84343e5d-36c6-43b0-9fe0-88071793860e
+   :END:
 <2017-07-19 Mi 16:59>
 
 See [[https://golang.org/doc/code.html#Workspaces]]
@@ -2490,6 +2511,9 @@ See [[https://golang.org/doc/code.html#Workspaces]]
 3 standard subdirs
 
 ** TODO Make it portable, perhaps with remote import paths
+   :PROPERTIES:
+   :ID:       0a23c235-3582-40f6-9444-c99e83441ffa
+   :END:
 <2017-07-20 Do 09:51>
 
 
