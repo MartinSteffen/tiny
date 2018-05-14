@@ -2472,13 +2472,17 @@ und auch import mittels
 
 
 
-** QUESTION What's ~go get~
+** ANSWERED What's ~go get~
+   CLOSED: [2018-05-13 Sun 16:17]
    :PROPERTIES:
    :ID:       b6e119c8-4697-47b6-b6df-fa2b2a7da86d
    :END:
+   :LOGBOOK:
+   - CLOSING NOTE [2018-05-13 Sun 16:17]
+   :END:
 <2017-07-20 Do 10:59>
 
-See the [[https://golang.org/cmd/go/][documentation]]. Das start 
+See the [[https://golang.org/cmd/go/][documentation]]. 
 
 
 
