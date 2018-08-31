@@ -1227,9 +1227,13 @@ done here.
 
 
 
-*** TODO Check the Pizza visitors <2015-07-21 Tue 16:23>
+*** DONE Check the Pizza visitors <2015-07-21 Tue 16:23>
+    CLOSED: [2018-08-28 Tue 20:39]
     :PROPERTIES:
     :ID:       cb8e5a9a-0833-4b80-b6fa-dd8573e97137
+    :END:
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2018-08-28 Tue 20:39]
     :END:
 
     
@@ -1749,7 +1753,7 @@ func (s *Stmt) visit_Stmt () {}
 func (s *Expr) visit_Expr () {}
 
 
-****** TODO why not manke Visitor a super-interface? <2015-07-18 Sat 16:10>
+****** TODO why not make Visitor a super-interface? <2015-07-18 Sat 16:10>
        :PROPERTIES:
        :ID:       7da8eac3-d13e-44dd-b622-ff2cecfc657b
        :END:
