@@ -1,0 +1,88 @@
+
+* Intro
+
+
+This describes the (currently very rudimentary) code for the ~tiny~ (from
+the compiler-construction book of Louden) language in Go. Currently it's
+more like playing around with Go and differerent flavors of /visitors/,
+nothing really finished.
+
+There is also a version in ~ocaml~ but not here, it's locally
+under ~$(HOME)/teaching/compilers/tiny~.
+
+
+
+
+
+
+* Structure
+
+   - [[./org]]: organizational remarks, todo's, bug lists 
+
+* Prerequisits
+
+
+
+
+
+The code should work independent from the go version (not too ancient
+though, one would presume.) Currently I assume it's /part/ of a go
+/workspace/, it's not a workspace in itself (i.e., there are no ~src~ etc
+subdirectories). It's difficul5
+
+
+
+
+#+BEGIN_SRC 
+GOROOT=
+GOPATH=/home/msteffen/cor/tiny
+#+END_SRC
+
+
+
+
+If one had already a go workspace (say under ~$(HOME)/go~), it seem kind of
+standard to clone the repos under
+
+#+BEGIN_SRC 
+  $(HOME)/go/src/github.com/MartinSteffen/
+#+END_SRC
+
+The environment the looked like
+
+#+BEGIN_SRC 
+GOROOT=
+GOPATH=$(HOME)/go
+#+END_SRC
+
+and the import of ~absynt~  would look like
+
+#+BEGIN_SRC  go
+import ("github.com/MartinSteffen/tiny/absynt"
+#+END_SRC
+
+*** Remote import paths
+
+
+#+BEGIN_SRC 
+  go get github.com/MartinSteffen/tiny/ast 
+#+END_SRC
+
+
+
+** Remarks 
+
+* Rest 
+
+
+Sub-directories
+---------------
+
+  - ./org      org-mode todo list and issues
+  - ./ast      abstract syntax tree data structure + some simple walk through
+  - ./test     to play around 
+
+
+
+
+

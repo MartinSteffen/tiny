@@ -1,4 +1,12 @@
+
+
 * Go
+
+
+
+** Links
+
+
 
   http://noypi-linux.blogspot.no/2014/07/golang-parser-generator-ebnfyacclex.html
 
@@ -18,6 +26,13 @@
     - State "DONE"       from "TODO"       [2015-08-07 Fri 12:43]
     :END:
     I do it in notes/sa.tex
+
+*** TODO what's the overview of the stuff
+    :PROPERTIES:
+    :ID:       567a84d8-a287-4721-9f23-57e366f54747
+    :END:
+<2017-07-19 Mi 16:58>
+
 *** TODO where do they transform the program into SSA? <2015-08-01 Sat 09:20>
     :PROPERTIES:
     :ID:       873919ce-1cd9-4578-86fe-d32ca30589d0
@@ -1212,9 +1227,13 @@ done here.
 
 
 
-*** TODO Check the Pizza visitors <2015-07-21 Tue 16:23>
+*** DONE Check the Pizza visitors <2015-07-21 Tue 16:23>
+    CLOSED: [2018-08-28 Tue 20:39]
     :PROPERTIES:
     :ID:       cb8e5a9a-0833-4b80-b6fa-dd8573e97137
+    :END:
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2018-08-28 Tue 20:39]
     :END:
 
     
@@ -1228,7 +1247,6 @@ done here.
     visitor.
 
     
-
 *** DONE in the ``Pizza-visitor'': (ExpressionVisitor): return type <2015-07-21 Tue 16:49>
     CLOSED: [2015-07-21 Tue 17:03]
     :LOGBOOK:
@@ -1735,7 +1753,7 @@ func (s *Stmt) visit_Stmt () {}
 func (s *Expr) visit_Expr () {}
 
 
-****** TODO why not manke Visitor a super-interface? <2015-07-18 Sat 16:10>
+****** TODO why not make Visitor a super-interface? <2015-07-18 Sat 16:10>
        :PROPERTIES:
        :ID:       7da8eac3-d13e-44dd-b622-ff2cecfc657b
        :END:
@@ -2163,159 +2181,6 @@ func idents(f *ast.File) <-chan *ast.Ident {
 
     go get lex did it! 
 
-** Go language questions
-
-   See also the go.org file
-
-*** DONE make (``channel''): what is the capacity of a made channel? <2015-07-29 Wed 07:28>
-    CLOSED: [2015-07-29 Wed 07:29]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-07-29 Wed 07:29]
-    :END:
-    If the capacity is absent, it's a synchronous channel. 
-*** TODO how is the AST of go designed <2015-07-13 Mon 13:05>
-    :PROPERTIES:
-    :ID:       eda1e959-57fd-44cb-984c-5f96175734b4
-    :END:
-    
-    Probably they use structural subtyping. There are 4 important
-    interfaces. Probably one can illustrate it as follows:
-
-    
-                   Node
-                /   |    \
-	    Exp    Stmt  Decl
-
- 
-The language is probably readable at
-
-   https://golang.org/ref/spec     
-
-
-For instance for the statements
-
-Statement =
-	Declaration | LabeledStmt | SimpleStmt |
-	GoStmt | ReturnStmt | BreakStmt | ContinueStmt | GotoStmt |
-	FallthroughStmt | Block | IfStmt | SwitchStmt | SelectStmt | ForStmt |
-	DeferStmt .
-
-SimpleStmt = EmptyStmt | ExpressionStmt | SendStmt | IncDecStmt | Assignment | ShortVarDecl .
-
-
-That does not 100% correspond to what one sees in the implementation. I
-would rather like to come up with a scheme, which is more or less schematic
-_AND_ corresponds 100% to the grammar. We should have a look at 2 things,
-the grammar _and_ the ML ast. I guess the better starting point is the
-ast. That should very much determine the tree, because it's a tree.
-
-
-
-
-**** TODO make a walk-style visitor for the tiny-ast <2015-07-22 Wed 11:32>
-     :PROPERTIES:
-     :ID:       fca59627-5abb-48bd-884d-9660ba7c9217
-     :END:
-
-     That's done in the package [[~/go/src/github.com/MartinSteffen/tiny/absynt][absynt]]. I had been called ast2 before, but
-     perhaps that's a unallowed package name. It is modelled similar than
-     the one for [[~/go/src/github.com/golang/go/src/go/ast][go itself]], especially the file [[~/go/src/github.com/golang/go/src/go/ast/walk.go][walk.go]].  It's not modelled
-     after the visit-accept pattern (I might try that later again, but it
-     was very confusing).
-
-**** DONE make it compile <2015-07-23 Thu 11:27>
-     CLOSED: [2015-07-23 Thu 11:31]
-     :LOGBOOK:
-     - State "DONE"       from "TODO"       [2015-07-23 Thu 11:31]
-     :END:
-
-     Still a lot of dummy code.
-**** DONE make already a concrete client visitor <2015-07-23 Thu 11:02>
-     CLOSED: [2015-08-11 Tue 07:09]
-     :PROPERTIES:
-     :ID:       863547ca-ce89-437e-a8a1-8d10f53d45af
-     :END:
-     :LOGBOOK:
-     - State "DONE"       from "TODO"       [2015-08-11 Tue 07:09]
-     :END:
-     This way we can see better how it works. It should be modelled according to
-     
-**** TODO what's the type for the visitors <2015-07-23 Thu 09:01>
-     :PROPERTIES:
-     :ID:       30ec8f0a-e2c5-4fd9-aba4-62fe586a10e5
-     :END:
-     It seems that for the various walk functions, we need various
-     kind of visitors, how can we pass them, or do we need 
-     all of them?
-**** TODO checking for nil <2015-07-23 Thu 08:41>
-     :PROPERTIES:
-     :ID:       ae02ba3a-c73d-4766-b157-d6c6f0b4d463
-     :END:
-     the walk functions should be programmed defensively I assume.  In the
-     go-src it's done, for the time being, I left it out from, postponed.
-**** DONE add the cases for Stmt, first empty  <2015-07-23 Thu 08:47>
-     CLOSED: [2015-07-23 Thu 08:50]
-     :LOGBOOK:
-     - State "DONE"       from "TODO"       [2015-07-23 Thu 08:50]
-     :END:
-
-
-**** TODO What's actuallyt the type of the Walk-function <2015-07-22 Wed 15:42>
-     :PROPERTIES:
-     :ID:       21d6a17a-cd9e-4948-8ad9-a7d7d5381810
-     :END:
-
-
-     Ok, it's not a visitor, the return type is absent (like void), so
-     it's side-effect only.
-***** TODO make a visitor interface for Stmt <2015-07-22 Wed 15:45>
-      :PROPERTIES:
-      :ID:       2e3e450d-9c05-4aae-bda7-9b82029336a5
-      :END:
-***** TODO make a client visitor for Stmt <2015-07-22 Wed 15:45>
-      :PROPERTIES:
-      :ID:       934f2372-5395-4d71-a7d1-6dc449d33f85
-      :END:
-***** TODO how can one make it less flat <2015-07-22 Wed 11:33>
-      :PROPERTIES:
-      :ID:       029ebaf0-8db4-47d1-89f1-3211e8345160
-      :END:
-
-**** TODO analyze the statements  <2015-07-13 Mon 13:55>
-     :PROPERTIES:
-     :ID:       1d8c8bb5-84e9-4e1e-9f17-5991a05122e8
-     :END:
-
-**** TODO where do I get the productions for Go from <2015-07-13 Mon 13:55>
-     :PROPERTIES:
-     :ID:       7f6953b1-d719-45b9-96d8-28aa26f79379
-     :END:
-
-**** TODO what's a production name? <2015-07-13 Mon 13:55>
-     :PROPERTIES:
-     :ID:       8c0c71e9-0fc2-4813-9942-480a05a40bc0
-     :END:
-
-**** DONE do go implement itself with yacc? <2015-07-13 Mon 13:56>
-     CLOSED: [2015-07-13 Mon 14:05]
-     :LOGBOOK:
-     - State "DONE"       from "TODO"       [2015-07-13 Mon 14:05]
-     :END:
-     Nope, seems like not
-
-
-     Many of them are also in the go-org, but while working here, 
-     I add them here
-
-
-*** Structure and meta things
-**** DONE "test" package: how to make that a client to ast? <2015-07-16 Thu 08:01>
-     CLOSED: [2015-07-16 Thu 12:04]
-     :LOGBOOK:
-     - State "DONE"       from "TODO"       [2015-07-16 Thu 12:04]
-     :END:
-
-     That's done now, in test/somename.go
 ** Yacc
 
  https://github.com/golang-samples/yacc/tree/master/simple
@@ -2490,79 +2355,50 @@ result, as opposed to simply changing the state of the argument visitor
 ***  [[../visitfunctional][Functional visiting client code]]
 
 
-* Analysis of the Go compiler (under go)
-** api
-** src
-*** bytes
-*** builtin 
 
-*** [[~/go/src/github.com/golang/go/src/go][go]]
+* Go language questions 
 
-    What is strange here is that it looks a bit that it's more like a
-    front-end. It's not clear whether it contains a back-end. Maybe the
-    build.
-    
-**** ast
-     See   [[~/go/src/github.com/golang/go/src/go/ast]]
+** QUESTION how to do a relocatable code and workspaces?
+   :PROPERTIES:
+   :ID:       e6c6c7c1-42e7-4f89-87fb-ec1e5444d04a
+   :END:
+<2017-07-19 Mi 20:11>
 
+It's a bit unclear, how one can achieve that (and how other achieve
+that). One thing of course is that one can have multiple entries.
 
-
-**** build
-
-     That's also a package. According to the documentation, it's not really
-     about go build, it's about collecting info about go packages. So that
-     may still be for the front end.
-**** [[~/go/src/github.com/golang/go/src/go/constant][constant]]
-
-     A small package, for ``built-in'' constants or something
-     
-**** [[~/go/src/github.com/golang/go/src/go/doc][doc]]
-**** format
-**** importer
-**** internal
-**** printer
-**** scanner
-**** token 
-****   [[~/go/src/github.com/golang/go/src/go/types][types]]
-
-   I would guess, the ~types~ package is a client of the ast.  
-***** TODO who uses the types functions, which is the main one <2015-08-08 Sat 08:47>
-      :PROPERTIES:
-      :ID:       5a573e7c-dca2-4a80-bc89-bb35e59c1c53
-      :END:
-    There's a function ~Check~ but it seems mainly used only inside the
-    types packages, not outside. So, that's strange. I looked only in the
-    directory go/src/go. There's also more, though, for instance
-     cmd/vet/main.go:347:	asmCheck(pkg)
-    that gives the command go vet
-***** TODO what's the result of the type checker? <2015-08-08 Sat 08:49>
-      :PROPERTIES:
-      :ID:       4dd10cb5-4483-465e-8a18-9a369f683d22
-      :END:
+The problem is the way that the go-documentation describes the
+[[https://golang.org/doc/code.html#Workspaces][workspaces]]. It contains three subdirectories, ~src~, ~bin~, and ~pgk~.  The
+default seems to be ~$(HOME)/go~ and that seems to indicate that one
+intention is to have all the stuff inside there. It's strange to assume
+that all clients use the same setup. If one checks it out /inside/ there,
+then it's /inside/ the ~src~ dir, and that means one should not have
+another ~src~-dir further down, it seems.
 
 
-*** cmd
-****  [[~/go/src/github.com/golang/go/src/cmd/compile][compile]]
-     That is a small package, at least the file main.go is small. It's 
-     basically only a switch according to the architectures (arm etc). It's interesting
-     perhaps insofar in that one can see perhaps a main functions, like ~x86.Main()~.
 
-***** TODO What's the difference between go build and go compile? What's go compile? <2015-08-08 Sat 09:05>
-      :PROPERTIES:
-      :ID:       0d5d00a9-f6a9-4856-b6ab-45b434dd300e
-      :END:
-
-      Strange, go compile does not exists, despite the fact that it's a ~cmd~.
+See also the [[https://golang.org/cmd/go/#hdr-GOPATH_environment_variable][link]] about the gopath. The go-path indeed is intended to be a
+list. All of the 
 
 
-* extra stuff under [[~/go/src/golang.org/x][x]]
-** Tools
-*** [[~/go/src/golang.org/x/tools/go][Go]]
-**** [[~/go/src/golang.org/x/tools/go/ssa][SSA]]
+It seems that it's the case that especially for github (as one example),
+it's /remote import path/ (see again [[https://golang.org/cmd/go/#hdr-GOPATH_environment_variable][the documentation]])
 
 
-***** ssa.go
-      This seems basically a data structure.
+** QUESTION Why ~GOBIN~ 
+   :PROPERTIES:
+   :ID:       c0c2693a-f8c2-4951-831a-dfc02f7da63c
+   :END:
+
+<2017-07-20 Do 09:30>
+
+It seems that it's possible
+
+If you want per-project bin/ directory then you can simply append your
+project path to GOPATH, however you must have your code under
+$project-path/src/ and go install will put all the binaries in
+$project-path/bin.
+
 
 ****** TODO how does that embedding with register works <2015-08-10 Mon 12:01>
        :PROPERTIES:
@@ -2576,288 +2412,84 @@ result, as opposed to simply changing the state of the argument visitor
        :LOGBOOK:
        - State "DONE"       from "TODO"       [2015-08-09 Sun 11:08]
        :END:
-
-       Node: String Pos Parent [Operands] [Referrers]
-
-       To get an overview over the inteface
-       
-
-        |                    | aninstr | reg | Name | Str | Pos | Par | Ops | Refs | Block | SBlock | Type | Val | Common | Descr | sig | staticallee | isinvoke | Object | Token | Pack | Rstr   | stype   | snum   | spos   | Func | Var |       |
-        |--------------------+---------+-----+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | I: Node            |         |     |      | str | pos | par | [x] | [x]  |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | I: Instruction     |         |     |      | str | pos | par | ops |      | block | sblock |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | I: C-Instr (Instr) |         |     |      |     |     |     |     |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | I: Value           |         |     | name | str | pos | par |     | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | I:  Member         |         |     | name | str | pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
-        |--------------------+---------+-----+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | Program            |         |     |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Package            |         |     |      |     |     |     |     |      |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        | func | var | const |
-        | Type               |         |     | Name | str | Pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
-        | NamedConst         |         |     | name | str | pos |     |     |      |       |        | type |     |        |       |     |             |          | object | token | pack | rstr   |         |        |        |      |     |       |
-        |--------------------+---------+-----+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | FreeVar            |         |     | name |     | pos | par | ops | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Parameter          |         |     | name |     | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object |       |      |        |         |        |        |      |     |       |
-        | Global             |         |     | name | str | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object | token | pack | relstr |         |        |        |      |     |       |
-        | Builtin            |         |     | name |     | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object |       |      |        |         |        |        |      |     |       |
-        | Const              |         |     |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Function           |         |     | name | str | pos | par | ops | refs |       |        | type |     |        |       |     |             |          | object | token | pack |        |         |        |        |      |     |       |
-        | BasicBlock         |         |     |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Alloc              |         | reg |      |     | pos |     | ops | refs |       |        | type |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Phi                |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Call               |         | reg |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | BinOp              |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | UnOp               |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | ChangeType         |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Convert            |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | ChangeInterface    |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MakeInterface      |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MakeClosure        |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MakeMap            |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MakeChan           |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MakeSlice          |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Slice              |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | FieldAddr          |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Field              |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | IndexAddr          |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Index              |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Lookup             |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | SelectState        |         | [?] |      |     |     |     |     |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Select             |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Range              |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Next               |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | TypeAssert         |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Extract            |         | reg |      |     |     |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Jump               | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | If                 | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Return             | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | RunDefers          | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Panic              | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Go                 | aninstr |     |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Defer              | aninstr |     |      |     | pos |     | ops |      |       |        |      | val | common |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Send               | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | Store              | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | MapUpdate          | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        | DebugRef           | aninstr |     |      |     | pos |     | ops |      |       |        |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        |--------------------+---------+-----+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | register           | aninstr |     | name |     | pos |     |     | refs |       |        | type |     |        |       |     |             |          |        |       |      |        | settype | setnum | setpos |      |     |       |
-        | anInstruction      |         |     |      |     |     | par |     | refs | block | sblock |      |     |        |       |     |             |          |        |       |      |        |         |        |        |      |     |       |
-        |--------------------+---------+-----+------+-----+-----+-----+-----+------+-------+--------+------+-----+--------+-------+-----+-------------+----------+--------+-------+------+--------+---------+--------+--------+------+-----+-------|
-        | CallCommon         |         |     |      |     | pos |     | op  |      |       |        |      |     | x      | descr | sig | statcallee  | isinvoke |        |       |      |        |         |        |        |      |     |       |
+In my case it fails, but it's unclear why. Maybe look at ~go help gopath~
 
 
-  
-****** DONE what are the different modes for SSA (for build?)? <2015-08-09 Sun 12:28>
-       CLOSED: [2015-08-09 Sun 13:47]
-       :LOGBOOK:
-       - State "DONE"       from "TODO"       [2015-08-09 Sun 13:47]
-       :END:
-       it's on mode.go
 
-The value is a sequence of zero or more of these letters:
-C	perform sanity [C]hecking of the SSA form.
-D	include [D]ebug info for every function.
-P	print [P]ackage inventory.
-F	print [F]unction SSA code.
-S	log [S]ource locations as SSA builder progresses.
-L	build distinct packages seria[L]ly instead of in parallel.
-N	build [N]aive SSA form: don't replace local loads/stores with registers.
-I	build bare [I]nit functions: no init guards or calls to dependent inits.
+** QUESTION multiple GODIRS and bins                              
+   :PROPERTIES:
+   :ID:       2d9bbcfb-7480-4fa8-a25d-ebcbebb903c8
+   :END:
+<2017-07-20 Do 09:06>
 
-****** DONE add dummy_types for program <2015-08-09 Sun 12:08>
-       CLOSED: [2015-08-09 Sun 13:57]
-       :LOGBOOK:
-       - State "DONE"       from "TODO"       [2015-08-09 Sun 13:57]
-       :END:
-
-****** TODO Clarify the duck typing for instructions and values <2015-08-08 Sat 13:47>
-       :PROPERTIES:
-       :ID:       e9040670-bc7f-4cc2-a36b-3b8104bd326d
-       :END:
-
-       They share some functions, but they also have separate, it's not a
-       subtype. Also Nodes it not a supertype. However, for the nodes, it
-       seems intended that the node is conceptually a supertype of
-       instructions and values.  The two methods Operands and Referrers,
-       which are not common, but specific for values or instructions, are
-       called ``partial methods''.  It's a but unclear, they say: ``Node is
-       provided to simplify SSA graph algorithms.  Clients should use the
-       more specific and informative Value or Instruction interfaces where
-       appropriate.''
+Where does the bins show up in that case.
 
 
-****** TODO how can one build the ``embedding/subtyping'' structure <2015-08-08 Sat 15:46>
-       :PROPERTIES:
-       :ID:       ac1d2103-d1e0-44d0-8fd5-d23bb80a01f1
-       :END:
-       in the sso.go data structures it's used for extending Instruction to CallInstructions.
 
-       Every call instruction therefore is an instuction. How would one do it inductively?
-       Let's not 
+Let's best do an experiment.
 
-******* TODO can one ``reuse constructors'' <2015-08-08 Sat 15:58>
-	:PROPERTIES:
-	:ID:       feb37d79-425e-43d9-8066-3f464140fbd8
-	:END:
-	actually, it seems yes, but that's strange. The compiler does not
-	give an error.  I would have betted it's impossible. The following
-	example, the two types are ok, but it seems that the latest one
-	wins. I.e., the value is wrong because of the type.
-
-#+begin_example
-type valuex = 
-  | Builtin of int
-  | FreeVar of unit
-  | Const of unit 
-  | Function of unit 
-  | Global of unit 
-  | Parameter of unit 
-
-type value = 
-  | Builtin of int
-  | FreeVar of unit
-  | Const of unit 
-  | Function of unit 
-  | Global of unit 
-  | Parameter of unit 
-
-let x : valuex = Const ();;
-
-#+end_example
-
-That would mean it's not too good, and in particular I have not achived
-that value and valuex are substypes or something. Of course, one can also
-not make some embedding. I guess the basic way is to ``embed'' it with
-another constructor. That's not automatic or implicit, but explicit is fine
-as well.  So, let's do it like that. 
- 
-
-***** create.go
-****** TODO try to figure out the interface of that one <2015-08-08 Sat 13:05>
-       :PROPERTIES:
-       :ID:       d6927ee9-96b9-4ea6-8ffd-43e66e4b5044
-       :END:
-****** DONE what's a Package, and where defined <2015-08-08 Sat 13:14>
-       CLOSED: [2015-08-08 Sat 13:27]
-       :PROPERTIES:
-       :ID:       d3551a01-8a59-4c3d-a505-67c3909ce3e5
-       :END:
-       :LOGBOOK:
-       - State "DONE"       from "TODO"       [2015-08-08 Sat 13:27]
-       :END:
-       it's actually in ssa.go
-***** builder.go
-****** TODO try to figure out the interface of that one <2015-08-08 Sat 13:04>
-       :PROPERTIES:
-       :ID:       a36726a4-20d9-497a-97d4-fa1e377e9c2d
-       :END:
-***** General questions
-     It seems that it they implement standard stuff from the literature
-     (cytron*:efficiently). There are two different phases (at least),
-     creating and building. First is the create, afterwards build, it
-     seems. 
+Let's start with one 
+#+BEGIN_SRC 
+GOROOT=
+GOPATH=/home/msteffen/go
+#+END_SRC
 
 
-****** TODO what's the lifting pass in a SSA thing <2015-08-08 Sat 12:04>
-       :PROPERTIES:
-       :ID:       9f04ad37-89b8-44af-81c5-946241bed06d
-       :END:
-      Perhaps it's related to lambda-lifting.
-
-****** DONE move the ssa on the laptop to the right place <2015-08-07 Fri 07:44>
-    CLOSED: [2015-08-07 Fri 08:13]
-    :PROPERTIES:
-    :ID:       3b582dfe-7bfd-4b54-a5a3-26161a5ebe6e
-    :END:
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-07 Fri 08:13]
-    :END:
-     ~/go/src/golang.org/x/tools/go:
-
-     Ok, it's moved
-****** TODO Who generates the SSA <2015-08-07 Fri 07:52>
-       :PROPERTIES:
-       :ID:       738caab9-36a2-426a-8e1e-6efbb178c835
-       :END:
-****** TODO where is the SSa data structure <2015-08-07 Fri 07:52>
-       :PROPERTIES:
-       :ID:       fe720f3a-af1c-4e17-ba10-9811d8e88f06
-       :END:
-****** TODO what's the Operands function <2015-08-07 Fri 07:56>
-       :PROPERTIES:
-       :ID:       d0afc06c-127b-4445-b95e-526a577a31f5
-       :END:
-****** TODO what's a Value <2015-08-07 Fri 07:57>
-       :PROPERTIES:
-       :ID:       784a2435-9215-449c-a999-f0d288306d16
-       :END:
-    A value seems to be related to instructions
-****** TODO What's an ~Instruction~ Interface <2015-08-07 Fri 08:01>
-       :PROPERTIES:
-       :ID:       51ddf392-eedc-48ab-8bcf-5428f27cb9f3
-       :END:
-***** TODO ~BinOp~ why not an instruction <2015-08-07 Fri 08:15>
-      :PROPERTIES:
-      :ID:       50524935-e8e2-44db-afe8-6f0c1c7a245c
-      :END:
-     As an example they say that binary ops are instructions, but 
-     how do I see that in the code?
-     
-     ~BinOp~ is a struct later (p 8).
-
-     There's then the function ~Operands~ on the ~BinOp~
-
-***** TODO is ~BinOp~ an ``instance'' of an Instraction <2015-08-07 Fri 08:40>
-      :PROPERTIES:
-      :ID:       f2dc8d80-8d67-4159-bc48-0b09fe8c8679
-      :END:
 
 
-      
-* Misc
+** How should we arrange the stuff
+
+<2017-07-20 Do 12:11>
+
+
+#+BEGIN_SRC 
+  go get github.com/MartinSteffen/tiny/ast 
+#+END_SRC
+
+** DONE why does go get does not work?
+   CLOSED: [2017-07-20 Do 12:11]
+   :LOGBOOK:
+   - State "DONE"       from "BUG"        [2017-07-20 Do 12:11]
+   :END:
+<2017-07-20 Do 11:14>
+
+no buildable Go source files in /home/msteffen/go/src/github.com/MartinSteffen/tiny
+
+it seems that one  cannot get the whole ``repos'' but packages.
+
+
+I try now [[../test2]].
+
+In the first attempts it did not work.  The reason was I assume is that
+under the expected path (in the GOPATH)
+~/go/src/github.com/MartinSteffen/tiny, there was already some stuff.
+
+After I removed it (move aside), then it worked (at least there is a
+official git-clone again. If I do ~go get ast~ for example, I get a full
+clone, not just the directories or packages I need. I guess git would not
+support that anyway.
+
+
 
 
 ** Tmp
 
+** DONE how was it done in the ~gotcha~ tool?
+   CLOSED: [2017-07-20 Do 13:16]
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2017-07-20 Do 13:16]
+   :END:
+<2017-07-20 Do 12:59>
 
 
-*** DONE what are the visibility scopes of functions <2015-08-15 Sat 08:10>
-    CLOSED: [2015-08-15 Sat 08:14]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-15 Sat 08:14]
-    :END:
 
-    Can non-exported functions be seen in the same package? 
+The tool recommends ~go get github.com/akwick/gotcha~
 
-    It seems that export is either inside the package or outside, so
-    that means probably that functions like builtins are usable within
-    the package 
-*** DONE why are there no functions exported from builtin.go <2015-08-15 Sat 07:56>
-    CLOSED: [2015-08-15 Sat 08:16]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-15 Sat 08:16]
-    :END:
-    We should see if we can find uses. It could be in call.go
+und auch import mittels
 
-    It seems that export is across packages, inside it's fine.
-    
-*** DONE make the call.operand more detailed <2015-08-15 Sat 10:51>
-    CLOSED: [2015-08-15 Sat 12:02]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-15 Sat 12:02]
-    :END:
-    actually it's in operand.go? But where is it in call? Or is it?
+	"github.com/akwick/gotcha/worklist"
 
-*** DONE how does expr.internal work <2015-08-15 Sat 12:21>
-    CLOSED: [2015-08-15 Sat 12:21]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-15 Sat 12:21]
-    :END:
-    It seems to be the core of expression cheching
-*** DONE what's the mode <2015-08-15 Sat 10:34>
-    CLOSED: [2015-08-15 Sat 12:20]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-15 Sat 12:20]
-    :END:
+
 
     it's part of the operand
 *** DONE add expr <2015-08-15 Sat 08:34>
@@ -2986,47 +2618,18 @@ as well.  So, let's do it like that.
     - State "DONE"       from "TODO"       [2015-08-11 Tue 08:13]
     :END:
 
-    It's an interface 
-*** DONE types_selection <2015-08-11 Tue 07:22>
-    CLOSED: [2015-08-11 Tue 08:17]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-11 Tue 08:17]
-    :END:
-*** DONE types_signature <2015-08-11 Tue 07:23>
-    CLOSED: [2015-08-11 Tue 08:24]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-11 Tue 08:24]
-    :END:
-    it's in type.go
+** ANSWERED What's ~go get~
+   CLOSED: [2018-05-13 Sun 16:17]
+   :PROPERTIES:
+   :ID:       b6e119c8-4697-47b6-b6df-fa2b2a7da86d
+   :END:
+   :LOGBOOK:
+   - CLOSING NOTE [2018-05-13 Sun 16:17]
+   :END:
+<2017-07-20 Do 10:59>
 
-*** DONE types_type <2015-08-11 Tue 07:23>
-    CLOSED: [2015-08-11 Tue 08:29]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-11 Tue 08:29]
-    :END:
-    type is an interface
-    
-*** DONE remove the extra extraflat.ml <2015-08-11 Tue 07:21>
-    CLOSED: [2015-08-11 Tue 07:21]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-11 Tue 07:21]
-    :END:
-*** DONE make compilable on the computer <2015-08-11 Tue 07:14>
-    CLOSED: [2015-08-11 Tue 07:16]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-11 Tue 07:16]
-    :END:
-*** DONE fill in the interface of create.ml as stub <2015-08-11 Tue 09:39>
-    CLOSED: [2015-08-11 Tue 10:04]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-11 Tue 10:04]
-    :END:
-*** DONE in create: which "package" in the function  createpackage <2015-08-11 Tue 09:06>
-    CLOSED: [2015-08-11 Tue 09:37]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-11 Tue 09:37]
-    :END:
-    The argument is typesPackage, the result is just Package
+See the [[https://golang.org/cmd/go/][documentation]]. 
+
 
 ** Create go
 *** TODO where do I find stuff like prog.canon <2015-08-13 Thu 08:07>
@@ -3042,96 +2645,56 @@ as well.  So, let's do it like that.
     In appel, there are canonical trees as intermediate
     representation. It's unclear if it's related as now.
 
-    It's perhaps in typeutil. There's also canonilization for the packages
-
-*** DONE make it compile again <2015-08-13 Thu 08:40>
-    CLOSED: [2015-08-13 Thu 08:44]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-13 Thu 08:44]
-    :END:
-** Typeutil.go 
-** Builder.go    
-*** DONE how does one define not the keys but the values <2015-08-15 Sat 14:42>
-    CLOSED: [2015-08-15 Sat 14:44]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-15 Sat 14:44]
-    :END:
-
-    for instance like this
+** QUESTION Remote import paths 
+   :PROPERTIES:
+   :ID:       8fb260ed-f2ad-4f2c-b7c4-20eeed2bcda1
+   :END:
+<2017-07-20 Do 10:40>
 
 
-    let x : 'a Typ.t  = Typ.empty;;
+How does the remote path work? Is it a convention? Are they supposed to be
+taken from the net? See perhaps this [[http://engineeredweb.com/blog/2016/go-exposed-remote-import-paths/][blog]], but it's not clear there
+either. Here's a [[https://medium.com/@c9s/golang-the-annoying-remote-import-path-c6c7e76517e5][critical opinion]].
 
-*** DONE make the first case distinction. <2015-08-16 Sun 09:10>
-    CLOSED: [2015-08-16 Sun 18:20]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 18:20]
-    :END:
-
-*** DONE do we have ast already <2015-08-16 Sun 09:11>
-    CLOSED: [2015-08-16 Sun 09:40]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 09:40]
-    :END:
-    yes
-*** DONE how can we do the the Order? <2015-08-15 Sat 14:30>
-    CLOSED: [2015-08-15 Sat 14:41]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-15 Sat 14:41]
-    :END:
-*** DONE what the type of typ[Invalid] etc <2015-08-16 Sun 07:22>
-    CLOSED: [2015-08-16 Sun 07:28]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 07:28]
-    :END:
-
-    It's strange. in operand.go: operand.typ is of type Type. That's
-    defined in type.go. Type is an interface. In type.ml the ttype is an
-    variant type.  So, we need the constructor Basickind as wrapper, then
-    it fits.
-*** DONE make the constructors unique <2015-08-16 Sun 07:34>
-    CLOSED: [2015-08-16 Sun 08:44]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 08:44]
-    :END:
-    in type.ml and operand.ml there is constructor Invalid. I currently need
-    to open the "Type" and "Operand", but then it's not unique.
-
-    Note: in go, there are the ``constructors'' invalid for the modes
-    and Invalid for the types, so there is no confusion there.
+It seems really that it's (when 
 
 
-*** DONE can one export it with an mli file/interface <2015-08-16 Sun 07:42>
-    CLOSED: [2015-08-16 Sun 07:51]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 07:51]
-    :END:
-    That did not work.
-*** DONE what is wrong with the types basic <-> basictype <2015-08-16 Sun 08:14>
-    CLOSED: [2015-08-16 Sun 08:43]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 08:43]
-    :END:
-    The mapping in the universe is a mapping from basictype -> basic, that seems ok.
 
-    
-    x.typ = Typ[Invalid]
 
-    Invalid: Basickind (= int)
 
-    Typ: in Universe.go, and it is a mapping, and the result should be Basic.
-    That should be the struct in type.go: type Basic struct {
-	kind BasicKind
-	info BasicInfo
-	name string
-}
+** 
+** TODO what's a go workspace 
+   :PROPERTIES:
+   :ID:       84343e5d-36c6-43b0-9fe0-88071793860e
+   :END:
+<2017-07-19 Mi 16:59>
 
-so it's a triple.
+See [[https://golang.org/doc/code.html#Workspaces]]
 
-   now: x is of type *operand, the field typ is of type "Type" (which is an
-   interface is type.go. One element is Basic! Therefore, the type in ml Basic
-   is wrong.
 
+3 standard subdirs
+
+** TODO Make it portable, perhaps with remote import paths
+   :PROPERTIES:
+   :ID:       0a23c235-3582-40f6-9444-c99e83441ffa
+   :END:
+<2017-07-20 Do 09:51>
+
+
+It's all fine, but it seems like a convention
+
+
+** DONE GOPATH multiple directories?
+   CLOSED: [2017-07-20 Do 06:27]
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2017-07-20 Do 06:27]
+   :END:
+<2017-07-19 Mi 17:38>
+
+Koennen there be more than one directory?
+
+
+Seems like yes:
 
 
 *** TODO where is "error" <2015-08-16 Sun 18:21>
@@ -3170,142 +2733,137 @@ so it's a triple.
     :END:
     it's in typexpr.go.
 
-    check is of type check.Checker. Strangely, it does not have a field
-    scope. There is a record type check.context with that label. There is also a file scope.go. 
-    That's for type checking.
-
-**** DONE make a better structure of Check.check <2015-08-16 Sun 16:13>
-     CLOSED: [2015-08-16 Sun 18:18]
-     :LOGBOOK:
-     - State "DONE"       from "TODO"       [2015-08-16 Sun 18:18]
-     :END:
-
-**** DONE what's the following field in Checker  <2015-08-16 Sun 17:04>
-     CLOSED: [2015-08-16 Sun 17:55]
-     :LOGBOOK:
-     - State "DONE"       from "TODO"       [2015-08-16 Sun 17:55]
-     :END:
-
-type Checker struct {
-...
-	*Info
-}
-
-Info is from api. Seems like an anonymous field.
-
-A field declared with a type but no explicit field name is an anonymous
-field, also called an embedded field or an embedding of the type in the
-struct. An embedded type must be specified as a type name T or as a pointer
-to a non-interface type name *T, and T itself may not be a pointer type.
-The unqualified type name acts as the field name.  Qualified name is
-probably the "*".  Technically, qualified refers to package names.
+The GOPATH environment variable is used to specify directories outside of
+$GOROOT that contain the source for Go projects and their binaries.
 
 
-**** DONE check if there is check.Info <2015-08-16 Sun 17:49
-     CLOSED: [2015-08-16 Sun 17:55]
-     :LOGBOOK:
-     - State "DONE"       from "TODO"       [2015-08-16 Sun 17:55]
-     :END:
-     yes, in initorder.go for instance
+** DONE make (``channel''): what is the capacity of a made channel? <2015-07-29 Wed 07:28>
+   CLOSED: [2015-07-29 Wed 07:29]
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2015-07-29 Wed 07:29]
+   :END:
+   If the capacity is absent, it's a synchronous channel. 
+** TODO how is the AST of go designed <2015-07-13 Mon 13:05>
+   :PROPERTIES:
+   :ID:       eda1e959-57fd-44cb-984c-5f96175734b4
+   :END:
+    
+    Probably they use structural subtyping. There are 4 important
+    interfaces. Probably one can illustrate it as follows:
 
-     	check.Info.InitOrder = check.Info.InitOrder[:0]
+    
+                   Node
+                /   |    \
+	    Exp    Stmt  Decl
 
-**** DONE Check LookupParent <2015-08-16 Sun 15:16>
-     CLOSED: [2015-08-16 Sun 16:10]
-     :LOGBOOK:
-     - State "DONE"       from "TODO"       [2015-08-16 Sun 16:10]
-     :END:
-     It's defined in types/scope.go. It's a method, where the receiver is a scope
-**** DONE is the struct Checker extended somehow <2015-08-16 Sun 15:15>
-     CLOSED: [2015-08-16 Sun 15:16]
-     :LOGBOOK:
-     - State "DONE"       from "TODO"       [2015-08-16 Sun 15:16]
-     :END:
+ 
+The language is probably readable at
 
-     Don't find it. But it's like that: the "context" is mixed in.
-**** DONE How can we do such an embedding? <2015-08-16 Sun 15:53>
-     CLOSED: [2015-08-16 Sun 16:10]
-     :LOGBOOK:
-     - State "DONE"       from "TODO"       [2015-08-16 Sun 16:10]
-     :END:
-     There is similar things for register. It's somehow should in principle
-     not be hard. The question is more, how can we doing most uniformely
-     and most elegantly.
+   https://golang.org/ref/spec     
 
-     But the elegance is not too deep. In the thing we are now doing,
-     it's like:
 
-        Checker{contex, ...}  That allows for a check: Checker, to access
-	fields of context, we can do check.scope. That is shorter than
-	check.context.scope, but well. Not much. Let's just make another
-	entry. The explicitness is also not too bad.
+For instance for the statements
 
+Statement =
+	Declaration | LabeledStmt | SimpleStmt |
+	GoStmt | ReturnStmt | BreakStmt | ContinueStmt | GotoStmt |
+	FallthroughStmt | Block | IfStmt | SwitchStmt | SelectStmt | ForStmt |
+	DeferStmt .
+
+SimpleStmt = EmptyStmt | ExpressionStmt | SendStmt | IncDecStmt | Assignment | ShortVarDecl .
+
+
+That does not 100% correspond to what one sees in the implementation. I
+would rather like to come up with a scheme, which is more or less schematic
+_AND_ corresponds 100% to the grammar. We should have a look at 2 things,
+the grammar _and_ the ML ast. I guess the better starting point is the
+ast. That should very much determine the tree, because it's a tree.
+
+
+
+
+*** TODO make a walk-style visitor for the tiny-ast <2015-07-22 Wed 11:32>
+    :PROPERTIES:
+    :ID:       fca59627-5abb-48bd-884d-9660ba7c9217
+    :END:
+
+    That's done in the package [[~/go/src/github.com/MartinSteffen/tiny/absynt][absynt]]. I had been called ast2 before, but
+    perhaps that's a unallowed package name. It is modelled similar than
+    the one for [[~/go/src/github.com/golang/go/src/go/ast][go itself]], especially the file [[~/go/src/github.com/golang/go/src/go/ast/walk.go][walk.go]].  It's not modelled
+    after the visit-accept pattern (I might try that later again, but it
+    was very confusing).
+
+*** DONE make it compile <2015-07-23 Thu 11:27>
+    CLOSED: [2015-07-23 Thu 11:31]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-07-23 Thu 11:31]
+    :END:
+
+    Still a lot of dummy code.
+*** DONE make already a concrete client visitor <2015-07-23 Thu 11:02>
+    CLOSED: [2015-08-11 Tue 07:09]
+    :PROPERTIES:
+    :ID:       863547ca-ce89-437e-a8a1-8d10f53d45af
+    :END:
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-11 Tue 07:09]
+    :END:
+    This way we can see better how it works. It should be modelled according to
      
-***** DONE have we done it before <2015-08-16 Sun 15:54>
-      CLOSED: [2015-08-16 Sun 15:56]
-      :LOGBOOK:
-      - State "DONE"       from "TODO"       [2015-08-16 Sun 15:56]
-      :END:
-      No, it was for register, but we have not solved it yet.
-
-*** DONE is assert builtin into go? <2015-08-16 Sun 14:59>
-    CLOSED: [2015-08-16 Sun 15:00]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 15:00]
+*** TODO what's the type for the visitors <2015-07-23 Thu 09:01>
+    :PROPERTIES:
+    :ID:       30ec8f0a-e2c5-4fd9-aba4-62fe586a10e5
     :END:
-    seems like, some instances. leads to panic
-*** DONE do they have assert in ocaml <2015-08-16 Sun 15:00>
-    CLOSED: [2015-08-16 Sun 15:01]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 15:01]
+    It seems that for the various walk functions, we need various
+    kind of visitors, how can we pass them, or do we need 
+    all of them?
+*** TODO checking for nil <2015-07-23 Thu 08:41>
+    :PROPERTIES:
+    :ID:       ae02ba3a-c73d-4766-b157-d6c6f0b4d463
     :END:
-    yep
-*** DONE check_ident <2015-08-16 Sun 12:25>
-    CLOSED: [2015-08-16 Sun 18:20]
+    the walk functions should be programmed defensively I assume.  In the
+    go-src it's done, for the time being, I left it out from, postponed.
+*** DONE add the cases for Stmt, first empty  <2015-07-23 Thu 08:47>
+    CLOSED: [2015-07-23 Thu 08:50]
     :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 18:20]
+    - State "DONE"       from "TODO"       [2015-07-23 Thu 08:50]
     :END:
-*** DONE how do we do a type switch in ocaml <2015-08-16 Sun 11:28>
-    CLOSED: [2015-08-16 Sun 12:25]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 12:25]
+
+
+*** TODO What's actuallyt the type of the Walk-function <2015-07-22 Wed 15:42>
+    :PROPERTIES:
+    :ID:       21d6a17a-cd9e-4948-8ad9-a7d7d5381810
     :END:
-    That is done here in exprinternal, 
 
-    e:= e.(type)
 
-    e must be an interface. There, the interface is ast.Expr.
+    Ok, it's not a visitor, the return type is absent (like void), so
+    it's side-effect only.
+**** TODO make a visitor interface for Stmt <2015-07-22 Wed 15:45>
+     :PROPERTIES:
+     :ID:       2e3e450d-9c05-4aae-bda7-9b82029336a5
+     :END:
+**** TODO make a client visitor for Stmt <2015-07-22 Wed 15:45>
+     :PROPERTIES:
+     :ID:       934f2372-5395-4d71-a7d1-6dc449d33f85
+     :END:
+**** TODO how can one make it less flat <2015-07-22 Wed 11:33>
+     :PROPERTIES:
+     :ID:       029ebaf0-8db4-47d1-89f1-3211e8345160
+     :END:
 
-    The case switch is according to the types (structs) that implements
-    that interface. Here, it's done better. We don't need a case switch, we
-    just switiching
-
-    Then the question is what's the e left of the :=
-
-    Well, in the switch case, for instance of identifiers:
-    case.ast.Ident. That's a struct.  
-
-    It seems that basically the two e's above are the same, but
-    in the second case, it's the struct, so in a way it works 
-    as a type case.
-
-*** DONE what e.(type) and e:= e.(type) <2015-08-16 Sun 11:09>
-    CLOSED: [2015-08-16 Sun 11:27]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 11:27]
+*** TODO analyze the statements  <2015-07-13 Mon 13:55>
+    :PROPERTIES:
+    :ID:       1d8c8bb5-84e9-4e1e-9f17-5991a05122e8
     :END:
-    It's in expr.go
 
-    It's a type assertion. It's often used in a case switch, a type switch.
-*** DONE add exceptions <2015-08-16 Sun 10:50>
-    CLOSED: [2015-08-16 Sun 11:09]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 11:09]
+*** TODO where do I get the productions for Go from <2015-07-13 Mon 13:55>
+    :PROPERTIES:
+    :ID:       7f6953b1-d719-45b9-96d8-28aa26f79379
     :END:
-*** DONE probably we need to restructure the thing <2015-08-16 Sun 10:21>
-    CLOSED: [2015-08-16 Sun 10:22]
-    :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 10:22]
+
+*** TODO what's a production name? <2015-07-13 Mon 13:55>
+    :PROPERTIES:
+    :ID:       8c0c71e9-0fc2-4813-9942-480a05a40bc0
     :END:
 *** TODO what's the goto Error doing in expr.go <2015-08-16 Sun 09:49>
     :PROPERTIES:
@@ -3313,39 +2871,31 @@ probably the "*".  Technically, qualified refers to package names.
     :END:
 *** DONE what's the pattern types.Typ[types.Bool] <2015-08-13 Thu 11:19>
     CLOSED: [2015-08-16 Sun 08:44]
+
+*** DONE do go implement itself with yacc? <2015-07-13 Mon 13:56>
+    CLOSED: [2015-07-13 Mon 14:05]
+
     :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-16 Sun 08:44]
+    - State "DONE"       from "TODO"       [2015-07-13 Mon 14:05]
     :END:
-    
-    the "types" refers to the package, not the file. Typ is in types/Universe.go
-    x/go/tools/go/types is the source
-    Theres types.Type, which is an interface, but we need Typ
-    There's unverse.Typ
-
-    It seems like related to a map,
-
-    var Typ = []*Basic{
-	Invalid: {Invalid, 0, "invalid type"},
-
-	Bool:          {Bool, IsBoolean, "bool"},
-	Int:           {Int, IsInteger, "int"},
-
-    It seems like this: in type.go, they define "types" but these are just 
-    integers.
+    Nope, seems like not
 
 
-    
-** universe.go
-*** DONE what's the | in structs <2015-08-13 Thu 11:37>
-    CLOSED: [2015-08-13 Thu 11:37]
+    Many of them are also in the go-org, but while working here, 
+    I add them here
+
+
+** Structure and meta things
+*** DONE "test" package: how to make that a client to ast? <2015-07-16 Thu 08:01>
+    CLOSED: [2015-07-16 Thu 12:04]
     :LOGBOOK:
-    - State "DONE"       from "TODO"       [2015-08-13 Thu 11:37]
+    - State "DONE"       from "TODO"       [2015-07-16 Thu 12:04]
     :END:
-    seems like anonymous fields. No, it's not,
 
-    It's and add-op. It's probably that the isBooleans etc. are seem as
-    bits, basically it means it's ``both'' unsiged and integers. It's a
-    bitwise or.
+    That's done now, in test/somename.go
+
+
+
 
 *** TODO what are anonymous fields <2015-08-13 Thu 11:38>
     :PROPERTIES:

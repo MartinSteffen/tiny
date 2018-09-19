@@ -1,4 +1,4 @@
-package absynt
+package absynt  // cannot be a path
 type Symbol string      
 type Ident Symbol
 type Number int         
