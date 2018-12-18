@@ -27,9 +27,13 @@
     :END:
     I do it in notes/sa.tex
 
-*** TODO what's the overview of the stuff
+*** DONE what's the overview of the stuff
+    CLOSED: [2018-09-19 Wed 08:10]
     :PROPERTIES:
     :ID:       567a84d8-a287-4721-9f23-57e366f54747
+    :END:
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2018-09-19 Wed 08:10]
     :END:
 <2017-07-19 Mi 16:58>
 
@@ -2662,10 +2666,13 @@ It seems really that it's (when
 
 
 
-** 
-** TODO what's a go workspace 
+** DONE what's a go workspace 
+   CLOSED: [2018-09-19 Wed 08:24]
    :PROPERTIES:
    :ID:       84343e5d-36c6-43b0-9fe0-88071793860e
+   :END:
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2018-09-19 Wed 08:24]
    :END:
 <2017-07-19 Mi 16:59>
 
@@ -2897,9 +2904,13 @@ ast. That should very much determine the tree, because it's a tree.
 
 
 
-*** TODO what are anonymous fields <2015-08-13 Thu 11:38>
+*** DONE what are anonymous fields <2015-08-13 Thu 11:38>
+    CLOSED: [2018-09-19 Wed 08:34]
     :PROPERTIES:
     :ID:       e870ffff-48d2-4691-9ff3-5ff3202a02af
+    :END:
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2018-09-19 Wed 08:34]
     :END:
     It's where a field is defined implictly (only type)
 
