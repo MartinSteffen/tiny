@@ -1,4 +1,3 @@
-
 * Intro
 
 
@@ -14,7 +13,6 @@ under ~$(HOME)/teaching/compilers/tiny~.
 
 
 
-
 * Structure
 
    - [[./org]]: organizational remarks, todo's, bug lists 
@@ -23,12 +21,10 @@ under ~$(HOME)/teaching/compilers/tiny~.
 
 
 
-
-
 The code should work independent from the go version (not too ancient
 though, one would presume.) Currently I assume it's /part/ of a go
 /workspace/, it's not a workspace in itself (i.e., there are no ~src~ etc
-subdirectories). It's difficul5
+subdirectories). It's difficult...
 
 
 
@@ -37,7 +33,6 @@ subdirectories). It's difficul5
 GOROOT=
 GOPATH=/home/msteffen/cor/tiny
 #+END_SRC
-
 
 
 
@@ -78,11 +73,12 @@ import ("github.com/MartinSteffen/tiny/absynt"
 Sub-directories
 ---------------
 
-  - ./org      org-mode todo list and issues
-  - ./ast      abstract syntax tree data structure + some simple walk through
-  - ./test     to play around 
+  - [[./org]]      org-mode todo list and issues
+  - [[./ast]]      abstract syntax tree data structure + some simple walk through
+  - [[./test]]     to play around 
 
 
 
 
 
+  
