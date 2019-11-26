@@ -2389,9 +2389,13 @@ It seems that it's the case that especially for github (as one example),
 it's /remote import path/ (see again [[https://golang.org/cmd/go/#hdr-GOPATH_environment_variable][the documentation]])
 
 
-** QUESTION Why ~GOBIN~ 
+** ANSWERED Why ~GOBIN~ 
+   CLOSED: [2019-09-27 Fri 14:56]
    :PROPERTIES:
    :ID:       c0c2693a-f8c2-4951-831a-dfc02f7da63c
+   :END:
+   :LOGBOOK:
+   - CLOSING NOTE [2019-09-27 Fri 14:56]
    :END:
 
 <2017-07-20 Do 09:30>
@@ -2404,9 +2408,13 @@ $project-path/src/ and go install will put all the binaries in
 $project-path/bin.
 
 
-****** TODO how does that embedding with register works <2015-08-10 Mon 12:01>
+****** DONE how does that embedding with register works <2015-08-10 Mon 12:01>
+       CLOSED: [2019-09-27 Fri 14:56]
        :PROPERTIES:
        :ID:       6d91e3e7-067b-457b-9319-25405a5af61a
+       :END:
+       :LOGBOOK:
+       - State "DONE"       from "TODO"       [2019-09-27 Fri 14:56]
        :END:
 ****** DONE check the various types and their access functions <2015-08-08 Sat 14:47>
        CLOSED: [2015-08-09 Sun 11:08]
@@ -2837,7 +2845,7 @@ ast. That should very much determine the tree, because it's a tree.
     :END:
 
 
-*** TODO What's actuallyt the type of the Walk-function <2015-07-22 Wed 15:42>
+*** TODO What's actually the type of the Walk-function <2015-07-22 Wed 15:42>
     :PROPERTIES:
     :ID:       21d6a17a-cd9e-4948-8ad9-a7d7d5381810
     :END:
